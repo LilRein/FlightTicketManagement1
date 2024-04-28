@@ -9,9 +9,19 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="images\" />
-    <Folder Include="Fonts\" />
-    <Folder Include="Utilities\" />
+    <None Remove="Images\Close Icon.png" />
+    <None Remove="Images\plane.png" />
+    <None Remove="Resources\plane.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Images\Close Icon.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\plane.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\plane.png" />
   </ItemGroup>
 
 </Project>
