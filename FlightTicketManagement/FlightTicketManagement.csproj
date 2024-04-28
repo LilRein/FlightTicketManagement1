@@ -8,4 +8,20 @@
     <UseWPF>true</UseWPF>
   </PropertyGroup>
 
+  <ItemGroup>
+    <None Remove="Images\Close Icon.png" />
+    <None Remove="Images\plane.png" />
+    <None Remove="Resources\plane.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Images\Close Icon.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\plane.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\plane.png" />
+  </ItemGroup>
+
 </Project>
