@@ -41,7 +41,7 @@ namespace FlightTicketManagement.ViewModel
             SettingCommand = new RelayCommand(Setting);
 
             // Startup ????
-            //CurrentView = new HomeVM();
+            //CurrentView = new DashboardVM();
         }
     }
 }

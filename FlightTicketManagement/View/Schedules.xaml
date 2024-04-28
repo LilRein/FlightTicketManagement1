@@ -5,16 +5,21 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:vm="clr-namespace:FlightTicketManagement.ViewModel"
              mc:Ignorable="d" 
-             d:DesignHeight="600" 
+             d:DesignHeight="700" 
              d:DesignWidth="672"
              Style="{StaticResource Page_Style}">
 
+    <UserControl.DataContext>
+        <vm:SchedulesVM />
+    </UserControl.DataContext>
     
     <Grid>
 
-        <Border CornerRadius="0,20,20,0">
-            
+        <Border CornerRadius="0, 20, 20, 0">
+            <Border.Background>
+                <SolidColorBrush Color="Black"/>
+            </Border.Background>
         </Border>
-        
+
     </Grid>
 </UserControl>
