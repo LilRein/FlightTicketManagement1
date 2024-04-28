@@ -8,13 +8,13 @@ using System.Windows.Input;
 
 namespace FlightTicketManagement.ViewModel
 {
-    class NavigationVM : Utilities.ViewModelBase
+    class NavigationVM : ViewModelBase
     {
         private object _currentView;
         public object CurrentView 
         { 
             get { return _currentView; }
-            set { CurrentView = value; OnPropertyChanged(); }
+            set { _currentView = value; OnPropertyChanged(); }
         }
 
         public ICommand DashboardCommand { get; set; }
@@ -41,7 +41,7 @@ namespace FlightTicketManagement.ViewModel
             SettingCommand = new RelayCommand(Setting);
 
             // Startup ????
-            //CurrentView = new DashboardVM();
+            CurrentView = new DashboardVM();
         }
     }
 }
