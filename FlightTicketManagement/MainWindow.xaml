@@ -3,7 +3,6 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:FlightTicketManagement"
         xmlns:vm="clr-namespace:FlightTicketManagement.ViewModel"
         xmlns:Menu="clr-namespace:FlightTicketManagement.Utilities"
         mc:Ignorable="d"
@@ -32,7 +31,7 @@
                 <ColumnDefinition Width="278" />
                 <ColumnDefinition Width="672"/>
             </Grid.ColumnDefinitions>
-            
+
             <!-- Navigation Panel -->
             <Grid HorizontalAlignment="Left"
                   Width="278">
@@ -42,8 +41,8 @@
 
                 <StackPanel Height="400"
                             Width="278">
-                    
-                    <!-- Dashboard -->
+
+                    <!-- // Dashboard // -->
                     <Menu:Btn Style="{StaticResource BtnStyle}"
                               Command="{Binding DashboardCommand}"
                               IsChecked="True">
@@ -56,80 +55,32 @@
                             <TextBlock Text="Dashboard"
                                        Style="{StaticResource Text_Style}"/>
                         </Grid>
-                        
+
                     </Menu:Btn>
-                    <!-- Schedule -->
+
                     <Menu:Btn Style="{StaticResource BtnStyle}"
-                              Command="{Binding ScheduleCommand}">
+          Command="{Binding ScheduleCommand}"
+          >
 
                         <Grid>
 
                             <Image Source="Images/img_home.png"
-                                   Style="{StaticResource Image_Style}"/>
+               Style="{StaticResource Image_Style}"/>
 
                             <TextBlock Text="Schedule"
-                                       Style="{StaticResource Text_Style}"/>
-                        </Grid>
-
-                    </Menu:Btn>
-                    <!-- Ticket Sale -->
-                    <Menu:Btn Style="{StaticResource BtnStyle}"
-                              Command="{Binding TicketSaleCommand}">
-
-                        <Grid>
-
-                            <Image Source="Images/img_home.png"
-                                   Style="{StaticResource Image_Style}"/>
-
-                            <TextBlock Text="Ticker Sale"
-                                       Style="{StaticResource Text_Style}"/>
-                        </Grid>
-
-                    </Menu:Btn>
-                    <!-- Flight -->
-                    <Menu:Btn Style="{StaticResource BtnStyle}"
-                              Command="{Binding FlightCommand}">
-
-                        <Grid>
-
-                            <Image Source="Images/img_home.png"
-                                   Style="{StaticResource Image_Style}"/>
-
-                            <TextBlock Text="Flight"
-                                       Style="{StaticResource Text_Style}"/>
-                        </Grid>
-
-                    </Menu:Btn>
-                    <!-- Report -->
-                    <Menu:Btn Style="{StaticResource BtnStyle}"
-                              Command="{Binding ReportCommand}">
-
-                        <Grid>
-
-                            <Image Source="Images/img_home.png"
-                                   Style="{StaticResource Image_Style}"/>
-
-                            <TextBlock Text="Report"
-                                       Style="{StaticResource Text_Style}"/>
-                        </Grid>
-
-                    </Menu:Btn>
-                    <!-- Setting -->
-                    <Menu:Btn Style="{StaticResource BtnStyle}"
-                              Command="{Binding SettingCommand}">
-
-                        <Grid>
-
-                            <Image Source="Images/img_home.png"
-                                   Style="{StaticResource Image_Style}"/>
-
-                            <TextBlock Text="Setting"
-                                       Style="{StaticResource Text_Style}"/>
+                   Style="{StaticResource Text_Style}"/>
                         </Grid>
 
                     </Menu:Btn>
 
                 </StackPanel>
+
+            </Grid>
+
+            <Grid Grid.Column="1">
+
+                <ContentControl x:Name="Pages"
+                                Content="{Binding CurrentView}"/>
 
             </Grid>
 
