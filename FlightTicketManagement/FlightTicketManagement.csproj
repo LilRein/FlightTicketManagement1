@@ -8,4 +8,10 @@
     <UseWPF>true</UseWPF>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Folder Include="images\" />
+    <Folder Include="Fonts\" />
+    <Folder Include="Utilities\" />
+  </ItemGroup>
+
 </Project>
