@@ -12,10 +12,19 @@
     
     <Grid>
 
-        <Border CornerRadius="0, 20, 20, 0">
-            <Border.Background>
-                <SolidColorBrush Color="Beige"/>
-            </Border.Background>
+        <Border CornerRadius="0, 20, 20, 0"
+                Background="#F3EEEA"
+                Padding="50">
+
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <!-- Overview -->
+                
+            </Grid>
+            
         </Border>
         
     </Grid>
