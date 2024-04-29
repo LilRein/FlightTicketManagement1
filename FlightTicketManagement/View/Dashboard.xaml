@@ -74,7 +74,7 @@
                                     <Grid Grid.Row="1">
                                         <TextBlock Text="Test" 
                                                    Foreground="#FFF"
-                                                   FontSize="50"
+                                                   FontSize="40"
                                                    FontFamily="Roboto"
                                                    FontWeight="Medium"
                                                    VerticalAlignment="Center"/>
@@ -124,7 +124,7 @@
                                     <Grid Grid.Row="1">
                                         <TextBlock Text="Test" 
                                                    Foreground="#FFF"
-                                                   FontSize="50"
+                                                   FontSize="40"
                                                    FontFamily="Roboto"
                                                    FontWeight="Medium"
                                                    VerticalAlignment="Center"/>
@@ -152,6 +152,45 @@
                                 Background="#FF3333"
                                 Padding="30"
                                 Width="600">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <!-- Icon -->
+                                <Grid Grid.Column="0"
+                                      VerticalAlignment="Center"
+                                      HorizontalAlignment="Center"
+                                      Margin="0 0 60 0">
+                                    <Icon:PackIconMaterial Kind="Ticket"
+                                                           Width="100"
+                                                           Height="100"
+                                                           Foreground="#FFFFFF" />
+                                </Grid>
+                                <!-- Main Content -->
+                                <Grid Grid.Column="1">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="*"/>
+                                        <RowDefinition Height="*"/>
+                                    </Grid.RowDefinitions>
+                                    <Grid Grid.Row="0">
+                                        <TextBlock Text="Số lượng vé"
+                                                   Foreground="#FFF"
+                                                   FontSize="65"
+                                                   FontFamily="Roboto"
+                                                   FontWeight="Medium"
+                                                   VerticalAlignment="Center"/>
+                                    </Grid>
+                                    <Grid Grid.Row="1">
+                                        <TextBlock Text="100" 
+                                                   Foreground="#FFF"
+                                                   FontSize="40"
+                                                   FontFamily="Roboto"
+                                                   FontWeight="Medium"
+                                                   VerticalAlignment="Center"/>
+                                    </Grid>
+                                </Grid>
+                            </Grid>
 
                         </Border>
 
@@ -163,9 +202,56 @@
                                 Background="#FFCC00"
                                 Padding="30"
                                 Width="600">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <!-- Icon -->
+                                <Grid Grid.Column="0"
+                                      VerticalAlignment="Center"
+                                      HorizontalAlignment="Center"
+                                      Margin="0 0 60 0">
+                                    <Icon:PackIconMaterial Kind="Cash"
+                                                           Width="100"
+                                                           Height="100"
+                                                           Foreground="#FFFFFF" />
+                                </Grid>
+                                <!-- Main Content -->
+                                <Grid Grid.Column="1">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="*"/>
+                                        <RowDefinition Height="*"/>
+                                    </Grid.RowDefinitions>
+                                    <Grid Grid.Row="0">
+                                        <TextBlock Text="Doanh thu"
+                                                   Foreground="#FFF"
+                                                   FontSize="65"
+                                                   FontFamily="Roboto"
+                                                   FontWeight="Medium"
+                                                   VerticalAlignment="Center"/> 
+                                    </Grid>
+                                    <Grid Grid.Row="1">
+                                        <TextBlock Text="673 000 000 VND" 
+                                                   Foreground="#FFF"
+                                                   FontSize="40"
+                                                   FontFamily="Roboto"
+                                                   FontWeight="Medium"
+                                                   VerticalAlignment="Center"/> 
+                                    </Grid>
+                                </Grid>
+                            </Grid>
 
                         </Border>
                     </Grid>
+                </Border>
+
+                <Border Grid.Row="2"
+                        Margin="0 10 0 0"
+                        Padding="30">
+                    <Border.Background>
+                        <SolidColorBrush Color="green"/>
+                    </Border.Background>
                 </Border>
 
             </Grid>
