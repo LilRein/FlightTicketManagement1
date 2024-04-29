@@ -27,6 +27,9 @@
     <Content Include="Images\Close Icon.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Images\img_flight.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Images\img_home.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
