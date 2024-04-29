@@ -10,7 +10,13 @@
 
   <ItemGroup>
     <None Remove="Images\Close Icon.png" />
+    <None Remove="Images\img_flight.png" />
     <None Remove="Images\img_home.png" />
+    <None Remove="Images\img_pjicon.png" />
+    <None Remove="Images\img_report.png" />
+    <None Remove="Images\img_schedule.png" />
+    <None Remove="Images\img_setting.png" />
+    <None Remove="Images\img_ticket.png" />
     <None Remove="Images\plane.png" />
     <None Remove="Images\shutdown_def.png" />
     <None Remove="Images\shutdown_mo.png" />
@@ -22,6 +28,21 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Images\img_home.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\img_pjicon.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\img_report.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\img_schedule.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\img_setting.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\img_ticket.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Images\plane.png">
