@@ -15,10 +15,10 @@
     
     <Grid>
 
-        <Border CornerRadius="0, 20, 20, 0">
-            <Border.Background>
-                <SolidColorBrush Color="Black"/>
-            </Border.Background>
+        <Border CornerRadius="0, 20, 20, 0"
+                Background="#F3EEEA"
+                Padding="50">
+            
         </Border>
 
     </Grid>
