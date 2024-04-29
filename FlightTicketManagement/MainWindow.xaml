@@ -7,8 +7,8 @@
         xmlns:Menu="clr-namespace:FlightTicketManagement.Utilities"
         mc:Ignorable="d"
         Title="MainWindow"
-        Height="700" 
-        Width="950"
+        Height="1000" 
+        Width="1850"
         AllowsTransparency="True"
         WindowStartupLocation="CenterScreen"
         WindowStyle="None"
@@ -29,7 +29,7 @@
             <!-- Base grid -->
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="278" />
-                <ColumnDefinition Width="672"/>
+                <ColumnDefinition Width="1572"/>
             </Grid.ColumnDefinitions>
 
             <!-- Navigation Panel -->
@@ -58,17 +58,67 @@
 
                     </Menu:Btn>
 
+                    <!-- //Ticket Sale -->
                     <Menu:Btn Style="{StaticResource BtnStyle}"
-          Command="{Binding ScheduleCommand}"
-          >
+                              Command="{Binding ScheduleCommand}">
 
                         <Grid>
-
                             <Image Source="Images/img_home.png"
-               Style="{StaticResource Image_Style}"/>
-
+                                   Style="{StaticResource Image_Style}"/>
                             <TextBlock Text="Schedule"
-                   Style="{StaticResource Text_Style}"/>
+                                       Style="{StaticResource Text_Style}"/>
+                        </Grid>
+
+                    </Menu:Btn>
+
+                    <!-- //Ticket Sale -->
+                    <Menu:Btn Style="{StaticResource BtnStyle}"
+                              Command="{Binding TicketSaleCommand}">
+
+                        <Grid>
+                            <Image Source="Images/img_home.png"
+                                   Style="{StaticResource Image_Style}"/>
+                            <TextBlock Text="Ticket Sale"
+                                       Style="{StaticResource Text_Style}"/>
+                        </Grid>
+                        
+                    </Menu:Btn>
+                    
+                    <!-- // Flight // -->
+                    <Menu:Btn Style="{StaticResource BtnStyle}"
+                              Command="{Binding FlightCommand}">
+
+                        <Grid>
+                            <Image Source="Images/img_home.png"
+                                   Style="{StaticResource Image_Style}"/>
+                            <TextBlock Text="Flight"
+                                       Style="{StaticResource Text_Style}"/>
+                        </Grid>
+
+                    </Menu:Btn>
+
+                    <!-- // Report // -->
+                    <Menu:Btn Style="{StaticResource BtnStyle}"
+                              Command="{Binding ReportCommand}">
+
+                        <Grid>
+                            <Image Source="Images/img_home.png"
+                                   Style="{StaticResource Image_Style}"/>
+                            <TextBlock Text="Report"
+                                       Style="{StaticResource Text_Style}"/>
+                        </Grid>
+
+                    </Menu:Btn>
+
+                    <!-- // Setting // -->
+                    <Menu:Btn Style="{StaticResource BtnStyle}"
+                              Command="{Binding SettingCommand}">
+
+                        <Grid>
+                            <Image Source="Images/img_home.png"
+                                   Style="{StaticResource Image_Style}"/>
+                            <TextBlock Text="Setting"
+                                       Style="{StaticResource Text_Style}"/>
                         </Grid>
 
                     </Menu:Btn>
@@ -81,10 +131,18 @@
 
                 <ContentControl x:Name="Pages"
                                 Content="{Binding CurrentView}"/>
+                
 
             </Grid>
 
+
         </Grid>
+
+        <Button x:Name="BtnClose"
+                Style="{StaticResource ExitApp}"
+                Click="BtnClose_Click"/>
+
+
 
     </Grid>
 </Window>

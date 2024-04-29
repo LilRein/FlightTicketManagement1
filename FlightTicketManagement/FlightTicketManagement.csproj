@@ -10,7 +10,10 @@
 
   <ItemGroup>
     <None Remove="Images\Close Icon.png" />
+    <None Remove="Images\img_home.png" />
     <None Remove="Images\plane.png" />
+    <None Remove="Images\shutdown_def.png" />
+    <None Remove="Images\shutdown_mo.png" />
     <None Remove="Resources\plane.png" />
   </ItemGroup>
 
@@ -18,7 +21,16 @@
     <Content Include="Images\Close Icon.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Images\img_home.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Images\plane.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\shutdown_def.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\shutdown_mo.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Resources\plane.png" />
