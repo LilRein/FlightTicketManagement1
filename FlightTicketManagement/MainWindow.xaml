@@ -32,12 +32,19 @@
                 <ColumnDefinition Width="1572"/>
             </Grid.ColumnDefinitions>
 
+
             <!-- Navigation Panel -->
             <Grid HorizontalAlignment="Left"
                   Width="278">
 
                 <Border Background="#272B2F"
                         CornerRadius="20,0,0,20"/>
+
+                <Grid HorizontalAlignment="Center"
+                      VerticalAlignment="Top">
+                    <Image Source="Images/img_pjicon.png"/>
+
+                </Grid>
 
                 <StackPanel Height="400"
                             Width="278">
@@ -58,12 +65,12 @@
 
                     </Menu:Btn>
 
-                    <!-- //Ticket Sale -->
+                    <!-- // Schedule // -->
                     <Menu:Btn Style="{StaticResource BtnStyle}"
                               Command="{Binding ScheduleCommand}">
 
                         <Grid>
-                            <Image Source="Images/img_home.png"
+                            <Image Source="Images/img_schedule.png"
                                    Style="{StaticResource Image_Style}"/>
                             <TextBlock Text="Schedule"
                                        Style="{StaticResource Text_Style}"/>
@@ -71,12 +78,12 @@
 
                     </Menu:Btn>
 
-                    <!-- //Ticket Sale -->
+                    <!-- // Ticket Sale // -->
                     <Menu:Btn Style="{StaticResource BtnStyle}"
                               Command="{Binding TicketSaleCommand}">
 
                         <Grid>
-                            <Image Source="Images/img_home.png"
+                            <Image Source="Images/img_ticket.png"
                                    Style="{StaticResource Image_Style}"/>
                             <TextBlock Text="Ticket Sale"
                                        Style="{StaticResource Text_Style}"/>
@@ -89,7 +96,7 @@
                               Command="{Binding FlightCommand}">
 
                         <Grid>
-                            <Image Source="Images/img_home.png"
+                            <Image Source="Images/img_flight.png"
                                    Style="{StaticResource Image_Style}"/>
                             <TextBlock Text="Flight"
                                        Style="{StaticResource Text_Style}"/>
@@ -102,7 +109,7 @@
                               Command="{Binding ReportCommand}">
 
                         <Grid>
-                            <Image Source="Images/img_home.png"
+                            <Image Source="Images/img_report.png"
                                    Style="{StaticResource Image_Style}"/>
                             <TextBlock Text="Report"
                                        Style="{StaticResource Text_Style}"/>
@@ -115,7 +122,7 @@
                               Command="{Binding SettingCommand}">
 
                         <Grid>
-                            <Image Source="Images/img_home.png"
+                            <Image Source="Images/img_setting.png"
                                    Style="{StaticResource Image_Style}"/>
                             <TextBlock Text="Setting"
                                        Style="{StaticResource Text_Style}"/>
