@@ -60,4 +60,9 @@
     <Content Include="Resources\plane.png" />
   </ItemGroup>
 
+  <ItemGroup>
+    <PackageReference Include="MahApps.Metro.IconPacks.Material" Version="4.11.0" />
+    <PackageReference Include="MaterialDesignThemes" Version="5.0.0" />
+  </ItemGroup>
+
 </Project>
