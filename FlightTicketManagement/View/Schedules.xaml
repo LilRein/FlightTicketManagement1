@@ -26,6 +26,17 @@
                     <RowDefinition Height="*"/>
                     <RowDefinition Height="2*"/>
                 </Grid.RowDefinitions>
+                <Grid Grid.Row="0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <!-- Information -->
+                    <Grid Grid.Column="0">
+                        <Border Background="red"/>
+                    </Grid>
+                </Grid>
+                
                 <!-- List Schedule-->
                 <Border Grid.Row="1"
                         Background="#FFF"
