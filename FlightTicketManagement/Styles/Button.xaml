@@ -167,5 +167,78 @@
         </Setter>
 
     </Style>
+    <Style x:Key="gridEditButton"
+           TargetType="Button">
+        <Setter Property="Background"
+                Value="#04364A" />
+        <Setter Property="BorderBrush"
+                Value="#176B87" />
+        <Setter Property="Foreground"
+                Value="#ffffff" />
+        <Setter Property="FocusVisualStyle"
+                Value="{x:Null}" />
+        <Setter Property="VerticalAlignment"
+                Value="Center" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Border Background="{TemplateBinding Background}"
+                            CornerRadius="5"
+                            Padding="5"
+                            BorderThickness="1"
+                            BorderBrush="{TemplateBinding BorderBrush}">
+                        <ContentPresenter HorizontalAlignment="Center"
+                                          VerticalAlignment="Center" />
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver"
+                     Value="True">
+                <Setter Property="Background"
+                        Value="#176B87" />
+                <Setter Property="Foreground"
+                        Value="#ffffff" />
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+    <Style x:Key="gridRemoveButton"
+           TargetType="Button"
+           BasedOn="{StaticResource gridEditButton}">
+        <Setter Property="Background"
+                Value="#7D0A0A" />
+        <Setter Property="BorderBrush"
+                Value="#BF3131" />
+        <Setter Property="Foreground"
+                Value="#ffffff" />
+        <Setter Property="FocusVisualStyle"
+                Value="{x:Null}" />
+        <Setter Property="VerticalAlignment"
+                Value="Center" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Border Background="{TemplateBinding Background}"
+                            CornerRadius="5"
+                            Padding="5"
+                            BorderThickness="1"
+                            BorderBrush="{TemplateBinding BorderBrush}">
+                        <ContentPresenter HorizontalAlignment="Center"
+                                          VerticalAlignment="Center" />
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver"
+                     Value="True">
+                <Setter Property="Background"
+                        Value="#BF3131" />
+                <Setter Property="Foreground"
+                        Value="#ffffff" />
+            </Trigger>
+        </Style.Triggers>
+    </Style>
 
 </ResourceDictionary>
