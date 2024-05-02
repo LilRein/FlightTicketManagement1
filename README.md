@@ -5,4 +5,13 @@
 </p>
 
 <h1 align="center"><b>SE104.O22- Nhập môn Công nghệ phần mềm</b></h>
+
+## Nhóm xxx:
+|**STT**|**MSSV**|   **Họ và tên**  |       **Email**      |
+|-------|--------|------------------|----------------------|
+|   1   |22222222| Họ và tên        |22222222@gm.uit.edu.vn|
+|   2   |33333333|   Họ và tên      |33333333@gm.uit.edu.vn|
+|   4   |44444444|     Họ và tên    |44444444@gm.uit.edu.vn|
+|   4   |44444444|     Họ và tên    |44444444@gm.uit.edu.vn|
+
 # FlightTicketManagement
