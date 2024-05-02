@@ -14,4 +14,10 @@
 |   4   |44444444|     Họ và tên    |44444444@gm.uit.edu.vn|
 |   4   |44444444|     Họ và tên    |44444444@gm.uit.edu.vn|
 
+## Giới thiệu môn học:
+* **Tên môn học:** Nhập môn Công nghệ phần mềm
+* **Mã môn học:** SE104
+* **Mã lớp:** SE104.O22
+* **Năm học:** (2023 - 2024)
+* **Giảng viên**: Đỗ Thị Thanh Tuyền
 # FlightTicketManagement
