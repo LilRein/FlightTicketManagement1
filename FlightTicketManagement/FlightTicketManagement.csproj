@@ -65,4 +65,8 @@
     <PackageReference Include="MaterialDesignThemes" Version="5.0.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="View\Components\" />
+  </ItemGroup>
+
 </Project>
