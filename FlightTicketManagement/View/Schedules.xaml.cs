@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using FlightTicketManagement.View.Components;
 
 namespace FlightTicketManagement.View
 {
@@ -23,6 +24,19 @@ namespace FlightTicketManagement.View
         public Schedules()
         {
             InitializeComponent();
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            AddFlight addFlight = new AddFlight();
+            var window = new Window
+            {
+                Content = addFlight,
+                SizeToContent = SizeToContent.WidthAndHeight,
+                WindowStyle = WindowStyle.None,
+                WindowStartupLocation = WindowStartupLocation.CenterScreen
+            };
+            window.ShowDialog();
         }
     }
 }
