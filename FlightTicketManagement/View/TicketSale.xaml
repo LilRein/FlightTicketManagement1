@@ -7,17 +7,148 @@
              mc:Ignorable="d" 
              d:DesignHeight="1000" 
              d:DesignWidth="1572"
-             Style="{StaticResource Page_Style}">
+             Style="{StaticResource Page_Style}"
+             >
 
     <UserControl.DataContext>
         <vm:TicketSaleVM />
     </UserControl.DataContext>
+    <UserControl.Resources>
+        <Style x:Key="Cash"
+       TargetType="Button">
+            <Setter Property="FontSize" Value="18"/>
+            <Setter Property="FontFamily" Value="Poppins"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="Background" Value="LawnGreen"/>
+
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}"
+                        CornerRadius="20"
+                        BorderThickness="1"
+                        BorderBrush="Black"
+                        >
+                            <ContentPresenter HorizontalAlignment="Center"
+                                      VerticalAlignment="Center"
+                                      ContentSource="Content"/>
+                        </Border>
+
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </UserControl.Resources>
     
     <Grid>
-        <Border CornerRadius="0, 20, 20, 0">
-            <Border.Background>
-                <SolidColorBrush Color="Chartreuse"/>
-            </Border.Background>
+        <Border CornerRadius="0, 20, 20, 0"
+                Background="White" Margin="69,56,-69,-56"
+                >
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="786"/>
+                    <ColumnDefinition Width="786"/>
+                </Grid.ColumnDefinitions>
+                    <StackPanel Grid.Column="0">
+                    <TextBlock  Text="Thông tin đặt vé"
+                                FontSize="42"
+                                FontWeight="Bold"
+                                FontFamily="Poppins"
+                                Margin="200,30,0,0"/>
+                    <StackPanel Margin="20,0,0,0">
+                        <Grid>
+                            <TextBlock  
+                                    Margin="0,0,0,0"
+                                    Text="Ngày bay"
+                                    FontSize="22"
+                                    FontWeight="DemiBold"
+                                    FontFamily="poppins"/>
+                            <DatePicker Margin="100,0,500,0"
+                                        />
+                        </Grid>
+                        <Grid>
+                            <TextBlock  
+                                Margin="0,0,0,0"
+                                Text="Tuyến bay"
+                                FontSize="22"
+                                FontWeight="DemiBold"
+                                FontFamily="poppins"/>
+                            <TextBox Margin="110,0,500,0"/>
+                        </Grid>
+
+                        <Grid>
+                            <TextBlock  
+                                Margin="0,0,0,0"
+                                Text="Ghế ngồi"
+                                FontSize="22"
+                                FontWeight="DemiBold"
+                                FontFamily="poppins"/>
+                            <TextBox Margin="110,0,500,0"/>
+                        </Grid>
+                        <Grid Margin="0,300,0,0">
+                            <TextBlock  
+                                Margin="0,0,0,0"
+                                Text="Thành tiền"
+                                FontSize="38"
+                                FontWeight="Heavy"
+                                FontFamily="poppins"/>
+                            <TextBox Margin="200,0,500,0"/>
+                        </Grid>
+                        <Button Style="{StaticResource Cash}"
+                                Content="Tạo vé"
+                                FontSize="32"
+                                FontWeight="DemiBold"
+                                Margin="0,80,500,0"
+                                Padding="0,20,0,20"/>
+
+                    </StackPanel>
+                </StackPanel>
+                <StackPanel Grid.Column="1">
+                    <TextBlock  Text="Thông tin khách hàng"
+                            FontSize="42"
+                            FontWeight="Bold"
+                            FontFamily="Poppins"
+                            Margin="200,30,0,0"
+                            />
+                    <StackPanel Margin="20,0,0,0">
+                        <Grid>
+                            <TextBlock  
+                                Margin="0,0,0,0"
+                                Text="Tên khách hàng"
+                                FontSize="22"
+                                FontWeight="DemiBold"
+                                FontFamily="poppins"/>
+                            <TextBox Margin="170,0,500,0"/>
+
+
+                        </Grid>
+                        <Grid>
+                            <TextBlock  
+                            Margin="0,0,0,0"
+                            Text="Số điện thoại"
+                            FontSize="22"
+                            FontWeight="DemiBold"
+                            FontFamily="poppins"/>  
+                            <TextBox Margin="150,0,500,0"/>
+                        </Grid>
+
+                        <Grid>
+                            <TextBlock  
+                            Margin="0,0,0,0"
+                            Text="CMND"
+                            FontSize="22"
+                            FontWeight="DemiBold"
+                            FontFamily="poppins"/>  
+                            <TextBox Margin="150,0,500,0"/>
+                        </Grid>
+
+                    </StackPanel>
+
+                </StackPanel>
+            </Grid>
+            
+            
         </Border>
     </Grid>
 </UserControl>
