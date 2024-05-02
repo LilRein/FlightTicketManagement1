@@ -4,6 +4,8 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:vm="clr-namespace:FlightTicketManagement.ViewModel"
+             xmlns:Icon="http://metro.mahapps.com/winfx/xaml/iconpacks"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              mc:Ignorable="d" 
              d:DesignHeight="1000" 
              d:DesignWidth="1572"
@@ -18,6 +20,110 @@
         <Border CornerRadius="0, 20, 20, 0"
                 Background="#F3EEEA"
                 Padding="50">
+
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="2*"/>
+                </Grid.RowDefinitions>
+                <!-- List Schedule-->
+                <Border Grid.Row="1"
+                        Background="#FFF"
+                        CornerRadius="15"
+                        Padding="10">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+
+                        <!--Heading list-->
+                        <Grid Height="55"
+                              Grid.Row="0"
+                              HorizontalAlignment="Center"
+                              VerticalAlignment="Center">
+                            <TextBlock Text="Dánh sách chuyến bay"
+                                       FontSize="30"
+                                       FontWeight="Bold"/>
+                        </Grid>
+                        <!--Data grid-->
+                        <DataGrid Grid.Row="1"
+                                  Margin="0 30 0 0"
+                                  x:Name="DataGridCustomer"
+                                  ItemsSource="{Binding CustomerList}"
+                                  CanUserSortColumns="False"
+                                  AutoGenerateColumns="False"
+                                  Style="{DynamicResource DataGridStyle}"
+                                  CellStyle="{DynamicResource DataGridCellStyle}"
+                                  RowStyle="{DynamicResource DataGridRowStyle}"
+                                  ColumnHeaderStyle="{StaticResource DataGridColumnHeaderStyle}">
+                            <DataGrid.Columns>
+                                <DataGridTextColumn Header="Mã chuyến bay"
+                                                    IsReadOnly="True"
+                                                    Width="*"
+                                                    Binding="{Binding FlightID}"
+                                                    />
+                                <DataGridTextColumn Header="Khởi hành"
+                                                    IsReadOnly="True"
+                                                    Width="*"
+                                                    Binding="{Binding StartAirport}"/>
+                                <DataGridTextColumn Header="Kết thúc"
+                                                    IsReadOnly="True"
+                                                    Width="*"
+                                                    Binding="{Binding EndAirport}"/>
+                                <DataGridTextColumn Header="Giờ khởi hành"
+                                                    IsReadOnly="True"
+                                                    Width="*"
+                                                    Binding="{Binding StartHour}"/>
+                                <DataGridTextColumn Header="Số ghế"
+                                                    IsReadOnly="True"
+                                                    Width="*"
+                                                    Binding="{Binding EndHour}"/>
+                                <!--Action-->
+                                <DataGridTemplateColumn Header="Action"
+                                                        IsReadOnly="True"
+                                                        Width="100">
+                                    <DataGridTemplateColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <Border>
+                                                <StackPanel x:Name="subMenuGrid"
+                                                            Orientation="Horizontal"
+                                                            Visibility="Visible"
+                                                            Background="Transparent">
+                                                    <Button x:Name="editButton"
+                                                            Style="{StaticResource gridEditButton}"
+                                                            Command="{Binding DataContext.EditedCustomerCommand, RelativeSource={RelativeSource AncestorType={x:Type UserControl}}}"
+                                                            CommandParameter="{Binding}">
+                                                        <materialDesign:PackIcon Kind="Edit"  
+                                                                             Width="14"
+                                                                             Height="14"
+                                                                             VerticalAlignment="Center" />
+                                                        
+                                                    </Button>
+                                                    <Button x:Name="deleteButton"
+                                                            Style="{StaticResource gridRemoveButton}"
+                                                            Margin="5 0 0 0"
+                                                            Command="{Binding DataContext.DeletedCustomerCommand, RelativeSource={RelativeSource AncestorType={x:Type UserControl}}}"
+                                                            CommandParameter="{Binding}">
+                                                        
+
+                                                    </Button>
+
+                                                </StackPanel>
+                                            </Border>
+                                        </DataTemplate>
+                                    </DataGridTemplateColumn.CellTemplate>
+                                </DataGridTemplateColumn>
+                            </DataGrid.Columns>
+
+                        </DataGrid>
+                    </Grid>
+
+                </Border>
+                
+                
+
+            </Grid>
             
         </Border>
 
