@@ -38,5 +38,10 @@ namespace FlightTicketManagement.View
             };
             window.ShowDialog();
         }
+
+        private void AddMidFlight(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
