@@ -61,7 +61,10 @@
                            Foreground="#999"
                            FontFamily="Roboto"
                            FontWeight="Medium"/>
-                <materialDesign:TimePicker Grid.Row="1"/>
+                <materialDesign:TimePicker Grid.Row="1"
+                                           x:Name="WaitTime"
+                                           Foreground="#333"
+                                           FontSize="15"/>
             </Grid>
             
              <!-- Note -->
@@ -79,6 +82,10 @@
 
                 <TextBox Grid.Row="1"/>
             </Grid>
+            
+            <!-- Button -->
+            <Button Grid.Row="4"
+                    Click="BtnClose_Click"></Button>
         </Grid>
 
         
