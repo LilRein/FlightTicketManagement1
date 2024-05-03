@@ -9,6 +9,7 @@ using System.Windows;
 using FlightTicketManagement.Model;
 using FlightTicketManagement.Utilities;
 using FlightTicketManagement.View;
+using FlightTicketManagement.ViewModel;
 using FlightTicketManagement.View.Components;
 
 namespace FlightTicketManagement.ViewModel
@@ -45,12 +46,13 @@ namespace FlightTicketManagement.ViewModel
 
         public AddMidFlightVM()
         {
+            
             FlightItemList = new ObservableCollection<string>
             {
-                "Tèo",
-                "Đô",
-                "Mập",
-                "Béo",
+                "Sân bay quốc tế Tân Sơn Nhất",
+                "Sân bay quốc tế Vân Đồn",
+                "Sân bay quốc tế Nội Bài",
+                "Sân bay quốc tế Cát Bi",
                 
             };
 
@@ -94,9 +96,24 @@ namespace FlightTicketManagement.ViewModel
             }
         }
 
+        
         private void AddMidFlight(AddMidFlight paramater)
         {
+            // Tạo đối tượng mới
+            var MidAirport = new Model.MidAirport
+            {
+                sttMidFlight = "1",
+                midAirport = paramater.ListAirport.Text.ToString(),
+                timeBreak = paramater.WaitTime.Text.ToString(),
+                note = paramater.InputNote.Text.ToString(),
+            };
 
+            //Thêm đối tượng vào collection
+            //thêm vào database chỗ này
+
+            MessageBox.Show("Đã thêm thành công", "Success", MessageBoxButton.OK);
+            paramater.WaitTime.Text = string.Empty;
+            paramater.InputNote.Clear();
         }
     }
 }
