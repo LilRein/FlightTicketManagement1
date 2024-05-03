@@ -43,19 +43,22 @@
     
     <Grid>
         <Border CornerRadius="0, 20, 20, 0"
-                Background="White" Margin="69,56,-69,-56"
+                Background="White" Margin="0,0,0,0"
                 >
             <Grid>
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="786"/>
-                    <ColumnDefinition Width="786"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
                     <StackPanel Grid.Column="0">
                     <TextBlock  Text="Thông tin đặt vé"
                                 FontSize="42"
                                 FontWeight="Bold"
                                 FontFamily="Poppins"
-                                Margin="200,30,0,0"/>
+                                Margin="0,30,0,0"
+                                TextAlignment="Center"
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center"/>
                     <StackPanel Margin="20,0,0,0">
                         <Grid>
                             <TextBlock  
@@ -64,7 +67,9 @@
                                     FontSize="22"
                                     FontWeight="DemiBold"
                                     FontFamily="poppins"/>
-                            <DatePicker Margin="100,0,500,0"
+                            <DatePicker Margin="100,0,0,0"
+                                        HorizontalAlignment="Stretch"
+                                        VerticalAlignment="Center"
                                         />
                         </Grid>
                         <Grid>
@@ -100,7 +105,9 @@
                                 FontSize="32"
                                 FontWeight="DemiBold"
                                 Margin="0,80,500,0"
-                                Padding="0,20,0,20"/>
+                                HorizontalAlignment="Stretch"
+                                VerticalAlignment="Stretch"
+                                />
 
                     </StackPanel>
                 </StackPanel>
@@ -109,7 +116,9 @@
                             FontSize="42"
                             FontWeight="Bold"
                             FontFamily="Poppins"
-                            Margin="200,30,0,0"
+                            Margin="0,30,0,0"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
                             />
                     <StackPanel Margin="20,0,0,0">
                         <Grid>

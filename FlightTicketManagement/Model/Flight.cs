@@ -1,0 +1,20 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Security.Permissions;
+using System.Text;
+using System.Threading.Tasks;
+
+
+namespace FlightTicketManagement.Model
+{
+    public class Flight
+    {
+        public string StartDes { get; set; }
+        public string FromAirport { get; set; }
+        public string EndDes { get; set; }
+        public string ToAirport { get; set; }
+        public string FlyTime { get; set; }
+        public string Transit { get; set; }
+    }
+}
