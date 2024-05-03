@@ -6,8 +6,8 @@
              xmlns:vm="clr-namespace:FlightTicketManagement.ViewModel"
              xmlns:Icon="http://metro.mahapps.com/winfx/xaml/iconpacks"
              mc:Ignorable="d" 
-             d:DesignHeight="1000" 
-             d:DesignWidth="1572"
+             d:DesignHeight="800" 
+             d:DesignWidth="1192"
              Style="{StaticResource Page_Style}">
 
     <UserControl.DataContext>

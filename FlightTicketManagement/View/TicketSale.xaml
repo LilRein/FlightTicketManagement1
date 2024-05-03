@@ -5,8 +5,8 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:vm="clr-namespace:FlightTicketManagement.ViewModel"
              mc:Ignorable="d" 
-             d:DesignHeight="1000" 
-             d:DesignWidth="1572"
+             d:DesignHeight="800" 
+             d:DesignWidth="1192"
              Style="{StaticResource Page_Style}"
              >
 
