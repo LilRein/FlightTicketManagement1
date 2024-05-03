@@ -141,7 +141,26 @@
                             BorderThickness="1"
                             BorderBrush="#FD9393"
                             CornerRadius="10">
-                        
+                        <Grid>
+                            <TextBlock  Text="Enter Password"
+                                        FontFamily="Poppins"
+                                        FontSize="16"
+                                        FontWeight="Medium"
+                                        Foreground="#959895"
+                                        VerticalAlignment="Center"
+                                        HorizontalAlignment="Left"
+                                        Margin="20,0,0,0"
+                                       />
+                            <TextBox   BorderThickness="0"
+                                       FontFamily="Poppins"
+                                       FontSize="16"
+                                       FontWeight="Medium"
+                                       Foreground="#959895"
+                                       VerticalAlignment="Center"
+                                       HorizontalAlignment="Left"
+                                       Margin="20,0,0,0"/>
+                        </Grid>
+
 
                     </Border>
                     <TextBlock x:Name="ForgotPasswordTxtBox"
