@@ -11,9 +11,9 @@
 |-------|--------|------------------|----------------------|
 |   1   |22520999|   Lê Quý Nhân    |22520999@gm.uit.edu.vn|
 |   2   |22521016|  Lê Cảnh Nhật    |22521016@gm.uit.edu.vn|
-|   4   |22520968| Lâm Hưng Nguyên  |22520968@gm.uit.edu.vn|
+|   3   |22520968| Lâm Hưng Nguyên  |22520968@gm.uit.edu.vn|
 |   4   |22521312|  Trần Nhật Tân   |22521312@gm.uit.edu.vn|
-|   4   |22521693|  Nguyễn Duy Vũ   |22521693@gm.uit.edu.vn|
+|   5   |22521693|  Nguyễn Duy Vũ   |22521693@gm.uit.edu.vn|
 
 ## Giới thiệu môn học:
 * **Tên môn học:** Nhập môn Công nghệ phần mềm
