@@ -62,11 +62,7 @@
                            FontFamily="Roboto"
                            FontWeight="Medium"/>
 
-                <TextBox Grid.Row="1"
-                         BorderThickness="0 0 0 1"
-                         VerticalAlignment="Bottom"
-                         FontSize="15"
-                         Foreground="#333"/>
+                
             </Grid>
             
              <!-- Note -->
