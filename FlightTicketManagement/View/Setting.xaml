@@ -15,7 +15,7 @@
     
     <Grid>
         <Border CornerRadius="0, 20, 20, 0"
-                Background="White">
+                Background="Snow">
             <Grid >
 
                 <Grid.RowDefinitions>
@@ -35,7 +35,7 @@
                     <ColumnDefinition Width="1*"/>
                     <ColumnDefinition Width="6*"/>
                     <ColumnDefinition Width="6*"/>
-
+    
                 </Grid.ColumnDefinitions>
                 <TextBlock FontSize="50" 
                            HorizontalAlignment ="Center" 
@@ -44,8 +44,13 @@
         Thời gian bay tối thiểu
                 </TextBlock>
 
-                <TextBlock HorizontalAlignment="Right"  TextWrapping="Wrap"  VerticalAlignment="Center" Grid.Column="0" Grid.Row="2"
-               FontSize="20" Text="Số lần Transit tối đa"/>
+                <TextBlock HorizontalAlignment="Right"  
+                           TextWrapping="Wrap"  
+                           VerticalAlignment="Center"
+                           Grid.Column="0" 
+                           Grid.Row="2"
+                           FontSize="20" 
+                           Text="Số lần Transit tối đa"/>
                 <TextBlock HorizontalAlignment="Right" TextWrapping="Wrap"  VerticalAlignment="Center" Grid.Column="0" Grid.Row="3"
                FontSize="20" ><Run Text="Thời gian Transit tối thiểu"/></TextBlock>
                 <TextBlock HorizontalAlignment="Right"  TextWrapping="Wrap"  VerticalAlignment="Center" Grid.Column="0" Grid.Row="4"
