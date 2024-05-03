@@ -13,12 +13,86 @@
     <UserControl.DataContext>
         <vm:FlightsVM />
     </UserControl.DataContext>
-    
+
     <Grid>
-        <Border CornerRadius="0, 20, 20, 0">
-            <Border.Background>
-                <SolidColorBrush Color="Aqua"/>
-            </Border.Background>
+        <Border CornerRadius="0, 20, 20, 0"
+                Background="White">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="50"/>
+                    <RowDefinition Height="50"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <TextBlock Grid.Row="0"
+                           Text="Tìm kiếm chuyến bay"
+                           TextAlignment="Center"
+                           FontSize="36"
+                           FontWeight="Bold"
+                           FontFamily="Poppins">
+                </TextBlock>
+                <Border Grid.Row="3"
+                        Background="White">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+
+                        
+                        <Grid Height="55"
+                              Grid.Row="0"
+                              HorizontalAlignment="Center"
+                              VerticalAlignment="Center">
+                            <TextBlock Text="Kết quả tìm kiếm"
+                                       FontSize="30"
+                                       FontWeight="Bold"/>          
+                        </Grid>
+                        <DataGrid   
+                                    Grid.Row="1"
+                                    Margin="0,0,0,0"
+                                    CanUserSortColumns="False"
+                                    AutoGenerateColumns="False"
+                                    Style="{DynamicResource DataGridStyle}"
+                                    CellStyle="{DynamicResource DataGridCellStyle}"
+                                    RowStyle="{DynamicResource DataGridRowStyle}"
+                                    ColumnHeaderStyle="{StaticResource DataGridColumnHeaderStyle}">
+                            <DataGrid.Columns>
+                                <DataGridTextColumn Header="Điểm khởi hành"
+                                                    IsReadOnly="True"
+                                                    Width="*"
+                                                    Binding="{Binding StartDes}"/>
+                                <DataGridTextColumn Header="Sân bay đi"
+                                                    IsReadOnly="True"
+                                                    Binding="{Binding FromAirport}"
+                                                    Width="*"/>         
+                                <DataGridTextColumn Header="Điểm kết thúc"
+                                                    IsReadOnly="True"
+                                                    Binding="{Binding EndDes}"
+                                                    Width="*"/>
+                                <DataGridTextColumn Header="Sân bay đến"
+                                                    IsReadOnly="True"
+                                                    Binding="{Binding ToAirport}"
+                                                    Width="*"/>     
+                                <DataGridTextColumn Header="Thời gian"
+                                                    IsReadOnly="True"
+                                                    Binding="{Binding FlyTime}"
+                                                    Width="*"/>
+                                <DataGridTextColumn Header="Transit"
+                                                    IsReadOnly="True"
+                                                    Binding="{Binding Transit}"
+                                                    Width="2*"/>
+                            </DataGrid.Columns>
+                            
+                        </DataGrid>
+                    </Grid>
+                    
+                </Border>
+            </Grid>
+            
         </Border>
     </Grid>
+    
+    
 </UserControl>
