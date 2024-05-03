@@ -21,4 +21,9 @@
 * **Mã lớp:** SE104.O22
 * **Năm học:** (2023 - 2024)
 * **Giảng viên**: Đỗ Thị Thanh Tuyền
+
+## Về đồ án môn học:
+* **Chủ đề**: Xây dựng phần mềm quản lí bán vé máy bay
+* **Ngôn ngữ được sử dụng**: C#, SQL
+* **Chi tiết đồ án**:
 # FlightTicketManagement
