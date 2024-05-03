@@ -75,7 +75,14 @@
                     <RowDefinition Height="*"/>
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
+                <TextBlock Grid.Row="0"
+                           Text="Ghi chú"
+                           FontSize="19"
+                           FontFamily="Roboto"
+                           FontWeight="Medium"
+                           Foreground="#999"/>
 
+                <TextBox Grid.Row="1"/>
             </Grid>
         </Grid>
 
