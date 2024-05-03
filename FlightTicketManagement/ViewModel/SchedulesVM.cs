@@ -16,7 +16,7 @@ namespace FlightTicketManagement.ViewModel
     class SchedulesVM : Utilities.ViewModelBase
     {
         private readonly PageModel _pageModel;
-        public DateOnly Schedules
+        public string Schedules
         {
             get { return _pageModel.Schedule; }
             set { _pageModel.Schedule = value; OnPropertyChanged(); }
@@ -34,9 +34,9 @@ namespace FlightTicketManagement.ViewModel
             }
         }
 
-        private ObservableCollection<Model.Schedules> _midflightList;
+        private ObservableCollection<Model.MidAirport> _midflightList;
 
-        public ObservableCollection<Model.Schedules> MidFlightList
+        public ObservableCollection<Model.MidAirport> MidFlightList
         {
             get { return _midflightList; }
             set
@@ -85,7 +85,7 @@ namespace FlightTicketManagement.ViewModel
         public SchedulesVM()
         {
             _pageModel = new PageModel();
-            Schedules = DateOnly.FromDateTime(DateTime.Now);
+            
 
             InitalizeCommand();
         }

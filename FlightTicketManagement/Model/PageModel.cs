@@ -9,7 +9,7 @@ namespace FlightTicketManagement.Model
     public class PageModel
     {
         public string Username { get; set; }
-        public DateOnly Schedule { get; set; }
+        public string Schedule { get; set; }
         public int TicketSale { get; set; }
         public string Flight {  get; set; }
         public string Report { get; set; }
