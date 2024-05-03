@@ -11,60 +11,14 @@
              Width="400"
              Height="600"
              x:Name="AddFl">
-
+    <UserControl.DataContext>
+        <vm:AddFlightVM/>
+    </UserControl.DataContext>
 
     <Border Background="#fff"
             CornerRadius="13"
             Padding="20">
 
-        <i:Interaction.Triggers>
-            <i:EventTrigger EventName="ClickButton">
-                
-            </i:EventTrigger>
-        </i:Interaction.Triggers>
-
-        <Grid>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-            </Grid.RowDefinitions>
-            <!-- Flight ID -->
-            <Grid Grid.Row="0">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="*"/>
-                    <RowDefinition Height="*"/>
-                </Grid.RowDefinitions>
-                <Grid Grid.Row="0">
-                    <TextBlock Text="Mã chuyến bay"
-                               Foreground="#999"
-                               FontSize="16"
-                               FontFamily="Roboto"
-                               FontWeight="Medium"
-                               VerticalAlignment="Center"/>
-                </Grid>
-                <Grid Grid.Row="1">
-                    <Border Background="#FFF"
-                            CornerRadius="5"
-                            BorderThickness="1"
-                            BorderBrush="#D9D9D9"/>
-                    <TextBox x:Name="FlightID"
-                             Padding="15"
-                             BorderThickness="0"
-                             Background="Transparent"
-                             Foreground="#000"
-                             FontWeight="SemiBold"
-                             FontSize="12"
-                             MaterialDesign:HintAssist.Hint="Nhập mã chuyến bay"
-                             MaterialDesign:HintAssist.Foreground="Transparent"
-                             MaterialDesign:TextFieldAssist.UnderlineBrush="Transparent"/>
-                </Grid>
-            </Grid>
-            <!-- Start Airport -->
-            <Grid Grid.Row="1">
-                
-            </Grid>
-        </Grid>
+        
     </Border>
 </UserControl>
