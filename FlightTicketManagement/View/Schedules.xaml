@@ -53,6 +53,7 @@
                                       CanUserSortColumns="False"
                                       AutoGenerateColumns="False"
                                       Margin="10 0 0 0"
+                                      
                                       Style="{StaticResource DataGridStyle}"
                                       CellStyle="{StaticResource DataGridCellStyle}"
                                       RowStyle="{StaticResource DataGridRowStyle}"

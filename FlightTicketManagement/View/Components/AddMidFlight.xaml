@@ -27,6 +27,21 @@
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
             
+            <!-- Button out -->
+            <Grid Grid.Row="0" HorizontalAlignment="Right">
+                <materialDesign:PackIcon Kind="CloseThick"
+                                         Foreground="#999"
+                                         Height="22"
+                                         Width="22">
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="MouseLeftButtonDown">
+                            <i:InvokeCommandAction Command="{Binding CloseAMACM}"
+                                                   CommandParameter="{Binding ElementName=AddMidFl}"/>
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
+                </materialDesign:PackIcon>
+            </Grid>
+            
             <!--Name mid airport-->
             <Grid Grid.Row="1" Margin="0 0 0 15">
 
@@ -43,8 +58,10 @@
                 </Grid>
                 <Grid Grid.Row="1">
                     <ComboBox Style="{StaticResource CustomComboBoxStyle}"
+                              x:Name="ListAirport"
                               ItemsSource="{Binding FlightItemList}"
-                              SelectedItem="{Binding SelectedItem}"/>
+                              SelectedItem="{Binding SelectedItem}"
+                              />
                 </Grid>
             </Grid>
             
@@ -70,7 +87,7 @@
              <!-- Note -->
             <Grid Grid.Row="3" Margin="0 0 0 15">
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="auto"/>
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
                 <TextBlock Grid.Row="0"
@@ -80,12 +97,63 @@
                            FontWeight="Medium"
                            Foreground="#999"/>
 
-                <TextBox Grid.Row="1"/>
+                <TextBox Grid.Row="1"
+                         x:Name="InputNote"
+                         Margin="0 10"
+                         BorderThickness="1"
+                         FontSize="15"
+                         Foreground="#000"
+                         FontFamily="Roboto"
+                         TextWrapping="Wrap"
+                         />
             </Grid>
             
             <!-- Button -->
-            <Button Grid.Row="4"
-                    Click="BtnClose_Click"></Button>
+            <Grid Grid.Row="4" VerticalAlignment="Bottom">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <!-- Confirm Button -->
+                <Button Grid.Column="0"
+                        Style="{StaticResource confirmButton}"
+                        Height="45"
+                        Margin="0 0 10 0">
+                    <TextBlock Text="Xác nhận"
+                               Foreground="#FFF"
+                               FontSize="18"
+                               FontFamily="Roboto"
+                               FontWeight="SemiBold"
+                               TextAlignment="Center"/>
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="Click">
+                            <i:InvokeCommandAction Command="{Binding ConfirmCommand}"
+                                                   CommandParameter="{Binding ElementName=AddMidFl}"/>
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
+                </Button>
+                
+                <!-- Cancel Button -->
+                <Button Grid.Column="1"
+                        Style="{StaticResource cancelButton}"
+                        Height="45"
+                        Margin="10 0 0 0"
+                        >
+                    <TextBlock Text="Huỷ bó"
+                               Foreground="#FFF"
+                               FontSize="18"
+                               FontFamily="Roboto"
+                               FontWeight="SemiBold"
+                               TextAlignment="Center"/>
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="Click">
+                            <i:InvokeCommandAction Command="{Binding CancelCommand}"
+                                                   CommandParameter="{Binding ElementName=AddMidFl}"/>
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
+                </Button>
+            </Grid>
         </Grid>
 
         

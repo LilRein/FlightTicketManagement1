@@ -27,6 +27,14 @@ namespace FlightTicketManagement.View.Components
 
         private void BtnClose_Click(object sender, RoutedEventArgs e)
         {
+            string content = WaitTime.Text;
+            if (string.IsNullOrEmpty(content))
+            {
+                MessageBox.Show("Error");
+            } else
+            {
+                MessageBox.Show(content);
+            }
             
         }
 
