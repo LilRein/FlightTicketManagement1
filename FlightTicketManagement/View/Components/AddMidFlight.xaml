@@ -61,8 +61,7 @@
                            Foreground="#999"
                            FontFamily="Roboto"
                            FontWeight="Medium"/>
-
-                
+                <materialDesign:TimePicker Grid.Row="1"/>
             </Grid>
             
              <!-- Note -->
