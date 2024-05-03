@@ -7,8 +7,8 @@
         xmlns:Menu="clr-namespace:FlightTicketManagement.Utilities"
         mc:Ignorable="d"
         Title="MainWindow"
-        Height="1000" 
-        Width="1850"
+        Height="800" 
+        Width="1450"
         AllowsTransparency="True"
         WindowStartupLocation="CenterScreen"
         WindowStyle="None"
@@ -17,7 +17,7 @@
     <Window.DataContext>
         <vm:NavigationVM />
     </Window.DataContext>
-    
+
     <Grid>
 
         <!-- Window Border -->
@@ -28,14 +28,14 @@
 
             <!-- Base grid -->
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="278" />
-                <ColumnDefinition Width="1572"/>
+                <ColumnDefinition Width="258" />
+                <ColumnDefinition Width="1192"/>
             </Grid.ColumnDefinitions>
 
 
             <!-- Navigation Panel -->
             <Grid HorizontalAlignment="Left"
-                  Width="278">
+                  Width="258">
 
                 <Border Background="#272B2F"
                         CornerRadius="20,0,0,20"/>
@@ -88,9 +88,9 @@
                             <TextBlock Text="Ticket Sale"
                                        Style="{StaticResource Text_Style}"/>
                         </Grid>
-                        
+
                     </Menu:Btn>
-                    
+
                     <!-- // Flight // -->
                     <Menu:Btn Style="{StaticResource BtnStyle}"
                               Command="{Binding FlightCommand}">
@@ -138,7 +138,7 @@
 
                 <ContentControl x:Name="Pages"
                                 Content="{Binding CurrentView}"/>
-                
+
 
             </Grid>
 
