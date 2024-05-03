@@ -24,20 +24,15 @@ namespace FlightTicketManagement
             InitializeComponent();
         }
 
-        private void Window_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
-        {
-            if(e.ChangedButton == MouseButton.Left)
-            {
-                this.DragMove();
-            }
-        }
+        
 
         private void LoginBtnClick(object sender, RoutedEventArgs e)
         {
 
         }
 
-        private void ShutdownBtn_Click(object sender, RoutedEventArgs e)
+
+        private void BtnClose_Click(object sender, RoutedEventArgs e)
         {
             Application.Current.Shutdown();
         }

@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="Login" Height="520" Width="1080"
         WindowStyle="None"
-        MouseLeftButtonDown="Window_MouseLeftButtonDown"
+        WindowStartupLocation="CenterScreen"
         >
     <Window.Resources>
         <!--<Style x:Key="loginStatusText" TargetType="TextBlock"
@@ -50,17 +50,17 @@
                 </Setter.Value>
             </Setter>
         </Style>
+
+        <Style x:Key="TextBoxBar"
+               TargetType="TextBox">
+            <Setter Property="BorderBrush" Value="#FD9393"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            
+
+        </Style>
                
     </Window.Resources>
-    <Grid>
-        <Button 
-            Margin="980,5,50,460"
-            Width="50" Height="50" 
-            Click="ShutdownBtn_Click"
-            >
-            
-            <Image Source="\Images\Close Icon.png" Stretch="Fill" />
-        </Button>
+    <Grid Background="Transparent">
         <Border Background="#F8B6B8"
                 CornerRadius="30"
                 >
@@ -104,6 +104,25 @@
                             BorderThickness="1"
                             BorderBrush="#FD9393"
                             CornerRadius="10">
+                        <Grid>
+                            <TextBlock  Text="Enter UserName"
+                                        FontFamily="Poppins"
+                                        FontSize="16"
+                                        FontWeight="Medium"
+                                        Foreground="#959895"
+                                        VerticalAlignment="Center"
+                                        HorizontalAlignment="Left"
+                                        Margin="20,0,0,0"
+                                       />
+                            <TextBox   BorderThickness="0"
+                                       FontFamily="Poppins"
+                                       FontSize="16"
+                                       FontWeight="Medium"
+                                       Foreground="#959895"
+                                       VerticalAlignment="Center"
+                                       HorizontalAlignment="Left"
+                                       Margin="20,0,0,0"/>
+                        </Grid>
                         
 
 
@@ -162,5 +181,8 @@
 
             </Border>
         </Grid>
+        <Button x:Name="BtnClose"
+                Style="{StaticResource ExitApp}"
+                Click="BtnClose_Click"/>
     </Grid>
 </Window>
