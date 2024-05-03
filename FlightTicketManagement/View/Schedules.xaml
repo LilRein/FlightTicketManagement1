@@ -10,7 +10,8 @@
              mc:Ignorable="d" 
              d:DesignHeight="800" 
              d:DesignWidth="1192"
-             Style="{StaticResource Page_Style}">
+             Style="{StaticResource Page_Style}"
+             x:Name="ScheduleWindow">
 
     <UserControl.DataContext>
         <vm:SchedulesVM />
@@ -38,6 +39,62 @@
                             
                         </Button>
                     </Grid>
+                    <Grid Grid.Column="1">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="2*"/>
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
+                            
+                            <!-- Data grid -->
+                            <DataGrid Grid.Row="0"
+                                      x:Name="MidFlight"
+                                      ItemsSource="{Binding MidFlightList}"
+                                      CanUserSortColumns="False"
+                                      AutoGenerateColumns="False"
+                                      Margin="10 0 0 0"
+                                      Style="{StaticResource DataGridStyle}"
+                                      CellStyle="{StaticResource DataGridCellStyle}"
+                                      RowStyle="{StaticResource DataGridRowStyle}"
+                                      ColumnHeaderStyle="{StaticResource DataGridColumnHeaderStyle}">
+                                <DataGrid.Columns>
+                                    <DataGridTextColumn Header="STT"
+                                                        IsReadOnly="True"
+                                                        Width="*"
+                                                        Binding="{Binding STTMidFlight}"/>
+                                    <DataGridTextColumn Header="Sân bay trung gian"
+                                                        IsReadOnly="True"
+                                                        Width="*"
+                                                        Binding="{Binding MidAirport}"/>
+                                    <DataGridTextColumn Header="Thời gian dừng"
+                                                        IsReadOnly="True"
+                                                        Width="*"
+                                                        Binding="{Binding TimeBreak}"/>
+                                    <DataGridTextColumn Header="Ghi chú"
+                                                        IsReadOnly="True"
+                                                        Width="*"
+                                                        Binding="{Binding Note}"/>
+                                </DataGrid.Columns>
+                            </DataGrid>
+                            <Border Grid.Row="1">
+                                <Button Style="{StaticResource AddButton}"
+                                        Width="200"
+                                        Height="50"
+                                        Click="AddMidFlight">
+                                    <TextBlock Text="Thêm"
+                                               FontSize="18"
+                                               FontFamily="Roboto"/>
+                                    <!-- Trigger -->
+                                    <i:Interaction.Triggers>
+                                        <i:EventTrigger EventName="Click">
+                                            <i:InvokeCommandAction Command="{Binding AddMidFlightCM}"
+                                                                   CommandParameter="{Binding ElementName=ScheduleWindow}"></i:InvokeCommandAction>
+                                        </i:EventTrigger>
+                                    </i:Interaction.Triggers>
+                                </Button>
+                            </Border>
+                        </Grid>
+                    </Grid>
                 </Grid>
                 
                 <!-- List Schedule-->
@@ -56,7 +113,7 @@
                               Grid.Row="0"
                               HorizontalAlignment="Center"
                               VerticalAlignment="Center">
-                            <TextBlock Text="Dánh sách chuyến bay"
+                            <TextBlock Text="Danh sách chuyến bay"
                                        FontSize="30"
                                        FontWeight="Bold"/>
                         </Grid>
@@ -64,7 +121,7 @@
                         <DataGrid Grid.Row="1"
                                   Margin="0 30 0 0"
                                   x:Name="DataGridCustomer"
-                                  ItemsSource="{Binding CustomerList}"
+                                  ItemsSource="{Binding FlightList}"
                                   CanUserSortColumns="False"
                                   AutoGenerateColumns="False"
                                   Style="{DynamicResource DataGridStyle}"

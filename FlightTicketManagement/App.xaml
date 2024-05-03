@@ -225,6 +225,16 @@
                 </Setter>
             </Style>
 
+            <Style x:Key="CustomComboBoxStyle" TargetType="ComboBox">
+                <Setter Property="Foreground" Value="#333333"/>
+                <Setter Property="FontSize" Value="15"/>
+                <Setter Property="VerticalAlignment" Value="Bottom"/>
+                <Setter Property="BorderBrush" Value="Transparent"/>
+                <Setter Property="BorderThickness" Value="0"/>
+                
+
+            </Style>
+
         </ResourceDictionary>
 
     </Application.Resources>
