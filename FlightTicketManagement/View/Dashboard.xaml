@@ -7,8 +7,8 @@
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              xmlns:Icon="http://metro.mahapps.com/winfx/xaml/iconpacks"
              mc:Ignorable="d" 
-             d:DesignHeight="1000" 
-             d:DesignWidth="1572">
+             d:DesignHeight="800" 
+             d:DesignWidth="1192">
 
     
     
@@ -41,7 +41,7 @@
                                 CornerRadius="24"
                                 Background="#357154"
                                 Padding="30"
-                                Width="600">
+                                Width="500">
                             <Grid>
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="Auto"/>
@@ -66,7 +66,7 @@
                                     <Grid Grid.Row="0">
                                         <TextBlock Text="User Name"
                                                    Foreground="#FFF"
-                                                   FontSize="65"
+                                                   FontSize="50"
                                                    FontFamily="Roboto"
                                                    FontWeight="Medium"
                                                    VerticalAlignment="Center"/>
@@ -87,11 +87,10 @@
                         <!-- Wheather -->
                         <Border Grid.Column="1"
                                 HorizontalAlignment="Center"
-                                Margin="0 0 50 0"
                                 CornerRadius="24"
                                 Background="#11D200"
                                 Padding="30"
-                                Width="600">
+                                Width="500">
                             <Grid>
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="Auto"/>
@@ -116,7 +115,7 @@
                                     <Grid Grid.Row="0">
                                         <TextBlock Text="Title chưa biết"
                                                    Foreground="#FFF"
-                                                   FontSize="65"
+                                                   FontSize="50"
                                                    FontFamily="Roboto"
                                                    FontWeight="Medium"
                                                    VerticalAlignment="Center"/>
@@ -151,7 +150,7 @@
                                 CornerRadius="24"
                                 Background="#FF3333"
                                 Padding="30"
-                                Width="600">
+                                Width="500">
                             <Grid>
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="Auto"/>
@@ -176,7 +175,7 @@
                                     <Grid Grid.Row="0">
                                         <TextBlock Text="Số lượng vé"
                                                    Foreground="#FFF"
-                                                   FontSize="65"
+                                                   FontSize="50"
                                                    FontFamily="Roboto"
                                                    FontWeight="Medium"
                                                    VerticalAlignment="Center"/>
@@ -197,11 +196,11 @@
                         <!-- Salary -->
                         <Border Grid.Column="1"
                                 HorizontalAlignment="Center"
-                                Margin="0 0 50 0"
+                                
                                 CornerRadius="24"
                                 Background="#FFCC00"
                                 Padding="30"
-                                Width="600">
+                                Width="500">
                             <Grid>
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="Auto"/>
@@ -226,7 +225,7 @@
                                     <Grid Grid.Row="0">
                                         <TextBlock Text="Doanh thu"
                                                    Foreground="#FFF"
-                                                   FontSize="65"
+                                                   FontSize="50"
                                                    FontFamily="Roboto"
                                                    FontWeight="Medium"
                                                    VerticalAlignment="Center"/> 
