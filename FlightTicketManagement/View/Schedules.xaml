@@ -61,19 +61,19 @@
                                     <DataGridTextColumn Header="STT"
                                                         IsReadOnly="True"
                                                         Width="*"
-                                                        Binding="{Binding STTMidFlight}"/>
+                                                        Binding="{Binding sttMidFlight}"/>
                                     <DataGridTextColumn Header="Sân bay trung gian"
                                                         IsReadOnly="True"
                                                         Width="*"
-                                                        Binding="{Binding MidAirport}"/>
+                                                        Binding="{Binding midAirport}"/>
                                     <DataGridTextColumn Header="Thời gian dừng"
                                                         IsReadOnly="True"
                                                         Width="*"
-                                                        Binding="{Binding TimeBreak}"/>
+                                                        Binding="{Binding timeBreak}"/>
                                     <DataGridTextColumn Header="Ghi chú"
                                                         IsReadOnly="True"
                                                         Width="*"
-                                                        Binding="{Binding Note}"/>
+                                                        Binding="{Binding note}"/>
                                 </DataGrid.Columns>
                             </DataGrid>
                             <Border Grid.Row="1">

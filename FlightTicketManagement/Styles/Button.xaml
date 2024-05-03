@@ -282,4 +282,98 @@
         </Style.Triggers>
     </Style>
 
+    <Style x:Key="confirmButton"
+           TargetType="Button">
+        <Setter Property="Background"
+                Value="#FF7F50" />
+        <Setter Property="FocusVisualStyle"
+                Value="{x:Null}" />
+        <Setter Property="HorizontalAlignment"
+                Value="Stretch" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Grid>
+                        <Border x:Name="border"
+                                Padding="0 10"
+                                CornerRadius="10"
+                                BorderThickness="0"
+                                BorderBrush="#484964"
+                                Background="{TemplateBinding Background}">
+                            <ContentPresenter x:Name="contentPresenter"
+                                              HorizontalAlignment="Center"
+                                              VerticalAlignment="Center" />
+                        </Border>
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsPressed"
+                                 Value="True">
+                            <Setter TargetName="border"
+                                    Property="RenderTransform">
+                                <Setter.Value>
+                                    <TranslateTransform Y="2" />
+                                </Setter.Value>
+                            </Setter>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="Effect">
+            <Setter.Value>
+                <DropShadowEffect Color="Black"
+                                  BlurRadius="6"
+                                  Opacity="0.5"
+                                  ShadowDepth="2" />
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="cancelButton"
+           TargetType="Button">
+        <Setter Property="Background"
+                Value="#000000" />
+        <Setter Property="FocusVisualStyle"
+                Value="{x:Null}" />
+        <Setter Property="HorizontalAlignment"
+                Value="Stretch" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Grid>
+                        <Border x:Name="border"
+                                Padding="0 10"
+                                CornerRadius="10"
+                                BorderThickness="0"
+                                BorderBrush="#484964"
+                                Background="{TemplateBinding Background}">
+                            <ContentPresenter x:Name="contentPresenter"
+                                              HorizontalAlignment="Center"
+                                              VerticalAlignment="Center" />
+                        </Border>
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsPressed"
+                                 Value="True">
+                            <Setter TargetName="border"
+                                    Property="RenderTransform">
+                                <Setter.Value>
+                                    <TranslateTransform Y="2" />
+                                </Setter.Value>
+                            </Setter>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="Effect">
+            <Setter.Value>
+                <DropShadowEffect Color="Black"
+                                  BlurRadius="6"
+                                  Opacity="0.5"
+                                  ShadowDepth="2" />
+            </Setter.Value>
+        </Setter>
+    </Style>
+
 </ResourceDictionary>
