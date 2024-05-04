@@ -57,10 +57,12 @@
                                FontWeight="Medium"/>
                 </Grid>
                 <Grid Grid.Row="1">
-                    <ComboBox Style="{StaticResource CustomComboBoxStyle}"
+                    <ComboBox Foreground="#000"
+                              FontSize="15"
+                              FontFamily="Roboto"
                               x:Name="ListAirport"
                               ItemsSource="{Binding FlightItemList}"
-                              SelectedItem="{Binding SelectedItem}"
+                              materialDesign:HintAssist.Hint="Hãy chọn chuyến bay"
                               />
                 </Grid>
             </Grid>
