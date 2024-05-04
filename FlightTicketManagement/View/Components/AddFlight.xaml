@@ -143,59 +143,8 @@
                                Foreground="#222"/>
                 </Grid>
                 <!-- Pick time date -->
-                <Grid Grid.Row="1" HorizontalAlignment="Right">
-                    <StackPanel
-  Orientation="Horizontal">
-                        <TextBlock
-    VerticalAlignment="Center"
-    FontSize="24"
-    Text="{Binding Date, StringFormat={}{0:yyyy-MM-dd HH:mm:ss}}" />
-                        <Button
-    Margin="8,0,0,0"
-    materialDesign:DialogHost.DialogClosingAttached="CombinedDialogClosingEventHandler"
-    materialDesign:DialogHost.DialogOpenedAttached="CombinedDialogOpenedEventHandler"
-    Command="{x:Static materialDesign:DialogHost.OpenDialogCommand}"
-    Content="...">
-                            <Button.CommandParameter>
-                                <Grid
-        Margin="-1">
-                                    <Grid.RowDefinitions>
-                                        <RowDefinition
-            Height="*" />
-                                        <RowDefinition
-            Height="Auto" />
-                                    </Grid.RowDefinitions>
-                                    <StackPanel
-          Grid.Row="0"
-          Orientation="Horizontal">
-                                        <Calendar
-            x:Name="CombinedCalendar"
-            Margin="-1,-4,-1,0" />
-                                        <materialDesign:Clock
-            x:Name="CombinedClock"
-            DisplayAutomation="CycleWithSeconds"
-            Is24Hours="True" />
-                                    </StackPanel>
-                                    <StackPanel
-          Grid.Row="1"
-          Margin="8"
-          HorizontalAlignment="Right"
-          Orientation="Horizontal">
-                                        <Button
-            Command="{x:Static materialDesign:DialogHost.CloseDialogCommand}"
-            CommandParameter="0"
-            Content="CANCEL"
-            Style="{StaticResource MaterialDesignFlatButton}" />
-                                        <Button
-            Command="{x:Static materialDesign:DialogHost.CloseDialogCommand}"
-            CommandParameter="1"
-            Content="OK"
-            Style="{StaticResource MaterialDesignFlatButton}" />
-                                    </StackPanel>
-                                </Grid>
-                            </Button.CommandParameter>
-                        </Button>
-                    </StackPanel>
+                <Grid Grid.Row="1">
+                    
                 </Grid>
             </Grid>
         </Grid>
