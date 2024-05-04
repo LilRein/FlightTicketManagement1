@@ -34,6 +34,8 @@ namespace FlightTicketManagement.ViewModel
             }
         }
 
+        
+
         private ObservableCollection<Model.MidAirport> _midflightList;
 
         public ObservableCollection<Model.MidAirport> MidFlightList
@@ -82,9 +84,11 @@ namespace FlightTicketManagement.ViewModel
             };
             window.ShowDialog();
         }
+
         public SchedulesVM()
         {
             _pageModel = new PageModel();
+
             
 
             InitalizeCommand();

@@ -24,5 +24,22 @@ namespace FlightTicketManagement.View.Components
         {
             InitializeComponent();
         }
+
+        private void InputFlightID_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            TextBox textBox = (TextBox)sender;
+            int caretIndex = textBox.CaretIndex; // Lưu vị trí của con trỏ
+            textBox.Text += e.Text.ToUpper();
+            textBox.CaretIndex = caretIndex + 1; // Đặt lại vị trí của con trỏ sau khi thêm ký tự vào Text
+            e.Handled = true;
+        }
+
+        private void InputFlightID_PreviewKeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+                e.Handled = true; // Ngăn không cho sự kiện được xử lý
+            }
+        }
     }
 }
