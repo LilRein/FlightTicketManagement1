@@ -7,6 +7,7 @@
              xmlns:vm="clr-namespace:FlightTicketManagement.ViewModel"
              xmlns:MaterialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              mc:Ignorable="d" 
              Width="400"
              Height="600"
@@ -19,6 +20,133 @@
             CornerRadius="13"
             Padding="20">
 
-        
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            
+            <!-- Button out -->
+            <Grid Grid.Row="0" HorizontalAlignment="Right">
+                <materialDesign:PackIcon Kind="CloseThick"
+                                         Foreground="#999"
+                                         Height="22"
+                                         Width="22">
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="MouseLeftButtonDown">
+                            <i:InvokeCommandAction Command="{Binding CloseAACM}"
+                                                   CommandParameter="{Binding ElementName=AddFl}"/>
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
+                </materialDesign:PackIcon>
+            </Grid>
+            
+            <!-- Ma chuyen bay -->
+            <Grid Grid.Row="1" Margin="0 0 0 10">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                
+                <!-- Title -->
+                <Grid Grid.Row="0">
+                    <TextBlock Text="Mã chuyến bay"
+                               FontSize="19"
+                               FontFamily="Roboto"
+                               FontWeight="Medium"
+                               Foreground="#222"/>
+                </Grid>
+                <!-- Input -->
+                <TextBox Grid.Row="1"
+                         x:Name="InputFlightID"
+                         BorderThickness="0 0 0 1"
+                         FontSize="15"
+                         Foreground="#555"
+                         FontFamily="Roboto"
+                         materialDesign:HintAssist.Hint="Nhập mã chuyến bay"
+                         VerticalAlignment="Bottom"
+                         PreviewTextInput="InputFlightID_PreviewTextInput"
+                         PreviewKeyDown="InputFlightID_PreviewKeyDown"
+                         />
+            </Grid>
+            
+            <!-- San bay di -->
+            <Grid Grid.Row="2">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                
+                <!-- Title -->
+                <Grid Grid.Row="0" Margin="2 0 0 5">
+                    <TextBlock Text="Sân bay đi"
+                               FontSize="19"
+                               FontWeight="Medium"
+                               FontFamily="Roboto"
+                               Foreground="#222"/>
+                </Grid>
+
+                <ComboBox Grid.Row="1"
+                          x:Name="StartListAirport"
+                          ItemsSource="{Binding FlightItemList}"
+                          FontSize="15"
+                          Foreground="#555"
+                          FontFamily="Roboto"
+                          materialDesign:HintAssist.Hint="Hãy chọn sân bay"/>
+            </Grid>
+            
+            <!-- Sân bay đến -->
+            <Grid Grid.Row="3">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                
+                <!-- Title -->
+                <Grid Grid.Row="0" Margin="2 0 0 5">
+                    <TextBlock Text="Sân bay đến"
+                               FontSize="19"
+                               FontWeight="Medium"
+                               FontFamily="Roboto"
+                               Foreground="#222"/>
+                </Grid>
+
+                <ComboBox Grid.Row="1"
+                          x:Name="EndListAirport"
+                          ItemsSource="{Binding FlightItemList}"
+                          FontSize="15"
+                          Foreground="#555"
+                          FontFamily="Roboto"
+                          materialDesign:HintAssist.Hint="Hãy chọn sân bay"/>
+            </Grid>
+            
+            <!-- Ngày giờ -->
+            <Grid Grid.Row="4">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                
+                <!-- Title -->
+                <Grid Grid.Row="0" Margin="2 0 0 5">
+                    <TextBlock Text="Ngày giờ"
+                               FontSize="19"
+                               FontWeight="Medium"
+                               FontFamily="Roboto"
+                               Foreground="#222"/>
+                </Grid>
+                <!-- Pick time date -->
+                <Grid Grid.Row="1">
+                    
+                </Grid>
+            </Grid>
+        </Grid>
     </Border>
 </UserControl>

@@ -17,6 +17,7 @@ namespace FlightTicketManagement.ViewModel
     class AddMidFlightVM : Utilities.ViewModelBase
     {
         private readonly PageModel _pageModel;
+        private readonly SchedulesVM _schedulesVM;
 
         public ICommand CloseAMACM { get; set; }
         public ICommand ConfirmCommand { get; set; }
@@ -33,34 +34,21 @@ namespace FlightTicketManagement.ViewModel
             }
         }
 
-        private string _selectedItem;
-        public string SelectedItem
-        {
-            get { return _selectedItem; }
-            set
-            {
-                _selectedItem = value;
-                OnPropertyChanged();
-            }
-        }
 
         public AddMidFlightVM()
         {
-            
             FlightItemList = new ObservableCollection<string>
             {
                 "Sân bay quốc tế Tân Sơn Nhất",
                 "Sân bay quốc tế Vân Đồn",
                 "Sân bay quốc tế Nội Bài",
                 "Sân bay quốc tế Cát Bi",
-                
-            };
 
+            };
             CloseAMACM = new RelayCommand<AddMidFlight>((p) => true, (p) => _CloseAM(p));
             ConfirmCommand = new RelayCommand<AddMidFlight>((p) => true, (p) => _ConfirmCommand(p));
             CancelCommand = new RelayCommand<AddMidFlight>((p) => true, (p) => _CancelCommand(p));
-
-            SelectedItem = FlightItemList[0];
+  
         }
 
         private void _CloseAM(AddMidFlight paramater)
