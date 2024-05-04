@@ -4,8 +4,10 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:FlightTicketManagement"
+        xmlns:MaterialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+
         mc:Ignorable="d"
-        Title="Login" Height="520" Width="1080"
+        Title="Login" Height="540" Width="1080"
         WindowStyle="None"
         WindowStartupLocation="CenterScreen"
         >
@@ -60,7 +62,8 @@
         </Style>
                
     </Window.Resources>
-    <Grid Background="Transparent">
+    <Grid Background="Transparent"
+          >
         <Border Background="#F8B6B8"
                 CornerRadius="30"
                 >
@@ -68,8 +71,8 @@
                         Background="White"
                         Width="537"
                         Height="422"
-                        CornerRadius="20"
-                        Margin="503,49,40,49">
+                        CornerRadius="20,20,20,20"
+                        Margin="503,49,10,40">
                 
                     
 
@@ -105,23 +108,20 @@
                             BorderBrush="#FD9393"
                             CornerRadius="10">
                         <Grid>
-                            <TextBlock  Text="Enter UserName"
-                                        FontFamily="Poppins"
-                                        FontSize="16"
-                                        FontWeight="Medium"
-                                        Foreground="#959895"
-                                        VerticalAlignment="Center"
-                                        HorizontalAlignment="Left"
-                                        Margin="20,0,0,0"
-                                       />
-                            <TextBox   BorderThickness="0"
-                                       FontFamily="Poppins"
-                                       FontSize="16"
-                                       FontWeight="Medium"
-                                       Foreground="#959895"
-                                       VerticalAlignment="Center"
-                                       HorizontalAlignment="Left"
-                                       Margin="20,0,0,0"/>
+                            
+                            <TextBox x:Name="Username"
+                                     
+                                     VerticalAlignment="Center"
+                                     HorizontalAlignment="Left"
+                                     Padding="15 0"
+                                     BorderThickness="0"
+                                     Background="Transparent"
+                                     Foreground="#000000"
+                                     FontWeight="SemiBold"
+                                     FontSize="14"
+                                     MaterialDesign:HintAssist.Hint="Enter username"
+                                     MaterialDesign:HintAssist.Foreground="Transparent"
+                                     MaterialDesign:TextFieldAssist.UnderlineBrush="Transparent" /> 
                         </Grid>
                         
 
@@ -142,23 +142,22 @@
                             BorderBrush="#FD9393"
                             CornerRadius="10">
                         <Grid>
-                            <TextBlock  Text="Enter Password"
-                                        FontFamily="Poppins"
-                                        FontSize="16"
-                                        FontWeight="Medium"
-                                        Foreground="#959895"
-                                        VerticalAlignment="Center"
-                                        HorizontalAlignment="Left"
-                                        Margin="20,0,0,0"
-                                       />
-                            <TextBox   BorderThickness="0"
-                                       FontFamily="Poppins"
-                                       FontSize="16"
-                                       FontWeight="Medium"
-                                       Foreground="#959895"
-                                       VerticalAlignment="Center"
-                                       HorizontalAlignment="Left"
-                                       Margin="20,0,0,0"/>
+                            
+                            <PasswordBox x:Name="password"
+                                      VerticalAlignment="Center"
+                                     HorizontalAlignment="Left"
+                                     Padding="15 0"
+                                     BorderThickness="0"
+                                     Background="Transparent"
+                                     Foreground="#000000"
+                                     FontWeight="SemiBold"
+                                     PasswordChar="●"
+                                     FontSize="14"
+                                     MaterialDesign:HintAssist.Hint="Enter password"
+                                     MaterialDesign:HintAssist.Foreground="Transparent"
+                                     MaterialDesign:TextFieldAssist.UnderlineBrush="Transparent">   
+
+                            </PasswordBox>
                         </Grid>
 
 
@@ -172,6 +171,8 @@
                              Margin="28,10,28,10"
                              TextAlignment="Right"
                              />
+
+
                     <Grid Height="50"
                           Width="435"
                           Margin="0,10,0,0"
@@ -194,9 +195,12 @@
             <Border Height="520"
                     Width="488"
                     CornerRadius="10"
-                    BorderThickness="10"
+                    BorderThickness="0"
+                    
                     >
-                <Image Source="Images/plane.png"/>
+                <Image 
+                    Margin="12,0,0,20"
+                    Source="Images/plane.png"/>
 
             </Border>
         </Grid>
