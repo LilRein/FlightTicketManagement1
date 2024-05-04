@@ -19,6 +19,7 @@ namespace FlightTicketManagement
     /// </summary>
     public partial class Login : Window
     {
+        private string _employeeId;
         public Login()
         {
             InitializeComponent();
@@ -36,5 +37,7 @@ namespace FlightTicketManagement
         {
             Application.Current.Shutdown();
         }
+
+        
     }
 }
