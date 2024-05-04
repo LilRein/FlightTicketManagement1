@@ -62,6 +62,7 @@ namespace FlightTicketManagement.ViewModel
 
         void _CancelCommand(AddMidFlight paramater)
         {
+            paramater.ListAirport.SelectedItem = null;
             paramater.WaitTime.Text = string.Empty;
             paramater.InputNote.Clear();
         }

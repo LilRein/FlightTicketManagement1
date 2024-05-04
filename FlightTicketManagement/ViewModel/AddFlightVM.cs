@@ -48,5 +48,7 @@ namespace FlightTicketManagement.ViewModel
                 window.Close();
             }
         }
+
+       
     }
 }
