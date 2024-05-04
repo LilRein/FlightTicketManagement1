@@ -81,7 +81,7 @@
                 </Grid>
                 <!-- Input -->
                 <TextBox Grid.Row="1"
-                         x:Name="InputFlightID"
+                         x:Name="FlightID"
                          BorderThickness="0 0 0 1"
                          Style="{StaticResource Input}"
                          materialDesign:HintAssist.Hint="Nhập mã chuyến bay"
@@ -183,6 +183,7 @@
                 </Grid>
                 <!-- Số lượng -->
                 <TextBox Grid.Row="1"
+                         x:Name="Seat1"
                          Style="{StaticResource Input}"
                          BorderThickness="0 0 0 1"/>
             </Grid>
@@ -200,6 +201,7 @@
                 </Grid>
                 <!-- Input -->
                 <TextBox Grid.Row="1"
+                         x:Name="Seat2"
                          Style="{StaticResource Input}"
                          BorderThickness="0 0 0 1"/>
             </Grid>
@@ -210,6 +212,44 @@
                     <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
+                
+                <!-- Confirm Button -->
+                <Button Grid.Column="0"
+                        Style="{StaticResource confirmButton}"
+                        Height="45"
+                        Margin="0 0 10 0">
+                    <TextBlock Text="Xác nhận"
+                               Foreground="#FFF"
+                               FontSize="18"
+                               FontFamily="Roboto"
+                               FontWeight="SemiBold"
+                               TextAlignment="Center"/>
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="Click">
+                            <i:InvokeCommandAction Command="{Binding ConfirmCommand}"
+                                                   CommandParameter="{Binding ElementName=AddFl}"/>
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
+                </Button>
+                
+                <!-- Cancel Button -->
+                <Button Grid.Column="1"
+                        Style="{StaticResource cancelButton}"
+                        Height="45"
+                        Margin="10 0 0 0">
+                    <TextBlock Text="Huỷ bỏ"
+                               Foreground="#FFF"
+                               FontSize="18"
+                               FontFamily="Roboto"
+                               FontWeight="SemiBold"
+                               TextAlignment="Center"/>
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="Click">
+                            <i:InvokeCommandAction Command="{Binding CancelCommand}"
+                                                   CommandParameter="{Binding ElementName=AddFl}"/>
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
+                </Button>
             </Grid>
         </Grid>
     </Border>
