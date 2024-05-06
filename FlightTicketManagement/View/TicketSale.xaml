@@ -5,10 +5,12 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:vm="clr-namespace:FlightTicketManagement.ViewModel"
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
              mc:Ignorable="d" 
              d:DesignHeight="800" 
              d:DesignWidth="1192"
              Style="{StaticResource Page_Style}"
+             x:Name="Ticketsale"
              >
 
     <UserControl.DataContext>
@@ -289,6 +291,12 @@
                             <TextBlock Text="Lưu"
                                        Style="{StaticResource Title}"
                                        Foreground="#FFF"/>
+                            <i:Interaction.Triggers>
+                                <i:EventTrigger EventName="Click">
+                                    <i:InvokeCommandAction Command="{Binding SaveCommand}"
+                                                           CommandParameter="{Binding ElementName=Ticketsale}"/>
+                                </i:EventTrigger>
+                            </i:Interaction.Triggers>
                         </Button>
 
                         <Button Grid.Column="1"
@@ -298,7 +306,12 @@
                             <TextBlock Text="Huỷ bỏ"
                                        Style="{StaticResource Title}"
                                        Foreground="#FFF"/>
-                            
+                            <i:Interaction.Triggers>
+                                <i:EventTrigger EventName="Click">
+                                    <i:InvokeCommandAction Command="{Binding CancelCommand}"
+                                                           CommandParameter="{Binding ElementName=Ticketsale}"/>
+                                </i:EventTrigger>
+                            </i:Interaction.Triggers>
                         </Button>
                     </Grid>
                 </Grid>
