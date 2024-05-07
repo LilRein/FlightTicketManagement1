@@ -150,10 +150,15 @@
                             <TextBlock Grid.Row="0"
                                        Style="{StaticResource Title}"
                                        Text="Tình trạng vé"/>
-                            <TextBlock Grid.Row="1"
-                                       x:Name="IsAvaiTicket"
-                                       Style="{StaticResource Status}"
-                                       Text="{Binding IsAvailableTicket}"/>
+                            <Border Grid.Row="1"
+                                    BorderThickness="0 0 0 1"
+                                    BorderBrush="#000"
+                                    Margin="0 0 0 13">
+                                <TextBlock Grid.Row="1"
+                                           x:Name="IsAvaiTicket"
+                                           Style="{StaticResource Status}"
+                                           Text="{Binding IsAvailableTicket}"/>
+                            </Border>
                         </Grid>
                     </Grid>
                     <!-- Hành khách -->
