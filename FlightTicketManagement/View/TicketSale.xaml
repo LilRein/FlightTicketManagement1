@@ -192,7 +192,9 @@
                                        Text="Mã hành khách"/>
                             <TextBox Grid.Row="1"
                                      x:Name="CustomerID"
-                                     Style="{StaticResource Input}"/>
+                                     Style="{StaticResource Input}"
+                                     PreviewTextInput="InputFlightID_PreviewTextInput"
+                                     PreviewKeyDown="InputFlightID_PreviewKeyDown"/>
                         </Grid>
                         
                         <!-- Hành khách -->
@@ -248,7 +250,8 @@
                             <TextBlock Grid.Row="0"
                                        Style="{StaticResource Title}"
                                        Text="Hạng vé"/>
-                            <ComboBox Grid.Row="1"
+                            <ComboBox x:Name="TicketClass"
+                                      Grid.Row="1"
                                       FontSize="21"
                                       Foreground="#555"
                                       materialDesign:HintAssist.Hint="Hãy chọn hạng vé">

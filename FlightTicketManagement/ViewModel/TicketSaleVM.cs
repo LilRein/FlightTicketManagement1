@@ -55,7 +55,7 @@ namespace FlightTicketManagement.ViewModel
 
             };
             SaveCommand = new RelayCommand<TicketSale>((p) => true, (p) => _saveCommand());
-            CancelCommand = new RelayCommand<TicketSale>((p) => true, (p) => _cancelCommand());
+            CancelCommand = new RelayCommand<TicketSale>((p) => true, (p) => _cancelCommand(p));
             
 
             _pageModel = new PageModel();
@@ -65,8 +65,16 @@ namespace FlightTicketManagement.ViewModel
         {
             MessageBox.Show("saved");
         }
-        private void _cancelCommand()
+        private void _cancelCommand(TicketSale paramater)
         {
+            paramater.ListFlightID.SelectedItem = null;
+            paramater.StartAirport.Clear();
+            paramater.EndAirport.Clear();
+            paramater.CustomerID.Clear();
+            paramater.NameCustomer.Clear();
+            paramater.InputInfor.Clear();
+            paramater.PhoneNumber.Clear();
+            paramater.TicketClass.SelectedItem = null;
             MessageBox.Show("cancel");
         }
     }
