@@ -136,9 +136,17 @@
                             <TextBlock Grid.Row="0"
                                        Style="{StaticResource Title}"
                                        Text="Ngày giờ"/>
-                            <TextBox Grid.Row="1"
-                                     x:Name="DateTime"
-                                     Style="{StaticResource Input}"/>
+                            <Grid Grid.Row="1">
+                                <DatePicker x:Name="FlightDatePicker"
+                                            Margin="0 5 0 0" 
+                                            HorizontalAlignment="Left" 
+                                            VerticalAlignment="Center"/>
+                                <materialDesign:TimePicker 
+                                            x:Name="FlightTimePicker" 
+                                            Margin="100 5 0 0" 
+                                            HorizontalAlignment="Left"
+                                            VerticalAlignment="Center"/>
+                            </Grid>
                         </Grid>
                         
                         <!-- Tình trạng vé -->
