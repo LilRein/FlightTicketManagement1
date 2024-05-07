@@ -6,7 +6,7 @@
 
 <h1 align="center"><b>SE104.O22- Nhập môn Công nghệ phần mềm</b></h>
 
-## Nhóm 12:
+## Nhóm 11:
 |**STT**|**MSSV**|   **Họ và tên**  |       **Email**      |
 |-------|--------|------------------|----------------------|
 |   1   |22520999|   Lê Quý Nhân    |22520999@gm.uit.edu.vn|

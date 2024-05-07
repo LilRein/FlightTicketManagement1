@@ -80,6 +80,9 @@ namespace FlightTicketManagement.ViewModel
             paramater.FlightTime.Text = string.Empty;
             paramater.Seat1.Clear();
             paramater.Seat2.Clear();
+            paramater.FlightDatePicker.Text = string.Empty;
+            paramater.FlightTimePicker.Text = string.Empty;
+
         }
     }
 }
