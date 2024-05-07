@@ -63,7 +63,7 @@ namespace FlightTicketManagement.ViewModel
 
         private void _saveCommand()
         {
-            MessageBox.Show("hi");
+            MessageBox.Show("saved");
         }
         private void _cancelCommand()
         {
