@@ -66,7 +66,7 @@
                                     <Grid Grid.Row="0">
                                         <TextBlock Text="User Name"
                                                    Foreground="#FFF"
-                                                   FontSize="50"
+                                                   FontSize="35"
                                                    FontFamily="Roboto"
                                                    FontWeight="Medium"
                                                    VerticalAlignment="Center"/>
@@ -74,7 +74,7 @@
                                     <Grid Grid.Row="1">
                                         <TextBlock Text="Test" 
                                                    Foreground="#FFF"
-                                                   FontSize="40"
+                                                   FontSize="30"
                                                    FontFamily="Roboto"
                                                    FontWeight="Medium"
                                                    VerticalAlignment="Center"/>
@@ -115,7 +115,7 @@
                                     <Grid Grid.Row="0">
                                         <TextBlock Text="Title chưa biết"
                                                    Foreground="#FFF"
-                                                   FontSize="50"
+                                                   FontSize="35"
                                                    FontFamily="Roboto"
                                                    FontWeight="Medium"
                                                    VerticalAlignment="Center"/>
@@ -123,7 +123,7 @@
                                     <Grid Grid.Row="1">
                                         <TextBlock Text="Test" 
                                                    Foreground="#FFF"
-                                                   FontSize="40"
+                                                   FontSize="30"
                                                    FontFamily="Roboto"
                                                    FontWeight="Medium"
                                                    VerticalAlignment="Center"/>
@@ -175,7 +175,7 @@
                                     <Grid Grid.Row="0">
                                         <TextBlock Text="Số lượng vé"
                                                    Foreground="#FFF"
-                                                   FontSize="50"
+                                                   FontSize="35"
                                                    FontFamily="Roboto"
                                                    FontWeight="Medium"
                                                    VerticalAlignment="Center"/>
@@ -183,7 +183,7 @@
                                     <Grid Grid.Row="1">
                                         <TextBlock Text="100" 
                                                    Foreground="#FFF"
-                                                   FontSize="40"
+                                                   FontSize="30"
                                                    FontFamily="Roboto"
                                                    FontWeight="Medium"
                                                    VerticalAlignment="Center"/>
@@ -225,7 +225,7 @@
                                     <Grid Grid.Row="0">
                                         <TextBlock Text="Doanh thu"
                                                    Foreground="#FFF"
-                                                   FontSize="50"
+                                                   FontSize="35"
                                                    FontFamily="Roboto"
                                                    FontWeight="Medium"
                                                    VerticalAlignment="Center"/> 
@@ -233,7 +233,7 @@
                                     <Grid Grid.Row="1">
                                         <TextBlock Text="673 000 000 VND" 
                                                    Foreground="#FFF"
-                                                   FontSize="40"
+                                                   FontSize="30"
                                                    FontFamily="Roboto"
                                                    FontWeight="Medium"
                                                    VerticalAlignment="Center"/> 
