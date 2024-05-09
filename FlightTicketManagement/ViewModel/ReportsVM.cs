@@ -14,7 +14,7 @@ namespace FlightTicketManagement.ViewModel
 
         public string Report
         {
-            get { return _pageModel.Report; }
+            get { return _pageModel.Report; } 
             set { _pageModel.Report = value; OnPropertyChanged(); }
         }
         public ReportsVM()
