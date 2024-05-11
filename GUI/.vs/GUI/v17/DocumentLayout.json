@@ -1,0 +1,840 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Admin\\Downloads\\GUI\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Admin\\Downloads\\GUI\\GUI\\README.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:GUI\\README.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Admin\\Downloads\\GUI\\GUI\\.gitattributes||{3B902123-F8A7-4915-9F01-361F908088D0}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:GUI\\.gitattributes||{3B902123-F8A7-4915-9F01-361F908088D0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Admin\\Downloads\\GUI\\GUI\\GUI\\MainWindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:GUI\\GUI\\MainWindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Admin\\Downloads\\GUI\\GUI\\GUI\\MainWindow.xaml||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:GUI\\GUI\\MainWindow.xaml||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Admin\\Downloads\\GUI\\GUI\\GUI\\Login.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:GUI\\GUI\\Login.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Admin\\Downloads\\GUI\\GUI\\GUI\\Login.xaml||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:GUI\\GUI\\Login.xaml||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Admin\\Downloads\\GUI\\GUI\\GUI\\GUI.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:GUI\\GUI\\GUI.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Admin\\Downloads\\GUI\\GUI\\GUI\\AssemblyInfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:GUI\\GUI\\AssemblyInfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Admin\\Downloads\\GUI\\GUI\\GUI\\App.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:GUI\\GUI\\App.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Admin\\Downloads\\GUI\\GUI\\GUI\\App.xaml||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:GUI\\GUI\\App.xaml||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Admin\\Downloads\\GUI\\GUI\\GUI\\ViewModel\\TicketSaleVM.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:GUI\\GUI\\ViewModel\\TicketSaleVM.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Admin\\Downloads\\GUI\\GUI\\GUI\\ViewModel\\SettingVM.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:GUI\\GUI\\ViewModel\\SettingVM.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Admin\\Downloads\\GUI\\GUI\\GUI\\ViewModel\\SchedulesVM.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:GUI\\GUI\\ViewModel\\SchedulesVM.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Admin\\Downloads\\GUI\\GUI\\GUI\\ViewModel\\ReportsVM.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:GUI\\GUI\\ViewModel\\ReportsVM.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Admin\\Downloads\\GUI\\GUI\\GUI\\ViewModel\\NavigationVM.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:GUI\\GUI\\ViewModel\\NavigationVM.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Admin\\Downloads\\GUI\\GUI\\GUI\\ViewModel\\FlightsVM.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:GUI\\GUI\\ViewModel\\FlightsVM.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Admin\\Downloads\\GUI\\GUI\\GUI\\ViewModel\\DashboardVM.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:GUI\\GUI\\ViewModel\\DashboardVM.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Admin\\Downloads\\GUI\\GUI\\GUI\\ViewModel\\AddMidFlightVM.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:GUI\\GUI\\ViewModel\\AddMidFlightVM.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Admin\\Downloads\\GUI\\GUI\\GUI\\ViewModel\\AddFlightVM.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:GUI\\GUI\\ViewModel\\AddFlightVM.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Admin\\Downloads\\GUI\\GUI\\GUI\\View\\TicketSale.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:GUI\\GUI\\View\\TicketSale.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Admin\\Downloads\\GUI\\GUI\\GUI\\View\\TicketSale.xaml||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:GUI\\GUI\\View\\TicketSale.xaml||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Admin\\Downloads\\GUI\\GUI\\GUI\\View\\Setting.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:GUI\\GUI\\View\\Setting.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Admin\\Downloads\\GUI\\GUI\\GUI\\View\\Setting.xaml||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:GUI\\GUI\\View\\Setting.xaml||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Admin\\Downloads\\GUI\\GUI\\GUI\\View\\Schedules.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:GUI\\GUI\\View\\Schedules.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Admin\\Downloads\\GUI\\GUI\\GUI\\View\\Dashboard.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:GUI\\GUI\\View\\Dashboard.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Admin\\Downloads\\GUI\\GUI\\GUI\\View\\Flights.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:GUI\\GUI\\View\\Flights.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Admin\\Downloads\\GUI\\GUI\\GUI\\View\\Reports.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:GUI\\GUI\\View\\Reports.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Admin\\Downloads\\GUI\\GUI\\GUI\\View\\Schedules.xaml||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:GUI\\GUI\\View\\Schedules.xaml||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Admin\\Downloads\\GUI\\GUI\\GUI\\View\\Reports.xaml||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:GUI\\GUI\\View\\Reports.xaml||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Admin\\Downloads\\GUI\\GUI\\GUI\\View\\Flights.xaml||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:GUI\\GUI\\View\\Flights.xaml||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Admin\\Downloads\\GUI\\GUI\\GUI\\View\\Dashboard.xaml||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:GUI\\GUI\\View\\Dashboard.xaml||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Admin\\Downloads\\GUI\\GUI\\GUI\\View\\Components\\AddMidFlight.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:GUI\\GUI\\View\\Components\\AddMidFlight.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Admin\\Downloads\\GUI\\GUI\\GUI\\View\\Components\\AddMidFlight.xaml||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:GUI\\GUI\\View\\Components\\AddMidFlight.xaml||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Admin\\Downloads\\GUI\\GUI\\GUI\\View\\Components\\AddFlight.xaml||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:GUI\\GUI\\View\\Components\\AddFlight.xaml||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Admin\\Downloads\\GUI\\GUI\\GUI\\View\\Components\\AddFlight.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:GUI\\GUI\\View\\Components\\AddFlight.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Admin\\Downloads\\GUI\\GUI\\GUI\\Utilities\\ViewModelBase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:GUI\\GUI\\Utilities\\ViewModelBase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Admin\\Downloads\\GUI\\GUI\\GUI\\Styles\\Text.xaml||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:GUI\\GUI\\Styles\\Text.xaml||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Admin\\Downloads\\GUI\\GUI\\GUI\\Utilities\\DataTemplate.xaml||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:GUI\\GUI\\Utilities\\DataTemplate.xaml||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Admin\\Downloads\\GUI\\GUI\\GUI\\Utilities\\Btn.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:GUI\\GUI\\Utilities\\Btn.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Admin\\Downloads\\GUI\\GUI\\GUI\\Utilities\\RelayCommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:GUI\\GUI\\Utilities\\RelayCommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Admin\\Downloads\\GUI\\GUI\\GUI\\Styles\\Page.xaml||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:GUI\\GUI\\Styles\\Page.xaml||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Admin\\Downloads\\GUI\\GUI\\GUI\\Styles\\Image.xaml||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:GUI\\GUI\\Styles\\Image.xaml||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Admin\\Downloads\\GUI\\GUI\\GUI\\Styles\\Button.xaml||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:GUI\\GUI\\Styles\\Button.xaml||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Admin\\Downloads\\GUI\\GUI\\GUI\\Model\\Schedules.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:GUI\\GUI\\Model\\Schedules.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Admin\\Downloads\\GUI\\GUI\\GUI\\Model\\Report.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:GUI\\GUI\\Model\\Report.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Admin\\Downloads\\GUI\\GUI\\GUI\\Model\\PageModel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:GUI\\GUI\\Model\\PageModel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Admin\\Downloads\\GUI\\GUI\\GUI\\Model\\MidAirport.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:GUI\\GUI\\Model\\MidAirport.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Admin\\Downloads\\GUI\\GUI\\GUI\\Model\\Flight.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:GUI\\GUI\\Model\\Flight.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{d78612c7-9962-4b83-95d9-268046dad23a}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "README.md",
+              "DocumentMoniker": "C:\\Users\\Admin\\Downloads\\GUI\\GUI\\README.md",
+              "RelativeDocumentMoniker": "GUI\\README.md",
+              "ToolTip": "C:\\Users\\Admin\\Downloads\\GUI\\GUI\\README.md",
+              "RelativeToolTip": "GUI\\README.md",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABgAAAAUAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001818|",
+              "WhenOpened": "2024-05-11T12:43:42.167Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": ".gitattributes",
+              "DocumentMoniker": "C:\\Users\\Admin\\Downloads\\GUI\\GUI\\.gitattributes",
+              "RelativeDocumentMoniker": "GUI\\.gitattributes",
+              "ToolTip": "C:\\Users\\Admin\\Downloads\\GUI\\GUI\\.gitattributes",
+              "RelativeToolTip": "GUI\\.gitattributes",
+              "ViewState": "AQIAAD8AAAAAAAAAAAAAAB0AAAAZAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2024-05-11T12:43:18.31Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "MainWindow.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\Downloads\\GUI\\GUI\\GUI\\MainWindow.xaml.cs",
+              "RelativeDocumentMoniker": "GUI\\GUI\\MainWindow.xaml.cs",
+              "ToolTip": "C:\\Users\\Admin\\Downloads\\GUI\\GUI\\GUI\\MainWindow.xaml.cs",
+              "RelativeToolTip": "GUI\\GUI\\MainWindow.xaml.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABAAAAAsAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-11T12:42:57.215Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "MainWindow.xaml",
+              "DocumentMoniker": "C:\\Users\\Admin\\Downloads\\GUI\\GUI\\GUI\\MainWindow.xaml",
+              "RelativeDocumentMoniker": "GUI\\GUI\\MainWindow.xaml",
+              "ToolTip": "C:\\Users\\Admin\\Downloads\\GUI\\GUI\\GUI\\MainWindow.xaml",
+              "RelativeToolTip": "GUI\\GUI\\MainWindow.xaml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAAaAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-05-11T12:42:48.466Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Login.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\Downloads\\GUI\\GUI\\GUI\\Login.xaml.cs",
+              "RelativeDocumentMoniker": "GUI\\GUI\\Login.xaml.cs",
+              "ToolTip": "C:\\Users\\Admin\\Downloads\\GUI\\GUI\\GUI\\Login.xaml.cs",
+              "RelativeToolTip": "GUI\\GUI\\Login.xaml.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAAjAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-11T12:42:45.037Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Login.xaml",
+              "DocumentMoniker": "C:\\Users\\Admin\\Downloads\\GUI\\GUI\\GUI\\Login.xaml",
+              "RelativeDocumentMoniker": "GUI\\GUI\\Login.xaml",
+              "ToolTip": "C:\\Users\\Admin\\Downloads\\GUI\\GUI\\GUI\\Login.xaml",
+              "RelativeToolTip": "GUI\\GUI\\Login.xaml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAAWAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-05-11T12:42:37.215Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "GUI.csproj",
+              "DocumentMoniker": "C:\\Users\\Admin\\Downloads\\GUI\\GUI\\GUI\\GUI.csproj",
+              "RelativeDocumentMoniker": "GUI\\GUI\\GUI.csproj",
+              "ToolTip": "C:\\Users\\Admin\\Downloads\\GUI\\GUI\\GUI\\GUI.csproj",
+              "RelativeToolTip": "GUI\\GUI\\GUI.csproj",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2024-05-11T12:42:31.025Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "AssemblyInfo.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\Downloads\\GUI\\GUI\\GUI\\AssemblyInfo.cs",
+              "RelativeDocumentMoniker": "GUI\\GUI\\AssemblyInfo.cs",
+              "ToolTip": "C:\\Users\\Admin\\Downloads\\GUI\\GUI\\GUI\\AssemblyInfo.cs",
+              "RelativeToolTip": "GUI\\GUI\\AssemblyInfo.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-11T12:42:26.519Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "App.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\Downloads\\GUI\\GUI\\GUI\\App.xaml.cs",
+              "RelativeDocumentMoniker": "GUI\\GUI\\App.xaml.cs",
+              "ToolTip": "C:\\Users\\Admin\\Downloads\\GUI\\GUI\\GUI\\App.xaml.cs",
+              "RelativeToolTip": "GUI\\GUI\\App.xaml.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-11T12:42:22.379Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "App.xaml",
+              "DocumentMoniker": "C:\\Users\\Admin\\Downloads\\GUI\\GUI\\GUI\\App.xaml",
+              "RelativeDocumentMoniker": "GUI\\GUI\\App.xaml",
+              "ToolTip": "C:\\Users\\Admin\\Downloads\\GUI\\GUI\\GUI\\App.xaml",
+              "RelativeToolTip": "GUI\\GUI\\App.xaml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAAzAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-05-11T12:42:11.544Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "TicketSaleVM.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\Downloads\\GUI\\GUI\\GUI\\ViewModel\\TicketSaleVM.cs",
+              "RelativeDocumentMoniker": "GUI\\GUI\\ViewModel\\TicketSaleVM.cs",
+              "ToolTip": "C:\\Users\\Admin\\Downloads\\GUI\\GUI\\GUI\\ViewModel\\TicketSaleVM.cs",
+              "RelativeToolTip": "GUI\\GUI\\ViewModel\\TicketSaleVM.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABAAAAAFAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-11T12:42:04.723Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "SettingVM.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\Downloads\\GUI\\GUI\\GUI\\ViewModel\\SettingVM.cs",
+              "RelativeDocumentMoniker": "GUI\\GUI\\ViewModel\\SettingVM.cs",
+              "ToolTip": "C:\\Users\\Admin\\Downloads\\GUI\\GUI\\GUI\\ViewModel\\SettingVM.cs",
+              "RelativeToolTip": "GUI\\GUI\\ViewModel\\SettingVM.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAAFAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-11T12:42:00.522Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "SchedulesVM.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\Downloads\\GUI\\GUI\\GUI\\ViewModel\\SchedulesVM.cs",
+              "RelativeDocumentMoniker": "GUI\\GUI\\ViewModel\\SchedulesVM.cs",
+              "ToolTip": "C:\\Users\\Admin\\Downloads\\GUI\\GUI\\GUI\\ViewModel\\SchedulesVM.cs",
+              "RelativeToolTip": "GUI\\GUI\\ViewModel\\SchedulesVM.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAAXAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-11T12:41:53.164Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "ReportsVM.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\Downloads\\GUI\\GUI\\GUI\\ViewModel\\ReportsVM.cs",
+              "RelativeDocumentMoniker": "GUI\\GUI\\ViewModel\\ReportsVM.cs",
+              "ToolTip": "C:\\Users\\Admin\\Downloads\\GUI\\GUI\\GUI\\ViewModel\\ReportsVM.cs",
+              "RelativeToolTip": "GUI\\GUI\\ViewModel\\ReportsVM.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAUAAAAQAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-11T12:41:48.699Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "NavigationVM.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\Downloads\\GUI\\GUI\\GUI\\ViewModel\\NavigationVM.cs",
+              "RelativeDocumentMoniker": "GUI\\GUI\\ViewModel\\NavigationVM.cs",
+              "ToolTip": "C:\\Users\\Admin\\Downloads\\GUI\\GUI\\GUI\\ViewModel\\NavigationVM.cs",
+              "RelativeToolTip": "GUI\\GUI\\ViewModel\\NavigationVM.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABIAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-11T12:41:36.169Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "FlightsVM.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\Downloads\\GUI\\GUI\\GUI\\ViewModel\\FlightsVM.cs",
+              "RelativeDocumentMoniker": "GUI\\GUI\\ViewModel\\FlightsVM.cs",
+              "ToolTip": "C:\\Users\\Admin\\Downloads\\GUI\\GUI\\GUI\\ViewModel\\FlightsVM.cs",
+              "RelativeToolTip": "GUI\\GUI\\ViewModel\\FlightsVM.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA8AAAAcAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-11T12:41:29.778Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "DashboardVM.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\Downloads\\GUI\\GUI\\GUI\\ViewModel\\DashboardVM.cs",
+              "RelativeDocumentMoniker": "GUI\\GUI\\ViewModel\\DashboardVM.cs",
+              "ToolTip": "C:\\Users\\Admin\\Downloads\\GUI\\GUI\\GUI\\ViewModel\\DashboardVM.cs",
+              "RelativeToolTip": "GUI\\GUI\\ViewModel\\DashboardVM.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-11T12:41:24.002Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "AddMidFlightVM.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\Downloads\\GUI\\GUI\\GUI\\ViewModel\\AddMidFlightVM.cs",
+              "RelativeDocumentMoniker": "GUI\\GUI\\ViewModel\\AddMidFlightVM.cs",
+              "ToolTip": "C:\\Users\\Admin\\Downloads\\GUI\\GUI\\GUI\\ViewModel\\AddMidFlightVM.cs",
+              "RelativeToolTip": "GUI\\GUI\\ViewModel\\AddMidFlightVM.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAAUAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-11T12:41:14.569Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "AddFlightVM.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\Downloads\\GUI\\GUI\\GUI\\ViewModel\\AddFlightVM.cs",
+              "RelativeDocumentMoniker": "GUI\\GUI\\ViewModel\\AddFlightVM.cs",
+              "ToolTip": "C:\\Users\\Admin\\Downloads\\GUI\\GUI\\GUI\\ViewModel\\AddFlightVM.cs",
+              "RelativeToolTip": "GUI\\GUI\\ViewModel\\AddFlightVM.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA8AAAAwAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-11T12:41:00.008Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "TicketSale.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\Downloads\\GUI\\GUI\\GUI\\View\\TicketSale.xaml.cs",
+              "RelativeDocumentMoniker": "GUI\\GUI\\View\\TicketSale.xaml.cs",
+              "ToolTip": "C:\\Users\\Admin\\Downloads\\GUI\\GUI\\GUI\\View\\TicketSale.xaml.cs",
+              "RelativeToolTip": "GUI\\GUI\\View\\TicketSale.xaml.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA8AAAASAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-11T12:40:53.36Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "TicketSale.xaml",
+              "DocumentMoniker": "C:\\Users\\Admin\\Downloads\\GUI\\GUI\\GUI\\View\\TicketSale.xaml",
+              "RelativeDocumentMoniker": "GUI\\GUI\\View\\TicketSale.xaml",
+              "ToolTip": "C:\\Users\\Admin\\Downloads\\GUI\\GUI\\GUI\\View\\TicketSale.xaml",
+              "RelativeToolTip": "GUI\\GUI\\View\\TicketSale.xaml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABEAAAAeAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-05-11T12:40:46.499Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "Setting.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\Downloads\\GUI\\GUI\\GUI\\View\\Setting.xaml.cs",
+              "RelativeDocumentMoniker": "GUI\\GUI\\View\\Setting.xaml.cs",
+              "ToolTip": "C:\\Users\\Admin\\Downloads\\GUI\\GUI\\GUI\\View\\Setting.xaml.cs",
+              "RelativeToolTip": "GUI\\GUI\\View\\Setting.xaml.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA8AAAASAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-11T12:40:40.837Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "Setting.xaml",
+              "DocumentMoniker": "C:\\Users\\Admin\\Downloads\\GUI\\GUI\\GUI\\View\\Setting.xaml",
+              "RelativeDocumentMoniker": "GUI\\GUI\\View\\Setting.xaml",
+              "ToolTip": "C:\\Users\\Admin\\Downloads\\GUI\\GUI\\GUI\\View\\Setting.xaml",
+              "RelativeToolTip": "GUI\\GUI\\View\\Setting.xaml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAAYAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-05-11T12:40:32.441Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
+              "Title": "Schedules.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\Downloads\\GUI\\GUI\\GUI\\View\\Schedules.xaml.cs",
+              "RelativeDocumentMoniker": "GUI\\GUI\\View\\Schedules.xaml.cs",
+              "ToolTip": "C:\\Users\\Admin\\Downloads\\GUI\\GUI\\GUI\\View\\Schedules.xaml.cs",
+              "RelativeToolTip": "GUI\\GUI\\View\\Schedules.xaml.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA8AAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-11T12:40:15.779Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 27,
+              "Title": "Schedules.xaml",
+              "DocumentMoniker": "C:\\Users\\Admin\\Downloads\\GUI\\GUI\\GUI\\View\\Schedules.xaml",
+              "RelativeDocumentMoniker": "GUI\\GUI\\View\\Schedules.xaml",
+              "ToolTip": "C:\\Users\\Admin\\Downloads\\GUI\\GUI\\GUI\\View\\Schedules.xaml",
+              "RelativeToolTip": "GUI\\GUI\\View\\Schedules.xaml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABIAAAAEAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-05-11T12:40:11.079Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 26,
+              "Title": "Reports.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\Downloads\\GUI\\GUI\\GUI\\View\\Reports.xaml.cs",
+              "RelativeDocumentMoniker": "GUI\\GUI\\View\\Reports.xaml.cs",
+              "ToolTip": "C:\\Users\\Admin\\Downloads\\GUI\\GUI\\GUI\\View\\Reports.xaml.cs",
+              "RelativeToolTip": "GUI\\GUI\\View\\Reports.xaml.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA4AAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-11T12:40:07.257Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 28,
+              "Title": "Reports.xaml",
+              "DocumentMoniker": "C:\\Users\\Admin\\Downloads\\GUI\\GUI\\GUI\\View\\Reports.xaml",
+              "RelativeDocumentMoniker": "GUI\\GUI\\View\\Reports.xaml",
+              "ToolTip": "C:\\Users\\Admin\\Downloads\\GUI\\GUI\\GUI\\View\\Reports.xaml",
+              "RelativeToolTip": "GUI\\GUI\\View\\Reports.xaml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA8AAAAKAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-05-11T12:40:02.225Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 25,
+              "Title": "Flights.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\Downloads\\GUI\\GUI\\GUI\\View\\Flights.xaml.cs",
+              "RelativeDocumentMoniker": "GUI\\GUI\\View\\Flights.xaml.cs",
+              "ToolTip": "C:\\Users\\Admin\\Downloads\\GUI\\GUI\\GUI\\View\\Flights.xaml.cs",
+              "RelativeToolTip": "GUI\\GUI\\View\\Flights.xaml.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAAcAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-11T12:39:58.162Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 29,
+              "Title": "Flights.xaml",
+              "DocumentMoniker": "C:\\Users\\Admin\\Downloads\\GUI\\GUI\\GUI\\View\\Flights.xaml",
+              "RelativeDocumentMoniker": "GUI\\GUI\\View\\Flights.xaml",
+              "ToolTip": "C:\\Users\\Admin\\Downloads\\GUI\\GUI\\GUI\\View\\Flights.xaml",
+              "RelativeToolTip": "GUI\\GUI\\View\\Flights.xaml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABAAAAAKAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-05-11T12:39:52.938Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 24,
+              "Title": "Dashboard.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\Downloads\\GUI\\GUI\\GUI\\View\\Dashboard.xaml.cs",
+              "RelativeDocumentMoniker": "GUI\\GUI\\View\\Dashboard.xaml.cs",
+              "ToolTip": "C:\\Users\\Admin\\Downloads\\GUI\\GUI\\GUI\\View\\Dashboard.xaml.cs",
+              "RelativeToolTip": "GUI\\GUI\\View\\Dashboard.xaml.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAAgAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-11T12:39:48.835Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 30,
+              "Title": "Dashboard.xaml",
+              "DocumentMoniker": "C:\\Users\\Admin\\Downloads\\GUI\\GUI\\GUI\\View\\Dashboard.xaml",
+              "RelativeDocumentMoniker": "GUI\\GUI\\View\\Dashboard.xaml",
+              "ToolTip": "C:\\Users\\Admin\\Downloads\\GUI\\GUI\\GUI\\View\\Dashboard.xaml",
+              "RelativeToolTip": "GUI\\GUI\\View\\Dashboard.xaml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABAAAAArAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-05-11T12:39:43.444Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 31,
+              "Title": "AddMidFlight.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\Downloads\\GUI\\GUI\\GUI\\View\\Components\\AddMidFlight.xaml.cs",
+              "RelativeDocumentMoniker": "GUI\\GUI\\View\\Components\\AddMidFlight.xaml.cs",
+              "ToolTip": "C:\\Users\\Admin\\Downloads\\GUI\\GUI\\GUI\\View\\Components\\AddMidFlight.xaml.cs",
+              "RelativeToolTip": "GUI\\GUI\\View\\Components\\AddMidFlight.xaml.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAAjAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-11T12:39:39.62Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 32,
+              "Title": "AddMidFlight.xaml",
+              "DocumentMoniker": "C:\\Users\\Admin\\Downloads\\GUI\\GUI\\GUI\\View\\Components\\AddMidFlight.xaml",
+              "RelativeDocumentMoniker": "GUI\\GUI\\View\\Components\\AddMidFlight.xaml",
+              "ToolTip": "C:\\Users\\Admin\\Downloads\\GUI\\GUI\\GUI\\View\\Components\\AddMidFlight.xaml",
+              "RelativeToolTip": "GUI\\GUI\\View\\Components\\AddMidFlight.xaml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAAdAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-05-11T12:39:28.771Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 34,
+              "Title": "AddFlight.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\Downloads\\GUI\\GUI\\GUI\\View\\Components\\AddFlight.xaml.cs",
+              "RelativeDocumentMoniker": "GUI\\GUI\\View\\Components\\AddFlight.xaml.cs",
+              "ToolTip": "C:\\Users\\Admin\\Downloads\\GUI\\GUI\\GUI\\View\\Components\\AddFlight.xaml.cs",
+              "RelativeToolTip": "GUI\\GUI\\View\\Components\\AddFlight.xaml.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAAcAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-11T12:39:01.357Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 33,
+              "Title": "AddFlight.xaml",
+              "DocumentMoniker": "C:\\Users\\Admin\\Downloads\\GUI\\GUI\\GUI\\View\\Components\\AddFlight.xaml",
+              "RelativeDocumentMoniker": "GUI\\GUI\\View\\Components\\AddFlight.xaml",
+              "ToolTip": "C:\\Users\\Admin\\Downloads\\GUI\\GUI\\GUI\\View\\Components\\AddFlight.xaml",
+              "RelativeToolTip": "GUI\\GUI\\View\\Components\\AddFlight.xaml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAAeAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-05-11T12:38:51.797Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 35,
+              "Title": "ViewModelBase.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\Downloads\\GUI\\GUI\\GUI\\Utilities\\ViewModelBase.cs",
+              "RelativeDocumentMoniker": "GUI\\GUI\\Utilities\\ViewModelBase.cs",
+              "ToolTip": "C:\\Users\\Admin\\Downloads\\GUI\\GUI\\GUI\\Utilities\\ViewModelBase.cs",
+              "RelativeToolTip": "GUI\\GUI\\Utilities\\ViewModelBase.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAAXAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-11T12:38:43.667Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 39,
+              "Title": "RelayCommand.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\Downloads\\GUI\\GUI\\GUI\\Utilities\\RelayCommand.cs",
+              "RelativeDocumentMoniker": "GUI\\GUI\\Utilities\\RelayCommand.cs",
+              "ToolTip": "C:\\Users\\Admin\\Downloads\\GUI\\GUI\\GUI\\Utilities\\RelayCommand.cs",
+              "RelativeToolTip": "GUI\\GUI\\Utilities\\RelayCommand.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAABAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-11T12:38:22.098Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 37,
+              "Title": "DataTemplate.xaml",
+              "DocumentMoniker": "C:\\Users\\Admin\\Downloads\\GUI\\GUI\\GUI\\Utilities\\DataTemplate.xaml",
+              "RelativeDocumentMoniker": "GUI\\GUI\\Utilities\\DataTemplate.xaml",
+              "ToolTip": "C:\\Users\\Admin\\Downloads\\GUI\\GUI\\GUI\\Utilities\\DataTemplate.xaml",
+              "RelativeToolTip": "GUI\\GUI\\Utilities\\DataTemplate.xaml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAATAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-05-11T12:38:12.008Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 38,
+              "Title": "Btn.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\Downloads\\GUI\\GUI\\GUI\\Utilities\\Btn.cs",
+              "RelativeDocumentMoniker": "GUI\\GUI\\Utilities\\Btn.cs",
+              "ToolTip": "C:\\Users\\Admin\\Downloads\\GUI\\GUI\\GUI\\Utilities\\Btn.cs",
+              "RelativeToolTip": "GUI\\GUI\\Utilities\\Btn.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAAXAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-11T12:38:07.511Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 36,
+              "Title": "Text.xaml",
+              "DocumentMoniker": "C:\\Users\\Admin\\Downloads\\GUI\\GUI\\GUI\\Styles\\Text.xaml",
+              "RelativeDocumentMoniker": "GUI\\GUI\\Styles\\Text.xaml",
+              "ToolTip": "C:\\Users\\Admin\\Downloads\\GUI\\GUI\\GUI\\Styles\\Text.xaml",
+              "RelativeToolTip": "GUI\\GUI\\Styles\\Text.xaml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-05-11T12:38:04.565Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 40,
+              "Title": "Page.xaml",
+              "DocumentMoniker": "C:\\Users\\Admin\\Downloads\\GUI\\GUI\\GUI\\Styles\\Page.xaml",
+              "RelativeDocumentMoniker": "GUI\\GUI\\Styles\\Page.xaml",
+              "ToolTip": "C:\\Users\\Admin\\Downloads\\GUI\\GUI\\GUI\\Styles\\Page.xaml",
+              "RelativeToolTip": "GUI\\GUI\\Styles\\Page.xaml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-05-11T12:38:01.998Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 41,
+              "Title": "Image.xaml",
+              "DocumentMoniker": "C:\\Users\\Admin\\Downloads\\GUI\\GUI\\GUI\\Styles\\Image.xaml",
+              "RelativeDocumentMoniker": "GUI\\GUI\\Styles\\Image.xaml",
+              "ToolTip": "C:\\Users\\Admin\\Downloads\\GUI\\GUI\\GUI\\Styles\\Image.xaml",
+              "RelativeToolTip": "GUI\\GUI\\Styles\\Image.xaml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABEAAAAfAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-05-11T12:37:58.516Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 42,
+              "Title": "Button.xaml",
+              "DocumentMoniker": "C:\\Users\\Admin\\Downloads\\GUI\\GUI\\GUI\\Styles\\Button.xaml",
+              "RelativeDocumentMoniker": "GUI\\GUI\\Styles\\Button.xaml",
+              "ToolTip": "C:\\Users\\Admin\\Downloads\\GUI\\GUI\\GUI\\Styles\\Button.xaml",
+              "RelativeToolTip": "GUI\\GUI\\Styles\\Button.xaml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABgAAAAzAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-05-11T12:37:39.475Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 43,
+              "Title": "Schedules.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\Downloads\\GUI\\GUI\\GUI\\Model\\Schedules.cs",
+              "RelativeDocumentMoniker": "GUI\\GUI\\Model\\Schedules.cs",
+              "ToolTip": "C:\\Users\\Admin\\Downloads\\GUI\\GUI\\GUI\\Model\\Schedules.cs",
+              "RelativeToolTip": "GUI\\GUI\\Model\\Schedules.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAAFAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-11T12:37:32.436Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 44,
+              "Title": "Report.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\Downloads\\GUI\\GUI\\GUI\\Model\\Report.cs",
+              "RelativeDocumentMoniker": "GUI\\GUI\\Model\\Report.cs",
+              "ToolTip": "C:\\Users\\Admin\\Downloads\\GUI\\GUI\\GUI\\Model\\Report.cs",
+              "RelativeToolTip": "GUI\\GUI\\Model\\Report.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAAXAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-11T12:37:28.84Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 45,
+              "Title": "PageModel.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\Downloads\\GUI\\GUI\\GUI\\Model\\PageModel.cs",
+              "RelativeDocumentMoniker": "GUI\\GUI\\Model\\PageModel.cs",
+              "ToolTip": "C:\\Users\\Admin\\Downloads\\GUI\\GUI\\GUI\\Model\\PageModel.cs",
+              "RelativeToolTip": "GUI\\GUI\\Model\\PageModel.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAAaAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-11T12:37:20.961Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 46,
+              "Title": "MidAirport.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\Downloads\\GUI\\GUI\\GUI\\Model\\MidAirport.cs",
+              "RelativeDocumentMoniker": "GUI\\GUI\\Model\\MidAirport.cs",
+              "ToolTip": "C:\\Users\\Admin\\Downloads\\GUI\\GUI\\GUI\\Model\\MidAirport.cs",
+              "RelativeToolTip": "GUI\\GUI\\Model\\MidAirport.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAAFAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-11T12:37:08.181Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 47,
+              "Title": "Flight.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\Downloads\\GUI\\GUI\\GUI\\Model\\Flight.cs",
+              "RelativeDocumentMoniker": "GUI\\GUI\\Model\\Flight.cs",
+              "ToolTip": "C:\\Users\\Admin\\Downloads\\GUI\\GUI\\GUI\\Model\\Flight.cs",
+              "RelativeToolTip": "GUI\\GUI\\Model\\Flight.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAAFAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-11T12:36:59.199Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
