@@ -270,6 +270,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Login.xaml.cs">
+      <DependentUpon>Login.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Model\Flight.cs" />
     <Compile Include="Model\MidAirport.cs" />
     <Compile Include="Model\Report.cs" />
@@ -310,6 +313,10 @@
     <Compile Include="View\TicketSale.xaml.cs">
       <DependentUpon>TicketSale.xaml</DependentUpon>
     </Compile>
+    <Page Include="Login.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
