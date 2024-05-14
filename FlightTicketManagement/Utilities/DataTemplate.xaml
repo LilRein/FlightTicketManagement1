@@ -1,0 +1,30 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:vm="clr-namespace:FlightTicketManagement.ViewModel"
+                    xmlns:view="clr-namespace:FlightTicketManagement.View">
+
+    <DataTemplate DataType="{x:Type vm:DashboardVM}">
+        <view:Dashboard/>
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type vm:SchedulesVM}">
+        <view:Schedules/>
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type vm:TicketSaleVM}">
+        <view:TicketSale/>
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type vm:FlightsVM}">
+        <view:Flights/>
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type vm:ReportsVM}">
+        <view:Reports/>
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type vm:SettingVM}">
+        <view:Setting/>
+    </DataTemplate>
+
+</ResourceDictionary>
