@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LibraryManagement.Model
+namespace FlightTicketManagement.Model
 {
     public class DataProvider
     {
