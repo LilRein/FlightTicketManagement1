@@ -165,26 +165,26 @@
                           Style="{DynamicResource DataGridStyle}"
                           CellStyle="{DynamicResource DataGridCellStyle}"
                           RowStyle="{DynamicResource DataGridRowStyle}"
-                          ColumnHeaderStyle="{StaticResource DataGridColumnHeaderStyle}">
+                          ColumnHeaderStyle="{StaticResource DataGridColumnHeaderStyle}" SelectionChanged="DataGridCustomer_SelectionChanged">
                             <DataGrid.Columns>
                                 <DataGridTextColumn Header="Mã chuyến bay"
                                             IsReadOnly="True"
                                             Width="*"
-                                            Binding="{Binding FlightID}"
+                                            Binding="{Binding MaChuyenBay}"
                                             />
-                                <DataGridTextColumn Header="Khởi hành"
+                                <DataGridTextColumn Header="Mã sân bay đi"
                                             IsReadOnly="True"
                                             Width="*"
-                                            Binding="{Binding StartAirport}"/>
-                                <DataGridTextColumn Header="Kết thúc"
+                                            Binding="{Binding MaSanBayDi}"/>
+                                <DataGridTextColumn Header="Mã sân bay đến"
                                             IsReadOnly="True"
                                             Width="*"
-                                            Binding="{Binding EndAirport}"/>
+                                            Binding="{Binding MaSanBayDen}"/>
+                                <DataGridTextColumn Header="Ngày bay"
+                                            IsReadOnly="True"
+                                            Width="*"
+                                            Binding="{Binding Gio}"/>
                                 <DataGridTextColumn Header="Giờ khởi hành"
-                                            IsReadOnly="True"
-                                            Width="*"
-                                            Binding="{Binding StartHour}"/>
-                                <DataGridTextColumn Header="Số ghế"
                                             IsReadOnly="True"
                                             Width="*"
                                             Binding="{Binding EndHour}"/>

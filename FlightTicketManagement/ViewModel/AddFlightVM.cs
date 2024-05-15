@@ -9,6 +9,7 @@ using System.Windows.Input;
 using System.Windows;
 using FlightTicketManagement.View.Components;
 using FlightTicketManagement.Model;
+using LibraryManagement.Model;
 
 namespace FlightTicketManagement.ViewModel
 {
@@ -21,9 +22,62 @@ namespace FlightTicketManagement.ViewModel
         public ObservableCollection<CHITIETHANGVE> CHITIETHANGVEList { get => _CHITIETHANGVEList; set { _CHITIETHANGVEList = value; OnPropertyChanged(); } }
 
         private CHUYENBAY _SelectedCHUYENBAY;
+        public CHUYENBAY SelectedCHUYENBAY
+        {
+            get => _SelectedCHUYENBAY;
+            set
+            {
+                _SelectedCHUYENBAY = value;
+                OnPropertyChanged();
 
-        public CHUYENBAY SelectedCHUYENBAY;
+                if (SelectedCHUYENBAY != null)
+                {
+                    MaChuyenBay = SelectedCHUYENBAY.MaChuyenBay;
+                    MaSanBayDi = SelectedCHUYENBAY.MaSanBayDi;
+                    MaSanBayDen = SelectedCHUYENBAY.MaSanBayDen;
+                    NgayBay = SelectedCHUYENBAY.NgayBay;
+                    GioKhoiHanh = SelectedCHUYENBAY.GioKhoiHanh;
+                    ThoiLuong = SelectedCHUYENBAY.ThoiLuong;
+                }
+            }
+        }
 
+        private CHITIETHANGVE _SelectedCHITIETHANGVE;
+        public CHITIETHANGVE SelectedCHITIETHANGVE
+        {
+            get => _SelectedCHITIETHANGVE;
+            set
+            {
+                _SelectedCHITIETHANGVE = value;
+                OnPropertyChanged();
+
+                if (SelectedCHITIETHANGVE != null)
+                {
+                    SoGheChoHangVe = SelectedCHITIETHANGVE.SoGheChoHangVe;
+                }
+            }
+        }
+
+        private string _MaChuyenBay;
+        public string MaChuyenBay { get => _MaChuyenBay; set { _MaChuyenBay = value; OnPropertyChanged(); } }
+
+        private string _MaSanBayDi;
+        public string MaSanBayDi { get => _MaSanBayDi; set { _MaSanBayDi = value; OnPropertyChanged(); } }
+
+        private string _MaSanBayDen;
+        public string MaSanBayDen { get => _MaSanBayDen; set { _MaSanBayDen = value; OnPropertyChanged(); } }
+
+        private DateTime _NgayBay;
+        public DateTime NgayBay { get => _NgayBay; set { _NgayBay = value; OnPropertyChanged(); } }
+
+        private TimeSpan _GioKhoiHanh;
+        public TimeSpan GioKhoiHanh { get => _GioKhoiHanh; set { _GioKhoiHanh = value; OnPropertyChanged(); } }
+
+        private double _ThoiLuong;
+        public double ThoiLuong { get => _ThoiLuong; set { _ThoiLuong = value; OnPropertyChanged(); } }
+
+        private int _SoGheChoHangVe;
+        public int SoGheChoHangVe { get => _SoGheChoHangVe; set { _SoGheChoHangVe = value; OnPropertyChanged(); } }
 
         public ICommand AddCommand { get; set; }
         public ICommand CloseAACM { get; set; }
@@ -33,17 +87,11 @@ namespace FlightTicketManagement.ViewModel
 
         public AddFlightVM()
         {
-            FlightItemList = new ObservableCollection<string>
-            {
-                "Sân bay quốc tế Tân Sơn Nhất",
-                "Sân bay quốc tế Vân Đồn",
-                "Sân bay quốc tế Nội Bài",
-                "Sân bay quốc tế Cát Bi",
+            CHUYENBAYList = new ObservableCollection<CHUYENBAY>();
+            CHITIETHANGVEList = new ObservableCollection<CHITIETHANGVE>();
 
-            };
-            CloseAACM = new RelayCommand<AddFlight>((p) => true, (p) => _CloseAACM(p));
-            ConfirmCommand = new RelayCommand<AddFlight>((p) => true, (p) => _ConfirmCommand(p));
-            CancelCommand = new RelayCommand<AddFlight>((p) => true, (p) => _CancelCommand(p));
+
+
         }
 
         private ObservableCollection<string> _flightItemList;

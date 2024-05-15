@@ -16,13 +16,14 @@ namespace FlightTicketManagement.ViewModel
     class SchedulesVM : Utilities.ViewModelBase
     {
         private readonly PageModel _pageModel;
+        
+        private ObservableCollection<Model.Schedules> _flightList;
+
         public string Schedules
         {
             get { return _pageModel.Schedule; }
             set { _pageModel.Schedule = value; OnPropertyChanged(); }
         }
-
-        private ObservableCollection<Model.Schedules> _flightList;
 
         public ObservableCollection<Model.Schedules> FlightList
         {
