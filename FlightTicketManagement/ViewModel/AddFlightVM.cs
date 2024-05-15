@@ -8,11 +8,23 @@ using System.Threading.Tasks;
 using System.Windows.Input;
 using System.Windows;
 using FlightTicketManagement.View.Components;
+using FlightTicketManagement.Model;
 
 namespace FlightTicketManagement.ViewModel
 {
     class AddFlightVM : Utilities.ViewModelBase
     {
+        private ObservableCollection<CHUYENBAY> _CHUYENBAYList;
+        public ObservableCollection<CHUYENBAY> CHUYENBAYList { get => _CHUYENBAYList; set { _CHUYENBAYList = value; OnPropertyChanged(); } }
+
+        private ObservableCollection<CHITIETHANGVE> _CHITIETHANGVEList;
+        public ObservableCollection<CHITIETHANGVE> CHITIETHANGVEList { get => _CHITIETHANGVEList; set { _CHITIETHANGVEList = value; OnPropertyChanged(); } }
+
+        private CHUYENBAY _SelectedCHUYENBAY;
+
+        public CHUYENBAY SelectedCHUYENBAY;
+
+
         public ICommand AddCommand { get; set; }
         public ICommand CloseAACM { get; set; }
 
