@@ -26,7 +26,7 @@ namespace FlightTicketManagement
 
         private void LoginBtnClick(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("Clicked");
+            MessageBox.Show("Bạn nhập sai");
         }
 
         private void BtnClose_Click(object sender, RoutedEventArgs e)
