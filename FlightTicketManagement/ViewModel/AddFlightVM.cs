@@ -9,7 +9,6 @@ using System.Windows.Input;
 using System.Windows;
 using FlightTicketManagement.View.Components;
 using FlightTicketManagement.Model;
-using LibraryManagement.Model;
 
 namespace FlightTicketManagement.ViewModel
 {

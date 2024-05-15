@@ -435,6 +435,7 @@
                                     </Grid.RowDefinitions>
 
                                     <TextBox
+                                        Text="{Binding MaHangVe, UpdateSourceTrigger=PropertyChanged}"
                                         Grid.Row="0"
                                         VerticalAlignment="Center"
                                         FontFamily="Poppins"
@@ -443,6 +444,7 @@
                                         TextAlignment="Left" />
 
                                     <TextBox
+                                        Text="{Binding TenHangVe, UpdateSourceTrigger=PropertyChanged}"
                                         Grid.Row="1"
                                         VerticalAlignment="Center"
                                         FontFamily="Poppins"
@@ -450,6 +452,7 @@
                                         FontWeight="SemiBold"
                                         TextAlignment="Left" />
                                     <TextBox
+                                        Text="{Binding TileGiaVe, UpdateSourceTrigger=PropertyChanged}"
                                         Grid.Row="2"
                                         VerticalAlignment="Center"
                                         FontFamily="Poppins"
@@ -461,6 +464,7 @@
                             </Grid>
 
                             <Button
+                                Command="{Binding AddCommand}"
                                 Grid.Row="2"
                                 Width="100"
                                 IsEnabled="{Binding Editting}">
@@ -566,6 +570,7 @@
 
                             </Grid>
                             <Button
+                                Command="{Binding EditCommand}"
                                 Grid.Row="2"
                                 Width="100"
                                 IsEnabled="{Binding Editting}">
@@ -644,6 +649,7 @@
 
                             </Grid>
                             <Button
+                                Command="{Binding DeleteCommand}"
                                 Grid.Row="2"
                                 Width="100"
                                 IsEnabled="{Binding Editting}">
@@ -664,6 +670,8 @@
                             BorderBrush="Black"
                             BorderThickness="1">
                             <DataGrid
+                                ItemsSource="{Binding List}"
+                                SelectedItem="{Binding SelectedItem, Mode=OneWayToSource}"
                                 HorizontalAlignment="Center"
                                 Background="WhiteSmoke"
                                 GridLinesVisibility="Horizontal"
@@ -672,14 +680,17 @@
                                 VerticalScrollBarVisibility="Auto">
                                 <DataGrid.Columns>
                                     <DataGridTextColumn
+                                        SortMemberPath="MaHangVe"
                                         Width="*"
                                         Header="Mã hạng vé"
                                         SortDirection="Ascending" />
                                     <DataGridTextColumn
+                                        SortMemberPath="TenHangVe"
                                         Width="2*"
                                         Header="Tên hạng vé"
                                         SortDirection="Ascending" />
                                     <DataGridTextColumn
+                                        SortMemberPath="TiLeGiaVe"
                                         Width="*"
                                         Header="Tỉ lệ giá vé"
                                         SortDirection="Ascending" />
