@@ -284,6 +284,7 @@
     <Compile Include="ViewModel\AddMidFlightVM.cs" />
     <Compile Include="ViewModel\DashboardVM.cs" />
     <Compile Include="ViewModel\FlightsVM.cs" />
+    <Compile Include="ViewModel\LoginVM.cs" />
     <Compile Include="ViewModel\NavigationVM.cs" />
     <Compile Include="ViewModel\ReportsVM.cs" />
     <Compile Include="ViewModel\SchedulesVM.cs" />

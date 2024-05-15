@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:FlightTicketManagement"
+        xmlns:vm="clr-namespace:FlightTicketManagement.ViewModel"
         xmlns:MaterialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
         Title="Login" 
@@ -66,6 +67,10 @@
 
     </Window.Resources>
 
+    <Window.DataContext>
+        <vm:LoginVM/>
+    </Window.DataContext>
+    
     <Grid>
         <Border Background="#F8B6B8"
             CornerRadius="20">
@@ -176,7 +181,7 @@
                       Width="435"
                       Margin="0,10,0,0">
                         <Button Content="LOG IN"
-                            Click="LoginBtnClick"
+                            Command="{Binding _LoginCommand}"
                             Style="{StaticResource LogIn}"/>
 
                     </Grid>
