@@ -3,6 +3,7 @@ using FlightTicketManagement.Utilities;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -40,8 +41,8 @@ namespace FlightTicketManagement.ViewModel
         public string TenHangVe { get => _TenHangVe; set { _TenHangVe = value; OnPropertyChanged(); } }
 
 
-        private string _TiLeGiaVe;
-        public string TiLeGiaVe { get => _TiLeGiaVe; set { _TiLeGiaVe = value; OnPropertyChanged(); } }
+        private double _TiLeGiaVe;
+        public double TiLeGiaVe { get => _TiLeGiaVe; set { _TiLeGiaVe = value; OnPropertyChanged(); } }
 
 
         public ICommand AddCommand { get; set; }
@@ -57,7 +58,7 @@ namespace FlightTicketManagement.ViewModel
 
             }, (p) =>
             {
-                var Setting = new SettingVM() { MaHangVe = MaHangVe, TenHangVe = TenHangVe, TiLeGiaVe = TiLeGiaVe}
+                var Setting = new SettingVM() { MaHangVe = MaHangVe, TenHangVe = TenHangVe, TiLeGiaVe = TiLeGiaVe };
                 DataProvider.Ins.DB.HANGVEs.Add(Setting);
                 DataProvider.Ins.DB.SaveChanges();
 
@@ -89,4 +90,5 @@ namespace FlightTicketManagement.ViewModel
             //    SelectedItem.DisplayName = DisplayName;
             //});
         }
+    }
 }
