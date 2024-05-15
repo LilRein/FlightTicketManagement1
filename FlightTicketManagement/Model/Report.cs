@@ -8,10 +8,38 @@ namespace FlightTicketManagement.Model
 {
     public class Report
     {
-        public string Rank { get; set; }
-        public string FullName { get; set; }
-        public string TicketNum { get; set; }
-        public string Profit { get; set; }
-        public string Ratio { get; set; }
+        private string rank;
+        public string Rank {
+            get { return rank; }
+            set { rank = value; }
+        }
+
+        private string fullname;
+        public string FullName
+        {
+            get { return fullname; }
+            set { fullname = value; }
+        }
+
+        private string ticketnum;
+        public string TicketNum
+        {
+            get { return ticketnum; }
+            set { ticketnum = value; }
+        }
+
+        private string profit;
+        public string Profit
+        {
+            get { return profit; }
+            set { profit = value; }
+        }
+
+        private string ratio;
+        public string Ratio
+        {
+            get { return ratio; }
+            set { ratio = value; }
+        }
     }
 }
