@@ -1,9 +1,9 @@
-﻿using System;
+﻿using FlightTicketManagement.Utilities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using FlightTicketManagement.Utilities;
 using System.Windows.Input;
 
 namespace FlightTicketManagement.ViewModel
@@ -11,8 +11,8 @@ namespace FlightTicketManagement.ViewModel
     class NavigationVM : ViewModelBase
     {
         private object _currentView;
-        public object CurrentView 
-        { 
+        public object CurrentView
+        {
             get { return _currentView; }
             set { _currentView = value; OnPropertyChanged(); }
         }
@@ -21,8 +21,8 @@ namespace FlightTicketManagement.ViewModel
         public ICommand ScheduleCommand { get; set; }
         public ICommand TicketSaleCommand { get; set; }
         public ICommand FlightCommand { get; set; }
-        public ICommand ReportCommand {  get; set; }
-        public ICommand SettingCommand {  get; set; }
+        public ICommand ReportCommand { get; set; }
+        public ICommand SettingCommand { get; set; }
 
         private void Dashboard(object obj) => CurrentView = new DashboardVM();
         private void Schedule(object obj) => CurrentView = new SchedulesVM();
@@ -36,7 +36,7 @@ namespace FlightTicketManagement.ViewModel
             DashboardCommand = new RelayCommand(Dashboard);
             ScheduleCommand = new RelayCommand(Schedule);
             TicketSaleCommand = new RelayCommand(TicketSale);
-            FlightCommand = new RelayCommand(Flight);   
+            FlightCommand = new RelayCommand(Flight);
             ReportCommand = new RelayCommand(Report);
             SettingCommand = new RelayCommand(Setting);
 

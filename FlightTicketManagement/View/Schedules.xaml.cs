@@ -1,4 +1,6 @@
-﻿using System;
+﻿using FlightTicketManagement.View.Components;
+using FlightTicketManagement.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,7 +14,6 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using FlightTicketManagement.View.Components;
 
 namespace FlightTicketManagement.View
 {
@@ -25,7 +26,6 @@ namespace FlightTicketManagement.View
         {
             InitializeComponent();
         }
-
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             AddFlight addFlight = new AddFlight();
@@ -40,6 +40,11 @@ namespace FlightTicketManagement.View
         }
 
         private void AddMidFlight(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void DataGridCustomer_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 
         }

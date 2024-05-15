@@ -1,14 +1,14 @@
-﻿using System;
+﻿using FlightTicketManagement.Model;
+using FlightTicketManagement.Utilities;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows;
+using System.Windows.Forms;
 using System.Windows.Input;
-using FlightTicketManagement.Model;
-using FlightTicketManagement.Utilities;
-using FlightTicketManagement.View;
+using System.Windows;
 using FlightTicketManagement.View.Components;
 
 namespace FlightTicketManagement.ViewModel
@@ -16,13 +16,14 @@ namespace FlightTicketManagement.ViewModel
     class SchedulesVM : Utilities.ViewModelBase
     {
         private readonly PageModel _pageModel;
+        
+        private ObservableCollection<Model.Schedules> _flightList;
+
         public string Schedules
         {
             get { return _pageModel.Schedule; }
             set { _pageModel.Schedule = value; OnPropertyChanged(); }
         }
-
-        private ObservableCollection<Model.Schedules> _flightList;
 
         public ObservableCollection<Model.Schedules> FlightList
         {
@@ -34,7 +35,7 @@ namespace FlightTicketManagement.ViewModel
             }
         }
 
-        
+
 
         private ObservableCollection<Model.MidAirport> _midflightList;
 
@@ -89,7 +90,7 @@ namespace FlightTicketManagement.ViewModel
         {
             _pageModel = new PageModel();
 
-            
+
 
             InitalizeCommand();
         }

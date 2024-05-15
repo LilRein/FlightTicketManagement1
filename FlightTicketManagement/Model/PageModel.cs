@@ -11,7 +11,7 @@ namespace FlightTicketManagement.Model
         public string Username { get; set; }
         public string Schedule { get; set; }
         public int TicketSale { get; set; }
-        public string Flight {  get; set; }
+        public string Flight { get; set; }
         public string Report { get; set; }
         public string Setting { get; set; }
     }

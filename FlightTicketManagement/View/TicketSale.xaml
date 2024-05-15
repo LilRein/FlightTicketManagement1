@@ -10,16 +10,14 @@
              d:DesignHeight="800" 
              d:DesignWidth="1192"
              Style="{StaticResource Page_Style}"
-             x:Name="Ticketsale"
-             >
-
+             x:Name="Ticketsale">
     <UserControl.DataContext>
-        <vm:TicketSaleVM />
+        <vm:TicketSaleVM/>
     </UserControl.DataContext>
-
+    
     <UserControl.Resources>
         <Style x:Key="Title"
-           TargetType="TextBlock">
+   TargetType="TextBlock">
             <Setter Property="FontSize" Value="25" />
             <Setter Property="FontFamily" Value="Roboto"/>
             <Setter Property="FontWeight" Value="Medium"/>
@@ -49,8 +47,8 @@
 
     <Grid>
         <Border CornerRadius="0 20 20 0"
-                Background="#F3EEEA"
-                Padding="50">
+        Background="#F3EEEA"
+        Padding="50">
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="*"/>
@@ -64,7 +62,7 @@
                     </Grid.ColumnDefinitions>
                     <!-- Vé chuyến bay -->
                     <Grid Grid.Column="0"
-                          Margin="10 0 15 0">
+                  Margin="10 0 15 0">
                         <Grid.RowDefinitions>
                             <RowDefinition Height="*"/>
                             <RowDefinition Height="*"/>
@@ -75,12 +73,12 @@
                         </Grid.RowDefinitions>
                         <!-- Title vé chuyến bay -->
                         <TextBlock Grid.Row="0"
-                                   Text="Vé chuyến bay"
-                                   FontFamily="Roboto"
-                                   FontSize="50"
-                                   FontWeight="DemiBold"
-                                   HorizontalAlignment="Center"
-                                   VerticalAlignment="Center"/>
+                           Text="Vé chuyến bay"
+                           FontFamily="Roboto"
+                           FontSize="50"
+                           FontWeight="DemiBold"
+                           HorizontalAlignment="Center"
+                           VerticalAlignment="Center"/>
                         <!-- Mã chuyến bay -->
                         <Grid Grid.Row="1">
                             <Grid.RowDefinitions>
@@ -88,16 +86,16 @@
                                 <RowDefinition Height="*"/>
                             </Grid.RowDefinitions>
                             <TextBlock Grid.Row="0"
-                                       Style="{StaticResource Title}"
-                                       Text="Mã chuyến bay"/>
+                               Style="{StaticResource Title}"
+                               Text="Mã chuyến bay"/>
                             <ComboBox Grid.Row="1"
-                                      x:Name="ListFlightID"
-                                      ItemsSource="{Binding FlightItemList}"
-                                      FontSize="21"
-                                      Foreground="#555"
-                                      materialDesign:HintAssist.Hint="Hãy chọn mã chuyến bay"/>
+                              x:Name="ListFlightID"
+                              ItemsSource="{Binding FlightItemList}"
+                              FontSize="21"
+                              Foreground="#555"
+                              materialDesign:HintAssist.Hint="Hãy chọn mã chuyến bay"/>
                         </Grid>
-                        
+
                         <!-- Sân bay đi -->
                         <Grid Grid.Row="2">
                             <Grid.RowDefinitions>
@@ -105,13 +103,14 @@
                                 <RowDefinition Height="*"/>
                             </Grid.RowDefinitions>
                             <TextBlock Grid.Row="0"
-                                       Text="Sân bay đi"
-                                       Style="{StaticResource Title}"/>
+                               Text="Sân bay đi"
+                               Style="{StaticResource Title}"/>
                             <TextBox Grid.Row="1"
-                                     x:Name="StartAirport"
-                                     Style="{StaticResource Input}"/> <!-- Chỗ này không biết nên combo hay nhập -->
+                             x:Name="StartAirport"
+                             Style="{StaticResource Input}"/>
+                            <!-- Chỗ này không biết nên combo hay nhập -->
                         </Grid>
-                        
+
                         <!-- Sân bay đến -->
                         <Grid Grid.Row="3">
                             <Grid.RowDefinitions>
@@ -119,14 +118,14 @@
                                 <RowDefinition Height="*"/>
                             </Grid.RowDefinitions>
                             <TextBlock Grid.Row="0"
-                                       Style="{StaticResource Title}"
-                                       Text="Sân bay đến"/>
+                               Style="{StaticResource Title}"
+                               Text="Sân bay đến"/>
                             <TextBox Grid.Row="1"
-                                     x:Name="EndAirport"
-                                     Style="{StaticResource Input}"
-                                     />
+                             x:Name="EndAirport"
+                             Style="{StaticResource Input}"
+                             />
                         </Grid>
-                        
+
                         <!-- Ngày giờ -->
                         <Grid Grid.Row="4">
                             <Grid.RowDefinitions>
@@ -134,13 +133,21 @@
                                 <RowDefinition Height="*"/>
                             </Grid.RowDefinitions>
                             <TextBlock Grid.Row="0"
-                                       Style="{StaticResource Title}"
-                                       Text="Ngày giờ"/>
-                            <TextBox Grid.Row="1"
-                                     x:Name="DateTime"
-                                     Style="{StaticResource Input}"/>
+                               Style="{StaticResource Title}"
+                               Text="Ngày giờ"/>
+                            <Grid Grid.Row="1">
+                                <DatePicker x:Name="FlightDatePicker"
+                                    Margin="0 5 0 0" 
+                                    HorizontalAlignment="Left" 
+                                    VerticalAlignment="Center"/>
+                                <materialDesign:TimePicker 
+                                    x:Name="FlightTimePicker" 
+                                    Margin="100 5 0 0" 
+                                    HorizontalAlignment="Left"
+                                    VerticalAlignment="Center"/>
+                            </Grid>
                         </Grid>
-                        
+
                         <!-- Tình trạng vé -->
                         <Grid Grid.Row="5">
                             <Grid.RowDefinitions>
@@ -148,22 +155,22 @@
                                 <RowDefinition Height="*"/>
                             </Grid.RowDefinitions>
                             <TextBlock Grid.Row="0"
-                                       Style="{StaticResource Title}"
-                                       Text="Tình trạng vé"/>
+                               Style="{StaticResource Title}"
+                               Text="Tình trạng vé"/>
                             <Border Grid.Row="1"
-                                    BorderThickness="0 0 0 1"
-                                    BorderBrush="#000"
-                                    Margin="0 0 0 13">
+                            BorderThickness="0 0 0 1"
+                            BorderBrush="#000"
+                            Margin="0 0 0 13">
                                 <TextBlock Grid.Row="1"
-                                           x:Name="IsAvaiTicket"
-                                           Style="{StaticResource Status}"
-                                           Text="{Binding IsAvailableTicket}"/>
+                                   x:Name="IsAvaiTicket"
+                                   Style="{StaticResource Status}"
+                                   Text="{Binding IsAvailableTicket}"/>
                             </Border>
                         </Grid>
                     </Grid>
                     <!-- Hành khách -->
                     <Grid Grid.Column="1"
-                          Margin="15 0 10 0">
+                  Margin="15 0 10 0">
                         <Grid.RowDefinitions>
                             <RowDefinition Height="*"/>
                             <RowDefinition Height="*"/>
@@ -174,13 +181,13 @@
                         </Grid.RowDefinitions>
                         <!-- Titile hành khách -->
                         <TextBlock Grid.Row="0"
-                                   Text="Thông tin khách hàng"
-                                   FontFamily="Roboto"
-                                   FontSize="50"
-                                   FontWeight="DemiBold"
-                                   HorizontalAlignment="Center"
-                                   VerticalAlignment="Center"/>
-                        
+                           Text="Thông tin khách hàng"
+                           FontFamily="Roboto"
+                           FontSize="50"
+                           FontWeight="DemiBold"
+                           HorizontalAlignment="Center"
+                           VerticalAlignment="Center"/>
+
                         <!-- Mã hành khách -->
                         <Grid Grid.Row="1">
                             <Grid.RowDefinitions>
@@ -188,15 +195,15 @@
                                 <RowDefinition Height="*"/>
                             </Grid.RowDefinitions>
                             <TextBlock Grid.Row="0"
-                                       Style="{StaticResource Title}"
-                                       Text="Mã hành khách"/>
+                               Style="{StaticResource Title}"
+                               Text="Mã hành khách"/>
                             <TextBox Grid.Row="1"
-                                     x:Name="CustomerID"
-                                     Style="{StaticResource Input}"
-                                     PreviewTextInput="InputFlightID_PreviewTextInput"
-                                     PreviewKeyDown="InputFlightID_PreviewKeyDown"/>
+                             x:Name="CustomerID"
+                             Style="{StaticResource Input}"
+                             PreviewTextInput="InputFlightID_PreviewTextInput"
+                             PreviewKeyDown="InputFlightID_PreviewKeyDown"/>
                         </Grid>
-                        
+
                         <!-- Hành khách -->
                         <Grid Grid.Row="2">
                             <Grid.RowDefinitions>
@@ -204,13 +211,13 @@
                                 <RowDefinition Height="*"/>
                             </Grid.RowDefinitions>
                             <TextBlock Grid.Row="0"
-                                       Style="{StaticResource Title}"
-                                       Text="Hành khách"/>
+                               Style="{StaticResource Title}"
+                               Text="Hành khách"/>
                             <TextBox Grid.Row="1"
-                                     x:Name="NameCustomer"
-                                     Style="{StaticResource Input}"/>
+                             x:Name="NameCustomer"
+                             Style="{StaticResource Input}"/>
                         </Grid>
-                        
+
                         <!-- CMND/CCCD -->
                         <Grid Grid.Row="3">
                             <Grid.RowDefinitions>
@@ -218,14 +225,14 @@
                                 <RowDefinition Height="*"/>
                             </Grid.RowDefinitions>
                             <TextBlock Grid.Row="0"
-                                       Style="{StaticResource Title}"
-                                       Text="CMND/CCCD"/>
+                               Style="{StaticResource Title}"
+                               Text="CMND/CCCD"/>
                             <TextBox Grid.Row="1"
-                                     x:Name="InputInfor"
-                                     Style="{StaticResource Input}"
-                                     />
+                             x:Name="InputInfor"
+                             Style="{StaticResource Input}"
+                             />
                         </Grid>
-                        
+
                         <!-- SDT -->
                         <Grid Grid.Row="4">
                             <Grid.RowDefinitions>
@@ -233,14 +240,14 @@
                                 <RowDefinition Height="*"/>
                             </Grid.RowDefinitions>
                             <TextBlock Grid.Row="0"
-                                       Style="{StaticResource Title}"
-                                       Text="Điện thoại"/>
+                               Style="{StaticResource Title}"
+                               Text="Điện thoại"/>
                             <TextBox Grid.Row="1"
-                                     x:Name="PhoneNumber"
-                                     Style="{StaticResource Input}"
-                                     />
+                             x:Name="PhoneNumber"
+                             Style="{StaticResource Input}"
+                             />
                         </Grid>
-                        
+
                         <!-- Hạng vé -->
                         <Grid Grid.Row="5">
                             <Grid.RowDefinitions>
@@ -248,13 +255,13 @@
                                 <RowDefinition Height="*"/>
                             </Grid.RowDefinitions>
                             <TextBlock Grid.Row="0"
-                                       Style="{StaticResource Title}"
-                                       Text="Hạng vé"/>
+                               Style="{StaticResource Title}"
+                               Text="Hạng vé"/>
                             <ComboBox x:Name="TicketClass"
-                                      Grid.Row="1"
-                                      FontSize="21"
-                                      Foreground="#555"
-                                      materialDesign:HintAssist.Hint="Hãy chọn hạng vé">
+                              Grid.Row="1"
+                              FontSize="21"
+                              Foreground="#555"
+                              materialDesign:HintAssist.Hint="Hãy chọn hạng vé">
 
                                 <ComboBoxItem Content="HV1"/>
                                 <ComboBoxItem Content="HV2"/>
@@ -274,16 +281,16 @@
                             <RowDefinition Height="*"/>
                         </Grid.RowDefinitions>
                         <TextBlock Grid.Row="0"
-                                   
-                                   Style="{StaticResource Title}"
-                                   Text="Giá tiền"
-                                   HorizontalAlignment="Center"/>
+                           
+                           Style="{StaticResource Title}"
+                           Text="Giá tiền"
+                           HorizontalAlignment="Center"/>
                         <Border Grid.Row="1"
-                                BorderThickness="0 0 0 1"
-                                BorderBrush="#000"
-                                Width="400">
+                        BorderThickness="0 0 0 1"
+                        BorderBrush="#000"
+                        Width="400">
                             <TextBlock x:Name="Cost"
-                                       Style="{StaticResource Status}"/>
+                               Style="{StaticResource Status}"/>
                         </Border>
                     </Grid>
                     <Grid Grid.Row="1">
@@ -293,31 +300,31 @@
                         </Grid.ColumnDefinitions>
 
                         <Button Grid.Column="0"
-                                Style="{StaticResource confirmButton}"
-                                Height="50"
-                                Width="200">
+                        Style="{StaticResource confirmButton}"
+                        Height="50"
+                        Width="200">
                             <TextBlock Text="Lưu"
-                                       Style="{StaticResource Title}"
-                                       Foreground="#FFF"/>
+                               Style="{StaticResource Title}"
+                               Foreground="#FFF"/>
                             <i:Interaction.Triggers>
                                 <i:EventTrigger EventName="Click">
                                     <i:InvokeCommandAction Command="{Binding SaveCommand}"
-                                                           CommandParameter="{Binding ElementName=Ticketsale}"/>
+                                                   CommandParameter="{Binding ElementName=Ticketsale}"/>
                                 </i:EventTrigger>
                             </i:Interaction.Triggers>
                         </Button>
 
                         <Button Grid.Column="1"
-                                Style="{StaticResource cancelButton}"
-                                Height="50"
-                                Width="200">
+                        Style="{StaticResource cancelButton}"
+                        Height="50"
+                        Width="200">
                             <TextBlock Text="Huỷ bỏ"
-                                       Style="{StaticResource Title}"
-                                       Foreground="#FFF"/>
+                               Style="{StaticResource Title}"
+                               Foreground="#FFF"/>
                             <i:Interaction.Triggers>
                                 <i:EventTrigger EventName="Click">
                                     <i:InvokeCommandAction Command="{Binding CancelCommand}"
-                                                           CommandParameter="{Binding ElementName=Ticketsale}"/>
+                                                   CommandParameter="{Binding ElementName=Ticketsale}"/>
                                 </i:EventTrigger>
                             </i:Interaction.Triggers>
                         </Button>
@@ -326,5 +333,4 @@
             </Grid>
         </Border>
     </Grid>
-    
 </UserControl>

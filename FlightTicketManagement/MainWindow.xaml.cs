@@ -1,4 +1,8 @@
-﻿using System.Text;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -19,11 +23,13 @@ namespace FlightTicketManagement
         public MainWindow()
         {
             InitializeComponent();
+            Login login = new Login();
+            login.ShowDialog();
         }
 
         private void BtnClose_Click(object sender, RoutedEventArgs e)
         {
-            Close();
+            Close();    
         }
     }
 }

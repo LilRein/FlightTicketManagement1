@@ -24,7 +24,6 @@ namespace FlightTicketManagement.View
         {
             InitializeComponent();
         }
-
         private void InputFlightID_PreviewTextInput(object sender, TextCompositionEventArgs e)
         {
             TextBox textBox = (TextBox)sender;

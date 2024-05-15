@@ -1,15 +1,13 @@
-﻿using System;
+﻿using FlightTicketManagement.Model;
+using FlightTicketManagement.Utilities;
+using FlightTicketManagement.View;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
 using System.Windows.Input;
-using FlightTicketManagement.Model;
-using FlightTicketManagement.Utilities;
-using FlightTicketManagement.View;
 
 namespace FlightTicketManagement.ViewModel
 {
@@ -56,14 +54,14 @@ namespace FlightTicketManagement.ViewModel
             };
             SaveCommand = new RelayCommand<TicketSale>((p) => true, (p) => _saveCommand());
             CancelCommand = new RelayCommand<TicketSale>((p) => true, (p) => _cancelCommand(p));
-            
+
 
             _pageModel = new PageModel();
         }
 
         private void _saveCommand()
         {
-            MessageBox.Show("saved");
+
         }
         private void _cancelCommand(TicketSale paramater)
         {
@@ -75,7 +73,6 @@ namespace FlightTicketManagement.ViewModel
             paramater.InputInfor.Clear();
             paramater.PhoneNumber.Clear();
             paramater.TicketClass.SelectedItem = null;
-            MessageBox.Show("cancel");
         }
     }
 }

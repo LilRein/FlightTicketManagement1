@@ -19,25 +19,19 @@ namespace FlightTicketManagement
     /// </summary>
     public partial class Login : Window
     {
-        private string _employeeId;
         public Login()
         {
             InitializeComponent();
         }
 
-        
-
         private void LoginBtnClick(object sender, RoutedEventArgs e)
         {
-
+            MessageBox.Show("Bạn nhập sai");
         }
-
 
         private void BtnClose_Click(object sender, RoutedEventArgs e)
         {
             Application.Current.Shutdown();
         }
-
-        
     }
 }

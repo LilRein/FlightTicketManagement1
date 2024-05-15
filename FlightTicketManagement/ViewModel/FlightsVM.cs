@@ -1,11 +1,9 @@
-﻿using System;
+﻿using FlightTicketManagement.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows.Input;
-using FlightTicketManagement.Model;
-using FlightTicketManagement.Utilities;
 
 namespace FlightTicketManagement.ViewModel
 {
@@ -19,8 +17,8 @@ namespace FlightTicketManagement.ViewModel
             set { _pageModel.Flight = value; OnPropertyChanged(); }
         }
 
-        
-        public FlightsVM() 
+
+        public FlightsVM()
         {
             _pageModel = new PageModel();
             Flight = "hihi đây là test chuyến bay nhó";

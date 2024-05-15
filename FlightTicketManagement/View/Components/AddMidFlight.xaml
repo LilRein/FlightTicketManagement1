@@ -11,13 +11,14 @@
              Height="600" 
              Width="400"
              x:Name="AddMidFl">
+
     <UserControl.DataContext>
         <vm:AddMidFlightVM/>
     </UserControl.DataContext>
-    
+
     <Border Background="#FFF"
-            CornerRadius="13"
-            Padding="20">
+    CornerRadius="13"
+    Padding="20">
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="30"/>
@@ -26,22 +27,22 @@
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
-            
+
             <!-- Button out -->
             <Grid Grid.Row="0" HorizontalAlignment="Right">
                 <materialDesign:PackIcon Kind="CloseThick"
-                                         Foreground="#999"
-                                         Height="22"
-                                         Width="22">
+                                 Foreground="#999"
+                                 Height="22"
+                                 Width="22">
                     <i:Interaction.Triggers>
                         <i:EventTrigger EventName="MouseLeftButtonDown">
                             <i:InvokeCommandAction Command="{Binding CloseAMACM}"
-                                                   CommandParameter="{Binding ElementName=AddMidFl}"/>
+                                           CommandParameter="{Binding ElementName=AddMidFl}"/>
                         </i:EventTrigger>
                     </i:Interaction.Triggers>
                 </materialDesign:PackIcon>
             </Grid>
-            
+
             <!--Name mid airport-->
             <Grid Grid.Row="1" Margin="0 0 0 15">
 
@@ -51,22 +52,22 @@
                 </Grid.RowDefinitions>
                 <Grid Grid.Row="0">
                     <TextBlock Text="Sân bay"
-                               FontSize="19"
-                               FontFamily="Roboto"
-                               Foreground="#999"
-                               FontWeight="Medium"/>
+                       FontSize="19"
+                       FontFamily="Roboto"
+                       Foreground="#999"
+                       FontWeight="Medium"/>
                 </Grid>
                 <Grid Grid.Row="1">
                     <ComboBox Foreground="#000"
-                              FontSize="15"
-                              FontFamily="Roboto"
-                              x:Name="ListAirport"
-                              ItemsSource="{Binding FlightItemList}"
-                              materialDesign:HintAssist.Hint="Hãy chọn chuyến bay"
-                              />
+                      FontSize="15"
+                      FontFamily="Roboto"
+                      x:Name="ListAirport"
+                      ItemsSource="{Binding FlightItemList}"
+                      materialDesign:HintAssist.Hint="Hãy chọn chuyến bay"
+                      />
                 </Grid>
             </Grid>
-            
+
             <!-- Thoi gian cho -->
             <Grid Grid.Row="2" Margin="0 0 0 15">
                 <Grid.RowDefinitions>
@@ -75,41 +76,41 @@
                 </Grid.RowDefinitions>
 
                 <TextBlock Grid.Row="0"
-                           Text="Thời gian dừng"
-                           FontSize="19"
-                           Foreground="#999"
-                           FontFamily="Roboto"
-                           FontWeight="Medium"/>
+                   Text="Thời gian dừng"
+                   FontSize="19"
+                   Foreground="#999"
+                   FontFamily="Roboto"
+                   FontWeight="Medium"/>
                 <materialDesign:TimePicker Grid.Row="1"
-                                           x:Name="WaitTime"
-                                           Foreground="#333"
-                                           FontSize="15"/>
+                                   x:Name="WaitTime"
+                                   Foreground="#333"
+                                   FontSize="15"/>
             </Grid>
-            
-             <!-- Note -->
+
+            <!-- Note -->
             <Grid Grid.Row="3" Margin="0 0 0 15">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="auto"/>
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
                 <TextBlock Grid.Row="0"
-                           Text="Ghi chú"
-                           FontSize="19"
-                           FontFamily="Roboto"
-                           FontWeight="Medium"
-                           Foreground="#999"/>
+                   Text="Ghi chú"
+                   FontSize="19"
+                   FontFamily="Roboto"
+                   FontWeight="Medium"
+                   Foreground="#999"/>
 
                 <TextBox Grid.Row="1"
-                         x:Name="InputNote"
-                         Margin="0 10"
-                         BorderThickness="1"
-                         FontSize="15"
-                         Foreground="#000"
-                         FontFamily="Roboto"
-                         TextWrapping="Wrap"
-                         />
+                 x:Name="InputNote"
+                 Margin="0 10"
+                 BorderThickness="1"
+                 FontSize="15"
+                 Foreground="#000"
+                 FontFamily="Roboto"
+                 TextWrapping="Wrap"
+                 />
             </Grid>
-            
+
             <!-- Button -->
             <Grid Grid.Row="4" VerticalAlignment="Bottom">
                 <Grid.ColumnDefinitions>
@@ -119,45 +120,45 @@
 
                 <!-- Confirm Button -->
                 <Button Grid.Column="0"
-                        Style="{StaticResource confirmButton}"
-                        Height="45"
-                        Margin="0 0 10 0">
+                Style="{StaticResource confirmButton}"
+                Height="45"
+                Margin="0 0 10 0">
                     <TextBlock Text="Xác nhận"
-                               Foreground="#FFF"
-                               FontSize="18"
-                               FontFamily="Roboto"
-                               FontWeight="SemiBold"
-                               TextAlignment="Center"/>
+                       Foreground="#FFF"
+                       FontSize="18"
+                       FontFamily="Roboto"
+                       FontWeight="SemiBold"
+                       TextAlignment="Center"/>
                     <i:Interaction.Triggers>
                         <i:EventTrigger EventName="Click">
                             <i:InvokeCommandAction Command="{Binding ConfirmCommand}"
-                                                   CommandParameter="{Binding ElementName=AddMidFl}"/>
+                                           CommandParameter="{Binding ElementName=AddMidFl}"/>
                         </i:EventTrigger>
                     </i:Interaction.Triggers>
                 </Button>
-                
+
                 <!-- Cancel Button -->
                 <Button Grid.Column="1"
-                        Style="{StaticResource cancelButton}"
-                        Height="45"
-                        Margin="10 0 0 0"
-                        >
+                Style="{StaticResource cancelButton}"
+                Height="45"
+                Margin="10 0 0 0"
+                >
                     <TextBlock Text="Huỷ bó"
-                               Foreground="#FFF"
-                               FontSize="18"
-                               FontFamily="Roboto"
-                               FontWeight="SemiBold"
-                               TextAlignment="Center"/>
+                       Foreground="#FFF"
+                       FontSize="18"
+                       FontFamily="Roboto"
+                       FontWeight="SemiBold"
+                       TextAlignment="Center"/>
                     <i:Interaction.Triggers>
                         <i:EventTrigger EventName="Click">
                             <i:InvokeCommandAction Command="{Binding CancelCommand}"
-                                                   CommandParameter="{Binding ElementName=AddMidFl}"/>
+                                           CommandParameter="{Binding ElementName=AddMidFl}"/>
                         </i:EventTrigger>
                     </i:Interaction.Triggers>
                 </Button>
             </Grid>
         </Grid>
 
-        
+
     </Border>
 </UserControl>

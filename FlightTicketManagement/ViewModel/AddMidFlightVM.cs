@@ -1,4 +1,6 @@
-﻿using System;
+﻿using FlightTicketManagement.Model;
+using FlightTicketManagement.Utilities;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
@@ -6,10 +8,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using System.Windows;
-using FlightTicketManagement.Model;
-using FlightTicketManagement.Utilities;
-using FlightTicketManagement.View;
-using FlightTicketManagement.ViewModel;
 using FlightTicketManagement.View.Components;
 
 namespace FlightTicketManagement.ViewModel
@@ -48,13 +46,13 @@ namespace FlightTicketManagement.ViewModel
             CloseAMACM = new RelayCommand<AddMidFlight>((p) => true, (p) => _CloseAM(p));
             ConfirmCommand = new RelayCommand<AddMidFlight>((p) => true, (p) => _ConfirmCommand(p));
             CancelCommand = new RelayCommand<AddMidFlight>((p) => true, (p) => _CancelCommand(p));
-  
+
         }
 
         private void _CloseAM(AddMidFlight paramater)
         {
             var window = Window.GetWindow(paramater);
-            if(window != null)
+            if (window != null)
             {
                 window.Close();
             }
@@ -85,7 +83,7 @@ namespace FlightTicketManagement.ViewModel
             }
         }
 
-        
+
         private void AddMidFlight(AddMidFlight paramater)
         {
             // Tạo đối tượng mới
