@@ -57,7 +57,7 @@ namespace FlightTicketManagement.ViewModel
 
             }, (p) =>
             {
-                var Setting = new SettingVM() { MaHangVe = MaHangVe, TenHangVe = TenHangVe, TiLeGiaVe = TiLeGiaVe}
+                var Setting = new SettingVM() { MaHangVe = MaHangVe, TenHangVe = TenHangVe, TiLeGiaVe = TiLeGiaVe };
                 DataProvider.Ins.DB.HANGVEs.Add(Setting);
                 DataProvider.Ins.DB.SaveChanges();
 
@@ -89,4 +89,5 @@ namespace FlightTicketManagement.ViewModel
             //    SelectedItem.DisplayName = DisplayName;
             //});
         }
+    }
 }
