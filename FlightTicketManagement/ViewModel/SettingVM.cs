@@ -3,6 +3,7 @@ using FlightTicketManagement.Utilities;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -40,8 +41,8 @@ namespace FlightTicketManagement.ViewModel
         public string TenHangVe { get => _TenHangVe; set { _TenHangVe = value; OnPropertyChanged(); } }
 
 
-        private string _TiLeGiaVe;
-        public string TiLeGiaVe { get => _TiLeGiaVe; set { _TiLeGiaVe = value; OnPropertyChanged(); } }
+        private double _TiLeGiaVe;
+        public double TiLeGiaVe { get => _TiLeGiaVe; set { _TiLeGiaVe = value; OnPropertyChanged(); } }
 
 
         public ICommand AddCommand { get; set; }
@@ -51,18 +52,23 @@ namespace FlightTicketManagement.ViewModel
         {
             List = new ObservableCollection<SettingVM>(DataProvider.Ins.DB.HANGVEs);
 
-            AddCommand = new RelayCommand<object>((p) =>
-            {
-                return true;
+            //AddCommand = new RelayCommand<object>((p) =>
+            //{
+            //    return true;
 
             }, (p) =>
             {
                 var Setting = new SettingVM() { MaHangVe = MaHangVe, TenHangVe = TenHangVe, TiLeGiaVe = TiLeGiaVe };
                 DataProvider.Ins.DB.HANGVEs.Add(Setting);
                 DataProvider.Ins.DB.SaveChanges();
+            //}, (p) =>
+            //{
+            //    var Setting = new SettingVM() { MaHangVe = MaHangVe, TenHangVe = TenHangVe, TiLeGiaVe = TiLeGiaVe };
+            //    DataProvider.Ins.DB.HANGVEs.Add(Setting);
+            //    DataProvider.Ins.DB.SaveChanges();
 
-                List.Add(Setting);
-            });
+            //    List.Add(Setting);
+            //});
 
             //EditCommand = new RelayCommand<object>((p) =>
             //{
