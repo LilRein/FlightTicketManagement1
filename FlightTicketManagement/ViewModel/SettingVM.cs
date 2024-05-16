@@ -13,11 +13,11 @@ namespace FlightTicketManagement.ViewModel
 {
     class SettingVM : Utilities.ViewModelBase
     {
-        private ObservableCollection<SettingVM> _List;
-        public ObservableCollection<SettingVM> List { get => _List; set { _List = value; OnPropertyChanged(); } }
+        private ObservableCollection<HANGVE> _List;
+        public ObservableCollection<HANGVE> List { get => _List; set { _List = value; OnPropertyChanged(); } }
 
-        private SettingVM _SelectedItem;
-        public SettingVM SelectedItem
+        private HANGVE _SelectedItem;
+        public HANGVE SelectedItem
         {
             get => _SelectedItem;
             set
@@ -28,7 +28,7 @@ namespace FlightTicketManagement.ViewModel
                 {
                     MaHangVe = SelectedItem.MaHangVe;
                     TenHangVe = SelectedItem.TenHangVe;
-                    TiLeGiaVe = SelectedItem.TiLeGiaVe;
+                    TiLeGiaVe = SelectedItem.TiLeTinhDonGia;
                 }
             }
         }
@@ -50,17 +50,17 @@ namespace FlightTicketManagement.ViewModel
 
         public SettingVM()
         {
-            List = new ObservableCollection<SettingVM>(DataProvider.Ins.DB.HANGVEs);
+            List = new ObservableCollection<HANGVE>(DataProvider.Ins.DB.HANGVEs);
 
             //AddCommand = new RelayCommand<object>((p) =>
             //{
             //    return true;
 
-            }, (p) =>
-            {
-                var Setting = new SettingVM() { MaHangVe = MaHangVe, TenHangVe = TenHangVe, TiLeGiaVe = TiLeGiaVe };
-                DataProvider.Ins.DB.HANGVEs.Add(Setting);
-                DataProvider.Ins.DB.SaveChanges();
+            //}, (p) =>
+            //{
+            //    var Setting = new SettingVM() { MaHangVe = MaHangVe, TenHangVe = TenHangVe, TiLeGiaVe = TiLeGiaVe };
+            //    DataProvider.Ins.DB.HANGVEs.Add(Setting);
+            //    DataProvider.Ins.DB.SaveChanges();
             //}, (p) =>
             //{
             //    var Setting = new SettingVM() { MaHangVe = MaHangVe, TenHangVe = TenHangVe, TiLeGiaVe = TiLeGiaVe };
