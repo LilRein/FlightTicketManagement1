@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using FlightTicketManagement.Model;
 using System.ComponentModel;
 using System.Collections.ObjectModel;
 
@@ -12,7 +11,7 @@ namespace FlightTicketManagement.ViewModel
 {
     internal class ReportsVM : Utilities.ViewModelBase
     {
-        private ObservableCollection<Report>? _reports;
+        private ObservableCollection<Report> _reports;
 
         public ObservableCollection<Report> Reports
         {
@@ -38,7 +37,7 @@ namespace FlightTicketManagement.ViewModel
         //    _pageModel = new PageModel();
         //    Report = "hihi đây là test báo cáo";
         //}
-        public override bool Equals(object? obj)
+        public override bool Equals(object obj)
         {
             return base.Equals(obj);
         }
@@ -48,7 +47,7 @@ namespace FlightTicketManagement.ViewModel
             return base.GetHashCode();
         }
 
-        public override string? ToString()
+        public override string ToString()
         {
             return base.ToString();
         }

@@ -56,6 +56,11 @@ namespace FlightTicketManagement.ViewModel
             //{
             //    return true;
 
+            }, (p) =>
+            {
+                var Setting = new SettingVM() { MaHangVe = MaHangVe, TenHangVe = TenHangVe, TiLeGiaVe = TiLeGiaVe };
+                DataProvider.Ins.DB.HANGVEs.Add(Setting);
+                DataProvider.Ins.DB.SaveChanges();
             //}, (p) =>
             //{
             //    var Setting = new SettingVM() { MaHangVe = MaHangVe, TenHangVe = TenHangVe, TiLeGiaVe = TiLeGiaVe };
