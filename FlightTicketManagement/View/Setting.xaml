@@ -680,20 +680,21 @@
                                 VerticalScrollBarVisibility="Auto">
                                 <DataGrid.Columns>
                                     <DataGridTextColumn
-                                        SortMemberPath="MaHangVe"
                                         Width="*"
                                         Header="Mã hạng vé"
-                                        SortDirection="Ascending" />
+                                        SortDirection="Ascending" 
+                                        Binding="{Binding MaHangVe}"/>
                                     <DataGridTextColumn
-                                        SortMemberPath="TenHangVe"
                                         Width="2*"
                                         Header="Tên hạng vé"
-                                        SortDirection="Ascending" />
+                                        SortDirection="Ascending" 
+                                        Binding="{Binding TenHangVe}"/>
                                     <DataGridTextColumn
                                         SortMemberPath="TiLeGiaVe"
                                         Width="*"
                                         Header="Tỉ lệ giá vé"
-                                        SortDirection="Ascending" />
+                                        SortDirection="Ascending" 
+                                        Binding="{Binding TiLeGiaVe}"/>
                                 </DataGrid.Columns>
                             </DataGrid>
 
