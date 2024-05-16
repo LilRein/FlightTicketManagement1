@@ -73,7 +73,13 @@
                                   Background="WhiteSmoke"
                                   SelectionMode="Extended"
                                   ItemsSource="{Binding Reports}"
-                            
+                            CanUserAddRows="False"
+                          CanUserDeleteRows="False"
+                          IsReadOnly="True"
+                          AutoGenerateColumns="False"
+                          VerticalScrollBarVisibility="Auto"
+                          Background="WhiteSmoke"
+                          SelectionMode="Extended"
                           >
                             <DataGrid.Columns>
                                 <DataGridTextColumn Header="Xếp hạng"
