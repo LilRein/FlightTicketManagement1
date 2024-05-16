@@ -52,18 +52,18 @@ namespace FlightTicketManagement.ViewModel
         {
             List = new ObservableCollection<SettingVM>(DataProvider.Ins.DB.HANGVEs);
 
-            AddCommand = new RelayCommand<object>((p) =>
-            {
-                return true;
+            //AddCommand = new RelayCommand<object>((p) =>
+            //{
+            //    return true;
 
-            }, (p) =>
-            {
-                var Setting = new SettingVM() { MaHangVe = MaHangVe, TenHangVe = TenHangVe, TiLeGiaVe = TiLeGiaVe };
-                DataProvider.Ins.DB.HANGVEs.Add(Setting);
-                DataProvider.Ins.DB.SaveChanges();
+            //}, (p) =>
+            //{
+            //    var Setting = new SettingVM() { MaHangVe = MaHangVe, TenHangVe = TenHangVe, TiLeGiaVe = TiLeGiaVe };
+            //    DataProvider.Ins.DB.HANGVEs.Add(Setting);
+            //    DataProvider.Ins.DB.SaveChanges();
 
-                List.Add(Setting);
-            });
+            //    List.Add(Setting);
+            //});
 
             //EditCommand = new RelayCommand<object>((p) =>
             //{
