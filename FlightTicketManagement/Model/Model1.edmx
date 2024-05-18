@@ -94,7 +94,7 @@
             <PropertyRef Name="MaHangVe" />
           </Key>
           <Property Name="MaHangVe" Type="char" MaxLength="10" Nullable="false" />
-          <Property Name="TenHangVe" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="TenHangVe" Type="nvarchar" MaxLength="255" Nullable="false" />
           <Property Name="TiLeTinhDonGia" Type="float" Nullable="false" />
         </EntityType>
         <EntityType Name="HANHKHACH">
@@ -575,10 +575,10 @@ warning 6002: The table/view 'QUANLYBANVECHUYENBAY.dbo.THAMSO' does not have a p
           <Property Name="SoVeDaBan" Type="Int32" Nullable="false" />
           <Property Name="SoGheDat" Type="Int32" Nullable="false" />
           <Property Name="SoGheConLai" Type="Int32" annotation:StoreGeneratedPattern="Computed" />
-          <NavigationProperty Name="CHUYENBAY" Relationship="Self.FK__CHITIETHA__MaChu__5BE2A6F2" FromRole="CHITIETHANGVE" ToRole="CHUYENBAY" />
-          <NavigationProperty Name="HANGVE" Relationship="Self.FK__CHITIETHA__MaHan__5AEE82B9" FromRole="CHITIETHANGVE" ToRole="HANGVE" />
-          <NavigationProperty Name="PHIEUDATCHOes" Relationship="Self.FK__PHIEUDATCHO__5FB337D6" FromRole="CHITIETHANGVE" ToRole="PHIEUDATCHO" />
-          <NavigationProperty Name="VECHUYENBAYs" Relationship="Self.FK__VECHUYENBAY__5CD6CB2B" FromRole="CHITIETHANGVE" ToRole="VECHUYENBAY" />
+          <NavigationProperty Name="CHUYENBAY" Relationship="Self.FK__CHITIETHA__MaChu__5DCAEF64" FromRole="CHITIETHANGVE" ToRole="CHUYENBAY" />
+          <NavigationProperty Name="HANGVE" Relationship="Self.FK__CHITIETHA__MaHan__5CD6CB2B" FromRole="CHITIETHANGVE" ToRole="HANGVE" />
+          <NavigationProperty Name="PHIEUDATCHOes" Relationship="Self.FK__PHIEUDATCHO__619B8048" FromRole="CHITIETHANGVE" ToRole="PHIEUDATCHO" />
+          <NavigationProperty Name="VECHUYENBAYs" Relationship="Self.FK__VECHUYENBAY__5EBF139D" FromRole="CHITIETHANGVE" ToRole="VECHUYENBAY" />
         </EntityType>
         <EntityType Name="CHUYENBAY">
           <Key>
@@ -593,13 +593,13 @@ warning 6002: The table/view 'QUANLYBANVECHUYENBAY.dbo.THAMSO' does not have a p
           <Property Name="GioKhoiHanh" Type="Time" Nullable="false" Precision="7" />
           <Property Name="ThoiLuong" Type="Double" Nullable="false" />
           <Property Name="DonGia" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
-          <NavigationProperty Name="CHITIETHANGVEs" Relationship="Self.FK__CHITIETHA__MaChu__5BE2A6F2" FromRole="CHUYENBAY" ToRole="CHITIETHANGVE" />
-          <NavigationProperty Name="MAYBAY" Relationship="Self.FK__CHUYENBAY__MaMay__5812160E" FromRole="CHUYENBAY" ToRole="MAYBAY" />
-          <NavigationProperty Name="SANBAY" Relationship="Self.FK__CHUYENBAY__MaSan__5629CD9C" FromRole="CHUYENBAY" ToRole="SANBAY" />
-          <NavigationProperty Name="SANBAY1" Relationship="Self.FK__CHUYENBAY__MaSan__571DF1D5" FromRole="CHUYENBAY" ToRole="SANBAY" />
-          <NavigationProperty Name="TUYENBAY" Relationship="Self.FK__CHUYENBAY__MaTuy__5535A963" FromRole="CHUYENBAY" ToRole="TUYENBAY" />
-          <NavigationProperty Name="CTDOANHTHUTHANGs" Relationship="Self.FK__CTDOANHTH__MaChu__628FA481" FromRole="CHUYENBAY" ToRole="CTDOANHTHUTHANG" />
-          <NavigationProperty Name="CTSANBAYTRUNGGIANs" Relationship="Self.FK__CTSANBAYT__MaChu__59063A47" FromRole="CHUYENBAY" ToRole="CTSANBAYTRUNGGIAN" />
+          <NavigationProperty Name="CHITIETHANGVEs" Relationship="Self.FK__CHITIETHA__MaChu__5DCAEF64" FromRole="CHUYENBAY" ToRole="CHITIETHANGVE" />
+          <NavigationProperty Name="MAYBAY" Relationship="Self.FK__CHUYENBAY__MaMay__59FA5E80" FromRole="CHUYENBAY" ToRole="MAYBAY" />
+          <NavigationProperty Name="SANBAY" Relationship="Self.FK__CHUYENBAY__MaSan__5812160E" FromRole="CHUYENBAY" ToRole="SANBAY" />
+          <NavigationProperty Name="SANBAY1" Relationship="Self.FK__CHUYENBAY__MaSan__59063A47" FromRole="CHUYENBAY" ToRole="SANBAY" />
+          <NavigationProperty Name="TUYENBAY" Relationship="Self.FK__CHUYENBAY__MaTuy__571DF1D5" FromRole="CHUYENBAY" ToRole="TUYENBAY" />
+          <NavigationProperty Name="CTDOANHTHUTHANGs" Relationship="Self.FK__CTDOANHTH__MaChu__6477ECF3" FromRole="CHUYENBAY" ToRole="CTDOANHTHUTHANG" />
+          <NavigationProperty Name="CTSANBAYTRUNGGIANs" Relationship="Self.FK__CTSANBAYT__MaChu__5AEE82B9" FromRole="CHUYENBAY" ToRole="CTSANBAYTRUNGGIAN" />
         </EntityType>
         <EntityType Name="CTDOANHTHUNAM">
           <Key>
@@ -611,8 +611,8 @@ warning 6002: The table/view 'QUANLYBANVECHUYENBAY.dbo.THAMSO' does not have a p
           <Property Name="SoChuyenBay" Type="Int32" Nullable="false" />
           <Property Name="DoanhThuNam" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
           <Property Name="TiLeNam" Type="Double" Nullable="false" />
-          <NavigationProperty Name="DOANHTHUNAM1" Relationship="Self.FK__CTDOANHTHUN__Nam__6477ECF3" FromRole="CTDOANHTHUNAM" ToRole="DOANHTHUNAM" />
-          <NavigationProperty Name="CTDOANHTHUTHANGs" Relationship="Self.FK__CTDOANHTHUTHANG__6383C8BA" FromRole="CTDOANHTHUNAM" ToRole="CTDOANHTHUTHANG" />
+          <NavigationProperty Name="DOANHTHUNAM1" Relationship="Self.FK__CTDOANHTHUN__Nam__66603565" FromRole="CTDOANHTHUNAM" ToRole="DOANHTHUNAM" />
+          <NavigationProperty Name="CTDOANHTHUTHANGs" Relationship="Self.FK__CTDOANHTHUTHANG__656C112C" FromRole="CTDOANHTHUNAM" ToRole="CTDOANHTHUTHANG" />
         </EntityType>
         <EntityType Name="CTDOANHTHUTHANG">
           <Key>
@@ -626,8 +626,8 @@ warning 6002: The table/view 'QUANLYBANVECHUYENBAY.dbo.THAMSO' does not have a p
           <Property Name="SoVe" Type="Int32" Nullable="false" />
           <Property Name="TiLeThang" Type="Double" Nullable="false" />
           <Property Name="DoanhThuThang" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
-          <NavigationProperty Name="CHUYENBAY" Relationship="Self.FK__CTDOANHTH__MaChu__628FA481" FromRole="CTDOANHTHUTHANG" ToRole="CHUYENBAY" />
-          <NavigationProperty Name="CTDOANHTHUNAM" Relationship="Self.FK__CTDOANHTHUTHANG__6383C8BA" FromRole="CTDOANHTHUTHANG" ToRole="CTDOANHTHUNAM" />
+          <NavigationProperty Name="CHUYENBAY" Relationship="Self.FK__CTDOANHTH__MaChu__6477ECF3" FromRole="CTDOANHTHUTHANG" ToRole="CHUYENBAY" />
+          <NavigationProperty Name="CTDOANHTHUNAM" Relationship="Self.FK__CTDOANHTHUTHANG__656C112C" FromRole="CTDOANHTHUTHANG" ToRole="CTDOANHTHUNAM" />
         </EntityType>
         <EntityType Name="CTSANBAYTRUNGGIAN">
           <Key>
@@ -638,7 +638,7 @@ warning 6002: The table/view 'QUANLYBANVECHUYENBAY.dbo.THAMSO' does not have a p
           <Property Name="MaSanBayTrungGian" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
           <Property Name="ThoiGianDung" Type="Int32" Nullable="false" />
           <Property Name="GhiChu" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="CHUYENBAY" Relationship="Self.FK__CTSANBAYT__MaChu__59063A47" FromRole="CTSANBAYTRUNGGIAN" ToRole="CHUYENBAY" />
+          <NavigationProperty Name="CHUYENBAY" Relationship="Self.FK__CTSANBAYT__MaChu__5AEE82B9" FromRole="CTSANBAYTRUNGGIAN" ToRole="CHUYENBAY" />
         </EntityType>
         <EntityType Name="DANHSACHGHECUAMAYBAY">
           <Key>
@@ -648,9 +648,9 @@ warning 6002: The table/view 'QUANLYBANVECHUYENBAY.dbo.THAMSO' does not have a p
           <Property Name="SoGhe" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
           <Property Name="MaMayBay" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
           <Property Name="GhiChu" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="MAYBAY" Relationship="Self.FK__DANHSACHG__MaMay__656C112C" FromRole="DANHSACHGHECUAMAYBAY" ToRole="MAYBAY" />
-          <NavigationProperty Name="PHIEUDATCHOes" Relationship="Self.FK__PHIEUDATC__MaGhe__619B8048" FromRole="DANHSACHGHECUAMAYBAY" ToRole="PHIEUDATCHO" />
-          <NavigationProperty Name="VECHUYENBAYs" Relationship="Self.FK__VECHUYENB__MaGhe__5EBF139D" FromRole="DANHSACHGHECUAMAYBAY" ToRole="VECHUYENBAY" />
+          <NavigationProperty Name="MAYBAY" Relationship="Self.FK__DANHSACHG__MaMay__6754599E" FromRole="DANHSACHGHECUAMAYBAY" ToRole="MAYBAY" />
+          <NavigationProperty Name="PHIEUDATCHOes" Relationship="Self.FK__PHIEUDATC__MaGhe__6383C8BA" FromRole="DANHSACHGHECUAMAYBAY" ToRole="PHIEUDATCHO" />
+          <NavigationProperty Name="VECHUYENBAYs" Relationship="Self.FK__VECHUYENB__MaGhe__60A75C0F" FromRole="DANHSACHGHECUAMAYBAY" ToRole="VECHUYENBAY" />
         </EntityType>
         <EntityType Name="DOANHTHUNAM">
           <Key>
@@ -658,7 +658,7 @@ warning 6002: The table/view 'QUANLYBANVECHUYENBAY.dbo.THAMSO' does not have a p
           </Key>
           <Property Name="NAM" Type="Int32" Nullable="false" />
           <Property Name="TONGDOANHTHUNAM" Type="Decimal" Precision="19" Scale="4" />
-          <NavigationProperty Name="CTDOANHTHUNAMs" Relationship="Self.FK__CTDOANHTHUN__Nam__6477ECF3" FromRole="DOANHTHUNAM" ToRole="CTDOANHTHUNAM" />
+          <NavigationProperty Name="CTDOANHTHUNAMs" Relationship="Self.FK__CTDOANHTHUN__Nam__66603565" FromRole="DOANHTHUNAM" ToRole="CTDOANHTHUNAM" />
         </EntityType>
         <EntityType Name="HANGMAYBAY">
           <Key>
@@ -666,16 +666,16 @@ warning 6002: The table/view 'QUANLYBANVECHUYENBAY.dbo.THAMSO' does not have a p
           </Key>
           <Property Name="MaHangMayBay" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
           <Property Name="TenHang" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="MAYBAYs" Relationship="Self.FK__MAYBAY__MaHangMa__66603565" FromRole="HANGMAYBAY" ToRole="MAYBAY" />
+          <NavigationProperty Name="MAYBAYs" Relationship="Self.FK__MAYBAY__MaHangMa__68487DD7" FromRole="HANGMAYBAY" ToRole="MAYBAY" />
         </EntityType>
         <EntityType Name="HANGVE">
           <Key>
             <PropertyRef Name="MaHangVe" />
           </Key>
           <Property Name="MaHangVe" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
-          <Property Name="TenHangVe" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="TenHangVe" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="TiLeTinhDonGia" Type="Double" Nullable="false" />
-          <NavigationProperty Name="CHITIETHANGVEs" Relationship="Self.FK__CHITIETHA__MaHan__5AEE82B9" FromRole="HANGVE" ToRole="CHITIETHANGVE" />
+          <NavigationProperty Name="CHITIETHANGVEs" Relationship="Self.FK__CHITIETHA__MaHan__5CD6CB2B" FromRole="HANGVE" ToRole="CHITIETHANGVE" />
         </EntityType>
         <EntityType Name="HANHKHACH">
           <Key>
@@ -686,8 +686,8 @@ warning 6002: The table/view 'QUANLYBANVECHUYENBAY.dbo.THAMSO' does not have a p
           <Property Name="CCCD" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
           <Property Name="DienThoai" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
           <Property Name="Email" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="PHIEUDATCHOes" Relationship="Self.FK__PHIEUDATC__MaHan__60A75C0F" FromRole="HANHKHACH" ToRole="PHIEUDATCHO" />
-          <NavigationProperty Name="VECHUYENBAYs" Relationship="Self.FK__VECHUYENB__MaHan__5DCAEF64" FromRole="HANHKHACH" ToRole="VECHUYENBAY" />
+          <NavigationProperty Name="PHIEUDATCHOes" Relationship="Self.FK__PHIEUDATC__MaHan__628FA481" FromRole="HANHKHACH" ToRole="PHIEUDATCHO" />
+          <NavigationProperty Name="VECHUYENBAYs" Relationship="Self.FK__VECHUYENB__MaHan__5FB337D6" FromRole="HANHKHACH" ToRole="VECHUYENBAY" />
         </EntityType>
         <EntityType Name="MAYBAY">
           <Key>
@@ -697,9 +697,9 @@ warning 6002: The table/view 'QUANLYBANVECHUYENBAY.dbo.THAMSO' does not have a p
           <Property Name="TenMayBay" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="MaHangMayBay" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
           <Property Name="SoLuongGhe" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="CHUYENBAYs" Relationship="Self.FK__CHUYENBAY__MaMay__5812160E" FromRole="MAYBAY" ToRole="CHUYENBAY" />
-          <NavigationProperty Name="DANHSACHGHECUAMAYBAYs" Relationship="Self.FK__DANHSACHG__MaMay__656C112C" FromRole="MAYBAY" ToRole="DANHSACHGHECUAMAYBAY" />
-          <NavigationProperty Name="HANGMAYBAY" Relationship="Self.FK__MAYBAY__MaHangMa__66603565" FromRole="MAYBAY" ToRole="HANGMAYBAY" />
+          <NavigationProperty Name="CHUYENBAYs" Relationship="Self.FK__CHUYENBAY__MaMay__59FA5E80" FromRole="MAYBAY" ToRole="CHUYENBAY" />
+          <NavigationProperty Name="DANHSACHGHECUAMAYBAYs" Relationship="Self.FK__DANHSACHG__MaMay__6754599E" FromRole="MAYBAY" ToRole="DANHSACHGHECUAMAYBAY" />
+          <NavigationProperty Name="HANGMAYBAY" Relationship="Self.FK__MAYBAY__MaHangMa__68487DD7" FromRole="MAYBAY" ToRole="HANGMAYBAY" />
         </EntityType>
         <EntityType Name="PHIEUDATCHO">
           <Key>
@@ -712,9 +712,9 @@ warning 6002: The table/view 'QUANLYBANVECHUYENBAY.dbo.THAMSO' does not have a p
           <Property Name="MaChuyenBay" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
           <Property Name="MaGhe" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
           <Property Name="TinhTrang" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="CHITIETHANGVE" Relationship="Self.FK__PHIEUDATCHO__5FB337D6" FromRole="PHIEUDATCHO" ToRole="CHITIETHANGVE" />
-          <NavigationProperty Name="DANHSACHGHECUAMAYBAY" Relationship="Self.FK__PHIEUDATC__MaGhe__619B8048" FromRole="PHIEUDATCHO" ToRole="DANHSACHGHECUAMAYBAY" />
-          <NavigationProperty Name="HANHKHACH" Relationship="Self.FK__PHIEUDATC__MaHan__60A75C0F" FromRole="PHIEUDATCHO" ToRole="HANHKHACH" />
+          <NavigationProperty Name="CHITIETHANGVE" Relationship="Self.FK__PHIEUDATCHO__619B8048" FromRole="PHIEUDATCHO" ToRole="CHITIETHANGVE" />
+          <NavigationProperty Name="DANHSACHGHECUAMAYBAY" Relationship="Self.FK__PHIEUDATC__MaGhe__6383C8BA" FromRole="PHIEUDATCHO" ToRole="DANHSACHGHECUAMAYBAY" />
+          <NavigationProperty Name="HANHKHACH" Relationship="Self.FK__PHIEUDATC__MaHan__628FA481" FromRole="PHIEUDATCHO" ToRole="HANHKHACH" />
         </EntityType>
         <EntityType Name="QUOCGIA">
           <Key>
@@ -722,9 +722,9 @@ warning 6002: The table/view 'QUANLYBANVECHUYENBAY.dbo.THAMSO' does not have a p
           </Key>
           <Property Name="MaQuocGia" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
           <Property Name="TenQuocGia" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="SANBAYs" Relationship="Self.FK__SANBAY__MaQuocGi__59FA5E80" FromRole="QUOCGIA" ToRole="SANBAY" />
-          <NavigationProperty Name="TUYENBAYs" Relationship="Self.FK__TUYENBAY__MaQuoc__6754599E" FromRole="QUOCGIA" ToRole="TUYENBAY" />
-          <NavigationProperty Name="TUYENBAYs1" Relationship="Self.FK__TUYENBAY__MaQuoc__68487DD7" FromRole="QUOCGIA" ToRole="TUYENBAY" />
+          <NavigationProperty Name="SANBAYs" Relationship="Self.FK__SANBAY__MaQuocGi__5BE2A6F2" FromRole="QUOCGIA" ToRole="SANBAY" />
+          <NavigationProperty Name="TUYENBAYs" Relationship="Self.FK__TUYENBAY__MaQuoc__693CA210" FromRole="QUOCGIA" ToRole="TUYENBAY" />
+          <NavigationProperty Name="TUYENBAYs1" Relationship="Self.FK__TUYENBAY__MaQuoc__6A30C649" FromRole="QUOCGIA" ToRole="TUYENBAY" />
         </EntityType>
         <EntityType Name="SANBAY">
           <Key>
@@ -734,9 +734,9 @@ warning 6002: The table/view 'QUANLYBANVECHUYENBAY.dbo.THAMSO' does not have a p
           <Property Name="TenSanBay" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="DiaChi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="MaQuocGia" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="CHUYENBAYs" Relationship="Self.FK__CHUYENBAY__MaSan__5629CD9C" FromRole="SANBAY" ToRole="CHUYENBAY" />
-          <NavigationProperty Name="CHUYENBAYs1" Relationship="Self.FK__CHUYENBAY__MaSan__571DF1D5" FromRole="SANBAY" ToRole="CHUYENBAY" />
-          <NavigationProperty Name="QUOCGIA" Relationship="Self.FK__SANBAY__MaQuocGi__59FA5E80" FromRole="SANBAY" ToRole="QUOCGIA" />
+          <NavigationProperty Name="CHUYENBAYs" Relationship="Self.FK__CHUYENBAY__MaSan__5812160E" FromRole="SANBAY" ToRole="CHUYENBAY" />
+          <NavigationProperty Name="CHUYENBAYs1" Relationship="Self.FK__CHUYENBAY__MaSan__59063A47" FromRole="SANBAY" ToRole="CHUYENBAY" />
+          <NavigationProperty Name="QUOCGIA" Relationship="Self.FK__SANBAY__MaQuocGi__5BE2A6F2" FromRole="SANBAY" ToRole="QUOCGIA" />
         </EntityType>
         <EntityType Name="TUYENBAY">
           <Key>
@@ -745,9 +745,9 @@ warning 6002: The table/view 'QUANLYBANVECHUYENBAY.dbo.THAMSO' does not have a p
           <Property Name="MaTuyenBay" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
           <Property Name="MaQuocGiaDi" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
           <Property Name="MaQuocGiaDen" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="CHUYENBAYs" Relationship="Self.FK__CHUYENBAY__MaTuy__5535A963" FromRole="TUYENBAY" ToRole="CHUYENBAY" />
-          <NavigationProperty Name="QUOCGIA" Relationship="Self.FK__TUYENBAY__MaQuoc__6754599E" FromRole="TUYENBAY" ToRole="QUOCGIA" />
-          <NavigationProperty Name="QUOCGIA1" Relationship="Self.FK__TUYENBAY__MaQuoc__68487DD7" FromRole="TUYENBAY" ToRole="QUOCGIA" />
+          <NavigationProperty Name="CHUYENBAYs" Relationship="Self.FK__CHUYENBAY__MaTuy__571DF1D5" FromRole="TUYENBAY" ToRole="CHUYENBAY" />
+          <NavigationProperty Name="QUOCGIA" Relationship="Self.FK__TUYENBAY__MaQuoc__693CA210" FromRole="TUYENBAY" ToRole="QUOCGIA" />
+          <NavigationProperty Name="QUOCGIA1" Relationship="Self.FK__TUYENBAY__MaQuoc__6A30C649" FromRole="TUYENBAY" ToRole="QUOCGIA" />
         </EntityType>
         <EntityType Name="VECHUYENBAY">
           <Key>
@@ -759,9 +759,9 @@ warning 6002: The table/view 'QUANLYBANVECHUYENBAY.dbo.THAMSO' does not have a p
           <Property Name="MaHangVe" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
           <Property Name="MaHanhKhach" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
           <Property Name="MaGhe" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="CHITIETHANGVE" Relationship="Self.FK__VECHUYENBAY__5CD6CB2B" FromRole="VECHUYENBAY" ToRole="CHITIETHANGVE" />
-          <NavigationProperty Name="DANHSACHGHECUAMAYBAY" Relationship="Self.FK__VECHUYENB__MaGhe__5EBF139D" FromRole="VECHUYENBAY" ToRole="DANHSACHGHECUAMAYBAY" />
-          <NavigationProperty Name="HANHKHACH" Relationship="Self.FK__VECHUYENB__MaHan__5DCAEF64" FromRole="VECHUYENBAY" ToRole="HANHKHACH" />
+          <NavigationProperty Name="CHITIETHANGVE" Relationship="Self.FK__VECHUYENBAY__5EBF139D" FromRole="VECHUYENBAY" ToRole="CHITIETHANGVE" />
+          <NavigationProperty Name="DANHSACHGHECUAMAYBAY" Relationship="Self.FK__VECHUYENB__MaGhe__60A75C0F" FromRole="VECHUYENBAY" ToRole="DANHSACHGHECUAMAYBAY" />
+          <NavigationProperty Name="HANHKHACH" Relationship="Self.FK__VECHUYENB__MaHan__5FB337D6" FromRole="VECHUYENBAY" ToRole="HANHKHACH" />
         </EntityType>
         <EntityType Name="THAMSO">
           <Key>
@@ -779,7 +779,7 @@ warning 6002: The table/view 'QUANLYBANVECHUYENBAY.dbo.THAMSO' does not have a p
           <Property Name="ThoiGianDatVeChamNhat" Type="Byte" Nullable="false" />
           <Property Name="ThoiGianHuyVeDatVe" Type="Byte" Nullable="false" />
         </EntityType>
-        <Association Name="FK__CHITIETHA__MaChu__5BE2A6F2">
+        <Association Name="FK__CHITIETHA__MaChu__5DCAEF64">
           <End Role="CHUYENBAY" Type="Self.CHUYENBAY" Multiplicity="1" />
           <End Role="CHITIETHANGVE" Type="Self.CHITIETHANGVE" Multiplicity="*" />
           <ReferentialConstraint>
@@ -791,7 +791,7 @@ warning 6002: The table/view 'QUANLYBANVECHUYENBAY.dbo.THAMSO' does not have a p
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__CHITIETHA__MaHan__5AEE82B9">
+        <Association Name="FK__CHITIETHA__MaHan__5CD6CB2B">
           <End Role="HANGVE" Type="Self.HANGVE" Multiplicity="1" />
           <End Role="CHITIETHANGVE" Type="Self.CHITIETHANGVE" Multiplicity="*" />
           <ReferentialConstraint>
@@ -803,7 +803,7 @@ warning 6002: The table/view 'QUANLYBANVECHUYENBAY.dbo.THAMSO' does not have a p
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__PHIEUDATCHO__5FB337D6">
+        <Association Name="FK__PHIEUDATCHO__619B8048">
           <End Role="CHITIETHANGVE" Type="Self.CHITIETHANGVE" Multiplicity="0..1" />
           <End Role="PHIEUDATCHO" Type="Self.PHIEUDATCHO" Multiplicity="*" />
           <ReferentialConstraint>
@@ -817,7 +817,7 @@ warning 6002: The table/view 'QUANLYBANVECHUYENBAY.dbo.THAMSO' does not have a p
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__VECHUYENBAY__5CD6CB2B">
+        <Association Name="FK__VECHUYENBAY__5EBF139D">
           <End Role="CHITIETHANGVE" Type="Self.CHITIETHANGVE" Multiplicity="1" />
           <End Role="VECHUYENBAY" Type="Self.VECHUYENBAY" Multiplicity="*" />
           <ReferentialConstraint>
@@ -831,7 +831,7 @@ warning 6002: The table/view 'QUANLYBANVECHUYENBAY.dbo.THAMSO' does not have a p
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__CHUYENBAY__MaMay__5812160E">
+        <Association Name="FK__CHUYENBAY__MaMay__59FA5E80">
           <End Role="MAYBAY" Type="Self.MAYBAY" Multiplicity="1" />
           <End Role="CHUYENBAY" Type="Self.CHUYENBAY" Multiplicity="*" />
           <ReferentialConstraint>
@@ -843,7 +843,7 @@ warning 6002: The table/view 'QUANLYBANVECHUYENBAY.dbo.THAMSO' does not have a p
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__CHUYENBAY__MaSan__5629CD9C">
+        <Association Name="FK__CHUYENBAY__MaSan__5812160E">
           <End Role="SANBAY" Type="Self.SANBAY" Multiplicity="1" />
           <End Role="CHUYENBAY" Type="Self.CHUYENBAY" Multiplicity="*" />
           <ReferentialConstraint>
@@ -855,7 +855,7 @@ warning 6002: The table/view 'QUANLYBANVECHUYENBAY.dbo.THAMSO' does not have a p
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__CHUYENBAY__MaSan__571DF1D5">
+        <Association Name="FK__CHUYENBAY__MaSan__59063A47">
           <End Role="SANBAY" Type="Self.SANBAY" Multiplicity="1" />
           <End Role="CHUYENBAY" Type="Self.CHUYENBAY" Multiplicity="*" />
           <ReferentialConstraint>
@@ -867,7 +867,7 @@ warning 6002: The table/view 'QUANLYBANVECHUYENBAY.dbo.THAMSO' does not have a p
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__CHUYENBAY__MaTuy__5535A963">
+        <Association Name="FK__CHUYENBAY__MaTuy__571DF1D5">
           <End Role="TUYENBAY" Type="Self.TUYENBAY" Multiplicity="1" />
           <End Role="CHUYENBAY" Type="Self.CHUYENBAY" Multiplicity="*" />
           <ReferentialConstraint>
@@ -879,7 +879,7 @@ warning 6002: The table/view 'QUANLYBANVECHUYENBAY.dbo.THAMSO' does not have a p
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__CTDOANHTH__MaChu__628FA481">
+        <Association Name="FK__CTDOANHTH__MaChu__6477ECF3">
           <End Role="CHUYENBAY" Type="Self.CHUYENBAY" Multiplicity="1" />
           <End Role="CTDOANHTHUTHANG" Type="Self.CTDOANHTHUTHANG" Multiplicity="*" />
           <ReferentialConstraint>
@@ -891,7 +891,7 @@ warning 6002: The table/view 'QUANLYBANVECHUYENBAY.dbo.THAMSO' does not have a p
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__CTSANBAYT__MaChu__59063A47">
+        <Association Name="FK__CTSANBAYT__MaChu__5AEE82B9">
           <End Role="CHUYENBAY" Type="Self.CHUYENBAY" Multiplicity="1" />
           <End Role="CTSANBAYTRUNGGIAN" Type="Self.CTSANBAYTRUNGGIAN" Multiplicity="*" />
           <ReferentialConstraint>
@@ -903,7 +903,7 @@ warning 6002: The table/view 'QUANLYBANVECHUYENBAY.dbo.THAMSO' does not have a p
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__CTDOANHTHUN__Nam__6477ECF3">
+        <Association Name="FK__CTDOANHTHUN__Nam__66603565">
           <End Role="DOANHTHUNAM" Type="Self.DOANHTHUNAM" Multiplicity="1" />
           <End Role="CTDOANHTHUNAM" Type="Self.CTDOANHTHUNAM" Multiplicity="*" />
           <ReferentialConstraint>
@@ -915,7 +915,7 @@ warning 6002: The table/view 'QUANLYBANVECHUYENBAY.dbo.THAMSO' does not have a p
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__CTDOANHTHUTHANG__6383C8BA">
+        <Association Name="FK__CTDOANHTHUTHANG__656C112C">
           <End Role="CTDOANHTHUNAM" Type="Self.CTDOANHTHUNAM" Multiplicity="1" />
           <End Role="CTDOANHTHUTHANG" Type="Self.CTDOANHTHUTHANG" Multiplicity="*" />
           <ReferentialConstraint>
@@ -929,7 +929,7 @@ warning 6002: The table/view 'QUANLYBANVECHUYENBAY.dbo.THAMSO' does not have a p
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__DANHSACHG__MaMay__656C112C">
+        <Association Name="FK__DANHSACHG__MaMay__6754599E">
           <End Role="MAYBAY" Type="Self.MAYBAY" Multiplicity="1" />
           <End Role="DANHSACHGHECUAMAYBAY" Type="Self.DANHSACHGHECUAMAYBAY" Multiplicity="*" />
           <ReferentialConstraint>
@@ -941,7 +941,7 @@ warning 6002: The table/view 'QUANLYBANVECHUYENBAY.dbo.THAMSO' does not have a p
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__PHIEUDATC__MaGhe__619B8048">
+        <Association Name="FK__PHIEUDATC__MaGhe__6383C8BA">
           <End Role="DANHSACHGHECUAMAYBAY" Type="Self.DANHSACHGHECUAMAYBAY" Multiplicity="0..1" />
           <End Role="PHIEUDATCHO" Type="Self.PHIEUDATCHO" Multiplicity="*" />
           <ReferentialConstraint>
@@ -953,7 +953,7 @@ warning 6002: The table/view 'QUANLYBANVECHUYENBAY.dbo.THAMSO' does not have a p
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__VECHUYENB__MaGhe__5EBF139D">
+        <Association Name="FK__VECHUYENB__MaGhe__60A75C0F">
           <End Role="DANHSACHGHECUAMAYBAY" Type="Self.DANHSACHGHECUAMAYBAY" Multiplicity="1" />
           <End Role="VECHUYENBAY" Type="Self.VECHUYENBAY" Multiplicity="*" />
           <ReferentialConstraint>
@@ -965,7 +965,7 @@ warning 6002: The table/view 'QUANLYBANVECHUYENBAY.dbo.THAMSO' does not have a p
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__MAYBAY__MaHangMa__66603565">
+        <Association Name="FK__MAYBAY__MaHangMa__68487DD7">
           <End Role="HANGMAYBAY" Type="Self.HANGMAYBAY" Multiplicity="1" />
           <End Role="MAYBAY" Type="Self.MAYBAY" Multiplicity="*" />
           <ReferentialConstraint>
@@ -977,7 +977,7 @@ warning 6002: The table/view 'QUANLYBANVECHUYENBAY.dbo.THAMSO' does not have a p
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__PHIEUDATC__MaHan__60A75C0F">
+        <Association Name="FK__PHIEUDATC__MaHan__628FA481">
           <End Role="HANHKHACH" Type="Self.HANHKHACH" Multiplicity="0..1" />
           <End Role="PHIEUDATCHO" Type="Self.PHIEUDATCHO" Multiplicity="*" />
           <ReferentialConstraint>
@@ -989,7 +989,7 @@ warning 6002: The table/view 'QUANLYBANVECHUYENBAY.dbo.THAMSO' does not have a p
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__VECHUYENB__MaHan__5DCAEF64">
+        <Association Name="FK__VECHUYENB__MaHan__5FB337D6">
           <End Role="HANHKHACH" Type="Self.HANHKHACH" Multiplicity="1" />
           <End Role="VECHUYENBAY" Type="Self.VECHUYENBAY" Multiplicity="*" />
           <ReferentialConstraint>
@@ -1001,7 +1001,7 @@ warning 6002: The table/view 'QUANLYBANVECHUYENBAY.dbo.THAMSO' does not have a p
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__SANBAY__MaQuocGi__59FA5E80">
+        <Association Name="FK__SANBAY__MaQuocGi__5BE2A6F2">
           <End Role="QUOCGIA" Type="Self.QUOCGIA" Multiplicity="1" />
           <End Role="SANBAY" Type="Self.SANBAY" Multiplicity="*" />
           <ReferentialConstraint>
@@ -1013,7 +1013,7 @@ warning 6002: The table/view 'QUANLYBANVECHUYENBAY.dbo.THAMSO' does not have a p
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__TUYENBAY__MaQuoc__6754599E">
+        <Association Name="FK__TUYENBAY__MaQuoc__693CA210">
           <End Role="QUOCGIA" Type="Self.QUOCGIA" Multiplicity="1" />
           <End Role="TUYENBAY" Type="Self.TUYENBAY" Multiplicity="*" />
           <ReferentialConstraint>
@@ -1025,7 +1025,7 @@ warning 6002: The table/view 'QUANLYBANVECHUYENBAY.dbo.THAMSO' does not have a p
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__TUYENBAY__MaQuoc__68487DD7">
+        <Association Name="FK__TUYENBAY__MaQuoc__6A30C649">
           <End Role="QUOCGIA" Type="Self.QUOCGIA" Multiplicity="1" />
           <End Role="TUYENBAY" Type="Self.TUYENBAY" Multiplicity="*" />
           <ReferentialConstraint>
@@ -1055,93 +1055,93 @@ warning 6002: The table/view 'QUANLYBANVECHUYENBAY.dbo.THAMSO' does not have a p
           <EntitySet Name="TUYENBAYs" EntityType="Self.TUYENBAY" />
           <EntitySet Name="VECHUYENBAYs" EntityType="Self.VECHUYENBAY" />
           <EntitySet Name="THAMSOes" EntityType="Self.THAMSO" />
-          <AssociationSet Name="FK__CHITIETHA__MaChu__5BE2A6F2" Association="Self.FK__CHITIETHA__MaChu__5BE2A6F2">
+          <AssociationSet Name="FK__CHITIETHA__MaChu__5DCAEF64" Association="Self.FK__CHITIETHA__MaChu__5DCAEF64">
             <End Role="CHUYENBAY" EntitySet="CHUYENBAYs" />
             <End Role="CHITIETHANGVE" EntitySet="CHITIETHANGVEs" />
           </AssociationSet>
-          <AssociationSet Name="FK__CHITIETHA__MaHan__5AEE82B9" Association="Self.FK__CHITIETHA__MaHan__5AEE82B9">
+          <AssociationSet Name="FK__CHITIETHA__MaHan__5CD6CB2B" Association="Self.FK__CHITIETHA__MaHan__5CD6CB2B">
             <End Role="HANGVE" EntitySet="HANGVEs" />
             <End Role="CHITIETHANGVE" EntitySet="CHITIETHANGVEs" />
           </AssociationSet>
-          <AssociationSet Name="FK__PHIEUDATCHO__5FB337D6" Association="Self.FK__PHIEUDATCHO__5FB337D6">
+          <AssociationSet Name="FK__PHIEUDATCHO__619B8048" Association="Self.FK__PHIEUDATCHO__619B8048">
             <End Role="CHITIETHANGVE" EntitySet="CHITIETHANGVEs" />
             <End Role="PHIEUDATCHO" EntitySet="PHIEUDATCHOes" />
           </AssociationSet>
-          <AssociationSet Name="FK__VECHUYENBAY__5CD6CB2B" Association="Self.FK__VECHUYENBAY__5CD6CB2B">
+          <AssociationSet Name="FK__VECHUYENBAY__5EBF139D" Association="Self.FK__VECHUYENBAY__5EBF139D">
             <End Role="CHITIETHANGVE" EntitySet="CHITIETHANGVEs" />
             <End Role="VECHUYENBAY" EntitySet="VECHUYENBAYs" />
           </AssociationSet>
-          <AssociationSet Name="FK__CHUYENBAY__MaMay__5812160E" Association="Self.FK__CHUYENBAY__MaMay__5812160E">
+          <AssociationSet Name="FK__CHUYENBAY__MaMay__59FA5E80" Association="Self.FK__CHUYENBAY__MaMay__59FA5E80">
             <End Role="MAYBAY" EntitySet="MAYBAYs" />
             <End Role="CHUYENBAY" EntitySet="CHUYENBAYs" />
           </AssociationSet>
-          <AssociationSet Name="FK__CHUYENBAY__MaSan__5629CD9C" Association="Self.FK__CHUYENBAY__MaSan__5629CD9C">
+          <AssociationSet Name="FK__CHUYENBAY__MaSan__5812160E" Association="Self.FK__CHUYENBAY__MaSan__5812160E">
             <End Role="SANBAY" EntitySet="SANBAYs" />
             <End Role="CHUYENBAY" EntitySet="CHUYENBAYs" />
           </AssociationSet>
-          <AssociationSet Name="FK__CHUYENBAY__MaSan__571DF1D5" Association="Self.FK__CHUYENBAY__MaSan__571DF1D5">
+          <AssociationSet Name="FK__CHUYENBAY__MaSan__59063A47" Association="Self.FK__CHUYENBAY__MaSan__59063A47">
             <End Role="SANBAY" EntitySet="SANBAYs" />
             <End Role="CHUYENBAY" EntitySet="CHUYENBAYs" />
           </AssociationSet>
-          <AssociationSet Name="FK__CHUYENBAY__MaTuy__5535A963" Association="Self.FK__CHUYENBAY__MaTuy__5535A963">
+          <AssociationSet Name="FK__CHUYENBAY__MaTuy__571DF1D5" Association="Self.FK__CHUYENBAY__MaTuy__571DF1D5">
             <End Role="TUYENBAY" EntitySet="TUYENBAYs" />
             <End Role="CHUYENBAY" EntitySet="CHUYENBAYs" />
           </AssociationSet>
-          <AssociationSet Name="FK__CTDOANHTH__MaChu__628FA481" Association="Self.FK__CTDOANHTH__MaChu__628FA481">
+          <AssociationSet Name="FK__CTDOANHTH__MaChu__6477ECF3" Association="Self.FK__CTDOANHTH__MaChu__6477ECF3">
             <End Role="CHUYENBAY" EntitySet="CHUYENBAYs" />
             <End Role="CTDOANHTHUTHANG" EntitySet="CTDOANHTHUTHANGs" />
           </AssociationSet>
-          <AssociationSet Name="FK__CTSANBAYT__MaChu__59063A47" Association="Self.FK__CTSANBAYT__MaChu__59063A47">
+          <AssociationSet Name="FK__CTSANBAYT__MaChu__5AEE82B9" Association="Self.FK__CTSANBAYT__MaChu__5AEE82B9">
             <End Role="CHUYENBAY" EntitySet="CHUYENBAYs" />
             <End Role="CTSANBAYTRUNGGIAN" EntitySet="CTSANBAYTRUNGGIANs" />
           </AssociationSet>
-          <AssociationSet Name="FK__CTDOANHTHUN__Nam__6477ECF3" Association="Self.FK__CTDOANHTHUN__Nam__6477ECF3">
+          <AssociationSet Name="FK__CTDOANHTHUN__Nam__66603565" Association="Self.FK__CTDOANHTHUN__Nam__66603565">
             <End Role="DOANHTHUNAM" EntitySet="DOANHTHUNAMs" />
             <End Role="CTDOANHTHUNAM" EntitySet="CTDOANHTHUNAMs" />
           </AssociationSet>
-          <AssociationSet Name="FK__CTDOANHTHUTHANG__6383C8BA" Association="Self.FK__CTDOANHTHUTHANG__6383C8BA">
+          <AssociationSet Name="FK__CTDOANHTHUTHANG__656C112C" Association="Self.FK__CTDOANHTHUTHANG__656C112C">
             <End Role="CTDOANHTHUNAM" EntitySet="CTDOANHTHUNAMs" />
             <End Role="CTDOANHTHUTHANG" EntitySet="CTDOANHTHUTHANGs" />
           </AssociationSet>
-          <AssociationSet Name="FK__DANHSACHG__MaMay__656C112C" Association="Self.FK__DANHSACHG__MaMay__656C112C">
+          <AssociationSet Name="FK__DANHSACHG__MaMay__6754599E" Association="Self.FK__DANHSACHG__MaMay__6754599E">
             <End Role="MAYBAY" EntitySet="MAYBAYs" />
             <End Role="DANHSACHGHECUAMAYBAY" EntitySet="DANHSACHGHECUAMAYBAYs" />
           </AssociationSet>
-          <AssociationSet Name="FK__PHIEUDATC__MaGhe__619B8048" Association="Self.FK__PHIEUDATC__MaGhe__619B8048">
+          <AssociationSet Name="FK__PHIEUDATC__MaGhe__6383C8BA" Association="Self.FK__PHIEUDATC__MaGhe__6383C8BA">
             <End Role="DANHSACHGHECUAMAYBAY" EntitySet="DANHSACHGHECUAMAYBAYs" />
             <End Role="PHIEUDATCHO" EntitySet="PHIEUDATCHOes" />
           </AssociationSet>
-          <AssociationSet Name="FK__VECHUYENB__MaGhe__5EBF139D" Association="Self.FK__VECHUYENB__MaGhe__5EBF139D">
+          <AssociationSet Name="FK__VECHUYENB__MaGhe__60A75C0F" Association="Self.FK__VECHUYENB__MaGhe__60A75C0F">
             <End Role="DANHSACHGHECUAMAYBAY" EntitySet="DANHSACHGHECUAMAYBAYs" />
             <End Role="VECHUYENBAY" EntitySet="VECHUYENBAYs" />
           </AssociationSet>
-          <AssociationSet Name="FK__MAYBAY__MaHangMa__66603565" Association="Self.FK__MAYBAY__MaHangMa__66603565">
+          <AssociationSet Name="FK__MAYBAY__MaHangMa__68487DD7" Association="Self.FK__MAYBAY__MaHangMa__68487DD7">
             <End Role="HANGMAYBAY" EntitySet="HANGMAYBAYs" />
             <End Role="MAYBAY" EntitySet="MAYBAYs" />
           </AssociationSet>
-          <AssociationSet Name="FK__PHIEUDATC__MaHan__60A75C0F" Association="Self.FK__PHIEUDATC__MaHan__60A75C0F">
+          <AssociationSet Name="FK__PHIEUDATC__MaHan__628FA481" Association="Self.FK__PHIEUDATC__MaHan__628FA481">
             <End Role="HANHKHACH" EntitySet="HANHKHACHes" />
             <End Role="PHIEUDATCHO" EntitySet="PHIEUDATCHOes" />
           </AssociationSet>
-          <AssociationSet Name="FK__VECHUYENB__MaHan__5DCAEF64" Association="Self.FK__VECHUYENB__MaHan__5DCAEF64">
+          <AssociationSet Name="FK__VECHUYENB__MaHan__5FB337D6" Association="Self.FK__VECHUYENB__MaHan__5FB337D6">
             <End Role="HANHKHACH" EntitySet="HANHKHACHes" />
             <End Role="VECHUYENBAY" EntitySet="VECHUYENBAYs" />
           </AssociationSet>
-          <AssociationSet Name="FK__SANBAY__MaQuocGi__59FA5E80" Association="Self.FK__SANBAY__MaQuocGi__59FA5E80">
+          <AssociationSet Name="FK__SANBAY__MaQuocGi__5BE2A6F2" Association="Self.FK__SANBAY__MaQuocGi__5BE2A6F2">
             <End Role="QUOCGIA" EntitySet="QUOCGIAs" />
             <End Role="SANBAY" EntitySet="SANBAYs" />
           </AssociationSet>
-          <AssociationSet Name="FK__TUYENBAY__MaQuoc__6754599E" Association="Self.FK__TUYENBAY__MaQuoc__6754599E">
+          <AssociationSet Name="FK__TUYENBAY__MaQuoc__693CA210" Association="Self.FK__TUYENBAY__MaQuoc__693CA210">
             <End Role="QUOCGIA" EntitySet="QUOCGIAs" />
             <End Role="TUYENBAY" EntitySet="TUYENBAYs" />
           </AssociationSet>
-          <AssociationSet Name="FK__TUYENBAY__MaQuoc__68487DD7" Association="Self.FK__TUYENBAY__MaQuoc__68487DD7">
+          <AssociationSet Name="FK__TUYENBAY__MaQuoc__6A30C649" Association="Self.FK__TUYENBAY__MaQuoc__6A30C649">
             <End Role="QUOCGIA" EntitySet="QUOCGIAs" />
             <End Role="TUYENBAY" EntitySet="TUYENBAYs" />
           </AssociationSet>
-          <EntitySet Name="TAIKHOANs" EntityType="QUANLYBANVECHUYENBAYModel.TAIKHOAN" />
+          <EntitySet Name="TAIKHOAN1" EntityType="QUANLYBANVECHUYENBAYModel.TAIKHOAN1" />
         </EntityContainer>
-        <EntityType Name="TAIKHOAN">
+        <EntityType Name="TAIKHOAN1">
           <Key>
             <PropertyRef Name="TenTaiKhoan" />
           </Key>
@@ -1335,8 +1335,8 @@ warning 6002: The table/view 'QUANLYBANVECHUYENBAY.dbo.THAMSO' does not have a p
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="TAIKHOANs">
-            <EntityTypeMapping TypeName="QUANLYBANVECHUYENBAYModel.TAIKHOAN">
+          <EntitySetMapping Name="TAIKHOAN1">
+            <EntityTypeMapping TypeName="QUANLYBANVECHUYENBAYModel.TAIKHOAN1">
               <MappingFragment StoreEntitySet="TAIKHOAN">
                 <ScalarProperty Name="MatKhau" ColumnName="MatKhau" />
                 <ScalarProperty Name="TenTaiKhoan" ColumnName="TenTaiKhoan" />

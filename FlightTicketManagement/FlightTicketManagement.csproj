@@ -280,6 +280,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Login.xaml.cs">
+      <DependentUpon>Login.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Model\CHITIETHANGVE.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -302,6 +305,7 @@
     <Compile Include="Model\DOANHTHUNAM.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Model\Flight.cs" />
     <Compile Include="Model\HANGMAYBAY.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -311,12 +315,10 @@
     <Compile Include="Model\HANHKHACH.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="Login.xaml.cs">
-      <DependentUpon>Login.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Model\MAYBAY.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Model\MidAirport.cs" />
     <Compile Include="Model\Model1.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -332,20 +334,18 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Model1.edmx</DependentUpon>
     </Compile>
-    <Compile Include="Model\Flight.cs" />
-    <Compile Include="Model\MidAirport.cs" />
-    <Compile Include="Model\Report.cs" />
-    <Compile Include="Model\Schedules.cs" />
     <Compile Include="Model\PHIEUDATCHO.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\QUOCGIA.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Model\Report.cs" />
     <Compile Include="Model\SANBAY.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="Model\TAIKHOAN.cs">
+    <Compile Include="Model\Schedules.cs" />
+    <Compile Include="Model\TAIKHOAN1.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\THAMSO.cs">
@@ -354,12 +354,12 @@
     <Compile Include="Model\TUYENBAY.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="Utilities\Btn.cs" />
-    <Compile Include="Utilities\RelayCommand.cs" />
-    <Compile Include="Utilities\ViewModelBase.cs" />
     <Compile Include="Model\VECHUYENBAY.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Utilities\Btn.cs" />
+    <Compile Include="Utilities\RelayCommand.cs" />
+    <Compile Include="Utilities\ViewModelBase.cs" />
     <Compile Include="ViewModel\AddFlightVM.cs" />
     <Compile Include="ViewModel\AddMidFlightVM.cs" />
     <Compile Include="ViewModel\DashboardVM.cs" />

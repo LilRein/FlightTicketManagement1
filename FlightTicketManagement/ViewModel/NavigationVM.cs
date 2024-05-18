@@ -1,4 +1,5 @@
-﻿using FlightTicketManagement.Utilities;
+﻿using FlightTicketManagement.Model;
+using FlightTicketManagement.Utilities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -33,6 +34,8 @@ namespace FlightTicketManagement.ViewModel
 
         public NavigationVM()
         {
+
+
             DashboardCommand = new RelayCommand(Dashboard);
             ScheduleCommand = new RelayCommand(Schedule);
             TicketSaleCommand = new RelayCommand(TicketSale);
@@ -42,6 +45,9 @@ namespace FlightTicketManagement.ViewModel
 
             // Startup ????
             CurrentView = new DashboardVM();
+
+            //var a = DataProvider.Ins.DB.CHUYENBAYs.ToList();
+
         }
     }
 }

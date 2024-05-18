@@ -16,16 +16,15 @@ namespace FlightTicketManagement.ViewModel
     class SchedulesVM : Utilities.ViewModelBase
     {
         private readonly PageModel _pageModel;
-        
-        private ObservableCollection<Model.Schedules> _flightList;
-
         public string Schedules
         {
             get { return _pageModel.Schedule; }
             set { _pageModel.Schedule = value; OnPropertyChanged(); }
         }
 
-        public ObservableCollection<Model.Schedules> FlightList
+        private ObservableCollection<CHUYENBAY> _flightList;
+
+        public ObservableCollection<CHUYENBAY> FlightList
         {
             get { return _flightList; }
             set
@@ -36,10 +35,9 @@ namespace FlightTicketManagement.ViewModel
         }
 
 
+        private ObservableCollection<CTSANBAYTRUNGGIAN> _midflightList;
 
-        private ObservableCollection<Model.MidAirport> _midflightList;
-
-        public ObservableCollection<Model.MidAirport> MidFlightList
+        public ObservableCollection<CTSANBAYTRUNGGIAN> MidFlightList
         {
             get { return _midflightList; }
             set
@@ -90,7 +88,9 @@ namespace FlightTicketManagement.ViewModel
         {
             _pageModel = new PageModel();
 
+            FlightList = new ObservableCollection<CHUYENBAY>(DataProvider.Ins.DB.CHUYENBAYs);
 
+            MidFlightList = new ObservableCollection<CTSANBAYTRUNGGIAN>(DataProvider.Ins.DB.CTSANBAYTRUNGGIANs);
 
             InitalizeCommand();
         }

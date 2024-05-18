@@ -95,22 +95,22 @@
                               RowStyle="{StaticResource DataGridRowStyle}"
                               ColumnHeaderStyle="{StaticResource DataGridColumnHeaderStyle}">
                                 <DataGrid.Columns>
-                                    <DataGridTextColumn Header="STT"
+                                    <DataGridTextColumn Header="Mã chuyến bay"
                                                 IsReadOnly="True"
                                                 Width="*"
-                                                Binding="{Binding sttMidFlight}"/>
+                                                Binding="{Binding MaChuyenBay}"/>
                                     <DataGridTextColumn Header="Sân bay trung gian"
                                                 IsReadOnly="True"
                                                 Width="*"
-                                                Binding="{Binding midAirport}"/>
+                                                Binding="{Binding MaSanBayTrungGian}"/>
                                     <DataGridTextColumn Header="Thời gian dừng"
                                                 IsReadOnly="True"
                                                 Width="*"
-                                                Binding="{Binding timeBreak}"/>
+                                                Binding="{Binding ThoiGianDung}"/>
                                     <DataGridTextColumn Header="Ghi chú"
                                                 IsReadOnly="True"
                                                 Width="*"
-                                                Binding="{Binding note}"/>
+                                                Binding="{Binding GhiChu}"/>
                                 </DataGrid.Columns>
                             </DataGrid>
                             <Border Grid.Row="1">
@@ -165,7 +165,7 @@
                           Style="{DynamicResource DataGridStyle}"
                           CellStyle="{DynamicResource DataGridCellStyle}"
                           RowStyle="{DynamicResource DataGridRowStyle}"
-                          ColumnHeaderStyle="{StaticResource DataGridColumnHeaderStyle}" SelectionChanged="DataGridCustomer_SelectionChanged">
+                          ColumnHeaderStyle="{StaticResource DataGridColumnHeaderStyle}">
                             <DataGrid.Columns>
                                 <DataGridTextColumn Header="Mã chuyến bay"
                                             IsReadOnly="True"
@@ -183,11 +183,15 @@
                                 <DataGridTextColumn Header="Ngày bay"
                                             IsReadOnly="True"
                                             Width="*"
-                                            Binding="{Binding Gio}"/>
+                                            Binding="{Binding NgayBay,StringFormat='dd/MM/yyyy'}"/>
                                 <DataGridTextColumn Header="Giờ khởi hành"
                                             IsReadOnly="True"
                                             Width="*"
-                                            Binding="{Binding EndHour}"/>
+                                            Binding="{Binding GioKhoiHanh}"/>
+                                <DataGridTextColumn Header="Đơn giá"
+                                            IsReadOnly="True"
+                                            Width="*"
+                                            Binding="{Binding DonGia}"/>
                                 <!--Action-->
                                 <DataGridTemplateColumn Header="Action"
                                                 IsReadOnly="True"
