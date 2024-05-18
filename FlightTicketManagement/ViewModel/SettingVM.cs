@@ -1,20 +1,27 @@
 ﻿using FlightTicketManagement.Model;
-using FlightTicketManagement.Utilities;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows.Input;
 
 namespace FlightTicketManagement.ViewModel
 {
     class SettingVM : Utilities.ViewModelBase
     {
-        private ObservableCollection<HANGVE> _List;
-        public ObservableCollection<HANGVE> List { get => _List; set { _List = value; OnPropertyChanged(); } }
+        private readonly PageModel _pageModel;
+
+        private ObservableCollection<HANGVE> _HangVeList;
+        public ObservableCollection<HANGVE> HangVeList
+        {
+            get { return _HangVeList; }
+            set
+            {
+                _HangVeList = value;
+                OnPropertyChanged(nameof(HangVeList));
+            }
+        }
 
         private HANGVE _SelectedItem;
         public HANGVE SelectedItem
@@ -28,7 +35,7 @@ namespace FlightTicketManagement.ViewModel
                 {
                     MaHangVe = SelectedItem.MaHangVe;
                     TenHangVe = SelectedItem.TenHangVe;
-                    TiLeGiaVe = SelectedItem.TiLeTinhDonGia;
+                    TiLeTinhDonGia = SelectedItem.TiLeTinhDonGia;
                 }
             }
         }
@@ -41,59 +48,28 @@ namespace FlightTicketManagement.ViewModel
         public string TenHangVe { get => _TenHangVe; set { _TenHangVe = value; OnPropertyChanged(); } }
 
 
-        private double _TiLeGiaVe;
-        public double TiLeGiaVe { get => _TiLeGiaVe; set { _TiLeGiaVe = value; OnPropertyChanged(); } }
+        private double _TiLeTinhDonGia;
+        public double TiLeTinhDonGia { get => _TiLeTinhDonGia; set { _TiLeTinhDonGia = value; OnPropertyChanged(); } }
 
+        private ObservableCollection<SANBAY> _SayBayList;
+        public ObservableCollection<SANBAY> SayBayList
+        {
+            get { return _SayBayList; }
+            set
+            {
+                _SayBayList = value;
+                OnPropertyChanged(nameof(SayBayList));
+            }
+        }
 
-        public ICommand AddCommand { get; set; }
-        public ICommand EditCommand { get; set; }
 
         public SettingVM()
         {
-            List = new ObservableCollection<HANGVE>(DataProvider.Ins.DB.HANGVEs);
+            _pageModel = new PageModel();
 
-            //AddCommand = new RelayCommand<object>((p) =>
-            //{
-            //    return true;
+            HangVeList = new ObservableCollection<HANGVE>(DataProvider.Ins.DB.HANGVEs);
 
-            //}, (p) =>
-            //{
-            //    var Setting = new SettingVM() { MaHangVe = MaHangVe, TenHangVe = TenHangVe, TiLeGiaVe = TiLeGiaVe };
-            //    DataProvider.Ins.DB.HANGVEs.Add(Setting);
-            //    DataProvider.Ins.DB.SaveChanges();
-            //}, (p) =>
-            //{
-            //    var Setting = new SettingVM() { MaHangVe = MaHangVe, TenHangVe = TenHangVe, TiLeGiaVe = TiLeGiaVe };
-            //    DataProvider.Ins.DB.HANGVEs.Add(Setting);
-            //    DataProvider.Ins.DB.SaveChanges();
-
-            //    List.Add(Setting);
-            //});
-
-            //EditCommand = new RelayCommand<object>((p) =>
-            //{
-            //    if (SelectedItem == null)
-            //        return false;
-
-            //    var displayList = DataProvider.Ins.DB.Supliers.Where(x => x.Id == SelectedItem.Id);
-            //    if (displayList != null && displayList.Count() != 0)
-            //        return true;
-
-            //    return false;
-
-            //}, (p) =>
-            //{
-            //    var Suplier = DataProvider.Ins.DB.Supliers.Where(x => x.Id == SelectedItem.Id).SingleOrDefault();
-            //    Suplier.DisplayName = DisplayName;
-            //    Suplier.Phone = Phone;
-            //    Suplier.Address = Address;
-            //    Suplier.Email = Email;
-            //    Suplier.ContractDate = ContractDate;
-            //    Suplier.MoreInfo = MoreInfo;
-            //    DataProvider.Ins.DB.SaveChanges();
-
-            //    SelectedItem.DisplayName = DisplayName;
-            //});
+            SayBayList = new ObservableCollection<SANBAY>(DataProvider.Ins.DB.SANBAYs);
         }
     }
 }

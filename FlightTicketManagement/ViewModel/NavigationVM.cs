@@ -46,7 +46,7 @@ namespace FlightTicketManagement.ViewModel
             // Startup ????
             CurrentView = new DashboardVM();
 
-            //var a = DataProvider.Ins.DB.CHUYENBAYs.ToList();
+            var a = DataProvider.Ins.DB.CHUYENBAYs.ToList();
 
         }
     }

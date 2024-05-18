@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="QUANLYBANVECHUYENBAYModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="FLIGHTTICKETMANAGEMENTModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="CHITIETHANGVE">
           <Key>
             <PropertyRef Name="MaHangVe" />
@@ -152,7 +152,7 @@
           <Property Name="MatKhau" Type="varchar" MaxLength="100" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6002: The table/view 'QUANLYBANVECHUYENBAY.dbo.THAMSO' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'FLIGHTTICKETMANAGEMENT.dbo.THAMSO' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="THAMSO">
           <Key>
             <PropertyRef Name="SoSanBayTrungGianToiDa" />
@@ -446,7 +446,7 @@ warning 6002: The table/view 'QUANLYBANVECHUYENBAY.dbo.THAMSO' does not have a p
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="QUANLYBANVECHUYENBAYModelStoreContainer">
+        <EntityContainer Name="FLIGHTTICKETMANAGEMENTModelStoreContainer">
           <EntitySet Name="CHITIETHANGVE" EntityType="Self.CHITIETHANGVE" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="CHUYENBAY" EntityType="Self.CHUYENBAY" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="CTDOANHTHUNAM" EntityType="Self.CTDOANHTHUNAM" Schema="dbo" store:Type="Tables" />
@@ -559,10 +559,11 @@ warning 6002: The table/view 'QUANLYBANVECHUYENBAY.dbo.THAMSO' does not have a p
             <End Role="VECHUYENBAY" EntitySet="VECHUYENBAY" />
           </AssociationSet>
         </EntityContainer>
-      </Schema></edmx:StorageModels>
+      </Schema>
+    </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="QUANLYBANVECHUYENBAYModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+      <Schema Namespace="FLIGHTTICKETMANAGEMENTModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityType Name="CHITIETHANGVE">
           <Key>
             <PropertyRef Name="MaHangVe" />
@@ -737,6 +738,13 @@ warning 6002: The table/view 'QUANLYBANVECHUYENBAY.dbo.THAMSO' does not have a p
           <NavigationProperty Name="CHUYENBAYs" Relationship="Self.FK__CHUYENBAY__MaSan__5812160E" FromRole="SANBAY" ToRole="CHUYENBAY" />
           <NavigationProperty Name="CHUYENBAYs1" Relationship="Self.FK__CHUYENBAY__MaSan__59063A47" FromRole="SANBAY" ToRole="CHUYENBAY" />
           <NavigationProperty Name="QUOCGIA" Relationship="Self.FK__SANBAY__MaQuocGi__5BE2A6F2" FromRole="SANBAY" ToRole="QUOCGIA" />
+        </EntityType>
+        <EntityType Name="TAIKHOAN">
+          <Key>
+            <PropertyRef Name="TenTaiKhoan" />
+          </Key>
+          <Property Name="TenTaiKhoan" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="MatKhau" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="TUYENBAY">
           <Key>
@@ -1037,7 +1045,7 @@ warning 6002: The table/view 'QUANLYBANVECHUYENBAY.dbo.THAMSO' does not have a p
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="QUANLYBANVECHUYENBAYEntities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="FLIGHTTICKETMANAGEMENTEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="CHITIETHANGVEs" EntityType="Self.CHITIETHANGVE" />
           <EntitySet Name="CHUYENBAYs" EntityType="Self.CHUYENBAY" />
           <EntitySet Name="CTDOANHTHUNAMs" EntityType="Self.CTDOANHTHUNAM" />
@@ -1052,6 +1060,7 @@ warning 6002: The table/view 'QUANLYBANVECHUYENBAY.dbo.THAMSO' does not have a p
           <EntitySet Name="PHIEUDATCHOes" EntityType="Self.PHIEUDATCHO" />
           <EntitySet Name="QUOCGIAs" EntityType="Self.QUOCGIA" />
           <EntitySet Name="SANBAYs" EntityType="Self.SANBAY" />
+          <EntitySet Name="TAIKHOANs" EntityType="Self.TAIKHOAN" />
           <EntitySet Name="TUYENBAYs" EntityType="Self.TUYENBAY" />
           <EntitySet Name="VECHUYENBAYs" EntityType="Self.VECHUYENBAY" />
           <EntitySet Name="THAMSOes" EntityType="Self.THAMSO" />
@@ -1139,23 +1148,15 @@ warning 6002: The table/view 'QUANLYBANVECHUYENBAY.dbo.THAMSO' does not have a p
             <End Role="QUOCGIA" EntitySet="QUOCGIAs" />
             <End Role="TUYENBAY" EntitySet="TUYENBAYs" />
           </AssociationSet>
-          <EntitySet Name="TAIKHOAN1" EntityType="QUANLYBANVECHUYENBAYModel.TAIKHOAN1" />
         </EntityContainer>
-        <EntityType Name="TAIKHOAN1">
-          <Key>
-            <PropertyRef Name="TenTaiKhoan" />
-          </Key>
-          <Property Name="TenTaiKhoan" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="MatKhau" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="QUANLYBANVECHUYENBAYModelStoreContainer" CdmEntityContainer="QUANLYBANVECHUYENBAYEntities">
+        <EntityContainerMapping StorageEntityContainer="FLIGHTTICKETMANAGEMENTModelStoreContainer" CdmEntityContainer="FLIGHTTICKETMANAGEMENTEntities">
           <EntitySetMapping Name="CHITIETHANGVEs">
-            <EntityTypeMapping TypeName="QUANLYBANVECHUYENBAYModel.CHITIETHANGVE">
+            <EntityTypeMapping TypeName="FLIGHTTICKETMANAGEMENTModel.CHITIETHANGVE">
               <MappingFragment StoreEntitySet="CHITIETHANGVE">
                 <ScalarProperty Name="MaHangVe" ColumnName="MaHangVe" />
                 <ScalarProperty Name="MaChuyenBay" ColumnName="MaChuyenBay" />
@@ -1168,7 +1169,7 @@ warning 6002: The table/view 'QUANLYBANVECHUYENBAY.dbo.THAMSO' does not have a p
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="CHUYENBAYs">
-            <EntityTypeMapping TypeName="QUANLYBANVECHUYENBAYModel.CHUYENBAY">
+            <EntityTypeMapping TypeName="FLIGHTTICKETMANAGEMENTModel.CHUYENBAY">
               <MappingFragment StoreEntitySet="CHUYENBAY">
                 <ScalarProperty Name="MaChuyenBay" ColumnName="MaChuyenBay" />
                 <ScalarProperty Name="MaTuyenBay" ColumnName="MaTuyenBay" />
@@ -1183,7 +1184,7 @@ warning 6002: The table/view 'QUANLYBANVECHUYENBAY.dbo.THAMSO' does not have a p
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="CTDOANHTHUNAMs">
-            <EntityTypeMapping TypeName="QUANLYBANVECHUYENBAYModel.CTDOANHTHUNAM">
+            <EntityTypeMapping TypeName="FLIGHTTICKETMANAGEMENTModel.CTDOANHTHUNAM">
               <MappingFragment StoreEntitySet="CTDOANHTHUNAM">
                 <ScalarProperty Name="Thang" ColumnName="Thang" />
                 <ScalarProperty Name="Nam" ColumnName="Nam" />
@@ -1194,7 +1195,7 @@ warning 6002: The table/view 'QUANLYBANVECHUYENBAY.dbo.THAMSO' does not have a p
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="CTDOANHTHUTHANGs">
-            <EntityTypeMapping TypeName="QUANLYBANVECHUYENBAYModel.CTDOANHTHUTHANG">
+            <EntityTypeMapping TypeName="FLIGHTTICKETMANAGEMENTModel.CTDOANHTHUTHANG">
               <MappingFragment StoreEntitySet="CTDOANHTHUTHANG">
                 <ScalarProperty Name="MaChuyenBay" ColumnName="MaChuyenBay" />
                 <ScalarProperty Name="Thang" ColumnName="Thang" />
@@ -1206,7 +1207,7 @@ warning 6002: The table/view 'QUANLYBANVECHUYENBAY.dbo.THAMSO' does not have a p
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="CTSANBAYTRUNGGIANs">
-            <EntityTypeMapping TypeName="QUANLYBANVECHUYENBAYModel.CTSANBAYTRUNGGIAN">
+            <EntityTypeMapping TypeName="FLIGHTTICKETMANAGEMENTModel.CTSANBAYTRUNGGIAN">
               <MappingFragment StoreEntitySet="CTSANBAYTRUNGGIAN">
                 <ScalarProperty Name="MaChuyenBay" ColumnName="MaChuyenBay" />
                 <ScalarProperty Name="MaSanBayTrungGian" ColumnName="MaSanBayTrungGian" />
@@ -1216,7 +1217,7 @@ warning 6002: The table/view 'QUANLYBANVECHUYENBAY.dbo.THAMSO' does not have a p
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="DANHSACHGHECUAMAYBAYs">
-            <EntityTypeMapping TypeName="QUANLYBANVECHUYENBAYModel.DANHSACHGHECUAMAYBAY">
+            <EntityTypeMapping TypeName="FLIGHTTICKETMANAGEMENTModel.DANHSACHGHECUAMAYBAY">
               <MappingFragment StoreEntitySet="DANHSACHGHECUAMAYBAY">
                 <ScalarProperty Name="MaGhe" ColumnName="MaGhe" />
                 <ScalarProperty Name="SoGhe" ColumnName="SoGhe" />
@@ -1226,7 +1227,7 @@ warning 6002: The table/view 'QUANLYBANVECHUYENBAY.dbo.THAMSO' does not have a p
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="DOANHTHUNAMs">
-            <EntityTypeMapping TypeName="QUANLYBANVECHUYENBAYModel.DOANHTHUNAM">
+            <EntityTypeMapping TypeName="FLIGHTTICKETMANAGEMENTModel.DOANHTHUNAM">
               <MappingFragment StoreEntitySet="DOANHTHUNAM">
                 <ScalarProperty Name="NAM" ColumnName="NAM" />
                 <ScalarProperty Name="TONGDOANHTHUNAM" ColumnName="TONGDOANHTHUNAM" />
@@ -1234,7 +1235,7 @@ warning 6002: The table/view 'QUANLYBANVECHUYENBAY.dbo.THAMSO' does not have a p
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="HANGMAYBAYs">
-            <EntityTypeMapping TypeName="QUANLYBANVECHUYENBAYModel.HANGMAYBAY">
+            <EntityTypeMapping TypeName="FLIGHTTICKETMANAGEMENTModel.HANGMAYBAY">
               <MappingFragment StoreEntitySet="HANGMAYBAY">
                 <ScalarProperty Name="MaHangMayBay" ColumnName="MaHangMayBay" />
                 <ScalarProperty Name="TenHang" ColumnName="TenHang" />
@@ -1242,7 +1243,7 @@ warning 6002: The table/view 'QUANLYBANVECHUYENBAY.dbo.THAMSO' does not have a p
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="HANGVEs">
-            <EntityTypeMapping TypeName="QUANLYBANVECHUYENBAYModel.HANGVE">
+            <EntityTypeMapping TypeName="FLIGHTTICKETMANAGEMENTModel.HANGVE">
               <MappingFragment StoreEntitySet="HANGVE">
                 <ScalarProperty Name="MaHangVe" ColumnName="MaHangVe" />
                 <ScalarProperty Name="TenHangVe" ColumnName="TenHangVe" />
@@ -1251,7 +1252,7 @@ warning 6002: The table/view 'QUANLYBANVECHUYENBAY.dbo.THAMSO' does not have a p
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="HANHKHACHes">
-            <EntityTypeMapping TypeName="QUANLYBANVECHUYENBAYModel.HANHKHACH">
+            <EntityTypeMapping TypeName="FLIGHTTICKETMANAGEMENTModel.HANHKHACH">
               <MappingFragment StoreEntitySet="HANHKHACH">
                 <ScalarProperty Name="MaHanhKhach" ColumnName="MaHanhKhach" />
                 <ScalarProperty Name="HoTen" ColumnName="HoTen" />
@@ -1262,7 +1263,7 @@ warning 6002: The table/view 'QUANLYBANVECHUYENBAY.dbo.THAMSO' does not have a p
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="MAYBAYs">
-            <EntityTypeMapping TypeName="QUANLYBANVECHUYENBAYModel.MAYBAY">
+            <EntityTypeMapping TypeName="FLIGHTTICKETMANAGEMENTModel.MAYBAY">
               <MappingFragment StoreEntitySet="MAYBAY">
                 <ScalarProperty Name="MaMayBay" ColumnName="MaMayBay" />
                 <ScalarProperty Name="TenMayBay" ColumnName="TenMayBay" />
@@ -1272,7 +1273,7 @@ warning 6002: The table/view 'QUANLYBANVECHUYENBAY.dbo.THAMSO' does not have a p
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="PHIEUDATCHOes">
-            <EntityTypeMapping TypeName="QUANLYBANVECHUYENBAYModel.PHIEUDATCHO">
+            <EntityTypeMapping TypeName="FLIGHTTICKETMANAGEMENTModel.PHIEUDATCHO">
               <MappingFragment StoreEntitySet="PHIEUDATCHO">
                 <ScalarProperty Name="SoPhieuDatCho" ColumnName="SoPhieuDatCho" />
                 <ScalarProperty Name="NgayDat" ColumnName="NgayDat" />
@@ -1285,7 +1286,7 @@ warning 6002: The table/view 'QUANLYBANVECHUYENBAY.dbo.THAMSO' does not have a p
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="QUOCGIAs">
-            <EntityTypeMapping TypeName="QUANLYBANVECHUYENBAYModel.QUOCGIA">
+            <EntityTypeMapping TypeName="FLIGHTTICKETMANAGEMENTModel.QUOCGIA">
               <MappingFragment StoreEntitySet="QUOCGIA">
                 <ScalarProperty Name="MaQuocGia" ColumnName="MaQuocGia" />
                 <ScalarProperty Name="TenQuocGia" ColumnName="TenQuocGia" />
@@ -1293,7 +1294,7 @@ warning 6002: The table/view 'QUANLYBANVECHUYENBAY.dbo.THAMSO' does not have a p
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="SANBAYs">
-            <EntityTypeMapping TypeName="QUANLYBANVECHUYENBAYModel.SANBAY">
+            <EntityTypeMapping TypeName="FLIGHTTICKETMANAGEMENTModel.SANBAY">
               <MappingFragment StoreEntitySet="SANBAY">
                 <ScalarProperty Name="MaSanBay" ColumnName="MaSanBay" />
                 <ScalarProperty Name="TenSanBay" ColumnName="TenSanBay" />
@@ -1302,8 +1303,16 @@ warning 6002: The table/view 'QUANLYBANVECHUYENBAY.dbo.THAMSO' does not have a p
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="TAIKHOANs">
+            <EntityTypeMapping TypeName="FLIGHTTICKETMANAGEMENTModel.TAIKHOAN">
+              <MappingFragment StoreEntitySet="TAIKHOAN">
+                <ScalarProperty Name="TenTaiKhoan" ColumnName="TenTaiKhoan" />
+                <ScalarProperty Name="MatKhau" ColumnName="MatKhau" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="TUYENBAYs">
-            <EntityTypeMapping TypeName="QUANLYBANVECHUYENBAYModel.TUYENBAY">
+            <EntityTypeMapping TypeName="FLIGHTTICKETMANAGEMENTModel.TUYENBAY">
               <MappingFragment StoreEntitySet="TUYENBAY">
                 <ScalarProperty Name="MaTuyenBay" ColumnName="MaTuyenBay" />
                 <ScalarProperty Name="MaQuocGiaDi" ColumnName="MaQuocGiaDi" />
@@ -1312,7 +1321,7 @@ warning 6002: The table/view 'QUANLYBANVECHUYENBAY.dbo.THAMSO' does not have a p
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="VECHUYENBAYs">
-            <EntityTypeMapping TypeName="QUANLYBANVECHUYENBAYModel.VECHUYENBAY">
+            <EntityTypeMapping TypeName="FLIGHTTICKETMANAGEMENTModel.VECHUYENBAY">
               <MappingFragment StoreEntitySet="VECHUYENBAY">
                 <ScalarProperty Name="MaVe" ColumnName="MaVe" />
                 <ScalarProperty Name="NgayXuatVe" ColumnName="NgayXuatVe" />
@@ -1324,7 +1333,7 @@ warning 6002: The table/view 'QUANLYBANVECHUYENBAY.dbo.THAMSO' does not have a p
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="THAMSOes">
-            <EntityTypeMapping TypeName="QUANLYBANVECHUYENBAYModel.THAMSO">
+            <EntityTypeMapping TypeName="FLIGHTTICKETMANAGEMENTModel.THAMSO">
               <MappingFragment StoreEntitySet="THAMSO">
                 <ScalarProperty Name="SoSanBayTrungGianToiDa" ColumnName="SoSanBayTrungGianToiDa" />
                 <ScalarProperty Name="ThoiGianBayToiThieu" ColumnName="ThoiGianBayToiThieu" />
@@ -1332,14 +1341,6 @@ warning 6002: The table/view 'QUANLYBANVECHUYENBAY.dbo.THAMSO' does not have a p
                 <ScalarProperty Name="ThoiGianDungToiDa" ColumnName="ThoiGianDungToiDa" />
                 <ScalarProperty Name="ThoiGianDatVeChamNhat" ColumnName="ThoiGianDatVeChamNhat" />
                 <ScalarProperty Name="ThoiGianHuyVeDatVe" ColumnName="ThoiGianHuyVeDatVe" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="TAIKHOAN1">
-            <EntityTypeMapping TypeName="QUANLYBANVECHUYENBAYModel.TAIKHOAN1">
-              <MappingFragment StoreEntitySet="TAIKHOAN">
-                <ScalarProperty Name="MatKhau" ColumnName="MatKhau" />
-                <ScalarProperty Name="TenTaiKhoan" ColumnName="TenTaiKhoan" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

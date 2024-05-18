@@ -1,10 +1,8 @@
-﻿﻿CREATE DATABASE QUANLYBANVECHUYENBAY
+﻿﻿CREATE DATABASE FLIGHTTICKETMANAGEMENT
 
-DROP DATABASE QUANLYBANVECHUYENBAY
+DROP DATABASE FLIGHTTICKETMANAGEMENT
 
-USE QUANLYBANVECHUYENBAY
-
-DROP TABLE DANHSACHGHECUAMAYBAY
+USE FLIGHTTICKETMANAGEMENT
 
 CREATE TABLE CHUYENBAY (
     MaChuyenBay CHAR(10) PRIMARY KEY,
@@ -253,16 +251,6 @@ INSERT INTO CTSANBAYTRUNGGIAN VALUES
 ('VA 363', 'DAD', 1, NULL),
 ('VA 777', 'DAD', 1, NULL);
 
-INSERT INTO CTDOANHTHUTHANG VALUES
-('VA 363', 7, 2024),
-('VA 323', 7, 2024),
-('VA 777', 7, 2024),
-('VJ 472', 6, 2024);
-
-INSERT INTO CTDOANHTHUNAM VALUES
-(6, 2024),
-(7, 2024);
-
 -- Section A
 INSERT INTO DANHSACHGHECUAMAYBAY VALUES ('VAA886A01', 'A01', 'VA-A886', NULL);
 INSERT INTO DANHSACHGHECUAMAYBAY VALUES ('VAA886A02', 'A02', 'VA-A886', NULL);
@@ -366,6 +354,75 @@ INSERT INTO TAIKHOAN(TenTaiKhoan, MatKhau) VALUES
 ('admin1','admin123'),
 ('user1','user123'),
 ('user2','user456');
+
+go
+CREATE TRIGGER trg_UpdateCTDoanhThuThang
+ON CHUYENBAY
+AFTER INSERT, UPDATE
+AS
+BEGIN
+    SET NOCOUNT ON;
+
+    -- Tạo bảng tạm để chứa kết quả tính toán doanh thu và số vé
+    DECLARE @TempTable TABLE (
+        MaChuyenBay CHAR(10),
+        Thang INT,
+        Nam INT,
+        SoVe INT,
+        DoanhThuThang MONEY
+    );
+
+    -- Chèn dữ liệu vào bảng tạm từ các bản ghi được chèn hoặc cập nhật
+    INSERT INTO @TempTable (MaChuyenBay, Thang, Nam, SoVe, DoanhThuThang)
+    SELECT 
+        i.MaChuyenBay,
+        MONTH(i.NgayBay) AS Thang,
+        YEAR(i.NgayBay) AS Nam,
+        ISNULL(SUM(c.SoVeDaBan), 0) AS SoVe,
+        ISNULL(SUM(c.GiaVe * c.SoVeDaBan), 0) AS DoanhThuThang
+    FROM 
+        inserted i
+    LEFT JOIN
+        CHITIETHANGVE c ON i.MaChuyenBay = c.MaChuyenBay
+    GROUP BY
+        i.MaChuyenBay,
+        MONTH(i.NgayBay),
+        YEAR(i.NgayBay);
+
+    -- Thêm bản ghi mới vào CTDOANHTHUTHANG nếu chưa tồn tại
+    INSERT INTO CTDOANHTHUTHANG (MaChuyenBay, Thang, Nam, SoVe, TiLeThang, DoanhThuThang)
+    SELECT 
+        t.MaChuyenBay,
+        t.Thang,
+        t.Nam,
+        t.SoVe,
+        0 AS TiLeThang, -- Khởi tạo với 0, cập nhật khi cần
+        t.DoanhThuThang
+    FROM 
+        @TempTable t
+    WHERE 
+        NOT EXISTS (
+            SELECT 1 
+            FROM CTDOANHTHUTHANG ctd
+            WHERE ctd.MaChuyenBay = t.MaChuyenBay 
+              AND ctd.Thang = t.Thang 
+              AND ctd.Nam = t.Nam
+        );
+
+    -- Cập nhật các bản ghi hiện có trong CTDOANHTHUTHANG
+    UPDATE ctd
+    SET 
+        ctd.SoVe = t.SoVe,
+        ctd.DoanhThuThang = t.DoanhThuThang
+    FROM 
+        CTDOANHTHUTHANG ctd
+    JOIN 
+        @TempTable t ON ctd.MaChuyenBay = t.MaChuyenBay
+                     AND ctd.Thang = t.Thang
+                     AND ctd.Nam = t.Nam;
+
+END;
+GO
 
 
 DELETE FROM HANGMAYBAY
