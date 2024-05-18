@@ -8,11 +8,10 @@ namespace FlightTicketManagement.Model
 {
     public class Schedules
     {
-        public CHUYENBAY MaChuyenBay { get; set; }
-        public CHUYENBAY MaSanBayDi { get; set; }
-        public CHUYENBAY MaSanBayDen { get; set; }
-        public CHUYENBAY NgayBay { get; set; }
-        public CHUYENBAY GioKhoiHanh { get; set; }
-
+        public string FlightID { get; set; }
+        public string StartAirport { get; set; }
+        public string EndAirport { get; set; }
+        public string StartHour { get; set; }
+        public string EndHour { get; set; }
     }
 }

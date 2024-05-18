@@ -42,6 +42,6 @@ namespace FlightTicketManagement.Model
         public virtual DbSet<TUYENBAY> TUYENBAYs { get; set; }
         public virtual DbSet<VECHUYENBAY> VECHUYENBAYs { get; set; }
         public virtual DbSet<THAMSO> THAMSOes { get; set; }
-        public virtual DbSet<TAIKHOAN> TAIKHOANs { get; set; }
+        public virtual DbSet<TAIKHOAN1> TAIKHOAN1 { get; set; }
     }
 }

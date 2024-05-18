@@ -43,10 +43,5 @@ namespace FlightTicketManagement.View
         {
 
         }
-
-        private void DataGridCustomer_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-
-        }
     }
 }
