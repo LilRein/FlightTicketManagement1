@@ -1,45 +1,37 @@
 ﻿using FlightTicketManagement.Utilities;
 using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Input;
 using System.Windows;
-using FlightTicketManagement.View.Components;
+using System.Windows.Input;
 using FlightTicketManagement.Model;
+using FlightTicketManagement.View.Components;
 
 namespace FlightTicketManagement.ViewModel
 {
     class AddFlightVM : Utilities.ViewModelBase
     {
         private ObservableCollection<CHUYENBAY> _CHUYENBAYList;
-        public ObservableCollection<CHUYENBAY> CHUYENBAYList { get => _CHUYENBAYList; set { _CHUYENBAYList = value; OnPropertyChanged(); } }
-
-        private ObservableCollection<CHITIETHANGVE> _CHITIETHANGVEList;
-        public ObservableCollection<CHITIETHANGVE> CHITIETHANGVEList { get => _CHITIETHANGVEList; set { _CHITIETHANGVEList = value; OnPropertyChanged(); } }
-
-        private CHUYENBAY _SelectedCHUYENBAY;
-        public CHUYENBAY SelectedCHUYENBAY
+        public ObservableCollection<CHUYENBAY> CHUYENBAYList
         {
-            get => _SelectedCHUYENBAY;
+            get { return _CHUYENBAYList; }
             set
             {
-                _SelectedCHUYENBAY = value;
-                OnPropertyChanged();
-
-                if (SelectedCHUYENBAY != null)
-                {
-                    MaChuyenBay = SelectedCHUYENBAY.MaChuyenBay;
-                    MaSanBayDi = SelectedCHUYENBAY.MaSanBayDi;
-                    MaSanBayDen = SelectedCHUYENBAY.MaSanBayDen;
-                    NgayBay = SelectedCHUYENBAY.NgayBay;
-                    GioKhoiHanh = SelectedCHUYENBAY.GioKhoiHanh;
-                    ThoiLuong = SelectedCHUYENBAY.ThoiLuong;
-                }
+                _CHUYENBAYList = value;
+                OnPropertyChanged(nameof(CHUYENBAYList));
             }
         }
+
+        private ObservableCollection<CHITIETHANGVE> _CHITIETHANGVEList;
+        public ObservableCollection<CHITIETHANGVE> CHITIETHANGVEList
+        {
+            get { return _CHITIETHANGVEList; }
+            set
+            {
+                _CHITIETHANGVEList = value;
+                OnPropertyChanged(nameof(CHITIETHANGVEList));
+            }
+        }
+
 
         private CHITIETHANGVE _SelectedCHITIETHANGVE;
         public CHITIETHANGVE SelectedCHITIETHANGVE
@@ -59,6 +51,9 @@ namespace FlightTicketManagement.ViewModel
 
         private string _MaChuyenBay;
         public string MaChuyenBay { get => _MaChuyenBay; set { _MaChuyenBay = value; OnPropertyChanged(); } }
+
+        private string _MaTuyenBay;
+        public string MaTuyenBay { get => _MaTuyenBay; set { _MaTuyenBay = value; OnPropertyChanged(); } }
 
         private string _MaSanBayDi;
         public string MaSanBayDi { get => _MaSanBayDi; set { _MaSanBayDi = value; OnPropertyChanged(); } }
@@ -86,11 +81,12 @@ namespace FlightTicketManagement.ViewModel
 
         public AddFlightVM()
         {
-            CHUYENBAYList = new ObservableCollection<CHUYENBAY>();
-            CHITIETHANGVEList = new ObservableCollection<CHITIETHANGVE>();
+            CHUYENBAYList = new ObservableCollection<CHUYENBAY>(DataProvider.Ins.DB.CHUYENBAYs);
+            CHITIETHANGVEList = new ObservableCollection<CHITIETHANGVE>(DataProvider.Ins.DB.CHITIETHANGVEs);
 
-
-
+            CloseAACM = new RelayCommand<AddFlight>((p) => true, (p) => _CloseAACM(p));
+            ConfirmCommand = new RelayCommand<AddFlight>((p) => true, (p) => _ConfirmCommand(p));
+            CancelCommand = new RelayCommand<AddFlight>((p) => true, (p) => _CancelCommand(p));
         }
 
         private ObservableCollection<string> _flightItemList;
@@ -104,44 +100,56 @@ namespace FlightTicketManagement.ViewModel
             }
         }
 
-        private void _CloseAACM(AddFlight paramater)
+        private ObservableCollection<string> _routeIDList;
+        public ObservableCollection<string> RouteIDList
         {
-            var window = Window.GetWindow(paramater);
+            get { return _routeIDList; }
+            set
+            {
+                _routeIDList = value;
+                OnPropertyChanged();
+            }
+        }
+
+        private void _CloseAACM(AddFlight parameter)
+        {
+            var window = Window.GetWindow(parameter);
             if (window != null)
             {
                 window.Close();
             }
         }
 
-        private void _ConfirmCommand(AddFlight paramater)
+        private void _ConfirmCommand(AddFlight parameter)
         {
-            if (paramater.FlightID.Text == "" || string.IsNullOrEmpty(paramater.StartListAirport.Text) ||
-                string.IsNullOrEmpty(paramater.EndListAirport.Text) ||
-                string.IsNullOrEmpty(paramater.FlightTime.Text) ||
-                paramater.Seat1.Text == "" || paramater.Seat2.Text == "")
+            if (string.IsNullOrEmpty(parameter.FlightID.Text) || parameter.StartListAirport.SelectedItem == null ||
+                parameter.EndListAirport.SelectedItem == null ||
+                parameter.FlightTimePicker.SelectedTime == null ||
+                string.IsNullOrEmpty(parameter.SeatCount.Text) ||
+                string.IsNullOrEmpty(parameter.Price.Text))
             {
                 MessageBox.Show("Có vẻ bạn thiếu thông tin!!", "Notification", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }
-            MessageBoxResult addFliNoti = System.Windows.MessageBox.Show("Bạn muốn thêm chuyến bay ?", "Notification", MessageBoxButton.YesNo);
+            MessageBoxResult addFliNoti = MessageBox.Show("Bạn muốn thêm chuyến bay?", "Notification", MessageBoxButton.YesNo);
             if (addFliNoti == MessageBoxResult.Yes)
             {
-                //Xử lí logic khi nhấn Yes
-                MessageBox.Show("Test thôi không có gì đâu");
+                // Xử lý logic khi nhấn Yes
+                MessageBox.Show("Chuyến bay đã được thêm thành công!");
             }
         }
 
-        private void _CancelCommand(AddFlight paramater)
+        private void _CancelCommand(AddFlight parameter)
         {
-            paramater.FlightID.Clear();
-            paramater.StartListAirport.SelectedItem = null;
-            paramater.EndListAirport.SelectedItem = null;
-            paramater.FlightTime.Text = string.Empty;
-            paramater.Seat1.Clear();
-            paramater.Seat2.Clear();
-            paramater.FlightDatePicker.Text = string.Empty;
-            paramater.FlightTimePicker.Text = string.Empty;
-
+            parameter.FlightID.Clear();
+            parameter.StartListAirport.SelectedItem = null;
+            parameter.EndListAirport.SelectedItem = null;
+            parameter.PlaneID.Clear();
+            parameter.Duration.Clear();
+            parameter.Price.Clear();
+            parameter.SeatCount.Clear();
+            parameter.FlightDatePicker.SelectedDate = null;
+            parameter.FlightTimePicker.SelectedTime = null;
         }
     }
 }

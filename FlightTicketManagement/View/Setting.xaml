@@ -324,20 +324,38 @@
                             BorderThickness="1">
                             <DataGrid
                                 HorizontalAlignment="Center"
+                                ItemsSource="{Binding SayBayList}"
                                 Background="WhiteSmoke"
-                                GridLinesVisibility="Horizontal"
                                 HeadersVisibility="Column"
                                 IsReadOnly="True"
-                                VerticalScrollBarVisibility="Auto">
+                                AutoGenerateColumns="False"
+                                CanUserResizeColumns="False"
+                                Style="{StaticResource DataGridStyle}"
+                                CellStyle="{StaticResource DataGridCellStyle}"
+                                RowStyle="{StaticResource DataGridRowStyle}"
+                                ColumnHeaderStyle="{StaticResource DataGridColumnHeaderStyle}"
+                                VerticalScrollBarVisibility="Auto" Margin="0,-1,0,0">
                                 <DataGrid.Columns>
                                     <DataGridTextColumn
                                         Width="*"
                                         Header="Mã sân bay"
-                                        SortDirection="Ascending" />
+                                        SortDirection="Ascending" 
+                                        Binding="{Binding MaSanBay}"/>
                                     <DataGridTextColumn
-                                        Width="2*"
+                                        Width="1.5*"
                                         Header="Tên sân bay"
-                                        SortDirection="Ascending" />
+                                        SortDirection="Ascending" 
+                                        Binding="{Binding TenSanBay}"/>
+                                    <DataGridTextColumn
+                                        Width="*"
+                                        Header="Địa chỉ "
+                                        SortDirection="Ascending" 
+                                        Binding="{Binding DiaChi}"/>
+                                    <DataGridTextColumn
+                                        Width="*"
+                                        Header="Mã quốc gia"
+                                        SortDirection="Ascending" 
+                                        Binding="{Binding MaQuocGia}"/>
                                 </DataGrid.Columns>
                             </DataGrid>
 
@@ -670,14 +688,18 @@
                             BorderBrush="Black"
                             BorderThickness="1">
                             <DataGrid
-                                ItemsSource="{Binding List}"
+                                ItemsSource="{Binding HangVeList}"
                                 SelectedItem="{Binding SelectedItem, Mode=OneWayToSource}"
                                 HorizontalAlignment="Center"
                                 Background="WhiteSmoke"
-                                GridLinesVisibility="Horizontal"
                                 HeadersVisibility="Column"
                                 IsReadOnly="True"
-                                VerticalScrollBarVisibility="Auto">
+                                CanUserResizeColumns="False"
+                                VerticalScrollBarVisibility="Auto"
+                                Style="{StaticResource DataGridStyle}"
+                                CellStyle="{StaticResource DataGridCellStyle}"
+                                RowStyle="{StaticResource DataGridRowStyle}"
+                                ColumnHeaderStyle="{StaticResource DataGridColumnHeaderStyle}" Margin="0,-1,0,0"> 
                                 <DataGrid.Columns>
                                     <DataGridTextColumn
                                         Width="*"
@@ -685,16 +707,16 @@
                                         SortDirection="Ascending" 
                                         Binding="{Binding MaHangVe}"/>
                                     <DataGridTextColumn
-                                        Width="2*"
+                                        Width="*"
                                         Header="Tên hạng vé"
                                         SortDirection="Ascending" 
                                         Binding="{Binding TenHangVe}"/>
                                     <DataGridTextColumn
                                         SortMemberPath="TiLeGiaVe"
                                         Width="*"
-                                        Header="Tỉ lệ giá vé"
+                                        Header="Tỉ lệ tính đơn giá"
                                         SortDirection="Ascending" 
-                                        Binding="{Binding TiLeGiaVe}"/>
+                                        Binding="{Binding TiLeTinhDonGia}"/>
                                 </DataGrid.Columns>
                             </DataGrid>
 

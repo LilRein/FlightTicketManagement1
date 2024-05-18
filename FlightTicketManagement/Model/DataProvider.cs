@@ -29,11 +29,11 @@ namespace FlightTicketManagement.Model
             }
         }
 
-        public QUANLYBANVECHUYENBAYEntities DB { get; set; }
+        public FLIGHTTICKETMANAGEMENTEntities DB { get; set; }
 
         private DataProvider()
         {
-            DB = new QUANLYBANVECHUYENBAYEntities();
+            DB = new FLIGHTTICKETMANAGEMENTEntities();
         }
     }
 }
