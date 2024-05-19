@@ -69,23 +69,23 @@
                             CanUserAddRows="False"
                             CanUserDeleteRows="False"
                             IsReadOnly="True"
-                            ItemsSource="{Binding Reports}"
+                            ItemsSource="{Binding MonthReportList}"
                             SelectionMode="Extended"
                             VerticalScrollBarVisibility="Auto">
                             <DataGrid.Columns>
                                 <DataGridTextColumn
                                     Width="*"
-                                    Binding="{Binding Rank}"
-                                    Header="Xếp hạng"
+                                    Binding="{Binding Year}"
+                                    Header="Năm"
                                     SortDirection="Ascending" />
                                 <DataGridTextColumn
                                     Width="*"
-                                    Binding="{Binding FullName}"
-                                    Header="Chuyến bay" />
+                                    Binding="{Binding Month}"
+                                    Header="Tháng" />
                                 <DataGridTextColumn
                                     Width="*"
-                                    Binding="{Binding TicketNum}"
-                                    Header="Số chuyến bay (chuyến)" />
+                                    Binding="{Binding DoanhThu.MaChuyenBay}"
+                                    Header="Mã chuyến bay" />
                                 <DataGridTextColumn
                                     Width="*"
                                     Binding="{Binding Profit}"

@@ -6,40 +6,12 @@ using System.Threading.Tasks;
 
 namespace FlightTicketManagement.Model
 {
-    public class Report
+    public class MonthReport
     {
-        private string rank;
-        public string Rank {
-            get { return rank; }
-            set { rank = value; }
-        }
-
-        private string fullname;
-        public string FullName
-        {
-            get { return fullname; }
-            set { fullname = value; }
-        }
-
-        private string ticketnum;
-        public string TicketNum
-        {
-            get { return ticketnum; }
-            set { ticketnum = value; }
-        }
-
-        private string profit;
-        public string Profit
-        {
-            get { return profit; }
-            set { profit = value; }
-        }
-
-        private string ratio;
-        public string Ratio
-        {
-            get { return ratio; }
-            set { ratio = value; }
-        }
+        public int Year { get; set; }
+        public int Month { get; set; }
+        public CTDOANHTHUTHANG DoanhThu { get; set; }
+        public decimal Profit { get; set; }
+        public double Ratio { get; set; }
     }
 }
