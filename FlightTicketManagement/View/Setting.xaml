@@ -389,7 +389,7 @@
                     </Border>
 
 
-                    <Grid Grid.Column="3">
+                    <Grid Grid.Column="1">
                         <TextBlock
                             FontFamily="Poppins"
                             FontSize="16"
