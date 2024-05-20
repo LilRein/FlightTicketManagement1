@@ -1,10 +1,14 @@
 ﻿using FlightTicketManagement.Model;
+using FlightTicketManagement.Utilities;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 
 namespace FlightTicketManagement.ViewModel
 {
@@ -92,7 +96,8 @@ namespace FlightTicketManagement.ViewModel
         private string _MaQuocGia;
         public string MaQuocGia { get => _MaQuocGia; set { _MaQuocGia = value; OnPropertyChanged(); } }
 
-
+        public ICommand AddCommand { get; set; }
+        public ICommand EditCommand { get; set; }
 
 
         public SettingVM()
@@ -102,6 +107,48 @@ namespace FlightTicketManagement.ViewModel
             HangVeList = new ObservableCollection<HANGVE>(DataProvider.Ins.DB.HANGVEs);
 
             SayBayList = new ObservableCollection<SANBAY>(DataProvider.Ins.DB.SANBAYs);
+
+            AddCommand = new RelayCommand<object>((p) =>
+            {
+                if (string.IsNullOrEmpty(MaHangVe))
+                    return false;
+
+                var displayList = DataProvider.Ins.DB.HANGVEs.Where(x => x.MaHangVe == MaHangVe);
+                if (displayList == null || displayList.Count() != 0)
+                    return false;
+
+                return true;
+
+            }, (p) =>
+            {
+                var hangve = new HANGVE() { MaHangVe = MaHangVe, TenHangVe = TenHangVe, TiLeTinhDonGia = TiLeTinhDonGia };
+
+                DataProvider.Ins.DB.HANGVEs.Add(hangve);
+                DataProvider.Ins.DB.SaveChanges();
+
+                HangVeList.Add(hangve);
+            });
+
+            EditCommand = new RelayCommand<object>((p) =>
+            {
+                if (SelectedItem == null)
+                    return false;
+
+                var displayList = DataProvider.Ins.DB.HANGVEs.Where(x => x.MaHangVe == SelectedItem.MaHangVe);
+                if (displayList != null && displayList.Count() != 0)
+                    return true;
+
+                return false;
+
+            }, (p) =>
+            {
+                var hangve = DataProvider.Ins.DB.HANGVEs.Where(x => x.MaHangVe == SelectedItem.MaHangVe).SingleOrDefault();
+                hangve.TenHangVe = TenHangVe;
+                hangve.TiLeTinhDonGia = TiLeTinhDonGia;
+                DataProvider.Ins.DB.SaveChanges();
+
+                SelectedItem.MaHangVe = MaHangVe;
+            });
         }
     }
 }

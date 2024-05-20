@@ -12,12 +12,12 @@ namespace FlightTicketManagement.ViewModel
 {
     class LoginVM:Utilities.ViewModelBase
     {
-
-        public ICommand _LoginCommand { get; set; }
+        public bool IsLogin { get; set; }
+        public ICommand DashboardCommand { get; set; }
 
         public LoginVM() 
         {
-            _LoginCommand = new RelayCommand<object>((p) => true, (p) => LoginCommand());
+            DashboardCommand = new RelayCommand<object>((p) => true, (p) => LoginCommand());
         }
 
         private void LoginCommand()
