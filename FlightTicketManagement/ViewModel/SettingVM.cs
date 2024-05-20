@@ -62,6 +62,38 @@ namespace FlightTicketManagement.ViewModel
             }
         }
 
+        private SANBAY _SelectedSanBay;
+        public SANBAY SelectedSanBay
+        {
+            get => _SelectedSanBay;
+            set
+            {
+                _SelectedSanBay = value;
+                OnPropertyChanged();
+                if (SelectedSanBay != null)
+                {
+                    MaSanBay = SelectedSanBay.MaSanBay;
+                    TenSanBay = SelectedSanBay.TenSanBay;
+                    DiaChi = SelectedSanBay.DiaChi;
+                    MaQuocGia = SelectedSanBay.MaQuocGia;
+                }
+            }
+        }
+
+        private string _MaSanBay;
+        public string MaSanBay { get => _MaSanBay; set { _MaSanBay = value; OnPropertyChanged(); } }
+
+        private string _TenSanBay;
+        public string TenSanBay { get => _TenSanBay; set { _TenSanBay = value; OnPropertyChanged(); } }
+
+        private string _DiaChi;
+        public string DiaChi { get => _DiaChi; set { _DiaChi = value; OnPropertyChanged(); } }
+
+        private string _MaQuocGia;
+        public string MaQuocGia { get => _MaQuocGia; set { _MaQuocGia = value; OnPropertyChanged(); } }
+
+
+
 
         public SettingVM()
         {
