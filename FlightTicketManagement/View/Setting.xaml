@@ -209,6 +209,7 @@
                                 HeadersVisibility="Column"
                                 IsReadOnly="True"
                                 ItemsSource="{Binding SayBayList}"
+                                SelectedItem="{Binding SelectedSanBay, Mode=OneWayToSource}"
                                 RowStyle="{StaticResource DataGridRowStyle}"
                                 Style="{StaticResource DataGridStyle}"
                                 VerticalScrollBarVisibility="Auto">
