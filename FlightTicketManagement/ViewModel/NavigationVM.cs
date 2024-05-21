@@ -39,7 +39,8 @@ namespace FlightTicketManagement.ViewModel
 
         public NavigationVM()
         {
-            //DashboardCommand = new RelayCommand<Window>((p) => { return true; }, (p) => {
+            //DashboardCommand = new RelayCommand<Window>((p) => { return true; }, (p) =>
+            //{
             //    Isloaded = true;
             //    if (p == null)
             //        return;
