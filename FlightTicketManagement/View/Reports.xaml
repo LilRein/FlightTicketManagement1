@@ -60,7 +60,7 @@
                             x:Name="pbMonthReport"
                             IsIndeterminate="True"
                             Style="{StaticResource MaterialDesignCircularProgressBar}"
-                            Visibility="{Binding IsLoadingMonthReport}"
+                          
                             Value="0" />
                         <DataGrid
                             x:Name="MonthReports"
@@ -117,7 +117,7 @@
                             x:Name="pbYearReport"
                             IsIndeterminate="True"
                             Style="{StaticResource MaterialDesignCircularProgressBar}"
-                            Visibility="{Binding IsLoadingYearReport}"
+                            
                             Value="0" />
 
                         <DataGrid
@@ -130,16 +130,24 @@
                             IsReadOnly="True"
                             SelectionMode="Extended"
                             VerticalScrollBarVisibility="Auto"
-                            Visibility="{Binding IsLoadingYearReport}">
+                            ItemsSource="{Binding YearReportList}"
+                            Visibility="{Binding YearReportList}">
+                            
                             <DataGrid.Columns>
-                                <DataGridTextColumn
+                                
+                            <DataGridTextColumn
+                                    Width="*"
+                                    Binding="{Binding Year}"
+                                    Header="Năm"
+                                    SortDirection="Ascending" />            
+                            <DataGridTextColumn
                                     Width="*"
                                     Binding="{Binding Month}"
                                     Header="Tháng"
                                     SortDirection="Ascending" />
                                 <DataGridTextColumn
                                     Width="*"
-                                    Binding="{Binding TicketNum}"
+                                    Binding="{Binding TicketNum.SoChuyenBay}"
                                     Header="Số chuyến bay (chuyến)" />
                                 <DataGridTextColumn
                                     Width="*"
