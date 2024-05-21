@@ -17,6 +17,9 @@ namespace FlightTicketManagement.ViewModel
         private ObservableCollection<MonthReport> _MonthReportList;
         public ObservableCollection<MonthReport> MonthReportList { get { return _MonthReportList; } set { _MonthReportList = value; OnPropertyChanged(); } }
 
+        private ObservableCollection<YearReport> _YearReportList;
+        public ObservableCollection<YearReport> YearReportList { get { return _YearReportList; } set { _YearReportList = value; OnPropertyChanged(); } }
+
         public ReportsVM()
         {
                 MonthReportList = new ObservableCollection<MonthReport>();
@@ -33,13 +36,21 @@ namespace FlightTicketManagement.ViewModel
                     monthReport.Ratio = month.TiLeThang;
                     MonthReportList.Add(monthReport);
                 }
-            //MonthReportList = new ObservableCollection<MonthReport>();
-            //MonthReport monthReports = new MonthReport();
-            //monthReports.Year = 2007;
-            //monthReports.Month = 8;
-            //monthReports.Profit = 100000;
-            //monthReports.Ratio = 30;
-            //MonthReportList.Add(monthReports);
+            
+                YearReportList = new ObservableCollection<YearReport>();
+
+                var YearList = DataProvider.Ins.DB.CTDOANHTHUNAMs;
+
+                foreach ( var year in YearList )
+                {
+                    YearReport yearReport = new YearReport();
+                    yearReport.Month = year.Thang;
+                    yearReport.Year = year.Nam;
+                    yearReport.TicketNum = year;
+                    yearReport.Profit = year.DoanhThuNam;
+                    yearReport.Ratio = year.TiLeNam;
+                    YearReportList.Add(yearReport);
+                }
         }
         public override bool Equals(object obj)
         {

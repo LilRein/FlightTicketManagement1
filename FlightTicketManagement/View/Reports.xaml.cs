@@ -24,5 +24,6 @@ namespace FlightTicketManagement.View
         {
             InitializeComponent();
         }
+
     }
 }
