@@ -31,5 +31,10 @@ namespace FlightTicketManagement.View.Components
                 e.Handled = true; // Ngăn không cho sự kiện được xử lý
             }
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

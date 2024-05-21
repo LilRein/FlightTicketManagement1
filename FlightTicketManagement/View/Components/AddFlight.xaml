@@ -151,7 +151,7 @@
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
 
-                <Button Grid.Column="0" Style="{StaticResource confirmButton}" Height="45" Margin="0 0 10 0">
+                <Button Grid.Column="0" Style="{StaticResource confirmButton}" Height="45" Margin="0 0 10 0" Click="Button_Click">
                     <TextBlock Text="Xác nhận" Foreground="#FFF" FontSize="18" FontFamily="Roboto" FontWeight="SemiBold" TextAlignment="Center"/>
                     <i:Interaction.Triggers>
                         <i:EventTrigger EventName="Click">
