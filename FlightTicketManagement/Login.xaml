@@ -119,6 +119,7 @@
                         <Grid>
 
                             <TextBox
+                                Text="{Binding UserName}"
                                 x:Name="Username"
                                 Padding="15,0"
                                 HorizontalAlignment="Left"
@@ -154,6 +155,7 @@
                         <Grid>
 
                             <TextBox
+                                Text="{Binding Password}"
                                 x:Name="Password"
                                 Padding="15,0"
                                 HorizontalAlignment="Left"

@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Windows.Input;
 using FlightTicketManagement.Utilities;
 using System.Windows;
+using FlightTicketManagement.Model;
 
 
 namespace FlightTicketManagement.ViewModel
@@ -13,16 +14,38 @@ namespace FlightTicketManagement.ViewModel
     class LoginVM:Utilities.ViewModelBase
     {
         public bool IsLogin { get; set; }
-        public ICommand DashboardCommand { get; set; }
 
-        public LoginVM() 
+        private string _UserName;
+        public string UserName { get => _UserName; set { _UserName = value; OnPropertyChanged(); } }
+        private string _Password;
+        public string Password { get => _Password; set { _Password = value; OnPropertyChanged(); } }
+        public ICommand LoginCommand { get; set; }
+
+        public LoginVM()
         {
-            DashboardCommand = new RelayCommand<object>((p) => true, (p) => LoginCommand());
+            IsLogin = false;
+            Password = "";
+            UserName = "";
+            LoginCommand = new RelayCommand<Window>((p) => { return true; }, (p) => { Login(p); });
+        }
+        void Login(Window p)
+        {
+            if (p == null)
+                return;
+            var accCount = DataProvider.Ins.DB.TAIKHOANs.Where(x => x.TenTaiKhoan == UserName && x.MatKhau == Password).Count();
+
+            if (accCount > 0)
+            {
+                IsLogin = true;
+
+                p.Close();
+            }
+            else
+            {
+                IsLogin = false;
+                MessageBox.Show("Sai tài khoản hoặc mật khẩu!");
+            }
         }
 
-        private void LoginCommand()
-        {
-            MessageBox.Show("Clicked");
-        }
     }
 }

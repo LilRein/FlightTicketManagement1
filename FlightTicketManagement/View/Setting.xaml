@@ -485,6 +485,7 @@
                                     </CheckBox>
 
                                     <TextBox
+                                        Text="{Binding SoSanBayTrungGianToiDa, UpdateSourceTrigger=PropertyChanged}"
                                         Width="100"
                                         VerticalAlignment="Center"
                                         FontFamily="Poppins"
@@ -517,6 +518,7 @@
                                         Text="Giờ"
                                         TextAlignment="Center" />
                                     <TextBox
+                                        Text="{Binding ThoiGianBayToiThieu, UpdateSourceTrigger=PropertyChanged}"
                                         Width="50"
                                         VerticalAlignment="Center"
                                         FontFamily="Poppins"
@@ -565,6 +567,7 @@
                                         Text="Giờ"
                                         TextAlignment="Center" />
                                     <TextBox
+                                        Text="{Binding ThoiGianDungToiThieu, UpdateSourceTrigger=PropertyChanged}"
                                         Width="50"
                                         VerticalAlignment="Center"
                                         FontFamily="Poppins"
@@ -604,6 +607,7 @@
                                         Text="Giờ"
                                         TextAlignment="Center" />
                                     <TextBox
+                                        Text="{Binding ThoiGianDungToiDa, UpdateSourceTrigger=PropertyChanged}"
                                         Width="50"
                                         VerticalAlignment="Center"
                                         FontFamily="Poppins"
@@ -637,6 +641,7 @@
                                     </CheckBox>
 
                                     <TextBox
+                                        Text="{Binding ThoiGianDatVeChamNhat, UpdateSourceTrigger=PropertyChanged}"
                                         Width="50"
                                         VerticalAlignment="Center"
                                         FontFamily="Poppins"
@@ -649,7 +654,7 @@
                                         FontFamily="Poppins"
                                         FontSize="14"
                                         FontWeight="DemiBold"
-                                        Text="Ngày"
+                                        Text="Giờ"
                                         TextAlignment="Center" />
                                 </StackPanel>
 
@@ -664,6 +669,7 @@
                                     </CheckBox>
 
                                     <TextBox
+                                        Text="{Binding ThoiGianHuyVeChamNhat, UpdateSourceTrigger=PropertyChanged}"
                                         Width="50"
                                         VerticalAlignment="Center"
                                         FontFamily="Poppins"
@@ -676,7 +682,7 @@
                                         FontFamily="Poppins"
                                         FontSize="14"
                                         FontWeight="DemiBold"
-                                        Text="Ngày"
+                                        Text="Giờ"
                                         TextAlignment="Center" />
                                 </StackPanel>
                             </Grid>
