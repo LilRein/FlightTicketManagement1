@@ -60,20 +60,12 @@
                         BorderThickness="1">
                         <Grid>
                             <Grid.RowDefinitions>
-                                <RowDefinition Height="*" />
-                                <RowDefinition Height="3*" />
+
+                                <RowDefinition Height="5*" />
                                 <RowDefinition Height="2*" />
                             </Grid.RowDefinitions>
+
                             <Grid Grid.Row="0">
-                                <TextBlock
-                                    VerticalAlignment="Top"
-                                    FontFamily="Poppins"
-                                    FontSize="18"
-                                    FontWeight="Bold"
-                                    Text="Thêm sân bay"
-                                    TextAlignment="Center" />
-                            </Grid>
-                            <Grid Grid.Row="1">
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="*" />
                                     <ColumnDefinition Width="*" />
@@ -85,7 +77,7 @@
                                         <RowDefinition Height="*" />
                                         <RowDefinition Height="*" />
                                         <RowDefinition Height="*" />
-                                        <RowDefinition Height="2*" />
+                                        <RowDefinition Height="*" />
 
                                     </Grid.RowDefinitions>
 
@@ -105,6 +97,23 @@
                                         FontWeight="Bold"
                                         Text="Tên sân bay"
                                         TextAlignment="Center" />
+                                    <TextBlock
+                                        Grid.Row="2"
+                                        VerticalAlignment="Center"
+                                        FontFamily="Poppins"
+                                        FontSize="12"
+                                        FontWeight="Bold"
+                                        Text="Địa chỉ"
+                                        TextAlignment="Center" />
+
+                                    <TextBlock
+                                        Grid.Row="3"
+                                        VerticalAlignment="Center"
+                                        FontFamily="Poppins"
+                                        FontSize="12"
+                                        FontWeight="Bold"
+                                        Text="Mã quốc gia"
+                                        TextAlignment="Center" />
                                 </Grid>
 
                                 <Grid Grid.Column="1">
@@ -112,7 +121,7 @@
                                         <RowDefinition Height="*" />
                                         <RowDefinition Height="*" />
                                         <RowDefinition Height="*" />
-                                        <RowDefinition Height="2*" />
+                                        <RowDefinition Height="*" />
                                     </Grid.RowDefinitions>
 
                                     <TextBox
@@ -130,84 +139,9 @@
                                         FontSize="12"
                                         FontWeight="SemiBold"
                                         TextAlignment="Left" />
-                                </Grid>
-
-                            </Grid>
-
-                            <Button
-                                Grid.Row="2"
-                                Width="100"
-                                IsEnabled="{Binding Editting}">
-                                Thêm
-                            </Button>
-
-                        </Grid>
-                    </Border>
-
-                    <Border
-                        Grid.Column="1"
-                        Margin="0,0,10,0"
-                        BorderBrush="Black"
-                        BorderThickness="1">
-                        <Grid>
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="*" />
-                                <RowDefinition Height="3*" />
-                                <RowDefinition Height="2*" />
-                            </Grid.RowDefinitions>
-                            <Grid Grid.Row="0">
-                                <TextBlock
-                                    VerticalAlignment="Top"
-                                    FontFamily="Poppins"
-                                    FontSize="16"
-                                    FontWeight="Bold"
-                                    Text="Thay đổi thông tin sân bay"
-                                    TextAlignment="Center" />
-                            </Grid>
-                            <Grid Grid.Row="1">
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="*" />
-                                    <ColumnDefinition Width="*" />
-                                </Grid.ColumnDefinitions>
-
-
-                                <Grid Grid.Column="0">
-                                    <Grid.RowDefinitions>
-                                        <RowDefinition Height="*" />
-                                        <RowDefinition Height="*" />
-                                        <RowDefinition Height="*" />
-                                        <RowDefinition Height="2*" />
-
-                                    </Grid.RowDefinitions>
-
-                                    <TextBlock
-                                        Grid.Row="0"
-                                        VerticalAlignment="Center"
-                                        FontFamily="Poppins"
-                                        FontSize="12"
-                                        FontWeight="Bold"
-                                        Text="Mã sân bay"
-                                        TextAlignment="Center" />
-                                    <TextBlock
-                                        Grid.Row="1"
-                                        VerticalAlignment="Center"
-                                        FontFamily="Poppins"
-                                        FontSize="12"
-                                        FontWeight="Bold"
-                                        Text="Tên sân bay"
-                                        TextAlignment="Center" />
-                                </Grid>
-
-                                <Grid Grid.Column="1">
-                                    <Grid.RowDefinitions>
-                                        <RowDefinition Height="*" />
-                                        <RowDefinition Height="*" />
-                                        <RowDefinition Height="*" />
-                                        <RowDefinition Height="2*" />
-                                    </Grid.RowDefinitions>
 
                                     <TextBox
-                                        Grid.Row="0"
+                                        Grid.Row="2"
                                         VerticalAlignment="Center"
                                         FontFamily="Poppins"
                                         FontSize="12"
@@ -215,7 +149,7 @@
                                         TextAlignment="Left" />
 
                                     <TextBox
-                                        Grid.Row="1"
+                                        Grid.Row="3"
                                         VerticalAlignment="Center"
                                         FontFamily="Poppins"
                                         FontSize="12"
@@ -224,95 +158,37 @@
                                 </Grid>
 
                             </Grid>
-                            <Button
+                            <StackPanel
                                 Grid.Row="2"
-                                Width="100"
-                                IsEnabled="{Binding Editting}">
-                                Sửa
-                            </Button>
-                        </Grid>
+                                HorizontalAlignment="Center"
+                                Orientation="Horizontal">
+                                <Button Width="80" IsEnabled="{Binding Editting}">
+                                    Thêm
+                                </Button>
 
+                                <Button
+                                    Width="80"
+                                    Command="{Binding EditCommand}"
+                                    IsEnabled="{Binding Editting}">
+                                    Sửa
+                                </Button>
+                                <Button
+                                    Width="80"
+                                    Command="{Binding DeleteCommand}"
+                                    IsEnabled="{Binding Editting}">
+                                    Xóa
+                                </Button>
+                            </StackPanel>
+
+
+                        </Grid>
                     </Border>
 
 
-                    <Border
-                        Grid.Column="2"
-                        Margin="0,0,10,0"
-                        BorderBrush="Black"
-                        BorderThickness="1">
-                        <Grid>
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="*" />
-                                <RowDefinition Height="3*" />
-                                <RowDefinition Height="2*" />
-                            </Grid.RowDefinitions>
-                            <Grid Grid.Row="0">
-                                <TextBlock
-                                    VerticalAlignment="Top"
-                                    FontFamily="Poppins"
-                                    FontSize="16"
-                                    FontWeight="Bold"
-                                    Text="Xóa sân bay"
-                                    TextAlignment="Center" />
-                            </Grid>
-                            <Grid Grid.Row="1">
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="*" />
-                                    <ColumnDefinition Width="*" />
-                                </Grid.ColumnDefinitions>
 
 
-                                <Grid Grid.Column="0">
-                                    <Grid.RowDefinitions>
-                                        <RowDefinition Height="*" />
-                                        <RowDefinition Height="*" />
-                                        <RowDefinition Height="*" />
-                                        <RowDefinition Height="2*" />
 
-                                    </Grid.RowDefinitions>
-
-                                    <TextBlock
-                                        Grid.Row="0"
-                                        VerticalAlignment="Center"
-                                        FontFamily="Poppins"
-                                        FontSize="12"
-                                        FontWeight="Bold"
-                                        Text="Mã sân bay"
-                                        TextAlignment="Center" />
-
-                                </Grid>
-
-                                <Grid Grid.Column="1">
-                                    <Grid.RowDefinitions>
-                                        <RowDefinition Height="*" />
-                                        <RowDefinition Height="*" />
-                                        <RowDefinition Height="*" />
-                                        <RowDefinition Height="2*" />
-                                    </Grid.RowDefinitions>
-
-                                    <TextBox
-                                        Grid.Row="0"
-                                        VerticalAlignment="Center"
-                                        FontFamily="Poppins"
-                                        FontSize="12"
-                                        FontWeight="SemiBold"
-                                        TextAlignment="Left" />
-
-
-                                </Grid>
-
-                            </Grid>
-                            <Button
-                                Grid.Row="2"
-                                Width="100"
-                                IsEnabled="{Binding Editting}">
-                                Xóa
-                            </Button>
-                        </Grid>
-
-                    </Border>
-
-                    <Grid Grid.Column="3">
+                    <Grid Grid.Column="1">
                         <TextBlock
                             FontFamily="Poppins"
                             FontSize="16"
@@ -323,39 +199,41 @@
                             BorderBrush="Black"
                             BorderThickness="1">
                             <DataGrid
+                                Margin="0,-1,0,0"
                                 HorizontalAlignment="Center"
-                                ItemsSource="{Binding SayBayList}"
+                                AutoGenerateColumns="False"
                                 Background="WhiteSmoke"
+                                CanUserResizeColumns="False"
+                                CellStyle="{StaticResource DataGridCellStyle}"
+                                ColumnHeaderStyle="{StaticResource DataGridColumnHeaderStyle}"
                                 HeadersVisibility="Column"
                                 IsReadOnly="True"
-                                AutoGenerateColumns="False"
-                                CanUserResizeColumns="False"
-                                Style="{StaticResource DataGridStyle}"
-                                CellStyle="{StaticResource DataGridCellStyle}"
+                                ItemsSource="{Binding SayBayList}"
+                                SelectedItem="{Binding SelectedSanBay, Mode=OneWayToSource}"
                                 RowStyle="{StaticResource DataGridRowStyle}"
-                                ColumnHeaderStyle="{StaticResource DataGridColumnHeaderStyle}"
-                                VerticalScrollBarVisibility="Auto" Margin="0,-1,0,0">
+                                Style="{StaticResource DataGridStyle}"
+                                VerticalScrollBarVisibility="Auto">
                                 <DataGrid.Columns>
                                     <DataGridTextColumn
                                         Width="*"
+                                        Binding="{Binding MaSanBay}"
                                         Header="Mã sân bay"
-                                        SortDirection="Ascending" 
-                                        Binding="{Binding MaSanBay}"/>
+                                        SortDirection="Ascending" />
                                     <DataGridTextColumn
-                                        Width="1.5*"
+                                        Width="2*"
+                                        Binding="{Binding TenSanBay}"
                                         Header="Tên sân bay"
-                                        SortDirection="Ascending" 
-                                        Binding="{Binding TenSanBay}"/>
+                                        SortDirection="Ascending" />
                                     <DataGridTextColumn
-                                        Width="*"
+                                        Width="3*"
+                                        Binding="{Binding DiaChi}"
                                         Header="Địa chỉ "
-                                        SortDirection="Ascending" 
-                                        Binding="{Binding DiaChi}"/>
+                                        SortDirection="Ascending" />
                                     <DataGridTextColumn
                                         Width="*"
+                                        Binding="{Binding MaQuocGia}"
                                         Header="Mã quốc gia"
-                                        SortDirection="Ascending" 
-                                        Binding="{Binding MaQuocGia}"/>
+                                        SortDirection="Ascending" />
                                 </DataGrid.Columns>
                             </DataGrid>
 
@@ -370,9 +248,7 @@
 
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*" />
-                        <ColumnDefinition Width="*" />
-                        <ColumnDefinition Width="*" />
-                        <ColumnDefinition Width="2*" />
+                        <ColumnDefinition Width="3*" />
                     </Grid.ColumnDefinitions>
 
 
@@ -389,20 +265,12 @@
                         BorderThickness="1">
                         <Grid>
                             <Grid.RowDefinitions>
-                                <RowDefinition Height="*" />
-                                <RowDefinition Height="3*" />
+
+                                <RowDefinition Height="5*" />
                                 <RowDefinition Height="2*" />
                             </Grid.RowDefinitions>
+
                             <Grid Grid.Row="0">
-                                <TextBlock
-                                    VerticalAlignment="Top"
-                                    FontFamily="Poppins"
-                                    FontSize="18"
-                                    FontWeight="Bold"
-                                    Text="Thêm hạng vé"
-                                    TextAlignment="Center" />
-                            </Grid>
-                            <Grid Grid.Row="1">
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="*" />
                                     <ColumnDefinition Width="*" />
@@ -414,7 +282,7 @@
                                         <RowDefinition Height="*" />
                                         <RowDefinition Height="*" />
                                         <RowDefinition Height="*" />
-                                        <RowDefinition Height="2*" />
+                                        <RowDefinition Height="*" />
 
                                     </Grid.RowDefinitions>
 
@@ -440,7 +308,16 @@
                                         FontFamily="Poppins"
                                         FontSize="12"
                                         FontWeight="Bold"
-                                        Text="Tỉ lệ giá vé"
+                                        Text="Tỉ lệ đơn giá"
+                                        TextAlignment="Center" />
+
+                                    <TextBlock
+                                        Grid.Row="3"
+                                        VerticalAlignment="Center"
+                                        FontFamily="Poppins"
+                                        FontSize="12"
+                                        FontWeight="Bold"
+                                        Text="Mã quốc gia"
                                         TextAlignment="Center" />
                                 </Grid>
 
@@ -449,117 +326,7 @@
                                         <RowDefinition Height="*" />
                                         <RowDefinition Height="*" />
                                         <RowDefinition Height="*" />
-                                        <RowDefinition Height="2*" />
-                                    </Grid.RowDefinitions>
-
-                                    <TextBox
-                                        Text="{Binding MaHangVe, UpdateSourceTrigger=PropertyChanged}"
-                                        Grid.Row="0"
-                                        VerticalAlignment="Center"
-                                        FontFamily="Poppins"
-                                        FontSize="12"
-                                        FontWeight="SemiBold"
-                                        TextAlignment="Left" />
-
-                                    <TextBox
-                                        Text="{Binding TenHangVe, UpdateSourceTrigger=PropertyChanged}"
-                                        Grid.Row="1"
-                                        VerticalAlignment="Center"
-                                        FontFamily="Poppins"
-                                        FontSize="12"
-                                        FontWeight="SemiBold"
-                                        TextAlignment="Left" />
-                                    <TextBox
-                                        Text="{Binding TileGiaVe, UpdateSourceTrigger=PropertyChanged}"
-                                        Grid.Row="2"
-                                        VerticalAlignment="Center"
-                                        FontFamily="Poppins"
-                                        FontSize="12"
-                                        FontWeight="SemiBold"
-                                        TextAlignment="Left" />
-                                </Grid>
-
-                            </Grid>
-
-                            <Button
-                                Command="{Binding AddCommand}"
-                                Grid.Row="2"
-                                Width="100"
-                                IsEnabled="{Binding Editting}">
-                                Thêm
-                            </Button>
-
-                        </Grid>
-                    </Border>
-
-                    <Border
-                        Grid.Column="1"
-                        Margin="0,0,10,0"
-                        BorderBrush="Black"
-                        BorderThickness="1">
-                        <Grid>
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="*" />
-                                <RowDefinition Height="3*" />
-                                <RowDefinition Height="2*" />
-                            </Grid.RowDefinitions>
-                            <Grid Grid.Row="0">
-                                <TextBlock
-                                    VerticalAlignment="Top"
-                                    FontFamily="Poppins"
-                                    FontSize="16"
-                                    FontWeight="Bold"
-                                    Text="Thay đổi thông tin hạng vé"
-                                    TextAlignment="Center" />
-                            </Grid>
-                            <Grid Grid.Row="1">
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="*" />
-                                    <ColumnDefinition Width="*" />
-                                </Grid.ColumnDefinitions>
-
-
-                                <Grid Grid.Column="0">
-                                    <Grid.RowDefinitions>
                                         <RowDefinition Height="*" />
-                                        <RowDefinition Height="*" />
-                                        <RowDefinition Height="*" />
-                                        <RowDefinition Height="2*" />
-
-                                    </Grid.RowDefinitions>
-
-                                    <TextBlock
-                                        Grid.Row="0"
-                                        VerticalAlignment="Center"
-                                        FontFamily="Poppins"
-                                        FontSize="12"
-                                        FontWeight="Bold"
-                                        Text="Mã hạng vé"
-                                        TextAlignment="Center" />
-                                    <TextBlock
-                                        Grid.Row="1"
-                                        VerticalAlignment="Center"
-                                        FontFamily="Poppins"
-                                        FontSize="12"
-                                        FontWeight="Bold"
-                                        Text="Tên hạng vé"
-                                        TextAlignment="Center" />
-                                    <TextBlock
-                                        Grid.Row="2"
-                                        VerticalAlignment="Center"
-                                        FontFamily="Poppins"
-                                        FontSize="12"
-                                        FontWeight="Bold"
-                                        Text="Tỉ lệ giá vé"
-                                        TextAlignment="Center" />
-                                </Grid>
-
-                                <Grid Grid.Column="1">
-                                    <Grid.RowDefinitions>
-                                        <RowDefinition Height="*" />
-                                        <RowDefinition Height="*" />
-                                        <RowDefinition Height="*" />
-                                        <RowDefinition Height="2*" />
                                     </Grid.RowDefinitions>
 
                                     <TextBox
@@ -577,6 +344,7 @@
                                         FontSize="12"
                                         FontWeight="SemiBold"
                                         TextAlignment="Left" />
+
                                     <TextBox
                                         Grid.Row="2"
                                         VerticalAlignment="Center"
@@ -584,100 +352,45 @@
                                         FontSize="12"
                                         FontWeight="SemiBold"
                                         TextAlignment="Left" />
-                                </Grid>
-
-                            </Grid>
-                            <Button
-                                Command="{Binding EditCommand}"
-                                Grid.Row="2"
-                                Width="100"
-                                IsEnabled="{Binding Editting}">
-                                Sửa
-                            </Button>
-                        </Grid>
-
-                    </Border>
-
-
-                    <Border
-                        Grid.Column="2"
-                        Margin="0,0,10,0"
-                        BorderBrush="Black"
-                        BorderThickness="1">
-                        <Grid>
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="*" />
-                                <RowDefinition Height="3*" />
-                                <RowDefinition Height="2*" />
-                            </Grid.RowDefinitions>
-                            <Grid Grid.Row="0">
-                                <TextBlock
-                                    VerticalAlignment="Top"
-                                    FontFamily="Poppins"
-                                    FontSize="16"
-                                    FontWeight="Bold"
-                                    Text="Xóa hạng vé"
-                                    TextAlignment="Center" />
-                            </Grid>
-                            <Grid Grid.Row="1">
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="*" />
-                                    <ColumnDefinition Width="*" />
-                                </Grid.ColumnDefinitions>
-
-
-                                <Grid Grid.Column="0">
-                                    <Grid.RowDefinitions>
-                                        <RowDefinition Height="*" />
-                                        <RowDefinition Height="*" />
-                                        <RowDefinition Height="*" />
-                                        <RowDefinition Height="2*" />
-
-                                    </Grid.RowDefinitions>
-
-                                    <TextBlock
-                                        Grid.Row="0"
-                                        VerticalAlignment="Center"
-                                        FontFamily="Poppins"
-                                        FontSize="12"
-                                        FontWeight="Bold"
-                                        Text="Mã hạng vé"
-                                        TextAlignment="Center" />
-
-                                </Grid>
-
-                                <Grid Grid.Column="1">
-                                    <Grid.RowDefinitions>
-                                        <RowDefinition Height="*" />
-                                        <RowDefinition Height="*" />
-                                        <RowDefinition Height="*" />
-                                        <RowDefinition Height="2*" />
-                                    </Grid.RowDefinitions>
 
                                     <TextBox
-                                        Grid.Row="0"
+                                        Grid.Row="3"
                                         VerticalAlignment="Center"
                                         FontFamily="Poppins"
                                         FontSize="12"
                                         FontWeight="SemiBold"
                                         TextAlignment="Left" />
-
-
                                 </Grid>
 
                             </Grid>
-                            <Button
-                                Command="{Binding DeleteCommand}"
+                            <StackPanel
                                 Grid.Row="2"
-                                Width="100"
-                                IsEnabled="{Binding Editting}">
-                                Xóa
-                            </Button>
-                        </Grid>
+                                HorizontalAlignment="Center"
+                                Orientation="Horizontal">
+                                <Button Width="80" IsEnabled="{Binding Editting}">
+                                    Thêm
+                                </Button>
 
+                                <Button
+                                    Width="80"
+                                    Command="{Binding EditCommand}"
+                                    IsEnabled="{Binding Editting}">
+                                    Sửa
+                                </Button>
+                                <Button
+                                    Width="80"
+                                    Command="{Binding DeleteCommand}"
+                                    IsEnabled="{Binding Editting}">
+                                    Xóa
+                                </Button>
+                            </StackPanel>
+
+
+                        </Grid>
                     </Border>
 
-                    <Grid Grid.Column="3">
+
+                    <Grid Grid.Column="1">
                         <TextBlock
                             FontFamily="Poppins"
                             FontSize="16"
@@ -688,35 +401,36 @@
                             BorderBrush="Black"
                             BorderThickness="1">
                             <DataGrid
-                                ItemsSource="{Binding HangVeList}"
-                                SelectedItem="{Binding SelectedItem, Mode=OneWayToSource}"
+                                Margin="0,-1,0,0"
                                 HorizontalAlignment="Center"
                                 Background="WhiteSmoke"
+                                CanUserResizeColumns="False"
+                                CellStyle="{StaticResource DataGridCellStyle}"
+                                ColumnHeaderStyle="{StaticResource DataGridColumnHeaderStyle}"
                                 HeadersVisibility="Column"
                                 IsReadOnly="True"
-                                CanUserResizeColumns="False"
-                                VerticalScrollBarVisibility="Auto"
-                                Style="{StaticResource DataGridStyle}"
-                                CellStyle="{StaticResource DataGridCellStyle}"
+                                ItemsSource="{Binding HangVeList}"
                                 RowStyle="{StaticResource DataGridRowStyle}"
-                                ColumnHeaderStyle="{StaticResource DataGridColumnHeaderStyle}" Margin="0,-1,0,0"> 
+                                SelectedItem="{Binding SelectedItem, Mode=OneWayToSource}"
+                                Style="{StaticResource DataGridStyle}"
+                                VerticalScrollBarVisibility="Auto">
                                 <DataGrid.Columns>
                                     <DataGridTextColumn
                                         Width="*"
+                                        Binding="{Binding MaHangVe}"
                                         Header="Mã hạng vé"
-                                        SortDirection="Ascending" 
-                                        Binding="{Binding MaHangVe}"/>
+                                        SortDirection="Ascending" />
                                     <DataGridTextColumn
                                         Width="*"
+                                        Binding="{Binding TenHangVe}"
                                         Header="Tên hạng vé"
-                                        SortDirection="Ascending" 
-                                        Binding="{Binding TenHangVe}"/>
+                                        SortDirection="Ascending" />
                                     <DataGridTextColumn
-                                        SortMemberPath="TiLeGiaVe"
                                         Width="*"
+                                        Binding="{Binding TiLeTinhDonGia}"
                                         Header="Tỉ lệ tính đơn giá"
-                                        SortDirection="Ascending" 
-                                        Binding="{Binding TiLeTinhDonGia}"/>
+                                        SortDirection="Ascending"
+                                        SortMemberPath="TiLeGiaVe" />
                                 </DataGrid.Columns>
                             </DataGrid>
 
@@ -727,9 +441,8 @@
 
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*" />
-                        <ColumnDefinition Width="*" />
-                        <ColumnDefinition Width="*" />
-                        <ColumnDefinition Width="2*" />
+
+                        <ColumnDefinition Width="3*" />
                     </Grid.ColumnDefinitions>
 
 
@@ -772,6 +485,7 @@
                                     </CheckBox>
 
                                     <TextBox
+                                        Text="{Binding SoSanBayTrungGianToiDa, UpdateSourceTrigger=PropertyChanged}"
                                         Width="100"
                                         VerticalAlignment="Center"
                                         FontFamily="Poppins"
@@ -804,6 +518,7 @@
                                         Text="Giờ"
                                         TextAlignment="Center" />
                                     <TextBox
+                                        Text="{Binding ThoiGianBayToiThieu, UpdateSourceTrigger=PropertyChanged}"
                                         Width="50"
                                         VerticalAlignment="Center"
                                         FontFamily="Poppins"
@@ -852,6 +567,7 @@
                                         Text="Giờ"
                                         TextAlignment="Center" />
                                     <TextBox
+                                        Text="{Binding ThoiGianDungToiThieu, UpdateSourceTrigger=PropertyChanged}"
                                         Width="50"
                                         VerticalAlignment="Center"
                                         FontFamily="Poppins"
@@ -891,6 +607,7 @@
                                         Text="Giờ"
                                         TextAlignment="Center" />
                                     <TextBox
+                                        Text="{Binding ThoiGianDungToiDa, UpdateSourceTrigger=PropertyChanged}"
                                         Width="50"
                                         VerticalAlignment="Center"
                                         FontFamily="Poppins"
@@ -924,6 +641,7 @@
                                     </CheckBox>
 
                                     <TextBox
+                                        Text="{Binding ThoiGianDatVeChamNhat, UpdateSourceTrigger=PropertyChanged}"
                                         Width="50"
                                         VerticalAlignment="Center"
                                         FontFamily="Poppins"
@@ -936,7 +654,7 @@
                                         FontFamily="Poppins"
                                         FontSize="14"
                                         FontWeight="DemiBold"
-                                        Text="Ngày"
+                                        Text="Giờ"
                                         TextAlignment="Center" />
                                 </StackPanel>
 
@@ -951,6 +669,7 @@
                                     </CheckBox>
 
                                     <TextBox
+                                        Text="{Binding ThoiGianHuyVeChamNhat, UpdateSourceTrigger=PropertyChanged}"
                                         Width="50"
                                         VerticalAlignment="Center"
                                         FontFamily="Poppins"
@@ -963,7 +682,7 @@
                                         FontFamily="Poppins"
                                         FontSize="14"
                                         FontWeight="DemiBold"
-                                        Text="Ngày"
+                                        Text="Giờ"
                                         TextAlignment="Center" />
                                 </StackPanel>
                             </Grid>
