@@ -168,20 +168,20 @@
                                 Orientation="Horizontal">
                                 <Button 
                                     Width="80"
-                                    Command="{Binding AddCommand}"
+                                    Command="{Binding AddCommandFlight}"
                                     IsEnabled="{Binding Editting}">
                                     Thêm
                                 </Button>
 
                                 <Button
                                     Width="80"
-                                    Command="{Binding EditCommand}"
+                                    Command="{Binding EditCommandFlight}"
                                     IsEnabled="{Binding Editting}">
                                     Sửa
                                 </Button>
                                 <Button
                                     Width="80"
-                                    Command="{Binding DeleteCommand}"
+                                    Command="{Binding DeleteCommandFlight}"
                                     IsEnabled="{Binding Editting}">
                                     Xóa
                                 </Button>
