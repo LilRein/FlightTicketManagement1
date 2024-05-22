@@ -21,31 +21,84 @@ namespace FlightTicketManagement.ViewModel
         public ICommand ConfirmCommand { get; set; }
         public ICommand CancelCommand { get; set; }
 
-        private ObservableCollection<string> _flightItemList;
-        public ObservableCollection<string> FlightItemList
+        private ObservableCollection<CTSANBAYTRUNGGIAN> _SANBAYTRUNGGIANList;
+        public ObservableCollection<CTSANBAYTRUNGGIAN> SANBAYTRUNGGIANList
         {
-            get { return _flightItemList; }
+            get { return _SANBAYTRUNGGIANList; }
             set
             {
-                _flightItemList = value;
+                _SANBAYTRUNGGIANList = value;
                 OnPropertyChanged();
             }
         }
 
+        private ObservableCollection<CHUYENBAY> _CHUYENBAY;
+        public ObservableCollection<CHUYENBAY> CHUYENBAY
+        {
+            get { return _CHUYENBAY; }
+            set
+            {
+                _CHUYENBAY = value;
+                OnPropertyChanged(nameof(CHUYENBAY));
+            }
+        }
+
+        private ObservableCollection<SANBAY> _SANBAY;
+        public ObservableCollection<SANBAY> SANBAY
+        {
+            get { return _SANBAY; }
+            set
+            {
+                _SANBAY = value;
+                OnPropertyChanged(nameof(SANBAY));
+            }
+        }
+
+
+        private SANBAY _SelectedSANBAY;
+        public SANBAY SelectedSANBAY
+        {
+            get => _SelectedSANBAY;
+            set
+            {
+                _SelectedSANBAY = value;
+                OnPropertyChanged();
+            }
+        }
+
+        private CHUYENBAY _SelectedCHUYENBAY;
+        public CHUYENBAY SelectedCHUYENBAY
+        {
+            get => _SelectedCHUYENBAY;
+            set
+            {
+                _SelectedCHUYENBAY = value;
+                OnPropertyChanged();
+            }
+        }
+
+        private string _MaChuyenBay;
+        public string MaChuyenBay { get => _MaChuyenBay; set { _MaChuyenBay = value; OnPropertyChanged(); } }
+
+        private string _MaSanBayTrungGian;
+        public string MaSanBayTrungGian { get => _MaSanBayTrungGian; set { _MaSanBayTrungGian = value; OnPropertyChanged(); } }
+
+        private int _ThoiGianDung;
+        public int ThoiGianDung { get => _ThoiGianDung; set { _ThoiGianDung = value; OnPropertyChanged(); } }
+
+        private string _GhiChu;
+        public string GhiChu { get => _GhiChu; set { _GhiChu = value; OnPropertyChanged(); } }
+
 
         public AddMidFlightVM()
         {
-            FlightItemList = new ObservableCollection<string>
-            {
-                "Sân bay quốc tế Tân Sơn Nhất",
-                "Sân bay quốc tế Vân Đồn",
-                "Sân bay quốc tế Nội Bài",
-                "Sân bay quốc tế Cát Bi",
+            SANBAYTRUNGGIANList = new ObservableCollection<CTSANBAYTRUNGGIAN>(DataProvider.Ins.DB.CTSANBAYTRUNGGIANs);
+            CHUYENBAY = new ObservableCollection<CHUYENBAY>(DataProvider.Ins.DB.CHUYENBAYs);
+            SANBAY = new ObservableCollection<SANBAY>(DataProvider.Ins.DB.SANBAYs);
 
-            };
             CloseAMACM = new RelayCommand<AddMidFlight>((p) => true, (p) => _CloseAM(p));
             ConfirmCommand = new RelayCommand<AddMidFlight>((p) => true, (p) => _ConfirmCommand(p));
-            CancelCommand = new RelayCommand<AddMidFlight>((p) => true, (p) => _CancelCommand(p));
+            //CancelCommand = new RelayCommand<AddMidFlight>((p) => true, (p) => _CancelCommand(p));
 
         }
 
@@ -58,49 +111,38 @@ namespace FlightTicketManagement.ViewModel
             }
         }
 
-        void _CancelCommand(AddMidFlight paramater)
-        {
-            paramater.ListAirport.SelectedItem = null;
-            paramater.WaitTime.Text = string.Empty;
-            paramater.InputNote.Clear();
-        }
+        //void _CancelCommand(AddMidFlight paramater)
+        //{
+        //    paramater.ListAirport.SelectedItem = null;
+        //    paramater.WaitTime.Text = string.Empty;
+        //    paramater.InputNote.Clear();
+        //}
         void _ConfirmCommand(AddMidFlight paramater)
         {
-            if (string.IsNullOrEmpty(paramater.WaitTime.Text))
+            if (string.IsNullOrEmpty(SelectedCHUYENBAY.MaChuyenBay) || string.IsNullOrEmpty(SelectedSANBAY.MaSanBay) ||
+                ThoiGianDung == 0)
             {
                 MessageBox.Show("Có vẻ bạn thiếu thông tin!!", "Notification", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }
-            MessageBoxResult addFliNoti = System.Windows.MessageBox.Show("Bạn muốn thêm chuyến bay ?", "Notification", MessageBoxButton.YesNo);
+            MessageBoxResult addFliNoti = System.Windows.MessageBox.Show("Bạn muốn thêm sân bay trung gian ?", "Notification", MessageBoxButton.YesNo);
             if (addFliNoti == MessageBoxResult.Yes)
             {
-                AddMidFlight(paramater);
-                var window = Window.GetWindow(paramater);
-                if (window != null)
+                var sanbaytrunggian = new CTSANBAYTRUNGGIAN()
                 {
-                    window.Close();
-                }
+                    MaChuyenBay = SelectedCHUYENBAY.MaChuyenBay,
+                    MaSanBayTrungGian = SelectedSANBAY.MaSanBay,
+                    ThoiGianDung = ThoiGianDung,
+                    GhiChu = GhiChu
+
+                };
+
+                DataProvider.Ins.DB.CTSANBAYTRUNGGIANs.Add(sanbaytrunggian);
+                DataProvider.Ins.DB.SaveChanges();
+
+                SANBAYTRUNGGIANList.Add(sanbaytrunggian);
+                MessageBox.Show("Sân bay trung gian đã được thêm thành công!");
             }
-        }
-
-
-        private void AddMidFlight(AddMidFlight paramater)
-        {
-            // Tạo đối tượng mới
-            var MidAirport = new Model.MidAirport
-            {
-                sttMidFlight = "1",
-                midAirport = paramater.ListAirport.Text.ToString(),
-                timeBreak = paramater.WaitTime.Text.ToString(),
-                note = paramater.InputNote.Text.ToString(),
-            };
-
-            //Thêm đối tượng vào collection
-            //thêm vào database chỗ này
-
-            MessageBox.Show("Đã thêm thành công", "Success", MessageBoxButton.OK);
-            paramater.WaitTime.Text = string.Empty;
-            paramater.InputNote.Clear();
         }
     }
 }

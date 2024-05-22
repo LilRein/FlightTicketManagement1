@@ -180,7 +180,7 @@ namespace FlightTicketManagement.ViewModel
 
             }, (p) =>
             {
-                var sanbay = new SANBAY() { MaSanBay = MaHangVe, TenSanBay = TenSanBay, DiaChi = DiaChi, MaQuocGia = MaQuocGia };
+                var sanbay = new SANBAY() { MaSanBay = MaSanBay, TenSanBay = TenSanBay, DiaChi = DiaChi, MaQuocGia = MaQuocGia };
 
                 DataProvider.Ins.DB.SANBAYs.Add(sanbay);
                 DataProvider.Ins.DB.SaveChanges();
