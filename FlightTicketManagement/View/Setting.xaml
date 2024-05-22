@@ -125,6 +125,7 @@
                                     </Grid.RowDefinitions>
 
                                     <TextBox
+                                        Text="{Binding MaSanBay, UpdateSourceTrigger=PropertyChanged}"
                                         Grid.Row="0"
                                         VerticalAlignment="Center"
                                         FontFamily="Poppins"
@@ -133,6 +134,7 @@
                                         TextAlignment="Left" />
 
                                     <TextBox
+                                        Text="{Binding TenSanBay, UpdateSourceTrigger=PropertyChanged}"
                                         Grid.Row="1"
                                         VerticalAlignment="Center"
                                         FontFamily="Poppins"
@@ -141,6 +143,7 @@
                                         TextAlignment="Left" />
 
                                     <TextBox
+                                        Text="{Binding DiaChi, UpdateSourceTrigger=PropertyChanged}"
                                         Grid.Row="2"
                                         VerticalAlignment="Center"
                                         FontFamily="Poppins"
@@ -149,6 +152,7 @@
                                         TextAlignment="Left" />
 
                                     <TextBox
+                                        Text="{Binding MaQuocGia, UpdateSourceTrigger=PropertyChanged}"
                                         Grid.Row="3"
                                         VerticalAlignment="Center"
                                         FontFamily="Poppins"
@@ -162,19 +166,22 @@
                                 Grid.Row="2"
                                 HorizontalAlignment="Center"
                                 Orientation="Horizontal">
-                                <Button Width="80" IsEnabled="{Binding Editting}">
+                                <Button 
+                                    Width="80"
+                                    Command="{Binding AddCommandFlight}"
+                                    IsEnabled="{Binding Editting}">
                                     Thêm
                                 </Button>
 
                                 <Button
                                     Width="80"
-                                    Command="{Binding EditCommand}"
+                                    Command="{Binding EditCommandFlight}"
                                     IsEnabled="{Binding Editting}">
                                     Sửa
                                 </Button>
                                 <Button
                                     Width="80"
-                                    Command="{Binding DeleteCommand}"
+                                    Command="{Binding DeleteCommandFlight}"
                                     IsEnabled="{Binding Editting}">
                                     Xóa
                                 </Button>
@@ -310,15 +317,6 @@
                                         FontWeight="Bold"
                                         Text="Tỉ lệ đơn giá"
                                         TextAlignment="Center" />
-
-                                    <TextBlock
-                                        Grid.Row="3"
-                                        VerticalAlignment="Center"
-                                        FontFamily="Poppins"
-                                        FontSize="12"
-                                        FontWeight="Bold"
-                                        Text="Mã quốc gia"
-                                        TextAlignment="Center" />
                                 </Grid>
 
                                 <Grid Grid.Column="1">
@@ -330,6 +328,7 @@
                                     </Grid.RowDefinitions>
 
                                     <TextBox
+                                        Text="{Binding MaHangVe, UpdateSourceTrigger=PropertyChanged}"
                                         Grid.Row="0"
                                         VerticalAlignment="Center"
                                         FontFamily="Poppins"
@@ -338,6 +337,7 @@
                                         TextAlignment="Left" />
 
                                     <TextBox
+                                        Text="{Binding TenHangVe, UpdateSourceTrigger=PropertyChanged}"
                                         Grid.Row="1"
                                         VerticalAlignment="Center"
                                         FontFamily="Poppins"
@@ -346,6 +346,7 @@
                                         TextAlignment="Left" />
 
                                     <TextBox
+                                         Text="{Binding TiLeTinhDonGia, UpdateSourceTrigger=PropertyChanged}"
                                         Grid.Row="2"
                                         VerticalAlignment="Center"
                                         FontFamily="Poppins"
@@ -353,13 +354,6 @@
                                         FontWeight="SemiBold"
                                         TextAlignment="Left" />
 
-                                    <TextBox
-                                        Grid.Row="3"
-                                        VerticalAlignment="Center"
-                                        FontFamily="Poppins"
-                                        FontSize="12"
-                                        FontWeight="SemiBold"
-                                        TextAlignment="Left" />
                                 </Grid>
 
                             </Grid>
@@ -367,7 +361,10 @@
                                 Grid.Row="2"
                                 HorizontalAlignment="Center"
                                 Orientation="Horizontal">
-                                <Button Width="80" IsEnabled="{Binding Editting}">
+                                <Button 
+                                    Width="80" 
+                                    Command="{Binding AddCommand}"
+                                    IsEnabled="{Binding Editting}">
                                     Thêm
                                 </Button>
 

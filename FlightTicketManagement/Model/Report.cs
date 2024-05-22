@@ -14,4 +14,13 @@ namespace FlightTicketManagement.Model
         public decimal Profit { get; set; }
         public double Ratio { get; set; }
     }
+
+    public class YearReport
+    {
+        public int Year { get; set; }
+        public int Month { get; set;}
+        public CTDOANHTHUNAM TicketNum { get; set; }
+        public decimal Profit { get; set; }
+        public double Ratio { get; set; }
+    }
 }

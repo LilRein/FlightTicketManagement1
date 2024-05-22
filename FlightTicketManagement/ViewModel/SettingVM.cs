@@ -99,6 +99,9 @@ namespace FlightTicketManagement.ViewModel
         public ICommand AddCommand { get; set; }
         public ICommand EditCommand { get; set; }
 
+        public ICommand AddCommandFlight { get; set; }
+        public ICommand EditCommandFlight { get; set; }
+
 
         public SettingVM()
         {
@@ -148,6 +151,48 @@ namespace FlightTicketManagement.ViewModel
                 DataProvider.Ins.DB.SaveChanges();
 
                 SelectedItem.MaHangVe = MaHangVe;
+            });
+
+            AddCommandFlight = new RelayCommand<object>((p) =>
+            {
+                if (string.IsNullOrEmpty(MaSanBay))
+                    return false;
+
+                var displayList = DataProvider.Ins.DB.SANBAYs.Where(x => x.MaSanBay == MaSanBay);
+                if (displayList == null || displayList.Count() != 0)
+                    return false;
+
+                return true;
+
+            }, (p) =>
+            {
+                var sanbay = new SANBAY() { MaSanBay = MaHangVe, TenSanBay = TenSanBay, DiaChi = DiaChi, MaQuocGia = MaQuocGia };
+
+                DataProvider.Ins.DB.SANBAYs.Add(sanbay);
+                DataProvider.Ins.DB.SaveChanges();
+
+                SayBayList.Add(sanbay);
+            });
+
+            EditCommandFlight = new RelayCommand<object>((p) =>
+            {
+                if (SelectedSanBay == null)
+                    return false;
+
+                var displayList = DataProvider.Ins.DB.SANBAYs.Where(x => x.MaSanBay == SelectedSanBay.MaSanBay);
+                if (displayList != null && displayList.Count() != 0)
+                    return true;
+
+                return false;
+
+            }, (p) =>
+            {
+                var sanbay = DataProvider.Ins.DB.SANBAYs.Where(x => x.MaSanBay == SelectedSanBay.MaSanBay).SingleOrDefault();
+                sanbay.TenSanBay = TenSanBay;
+                sanbay.DiaChi = DiaChi;
+                DataProvider.Ins.DB.SaveChanges();
+
+                SelectedSanBay.MaSanBay = MaSanBay;
             });
         }
     }
