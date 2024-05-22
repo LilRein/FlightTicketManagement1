@@ -21,33 +21,39 @@ namespace FlightTicketManagement.ViewModel
             }
         }
 
-        private ObservableCollection<CHITIETHANGVE> _CHITIETHANGVEList;
-        public ObservableCollection<CHITIETHANGVE> CHITIETHANGVEList
+        private ObservableCollection<TUYENBAY> _TUYENBAY;
+        public ObservableCollection<TUYENBAY> TUYENBAY
         {
-            get { return _CHITIETHANGVEList; }
+            get { return _TUYENBAY; }
             set
             {
-                _CHITIETHANGVEList = value;
-                OnPropertyChanged(nameof(CHITIETHANGVEList));
+                _TUYENBAY = value;
+                OnPropertyChanged(nameof(_TUYENBAY));
             }
         }
 
-
-        private CHITIETHANGVE _SelectedCHITIETHANGVE;
-        public CHITIETHANGVE SelectedCHITIETHANGVE
+        private ObservableCollection<SANBAY> _SANBAY;
+        public ObservableCollection<SANBAY> SANBAY
         {
-            get => _SelectedCHITIETHANGVE;
+            get { return _SANBAY; }
             set
             {
-                _SelectedCHITIETHANGVE = value;
-                OnPropertyChanged();
-
-                if (SelectedCHITIETHANGVE != null)
-                {
-                    SoGheChoHangVe = SelectedCHITIETHANGVE.SoGheChoHangVe;
-                }
+                _SANBAY = value;
+                OnPropertyChanged(nameof(SANBAY));
             }
         }
+
+        private ObservableCollection<MAYBAY> _MAYBAY;
+        public ObservableCollection<MAYBAY> MAYBAY
+        {
+            get { return _MAYBAY; }
+            set
+            {
+                _MAYBAY = value;
+                OnPropertyChanged(nameof(MAYBAY));
+            }
+        }
+
 
         private string _MaChuyenBay;
         public string MaChuyenBay { get => _MaChuyenBay; set { _MaChuyenBay = value; OnPropertyChanged(); } }
@@ -70,8 +76,8 @@ namespace FlightTicketManagement.ViewModel
         private double _ThoiLuong;
         public double ThoiLuong { get => _ThoiLuong; set { _ThoiLuong = value; OnPropertyChanged(); } }
 
-        private int _SoGheChoHangVe;
-        public int SoGheChoHangVe { get => _SoGheChoHangVe; set { _SoGheChoHangVe = value; OnPropertyChanged(); } }
+        private decimal _DonGia;
+        public decimal DonGia { get => _DonGia; set { _DonGia = value; OnPropertyChanged(); } }
 
         public ICommand AddCommand { get; set; }
         public ICommand CloseAACM { get; set; }
@@ -82,11 +88,13 @@ namespace FlightTicketManagement.ViewModel
         public AddFlightVM()
         {
             CHUYENBAYList = new ObservableCollection<CHUYENBAY>(DataProvider.Ins.DB.CHUYENBAYs);
-            CHITIETHANGVEList = new ObservableCollection<CHITIETHANGVE>(DataProvider.Ins.DB.CHITIETHANGVEs);
+            SANBAY = new ObservableCollection<SANBAY>(DataProvider.Ins.DB.SANBAYs);
+            TUYENBAY = new ObservableCollection<TUYENBAY>(DataProvider.Ins.DB.TUYENBAYs);
+            MAYBAY = new ObservableCollection<MAYBAY>(DataProvider.Ins.DB.MAYBAYs);
 
             CloseAACM = new RelayCommand<AddFlight>((p) => true, (p) => _CloseAACM(p));
             ConfirmCommand = new RelayCommand<AddFlight>((p) => true, (p) => _ConfirmCommand(p));
-            CancelCommand = new RelayCommand<AddFlight>((p) => true, (p) => _CancelCommand(p));
+            //CancelCommand = new RelayCommand<AddFlight>((p) => true, (p) => _CancelCommand(p));
         }
 
         private ObservableCollection<string> _flightItemList;
@@ -122,11 +130,11 @@ namespace FlightTicketManagement.ViewModel
 
         private void _ConfirmCommand(AddFlight parameter)
         {
-            if (string.IsNullOrEmpty(parameter.FlightID.Text) || parameter.StartListAirport.SelectedItem == null ||
-                parameter.EndListAirport.SelectedItem == null ||
-                parameter.FlightTimePicker.SelectedTime == null ||
-                string.IsNullOrEmpty(parameter.SeatCount.Text) ||
-                string.IsNullOrEmpty(parameter.Price.Text))
+            if (string.IsNullOrEmpty(MaChuyenBay) || string.IsNullOrEmpty(MaTuyenBay) ||
+                string.IsNullOrEmpty(MaSanBayDi)  ||
+                string.IsNullOrEmpty(MaSanBayDen) ||
+                (NgayBay) == null || ThoiLuong == 0 || DonGia == 0)
+                //string.IsNullOrEmpty(parameter.Price.Text))
             {
                 MessageBox.Show("Có vẻ bạn thiếu thông tin!!", "Notification", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
@@ -134,22 +142,28 @@ namespace FlightTicketManagement.ViewModel
             MessageBoxResult addFliNoti = MessageBox.Show("Bạn muốn thêm chuyến bay?", "Notification", MessageBoxButton.YesNo);
             if (addFliNoti == MessageBoxResult.Yes)
             {
-                // Xử lý logic khi nhấn Yes
+                var chuyenbay = new CHUYENBAY() { MaChuyenBay = MaChuyenBay, MaTuyenBay = MaTuyenBay, MaSanBayDi = MaSanBayDi, MaSanBayDen = MaSanBayDen, 
+                                                  NgayBay = NgayBay, GioKhoiHanh = GioKhoiHanh, ThoiLuong =ThoiLuong, DonGia = DonGia };
+
+                DataProvider.Ins.DB.CHUYENBAYs.Add(chuyenbay);
+                DataProvider.Ins.DB.SaveChanges();
+
+                CHUYENBAYList.Add(chuyenbay);
                 MessageBox.Show("Chuyến bay đã được thêm thành công!");
             }
         }
 
-        private void _CancelCommand(AddFlight parameter)
-        {
-            parameter.FlightID.Clear();
-            parameter.StartListAirport.SelectedItem = null;
-            parameter.EndListAirport.SelectedItem = null;
-            parameter.PlaneID.Clear();
-            parameter.Duration.Clear();
-            parameter.Price.Clear();
-            parameter.SeatCount.Clear();
-            parameter.FlightDatePicker.SelectedDate = null;
-            parameter.FlightTimePicker.SelectedTime = null;
-        }
+        //private void _CancelCommand(AddFlight parameter)
+        //{
+        //    parameter.FlightID.Clear();
+        //    parameter.StartListAirport.SelectedItem = null;
+        //    parameter.EndListAirport.SelectedItem = null;
+        //    parameter.PlaneID.Clear();
+        //    parameter.Duration.Clear();
+        //    parameter.Price.Clear();
+        //    parameter.SeatCount.Clear();
+        //    parameter.FlightDatePicker.SelectedDate = null;
+        //    parameter.FlightTimePicker.SelectedTime = null;
+        //}
     }
 }

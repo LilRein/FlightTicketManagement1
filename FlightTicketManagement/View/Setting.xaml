@@ -687,6 +687,7 @@
                                 Grid.Row="1"
                                 Grid.Column="1"
                                 Width="200"
+                                Command="{Binding EditCommandThamSo}"
                                 IsEnabled="{Binding Editting}">
                                 Sửa
                             </Button>
