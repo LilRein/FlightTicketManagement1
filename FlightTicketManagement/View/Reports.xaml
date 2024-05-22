@@ -39,21 +39,6 @@
                             FontSize="20"
                             FontWeight="Bold"
                             Text="Báo cáo doanh thu theo tháng" />
-                        <DatePicker
-                            x:Name="MonthProfit"
-                            Height="35"
-                            Margin="796,7,11.8,2.8"
-                            DisplayDate="{Binding MonthProfit}"
-                            Text="MM-yyyy">
-                            <DatePicker.RenderTransform>
-                                <TransformGroup>
-                                    <ScaleTransform />
-                                    <SkewTransform />
-                                    <RotateTransform Angle="0.218" />
-                                    <TranslateTransform X="-0.005" Y="0.119" />
-                                </TransformGroup>
-                            </DatePicker.RenderTransform>
-                        </DatePicker>
                     </Grid>
                     <Grid Grid.Row="1" Grid.Column="1">
                         <ProgressBar
@@ -109,8 +94,11 @@
                         <ComboBox
                             x:Name="DataCbYear"
                             Margin="897,9,9.8,9.2"
-                            SelectedIndex="{Binding SelectedIndex}" />
-
+                            ItemsSource="{Binding SelectedYear}"
+                            SelectedItem="{Binding SelectedYearItem, Mode=TwoWay}"
+                            DisplayMemberPath=""
+                            IsEditable="False"
+                            IsSynchronizedWithCurrentItem="True"/>  
                     </Grid>
                     <Grid Grid.Row="3" Grid.Column="1">
                         <ProgressBar
