@@ -54,6 +54,50 @@ namespace FlightTicketManagement.ViewModel
             }
         }
 
+        private SANBAY _SelectedSANBAYDI;
+        public SANBAY SelectedSANBAYDI
+        {
+            get => _SelectedSANBAYDI;
+            set
+            {
+                _SelectedSANBAYDI = value;
+                OnPropertyChanged();
+            }
+        }
+
+        private SANBAY _SelectedSANBAYDEN;
+        public SANBAY SelectedSANBAYDEN
+        {
+            get => _SelectedSANBAYDEN;
+            set
+            {
+                _SelectedSANBAYDEN = value;
+                OnPropertyChanged();
+            }
+        }
+
+        private MAYBAY _SelectedMAYBAY;
+        public MAYBAY SelectedMAYBAY
+        {
+            get => _SelectedMAYBAY;
+            set
+            {
+                _SelectedMAYBAY = value;
+                OnPropertyChanged();
+            }
+        }
+
+        private TUYENBAY _SelectedTUYENBAY;
+        public TUYENBAY SelectedTUYENBAY
+        {
+            get => _SelectedTUYENBAY;
+            set
+            {
+                _SelectedTUYENBAY = value;
+                OnPropertyChanged();
+            }
+        }
+
 
         private string _MaChuyenBay;
         public string MaChuyenBay { get => _MaChuyenBay; set { _MaChuyenBay = value; OnPropertyChanged(); } }
@@ -66,6 +110,9 @@ namespace FlightTicketManagement.ViewModel
 
         private string _MaSanBayDen;
         public string MaSanBayDen { get => _MaSanBayDen; set { _MaSanBayDen = value; OnPropertyChanged(); } }
+
+        private string _MaMayBay;
+        public string MaMayBay { get => _MaMayBay; set { _MaMayBay = value; OnPropertyChanged(); } }
 
         private DateTime _NgayBay;
         public DateTime NgayBay { get => _NgayBay; set { _NgayBay = value; OnPropertyChanged(); } }
@@ -97,28 +144,6 @@ namespace FlightTicketManagement.ViewModel
             //CancelCommand = new RelayCommand<AddFlight>((p) => true, (p) => _CancelCommand(p));
         }
 
-        private ObservableCollection<string> _flightItemList;
-        public ObservableCollection<string> FlightItemList
-        {
-            get { return _flightItemList; }
-            set
-            {
-                _flightItemList = value;
-                OnPropertyChanged();
-            }
-        }
-
-        private ObservableCollection<string> _routeIDList;
-        public ObservableCollection<string> RouteIDList
-        {
-            get { return _routeIDList; }
-            set
-            {
-                _routeIDList = value;
-                OnPropertyChanged();
-            }
-        }
-
         private void _CloseAACM(AddFlight parameter)
         {
             var window = Window.GetWindow(parameter);
@@ -130,11 +155,11 @@ namespace FlightTicketManagement.ViewModel
 
         private void _ConfirmCommand(AddFlight parameter)
         {
-            if (string.IsNullOrEmpty(MaChuyenBay) || string.IsNullOrEmpty(MaTuyenBay) ||
-                string.IsNullOrEmpty(MaSanBayDi)  ||
-                string.IsNullOrEmpty(MaSanBayDen) ||
-                (NgayBay) == null || ThoiLuong == 0 || DonGia == 0)
-                //string.IsNullOrEmpty(parameter.Price.Text))
+            if (string.IsNullOrEmpty(MaChuyenBay) || string.IsNullOrEmpty(SelectedTUYENBAY.MaTuyenBay) ||
+                string.IsNullOrEmpty(SelectedSANBAYDI.MaSanBay) ||
+                string.IsNullOrEmpty(SelectedSANBAYDEN.MaSanBay) || string.IsNullOrEmpty(SelectedMAYBAY.MaMayBay) ||
+                ThoiLuong == 0 || DonGia == 0)
+
             {
                 MessageBox.Show("Có vẻ bạn thiếu thông tin!!", "Notification", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
@@ -142,8 +167,18 @@ namespace FlightTicketManagement.ViewModel
             MessageBoxResult addFliNoti = MessageBox.Show("Bạn muốn thêm chuyến bay?", "Notification", MessageBoxButton.YesNo);
             if (addFliNoti == MessageBoxResult.Yes)
             {
-                var chuyenbay = new CHUYENBAY() { MaChuyenBay = MaChuyenBay, MaTuyenBay = MaTuyenBay, MaSanBayDi = MaSanBayDi, MaSanBayDen = MaSanBayDen, 
-                                                  NgayBay = NgayBay, GioKhoiHanh = GioKhoiHanh, ThoiLuong =ThoiLuong, DonGia = DonGia };
+                var chuyenbay = new CHUYENBAY()
+                {
+                    MaChuyenBay = MaChuyenBay,
+                    MaTuyenBay = SelectedTUYENBAY.MaTuyenBay,
+                    MaSanBayDi = SelectedSANBAYDI.MaSanBay,
+                    MaSanBayDen = SelectedSANBAYDEN.MaSanBay,
+                    MaMayBay = SelectedMAYBAY.MaMayBay,
+                    NgayBay = NgayBay,
+                    GioKhoiHanh = GioKhoiHanh,
+                    ThoiLuong = ThoiLuong,
+                    DonGia = DonGia
+                };
 
                 DataProvider.Ins.DB.CHUYENBAYs.Add(chuyenbay);
                 DataProvider.Ins.DB.SaveChanges();

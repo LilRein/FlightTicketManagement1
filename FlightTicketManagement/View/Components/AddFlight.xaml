@@ -40,7 +40,7 @@
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
+
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
@@ -66,7 +66,8 @@
             <!-- Ma chuyen bay -->
             <Grid Grid.Row="1" Grid.Column="0" Margin="0 0 10 10">
                 <TextBlock Text="Mã chuyến bay" Style="{StaticResource Title}" />
-                <TextBox x:Name="FlightID" BorderThickness="0 0 0 1" Style="{StaticResource Input}"
+                <TextBox Text="{Binding MaChuyenBay, UpdateSourceTrigger=PropertyChanged}"
+                         x:Name="FlightID" BorderThickness="0 0 0 1" Style="{StaticResource Input}"
                          materialDesign:HintAssist.Hint="Nhập mã chuyến bay"
                          PreviewTextInput="InputFlightID_PreviewTextInput"
                          PreviewKeyDown="InputFlightID_PreviewKeyDown" />
@@ -79,9 +80,12 @@
                     <ColumnDefinition Width="17*"/>
                 </Grid.ColumnDefinitions>
                 <TextBlock Text="Mã tuyến bay" Style="{StaticResource Title}" Grid.ColumnSpan="2" />
-                <ComboBox x:Name="RouteID" ItemsSource="{Binding MaTuyenBay}"
+                <ComboBox x:Name="RouteID" 
+                          DisplayMemberPath="MaTuyenBay"
+                          ItemsSource="{Binding TUYENBAY}"
+                          SelectedItem="{Binding SelectedTUYENBAY, UpdateSourceTrigger=PropertyChanged}"
                           FontSize="15" Foreground="#555" FontFamily="Roboto"
-                          materialDesign:HintAssist.Hint="Chọn mã tuyến bay" Grid.ColumnSpan="2" Margin="0,39,0,0" VerticalAlignment="Top" />
+                          materialDesign:HintAssist.Hint="Chọn mã tuyến bay" Grid.ColumnSpan="2" Margin="0,51,0,0" VerticalAlignment="Top" />
             </Grid>
 
             <!-- San bay di -->
@@ -91,57 +95,67 @@
                     <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
                 <TextBlock Text="Mã sân bay đi" Style="{StaticResource Title}" Grid.ColumnSpan="2" />
-                <ComboBox x:Name="StartListAirport" ItemsSource="{Binding MaSanBayDi}"
+                <ComboBox x:Name="StartListAirport" DisplayMemberPath="MaSanBay" 
+                          ItemsSource="{Binding SANBAY}"
+                          SelectedItem="{Binding SelectedSANBAYDI, UpdateSourceTrigger=PropertyChanged}"
                           FontSize="15" Foreground="#555" FontFamily="Roboto"
-                          materialDesign:HintAssist.Hint="Hãy chọn sân bay" Grid.ColumnSpan="2" Margin="0,39,0,0" VerticalAlignment="Top" />
+                          materialDesign:HintAssist.Hint="Hãy chọn sân bay" Grid.ColumnSpan="2" Margin="0,51,0,0" VerticalAlignment="Top" />
             </Grid>
 
             <!-- San bay den -->
             <Grid Grid.Row="2" Grid.Column="1" Margin="0 0 10 10">
-                <TextBlock Text="Mã sân bay đến" Style="{StaticResource Title}" />
-                <ComboBox x:Name="EndListAirport" ItemsSource="{Binding MaSanBayDen}"
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="5*"/>
+                    <ColumnDefinition Width="22*"/>
+                </Grid.ColumnDefinitions>
+                <TextBlock Text="Mã sân bay đến" Style="{StaticResource Title}" Grid.ColumnSpan="2" />
+                <ComboBox x:Name="EndListAirport" 
+                          DisplayMemberPath="MaSanBay"
+                          ItemsSource="{Binding SANBAY}"
+                          SelectedItem="{Binding SelectedSANBAYDEN, UpdateSourceTrigger=PropertyChanged}"
                           FontSize="15" Foreground="#555" FontFamily="Roboto"
-                          materialDesign:HintAssist.Hint="Hãy chọn sân bay" Margin="0,39,0,0" VerticalAlignment="Top" />
+                          materialDesign:HintAssist.Hint="Hãy chọn sân bay" Margin="0,51,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2" />
             </Grid>
 
             <!-- Ma may bay -->
             <Grid Grid.Row="3" Grid.Column="0" Margin="0 0 10 10">
                 <TextBlock Text="Mã máy bay" Style="{StaticResource Title}" />
-                <TextBox x:Name="PlaneID" BorderThickness="0 0 0 1" Style="{StaticResource Input}"
-                         materialDesign:HintAssist.Hint="Nhập mã máy bay" />
+                <ComboBox x:Name="PlaneID" DisplayMemberPath="MaMayBay" 
+                            ItemsSource="{Binding MAYBAY}"
+                         SelectedItem="{Binding SelectedMAYBAY, UpdateSourceTrigger=PropertyChanged}"
+                         FontSize="15" Foreground="#555" FontFamily="Roboto"
+                         materialDesign:HintAssist.Hint="Hãy chọn mã máy bay" Margin="0,51,0,0" VerticalAlignment="Top" />
             </Grid>
 
             <!-- Ngay bay -->
             <Grid Grid.Row="3" Grid.Column="1" Margin="0 0 10 10">
                 <TextBlock Text="Ngày bay" Style="{StaticResource Title}" />
-                <DatePicker x:Name="FlightDatePicker" Margin="0,41,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                <DatePicker SelectedDate="{Binding NgayBay, UpdateSourceTrigger=PropertyChanged}"
+                            x:Name="FlightDatePicker" BorderThickness="0 0 0 1" Margin="0,53,0,0" VerticalAlignment="Top" />
             </Grid>
 
             <!-- Gio khoi hanh -->
             <Grid Grid.Row="4" Grid.Column="0" Margin="0 0 10 10">
                 <TextBlock Text="Giờ khởi hành" Style="{StaticResource Title}" />
-                <materialDesign:TimePicker x:Name="FlightTimePicker" Margin="0,41,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                <TextBox Text="{Binding GioKhoiHanh, UpdateSourceTrigger=PropertyChanged}"
+                    x:Name="FlightTimePicker" BorderThickness="0 0 0 1" Style="{StaticResource Input}"/>
+
             </Grid>
 
             <!-- Thoi luong -->
             <Grid Grid.Row="4" Grid.Column="1" Margin="0 0 10 10">
                 <TextBlock Text="Thời lượng" Style="{StaticResource Title}" />
-                <TextBox x:Name="Duration" BorderThickness="0 0 0 1" Style="{StaticResource Input}"
+                <TextBox Text="{Binding ThoiLuong, UpdateSourceTrigger=PropertyChanged}"
+                         x:Name="Duration" BorderThickness="0 0 0 1" Style="{StaticResource Input}"
                          materialDesign:HintAssist.Hint="Nhập thời lượng" />
             </Grid>
 
             <!-- Don gia -->
-            <Grid Grid.Row="5" Grid.Column="0" Margin="0 0 10 10">
+            <Grid Grid.Row="5" Margin="0 0 10 10">
                 <TextBlock Text="Đơn giá" Style="{StaticResource Title}" />
-                <TextBox x:Name="Price" BorderThickness="0 0 0 1" Style="{StaticResource Input}"
+                <TextBox Text="{Binding DonGia, UpdateSourceTrigger=PropertyChanged}"
+                         x:Name="Price" BorderThickness="0 0 0 1" Style="{StaticResource Input}"
                          materialDesign:HintAssist.Hint="Nhập đơn giá" />
-            </Grid>
-
-            <!-- So luong ghe -->
-            <Grid Grid.Row="5" Grid.Column="1" Margin="0 0 10 10">
-                <TextBlock Text="Số lượng ghế" Style="{StaticResource Title}" />
-                <TextBox x:Name="SeatCount" BorderThickness="0 0 0 1" Style="{StaticResource Input}"
-                         materialDesign:HintAssist.Hint="Nhập số lượng ghế" />
             </Grid>
 
             <!-- Button cancel and confirm -->
