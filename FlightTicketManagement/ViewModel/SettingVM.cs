@@ -96,6 +96,17 @@ namespace FlightTicketManagement.ViewModel
         private string _MaQuocGia;
         public string MaQuocGia { get => _MaQuocGia; set { _MaQuocGia = value; OnPropertyChanged(); } }
 
+        private ObservableCollection<THAMSO> _ThamSoList;
+        public ObservableCollection<THAMSO> ThamSoList
+        {
+            get { return _ThamSoList; }
+            set
+            {
+                _ThamSoList = value;
+                OnPropertyChanged(nameof(ThamSoList));
+            }
+        }
+
         public ICommand AddCommand { get; set; }
         public ICommand EditCommand { get; set; }
 
@@ -110,6 +121,8 @@ namespace FlightTicketManagement.ViewModel
             HangVeList = new ObservableCollection<HANGVE>(DataProvider.Ins.DB.HANGVEs);
 
             SayBayList = new ObservableCollection<SANBAY>(DataProvider.Ins.DB.SANBAYs);
+
+            ThamSoList = new ObservableCollection<THAMSO>(DataProvider.Ins.DB.THAMSOes);
 
             AddCommand = new RelayCommand<object>((p) =>
             {
