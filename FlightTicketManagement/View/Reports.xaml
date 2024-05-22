@@ -40,6 +40,29 @@
                             FontWeight="Bold"
                             Text="Báo cáo doanh thu theo tháng" />
                     </Grid>
+                        <ComboBox
+                            Grid.Row="0"
+                            Grid.Column="1"
+                            x:Name="DataCbMonth"
+                            Margin="897,9,9.8,9.2"
+                            ItemsSource="{Binding SelectedMonth}"
+                            SelectedItem="{Binding SelectedMonthItem, Mode=TwoWay}"
+                            DisplayMemberPath=""
+                            IsEditable="False"
+                            IsSynchronizedWithCurrentItem="True"/>
+                        <ComboBox
+                            Grid.Row="0"
+                            Grid.Column="1"
+                            x:Name="DataCbMonth_1"
+                            Margin="597,9,250,9.2"
+                            ItemsSource="{Binding SelectedYear}"
+                            SelectedItem="{Binding SelectedYearItemTop, Mode=TwoWay}"
+                            DisplayMemberPath=""
+                            IsEditable="False"
+                            IsSynchronizedWithCurrentItem="True"/>  
+
+
+                    
                     <Grid Grid.Row="1" Grid.Column="1">
                         <ProgressBar
                             x:Name="pbMonthReport"

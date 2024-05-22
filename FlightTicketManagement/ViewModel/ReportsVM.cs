@@ -25,6 +25,33 @@ namespace FlightTicketManagement.ViewModel
         private ObservableCollection<int> _SelectedYear;
         public ObservableCollection<int> SelectedYear { get { return _SelectedYear; } set { _SelectedYear = value; OnPropertyChanged(); } }
 
+        private ObservableCollection<int> _SelectedMonth;
+        public ObservableCollection<int> SelectedMonth { get { return _SelectedMonth; } set { _SelectedMonth = value; OnPropertyChanged(); } }
+
+        private int? _selectedMonthItem;
+        public int? SelectedMonthItem
+        {
+            get { return _selectedMonthItem; }
+            set
+            {
+                _selectedMonthItem = value;
+                OnPropertyChanged();
+                FilterReports_1(); // Call method to update the report based on selected year
+            }
+        }
+
+        private int? _selectedYearItemTop;
+        public int? SelectedYearItemTop
+        {
+            get { return _selectedYearItemTop; }
+            set
+            {
+                _selectedYearItemTop = value;
+                OnPropertyChanged();
+                FilterReports_1(); // Call method to update the report based on selected year
+            }
+        }
+
         private int? _selectedYearItem;
         public int? SelectedYearItem
         {
@@ -36,20 +63,23 @@ namespace FlightTicketManagement.ViewModel
                 FilterReports(); // Call method to update the report based on selected year
             }
         }
+        //----------------------------------------------------------------------------------------------------------
         public ReportsVM()
         {
             MonthReportList = new ObservableCollection<MonthReport>();
             YearReportList = new ObservableCollection<YearReport>();
             
             LoadReports();
-
-            FilterReports();
         }
-
+        //----------------------------------------------------------------------------------------------------------
         private void LoadReports()
         {
             MonthReportList = new ObservableCollection<MonthReport>();
+
             var MonthList = DataProvider.Ins.DB.CTDOANHTHUTHANGs;
+            SelectedMonth = new ObservableCollection<int>();
+
+            SelectedMonth.Add(0);
 
             foreach (var month in MonthList)
             {
@@ -60,12 +90,18 @@ namespace FlightTicketManagement.ViewModel
                 monthReport.Profit = month.DoanhThuThang;
                 monthReport.Ratio = month.TiLeThang;
                 MonthReportList.Add(monthReport);
+                if (!SelectedMonth.Contains(month.Thang))
+                {
+                    SelectedMonth.Add(month.Thang);
+                }
             }
 
             YearReportList = new ObservableCollection<YearReport>();
-            SelectedYear = new ObservableCollection<int>();
 
             var YearList = DataProvider.Ins.DB.CTDOANHTHUNAMs;
+            SelectedYear = new ObservableCollection<int>();
+
+            SelectedYear.Add(0);
 
             foreach (var year in YearList)
             {
@@ -76,12 +112,48 @@ namespace FlightTicketManagement.ViewModel
                 yearReport.Profit = year.DoanhThuNam;
                 yearReport.Ratio = year.TiLeNam;
                 YearReportList.Add(yearReport);
+
                 if (!SelectedYear.Contains(year.Nam))
                 {
                     SelectedYear.Add(year.Nam);
                 }
             }
         }
+        //----------------------------------------------------------------------------------------------------------
+        //----------------------------------------------------------------------------------------------------------
+
+        private void FilterReports_1()
+        {
+
+            if (SelectedMonthItem.HasValue && SelectedYearItemTop.HasValue)
+{
+            MonthReportList = new ObservableCollection<MonthReport>(
+                DataProvider.Ins.DB.CTDOANHTHUTHANGs
+                .Where(report => report.Thang == SelectedMonthItem.Value && report.Nam == SelectedYearItemTop.Value)
+                .Select(report => new MonthReport
+            {
+                Year = report.Nam,
+                Month = report.Thang,
+                DoanhThu = report,
+                Profit = report.DoanhThuThang,
+                Ratio = report.TiLeThang
+            }));
+}
+            else
+            {
+
+                MonthReportList = new ObservableCollection<MonthReport>(
+                    DataProvider.Ins.DB.CTDOANHTHUTHANGs.Select(month => new MonthReport
+                    {
+                        Year = month.Nam,
+                        Month = month.Thang,
+                        DoanhThu = month,
+                        Profit = month.DoanhThuThang,
+                        Ratio = month.TiLeThang
+                    }));
+            }
+        }
+        //----------------------------------------------------------------------------------------------------------
 
         private void FilterReports()
         {
@@ -99,17 +171,7 @@ namespace FlightTicketManagement.ViewModel
                     Ratio = y.TiLeNam
                 }));
 
-                MonthReportList = new ObservableCollection<MonthReport>(
-                    DataProvider.Ins.DB.CTDOANHTHUTHANGs
-                        .Where(month => month.Nam == SelectedYearItem.Value)
-                        .Select(month => new MonthReport
-                        {
-                            Year = month.Nam,
-                            Month = month.Thang,
-                            DoanhThu = month,
-                            Profit = month.DoanhThuThang,
-                            Ratio = month.TiLeThang
-                        }));
+                
             }
             else
             {
@@ -123,17 +185,10 @@ namespace FlightTicketManagement.ViewModel
                         Ratio = year.TiLeNam
                     }));
 
-                MonthReportList = new ObservableCollection<MonthReport>(
-                    DataProvider.Ins.DB.CTDOANHTHUTHANGs.Select(month => new MonthReport
-                    {
-                        Year = month.Nam,
-                        Month = month.Thang,
-                        DoanhThu = month,
-                        Profit = month.DoanhThuThang,
-                        Ratio = month.TiLeThang
-                    }));
+                
             }
         }
+        //----------------------------------------------------------------------------------------------------------
         public override bool Equals(object obj)
         {
             return base.Equals(obj);
