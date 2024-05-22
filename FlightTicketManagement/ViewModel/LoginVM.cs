@@ -1,51 +1,73 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Input;
 using FlightTicketManagement.Utilities;
-using System.Windows;
-using FlightTicketManagement.Model;
-
+using FlightTicketManagement.Model; // Adjust this namespace to match your actual namespace
 
 namespace FlightTicketManagement.ViewModel
 {
-    class LoginVM:Utilities.ViewModelBase
+    class LoginVM : ViewModelBase
     {
-        public bool IsLogin { get; set; }
+        private string _username;
+        private string _password;
+        private ICommand _loginCommand;
 
-        private string _UserName;
-        public string UserName { get => _UserName; set { _UserName = value; OnPropertyChanged(); } }
-        private string _Password;
-        public string Password { get => _Password; set { _Password = value; OnPropertyChanged(); } }
-        public ICommand LoginCommand { get; set; }
-
-        public LoginVM()
+        public string Username
         {
-            IsLogin = false;
-            Password = "";
-            UserName = "";
-            LoginCommand = new RelayCommand<Window>((p) => { return true; }, (p) => { Login(p); });
-        }
-        void Login(Window p)
-        {
-            if (p == null)
-                return;
-            var accCount = DataProvider.Ins.DB.TAIKHOANs.Where(x => x.TenTaiKhoan == UserName && x.MatKhau == Password).Count();
-
-            if (accCount > 0)
+            get { return _username; }
+            set
             {
-                IsLogin = true;
-
-                p.Close();
-            }
-            else
-            {
-                IsLogin = false;
-                MessageBox.Show("Sai tài khoản hoặc mật khẩu!");
+                _username = value;
+                OnPropertyChanged(nameof(Username));
             }
         }
 
+        public string Password
+        {
+            get { return _password; }
+            set
+            {
+                _password = value;
+                OnPropertyChanged(nameof(Password));
+            }
+        }
+
+        public ICommand LoginCommand
+        {
+            get
+            {
+                if (_loginCommand == null)
+                {
+                    _loginCommand = new RelayCommand(param => this.Login(), param => this.CanLogin());
+                }
+                return _loginCommand;
+            }
+        }
+
+        private bool CanLogin()
+        {
+            return !string.IsNullOrEmpty(Username) && !string.IsNullOrEmpty(Password);
+        }
+
+        public event Action LoginSuccess;
+
+        private void Login()
+        {
+            using (var context = new FLIGHTTICKETMANAGEMENTEntities())
+            {
+                var user = context.TAIKHOANs.SingleOrDefault(u => u.TenTaiKhoan == Username && u.MatKhau == Password);
+
+                if (user != null)
+                {
+                    MessageBox.Show("Login thành công", "Thành công", MessageBoxButton.OK, MessageBoxImage.Information);
+                    LoginSuccess?.Invoke();
+                }
+                else
+                {
+                    MessageBox.Show("Sai tài khoản và mật khẩu", "Lỗi", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+            }
+        }
     }
 }

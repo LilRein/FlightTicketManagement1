@@ -1,30 +1,21 @@
-﻿<Window
-    x:Class="FlightTicketManagement.Login"
-    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:MaterialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-    xmlns:local="clr-namespace:FlightTicketManagement"
-    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:vm="clr-namespace:FlightTicketManagement.ViewModel"
-    Title="Login"
-    Width="1080"
-    Height="540"
-    AllowsTransparency="True"
-    Background="Transparent"
-    WindowStartupLocation="CenterScreen"
-    WindowStyle="None"
-    mc:Ignorable="d">
+﻿<Window x:Class="FlightTicketManagement.Login"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:MaterialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:local="clr-namespace:FlightTicketManagement"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:vm="clr-namespace:FlightTicketManagement.ViewModel"
+        Title="Login"
+        Width="1080"
+        Height="540"
+        AllowsTransparency="True"
+        Background="Transparent"
+        WindowStartupLocation="CenterScreen"
+        WindowStyle="None"
+        mc:Ignorable="d">
 
     <Window.Resources>
-        <!--<Style x:Key="loginStatusText" TargetType="TextBlock"
-       >
-    <Setter Property="Foreground" Value="OrangeRed"/>
-    <Setter Property="FontFamily" Value="Roboto"/>
-    <Setter Property="FontWeight" Value="Bold"/>
-
-
-</Style>-->
         <Style x:Key="textHint" TargetType="TextBlock">
             <Setter Property="FontSize" Value="14" />
             <Setter Property="Grid.Column" Value="1" />
@@ -37,34 +28,26 @@
             <Setter Property="FontFamily" Value="Roboto" />
             <Setter Property="Foreground" Value="#FD9393" />
             <Setter Property="Background" Value="#FFE3E0" />
-
             <Setter Property="HorizontalContentAlignment" Value="Center" />
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="Button">
-                        <Border
-                            Background="{TemplateBinding Background}"
-                            BorderBrush="OrangeRed"
-                            BorderThickness="1"
-                            CornerRadius="20">
-                            <ContentPresenter
-                                HorizontalAlignment="Center"
-                                VerticalAlignment="Center"
-                                ContentSource="Content" />
+                        <Border Background="{TemplateBinding Background}"
+                                BorderBrush="OrangeRed"
+                                BorderThickness="1"
+                                CornerRadius="20">
+                            <ContentPresenter HorizontalAlignment="Center"
+                                              VerticalAlignment="Center"
+                                              ContentSource="Content" />
                         </Border>
-
                     </ControlTemplate>
                 </Setter.Value>
             </Setter>
         </Style>
-
         <Style x:Key="TextBoxBar" TargetType="TextBox">
             <Setter Property="BorderBrush" Value="#FD9393" />
             <Setter Property="BorderThickness" Value="1" />
-
-
         </Style>
-
     </Window.Resources>
 
     <Window.DataContext>
@@ -73,145 +56,98 @@
 
     <Grid>
         <Border Background="#F8B6B8" CornerRadius="20">
-
-            <Border
-                Width="537"
-                Height="422"
-                Margin="503,49,10,40"
-                Background="White"
-                CornerRadius="20,20,20,20">
-
-
-
+            <Border Width="537" Height="422" Margin="503,49,10,40" Background="White" CornerRadius="20,20,20,20">
                 <StackPanel VerticalAlignment="Center">
-                    <TextBlock
-                        Margin="0,29,0,0"
-                        VerticalAlignment="Center"
-                        FontFamily="Poppins"
-                        FontSize="32"
-                        FontStyle="Normal"
-                        FontWeight="ExtraBold"
-                        Foreground="#FB9694"
-                        Text="SIGN IN"
-                        TextAlignment="Center" />
-                    <!--<TextBlock x:Name="loginStatus"
-       Height="30"
-       Width="auto"
-       Margin="0 10 0 5"
-       HorizontalAlignment="Center"
-       Style="{StaticResource loginStatusText}"/>-->
-
-                    <TextBlock
-                        x:Name="UserNameTxtBlock"
-                        Margin="28,0,0,10"
-                        FontFamily="Poppins"
-                        FontSize="18"
-                        FontWeight="SemiBold"
-                        Foreground="#959895"
-                        Text="UserName" />
-                    <Border
-                        x:Name="UserNameBorder"
-                        Width="480"
-                        Height="50"
-                        BorderBrush="#FD9393"
-                        BorderThickness="1"
-                        CornerRadius="10">
+                    <TextBlock Margin="0,29,0,0"
+                               VerticalAlignment="Center"
+                               FontFamily="Poppins"
+                               FontSize="32"
+                               FontStyle="Normal"
+                               FontWeight="ExtraBold"
+                               Foreground="#FB9694"
+                               Text="SIGN IN"
+                               TextAlignment="Center" />
+                    <TextBlock x:Name="UserNameTxtBlock"
+                               Margin="28,0,0,10"
+                               FontFamily="Poppins"
+                               FontSize="18"
+                               FontWeight="SemiBold"
+                               Foreground="#959895"
+                               Text="UserName" />
+                    <Border x:Name="UserNameBorder"
+                            Width="480"
+                            Height="50"
+                            BorderBrush="#FD9393"
+                            BorderThickness="1"
+                            CornerRadius="10">
                         <Grid>
-
-                            <TextBox
-                                Text="{Binding UserName}"
-                                x:Name="Username"
-                                Padding="15,0"
-                                HorizontalAlignment="Left"
-                                VerticalAlignment="Center"
-                                MaterialDesign:HintAssist.Foreground="Transparent"
-                                MaterialDesign:HintAssist.Hint="Enter username"
-                                MaterialDesign:TextFieldAssist.UnderlineBrush="Transparent"
-                                Background="Transparent"
-                                BorderThickness="0"
-                                FontSize="14"
-                                FontWeight="SemiBold"
-                                Foreground="#000000" />
+                            <TextBox Text="{Binding UserName, UpdateSourceTrigger=PropertyChanged}"
+                                     x:Name="Username"
+                                     Padding="15,0"
+                                     HorizontalAlignment="Left"
+                                     VerticalAlignment="Center"
+                                     MaterialDesign:HintAssist.Foreground="Transparent"
+                                     MaterialDesign:HintAssist.Hint="Enter username"
+                                     MaterialDesign:TextFieldAssist.UnderlineBrush="Transparent"
+                                     Background="Transparent"
+                                     BorderThickness="0"
+                                     FontSize="14"
+                                     FontWeight="SemiBold"
+                                     Foreground="#000000" />
                         </Grid>
-
-
-
                     </Border>
-                    <TextBlock
-                        x:Name="PasswordTxtBox"
-                        Margin="28,10,0,10"
-                        FontFamily="Poppins"
-                        FontSize="18"
-                        FontWeight="SemiBold"
-                        Foreground="#959895"
-                        Text="Password" />
-                    <Border
-                        x:Name="PasswordBorder"
-                        Width="480"
-                        Height="50"
-                        BorderBrush="#FD9393"
-                        BorderThickness="1"
-                        CornerRadius="10">
+                    <TextBlock x:Name="PasswordTxtBox"
+                               Margin="28,10,0,10"
+                               FontFamily="Poppins"
+                               FontSize="18"
+                               FontWeight="SemiBold"
+                               Foreground="#959895"
+                               Text="Password" />
+                    <Border x:Name="PasswordBorder"
+                            Width="480"
+                            Height="50"
+                            BorderBrush="#FD9393"
+                            BorderThickness="1"
+                            CornerRadius="10">
                         <Grid>
-
-                            <TextBox
-                                Text="{Binding Password}"
-                                x:Name="Password"
-                                Padding="15,0"
-                                HorizontalAlignment="Left"
-                                VerticalAlignment="Center"
-                                MaterialDesign:HintAssist.Foreground="Transparent"
-                                MaterialDesign:HintAssist.Hint="Enter password"
-                                MaterialDesign:TextFieldAssist.UnderlineBrush="Transparent"
-                                Background="Transparent"
-                                BorderThickness="0"
-                                FontSize="14"
-                                FontWeight="SemiBold"
-                                Foreground="#000000" />
+                            <PasswordBox x:Name="PasswordBox"
+                                         Padding="15,0"
+                                         HorizontalAlignment="Left"
+                                         VerticalAlignment="Center"
+                                         MaterialDesign:HintAssist.Foreground="Transparent"
+                                         MaterialDesign:HintAssist.Hint="Enter password"
+                                         MaterialDesign:TextFieldAssist.UnderlineBrush="Transparent"
+                                         Background="Transparent"
+                                         BorderThickness="0"
+                                         FontSize="14"
+                                         FontWeight="SemiBold"
+                                         Foreground="#000000"
+                                         PasswordChanged="PasswordBox_PasswordChanged" />
                         </Grid>
-
-
                     </Border>
-                    <TextBlock
-                        x:Name="ForgotPasswordTxtBox"
-                        Margin="28,10,28,10"
-                        FontFamily="Poppins"
-                        FontSize="18"
-                        FontWeight="SemiBold"
-                        Foreground="#959895"
-                        Text="Forgot password?"
-                        TextAlignment="Right" />
-
-
-                    <Grid
-                        Width="435"
-                        Height="50"
-                        Margin="0,10,0,0">
-                        <Button
-                            Command="{Binding LoginCommand}"
-                            Content="LOG IN"
-                            Style="{StaticResource LogIn}" />
-
+                    <TextBlock x:Name="ForgotPasswordTxtBox"
+                               Margin="28,10,28,10"
+                               FontFamily="Poppins"
+                               FontSize="18"
+                               FontWeight="SemiBold"
+                               Foreground="#959895"
+                               Text="Forgot password?"
+                               TextAlignment="Right" />
+                    <Grid Width="435" Height="50" Margin="0,10,0,0">
+                        <Button Command="{Binding LoginCommand}"
+                                Content="LOG IN"
+                                Style="{StaticResource LogIn}" />
                     </Grid>
                 </StackPanel>
-
-
             </Border>
-
         </Border>
         <Grid Margin="0,10,592,0">
-            <Border
-                Width="488"
-                Height="520"
-                BorderThickness="0"
-                CornerRadius="10">
+            <Border Width="488" Height="520" BorderThickness="0" CornerRadius="10">
                 <Image Margin="12,0,0,20" Source="Images/plane.png" />
-
             </Border>
         </Grid>
-        <Button
-            x:Name="BtnClose"
-            Click="BtnClose_Click"
-            Style="{StaticResource ExitApp}" />
+        <Button x:Name="BtnClose"
+                Click="BtnClose_Click"
+                Style="{StaticResource ExitApp}" />
     </Grid>
 </Window>

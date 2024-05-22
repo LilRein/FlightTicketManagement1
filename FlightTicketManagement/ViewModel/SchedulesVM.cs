@@ -13,7 +13,7 @@ using FlightTicketManagement.View.Components;
 
 namespace FlightTicketManagement.ViewModel
 {
-    class SchedulesVM : Utilities.ViewModelBase
+    class SchedulesVM : ViewModelBase
     {
         private readonly PageModel _pageModel;
         public string Schedules
