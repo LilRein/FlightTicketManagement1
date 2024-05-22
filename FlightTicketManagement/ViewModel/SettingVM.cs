@@ -113,6 +113,7 @@ namespace FlightTicketManagement.ViewModel
         public ICommand AddCommandFlight { get; set; }
         public ICommand EditCommandFlight { get; set; }
 
+        public ICommand EditCommandThamSo { get; set; }
 
         public SettingVM()
         {
@@ -207,6 +208,26 @@ namespace FlightTicketManagement.ViewModel
 
                 SelectedSanBay.MaSanBay = MaSanBay;
             });
+
+            //EditCommandThamSo = new RelayCommand<object>((p) =>
+            //{
+            //    if (SelectedSanBay == null)
+            //        return false;
+
+            //    var displayList = DataProvider.Ins.DB.SANBAYs.Where(x => x.MaSanBay == SelectedSanBay.MaSanBay);
+            //    if (displayList != null && displayList.Count() != 0)
+            //        return true;
+
+            //    return false;
+
+            //}, (p) =>
+            //{
+            //    var thamso = DataProvider.Ins.DB.THAMSOes.Where();
+            //    thamso.SoSanBayTrungGianToiDa = SoSanBayTrungGianToiDa;
+            //    DataProvider.Ins.DB.SaveChanges();
+
+            //    SelectedSanBay.MaSanBay = MaSanBay;
+            //});
         }
     }
 }
