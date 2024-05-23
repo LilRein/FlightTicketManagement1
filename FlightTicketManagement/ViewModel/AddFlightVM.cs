@@ -155,9 +155,9 @@ namespace FlightTicketManagement.ViewModel
 
         private void _ConfirmCommand(AddFlight parameter)
         {
-            if (string.IsNullOrEmpty(MaChuyenBay) || string.IsNullOrEmpty(SelectedTUYENBAY.MaTuyenBay) ||
-                string.IsNullOrEmpty(SelectedSANBAYDI.MaSanBay) ||
-                string.IsNullOrEmpty(SelectedSANBAYDEN.MaSanBay) || string.IsNullOrEmpty(SelectedMAYBAY.MaMayBay) ||
+            if (string.IsNullOrEmpty(MaChuyenBay) || SelectedTUYENBAY == null ||
+                SelectedSANBAYDI == null ||
+                SelectedSANBAYDEN == null || SelectedMAYBAY == null ||
                 ThoiLuong == 0 || DonGia == 0)
 
             {

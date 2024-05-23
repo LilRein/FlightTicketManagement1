@@ -119,8 +119,7 @@ namespace FlightTicketManagement.ViewModel
         //}
         void _ConfirmCommand(AddMidFlight paramater)
         {
-            if (string.IsNullOrEmpty(SelectedCHUYENBAY.MaChuyenBay) || string.IsNullOrEmpty(SelectedSANBAY.MaSanBay) ||
-                ThoiGianDung == 0)
+            if (SelectedCHUYENBAY == null || SelectedSANBAY == null || ThoiGianDung == 0)
             {
                 MessageBox.Show("Có vẻ bạn thiếu thông tin!!", "Notification", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
