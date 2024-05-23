@@ -27,6 +27,17 @@ namespace FlightTicketManagement.ViewModel
             }
         }
 
+        private ObservableCollection<THAMSO> _ThamSoList;
+        public ObservableCollection<THAMSO> ThamSoList
+        {
+            get { return _ThamSoList; }
+            set
+            {
+                _ThamSoList = value;
+                OnPropertyChanged(nameof(HangVeList));
+            }
+        }
+
         private HANGVE _SelectedItem;
         public HANGVE SelectedItem
         {
@@ -96,16 +107,91 @@ namespace FlightTicketManagement.ViewModel
         private string _MaQuocGia;
         public string MaQuocGia { get => _MaQuocGia; set { _MaQuocGia = value; OnPropertyChanged(); } }
 
-        private ObservableCollection<THAMSO> _ThamSoList;
-        public ObservableCollection<THAMSO> ThamSoList
+
+        private byte _SoSanBayTrungGianToiDa;
+        public byte SoSanBayTrungGianToiDa
         {
-            get { return _ThamSoList; }
+            get => _SoSanBayTrungGianToiDa;
             set
             {
-                _ThamSoList = value;
-                OnPropertyChanged(nameof(ThamSoList));
+                if (_SoSanBayTrungGianToiDa != value)
+                {
+                    _SoSanBayTrungGianToiDa = value;
+                    OnPropertyChanged(nameof(SoSanBayTrungGianToiDa));
+                }
             }
         }
+
+        private int _ThoiGianBayToiThieu;
+        public int ThoiGianBayToiThieu
+        {
+            get => _ThoiGianBayToiThieu;
+            set
+            {
+                if (_ThoiGianBayToiThieu != value)
+                {
+                    _ThoiGianBayToiThieu = value;
+                    OnPropertyChanged(nameof(ThoiGianBayToiThieu));
+                }
+            }
+        }
+
+        private int _ThoiGianDungToiDa;
+        public int ThoiGianDungToiDa
+        {
+            get => _ThoiGianDungToiDa;
+            set
+            {
+                if (_ThoiGianDungToiDa != value)
+                {
+                    _ThoiGianDungToiDa = value;
+                    OnPropertyChanged(nameof(ThoiGianDungToiDa));
+                }
+            }
+        }
+
+        private int _ThoiGianDungToiThieu;
+        public int ThoiGianDungToiThieu
+        {
+            get => _ThoiGianDungToiThieu;
+            set
+            {
+                if (_ThoiGianDungToiThieu != value)
+                {
+                    _ThoiGianDungToiThieu = value;
+                    OnPropertyChanged(nameof(ThoiGianDungToiThieu));
+                }
+            }
+        }
+
+        private byte _ThoiGianDatVeChamNhat;
+        public byte ThoiGianDatVeChamNhat
+        {
+            get => _ThoiGianDatVeChamNhat;
+            set
+            {
+                if (_ThoiGianDatVeChamNhat != value)
+                {
+                    _ThoiGianDatVeChamNhat = value;
+                    OnPropertyChanged(nameof(ThoiGianDatVeChamNhat));
+                }
+            }
+        }
+
+        private byte _ThoiGianHuyVeDatVe;
+        public byte ThoiGianHuyVeDatVe
+        {
+            get => _ThoiGianHuyVeDatVe;
+            set
+            {
+                if (_ThoiGianHuyVeDatVe != value)
+                {
+                    _ThoiGianHuyVeDatVe = value;
+                    OnPropertyChanged(nameof(ThoiGianHuyVeDatVe));
+                }
+            }
+        }
+
 
         public ICommand AddCommand { get; set; }
         public ICommand EditCommand { get; set; }
@@ -113,8 +199,7 @@ namespace FlightTicketManagement.ViewModel
         public ICommand AddCommandFlight { get; set; }
         public ICommand EditCommandFlight { get; set; }
 
-        public ICommand EditCommandThamSo { get; set; }
-
+        public ICommand SaveCommand { get; }
         public SettingVM()
         {
             _pageModel = new PageModel();
@@ -123,7 +208,47 @@ namespace FlightTicketManagement.ViewModel
 
             SayBayList = new ObservableCollection<SANBAY>(DataProvider.Ins.DB.SANBAYs);
 
-            ThamSoList = new ObservableCollection<THAMSO>(DataProvider.Ins.DB.THAMSOes);
+            var parameter = DataProvider.Ins.DB.THAMSOes.FirstOrDefault();
+            if (parameter != null)
+            {
+                SoSanBayTrungGianToiDa = parameter.SoSanBayTrungGianToiDa;
+                ThoiGianBayToiThieu = parameter.ThoiGianBayToiThieu;
+                ThoiGianDungToiDa = parameter.ThoiGianDungToiDa;
+                ThoiGianDungToiThieu = parameter.ThoiGianDungToiThieu;
+                ThoiGianDatVeChamNhat = parameter.ThoiGianDatVeChamNhat;
+                ThoiGianHuyVeDatVe = parameter.ThoiGianHuyVeDatVe;
+            }
+            // Lưu tham số
+            SaveCommand = new RelayCommand<object>((p) =>
+            {
+                return true;
+
+            }, (p) =>
+            {
+                var oldThamSo = DataProvider.Ins.DB.THAMSOes.SingleOrDefault();
+                if (oldThamSo != null)
+                {
+                    // Tạo một thực thể mới với khóa chính mới
+                    var newThamSo = new THAMSO
+                    {
+                        SoSanBayTrungGianToiDa = SoSanBayTrungGianToiDa, // Giá trị khóa chính mới
+                        ThoiGianBayToiThieu = ThoiGianBayToiThieu,
+                        ThoiGianDungToiDa = ThoiGianDungToiDa,
+                        ThoiGianDungToiThieu = ThoiGianDungToiThieu,
+                        ThoiGianDatVeChamNhat = ThoiGianDatVeChamNhat,
+                        ThoiGianHuyVeDatVe = ThoiGianHuyVeDatVe
+                    };
+
+                    // Thêm thực thể mới vào cơ sở dữ liệu
+                    DataProvider.Ins.DB.THAMSOes.Add(newThamSo);
+
+                    // Xóa thực thể cũ khỏi cơ sở dữ liệu
+                    DataProvider.Ins.DB.THAMSOes.Remove(oldThamSo);
+
+                    // Lưu các thay đổi
+                    DataProvider.Ins.DB.SaveChanges();
+                }
+            });
 
             AddCommand = new RelayCommand<object>((p) =>
             {
@@ -180,7 +305,7 @@ namespace FlightTicketManagement.ViewModel
 
             }, (p) =>
             {
-                var sanbay = new SANBAY() { MaSanBay = MaSanBay, TenSanBay = TenSanBay, DiaChi = DiaChi, MaQuocGia = MaQuocGia };
+                var sanbay = new SANBAY() { MaSanBay = MaHangVe, TenSanBay = TenSanBay, DiaChi = DiaChi, MaQuocGia = MaQuocGia };
 
                 DataProvider.Ins.DB.SANBAYs.Add(sanbay);
                 DataProvider.Ins.DB.SaveChanges();
@@ -209,25 +334,6 @@ namespace FlightTicketManagement.ViewModel
                 SelectedSanBay.MaSanBay = MaSanBay;
             });
 
-            //EditCommandThamSo = new RelayCommand<object>((p) =>
-            //{
-            //    if (SelectedSanBay == null)
-            //        return false;
-
-            //    var displayList = DataProvider.Ins.DB.SANBAYs.Where(x => x.MaSanBay == SelectedSanBay.MaSanBay);
-            //    if (displayList != null && displayList.Count() != 0)
-            //        return true;
-
-            //    return false;
-
-            //}, (p) =>
-            //{
-            //    var thamso = DataProvider.Ins.DB.THAMSOes.Where();
-            //    thamso.SoSanBayTrungGianToiDa = SoSanBayTrungGianToiDa;
-            //    DataProvider.Ins.DB.SaveChanges();
-
-            //    SelectedSanBay.MaSanBay = MaSanBay;
-            //});
         }
     }
 }
