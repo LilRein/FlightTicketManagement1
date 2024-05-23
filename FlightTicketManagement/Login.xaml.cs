@@ -23,15 +23,16 @@ namespace FlightTicketManagement
         {
             InitializeComponent();
         }
-
-        private void LoginBtnClick(object sender, RoutedEventArgs e)
-        {
-            MessageBox.Show("Clicked");
-        }
-
         private void BtnClose_Click(object sender, RoutedEventArgs e)
         {
             Application.Current.Shutdown();
+        }
+        private void PasswordBox_PasswordChanged(object sender, RoutedEventArgs e)
+        {
+            if (this.DataContext != null)
+            {
+                ((dynamic)this.DataContext).Password = ((PasswordBox)sender).Password;
+            }
         }
     }
 }
