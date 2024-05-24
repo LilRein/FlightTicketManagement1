@@ -68,13 +68,13 @@ namespace FlightTicketManagement.ViewModel
             }
         }
 
-        private ObservableCollection<string> _Status;
-        public ObservableCollection<string> Status
+        private ObservableCollection<string> _statusList;
+        public ObservableCollection<string> StatusList
         {
-            get { return _Status; }
+            get { return _statusList; }
             set
             {
-                _Status = value;
+                _statusList = value;
                 OnPropertyChanged();
             }
         }
@@ -141,9 +141,11 @@ namespace FlightTicketManagement.ViewModel
             ClassFlightList = new ObservableCollection<HANGVE>(DataProvider.Ins.DB.HANGVEs);
             FlightIDList = new ObservableCollection<CHUYENBAY>(DataProvider.Ins.DB.CHUYENBAYs);
             SeatIDList = new ObservableCollection<DANHSACHGHECUAMAYBAY>(DataProvider.Ins.DB.DANHSACHGHECUAMAYBAYs);
-            Status = new ObservableCollection<string>
+            StatusList = new ObservableCollection<string>
             {
-                //Lấy tình trạng ghế
+                "Đã đặt",
+                "Đã bán",
+                "Bị huỷ",
             };
 
             ConfirmOrder = new RelayCommand<TicketOrder>((p) => true, (p) => _confirmOrder());

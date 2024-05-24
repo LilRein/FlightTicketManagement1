@@ -1,12 +1,14 @@
 ﻿using FlightTicketManagement.Model;
 using FlightTicketManagement.Utilities;
 using FlightTicketManagement.View;
+using Microsoft.Identity.Client;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 using System.Windows.Input;
 
 namespace FlightTicketManagement.ViewModel
@@ -15,31 +17,23 @@ namespace FlightTicketManagement.ViewModel
     {
         private readonly PageModel _pageModel;
 
-        public ICommand SaveCommand { get; set; }
-        public ICommand CancelCommand { get; set; }
+        public ICommand ExportBtn { get; set; }
+        public ICommand CancelBtn { get; set; }
 
 
-        private string _isAvailableTicket;
-        public string IsAvailableTicket
+
+        private ObservableCollection<PHIEUDATCHO> _orderList;
+        public ObservableCollection<PHIEUDATCHO> OrderList
         {
-            get { return _isAvailableTicket; }
+            get { return _orderList; }
             set
             {
-                _isAvailableTicket = value;
-                OnPropertyChanged(nameof(IsAvailableTicket));
+                _orderList = value;
+                OnPropertyChanged(nameof(OrderList));
             }
         }
 
-        private ObservableCollection<string> _flightItemList;
-        public ObservableCollection<string> FlightItemList
-        {
-            get { return _flightItemList; }
-            set
-            {
-                _flightItemList = value;
-                OnPropertyChanged();
-            }
-        }
+
         public int FlightSale
         {
             get { return _pageModel.TicketSale; }
@@ -47,32 +41,23 @@ namespace FlightTicketManagement.ViewModel
         }
         public TicketSaleVM()
         {
-            FlightItemList = new ObservableCollection<string>
-            {
-                // Lấy thông tin mã chuyến bay từ database đưa vào đây
-
-            };
-            SaveCommand = new RelayCommand<TicketSale>((p) => true, (p) => _saveCommand());
-            CancelCommand = new RelayCommand<TicketSale>((p) => true, (p) => _cancelCommand(p));
+            OrderList = new ObservableCollection<PHIEUDATCHO>(DataProvider.Ins.DB.PHIEUDATCHOes);
 
 
+            ExportBtn = new RelayCommand<TicketSale>((p) => true, (p) => _exportBtn(p));
+            CancelBtn = new RelayCommand<TicketSale>((p) => true, (p) => _cancelBtn(p));
             _pageModel = new PageModel();
         }
 
-        private void _saveCommand()
+        private void _exportBtn(TicketSale parameter)
         {
+            MessageBox.Show("Xuất vé");
+        }
 
-        }
-        private void _cancelCommand(TicketSale paramater)
+        private void _cancelBtn(TicketSale parameter)
         {
-            paramater.ListFlightID.SelectedItem = null;
-            paramater.StartAirport.Clear();
-            paramater.EndAirport.Clear();
-            paramater.CustomerID.Clear();
-            paramater.NameCustomer.Clear();
-            paramater.InputInfor.Clear();
-            paramater.PhoneNumber.Clear();
-            paramater.TicketClass.SelectedItem = null;
+            MessageBox.Show("Huỷ bỏ");
         }
+
     }
 }
