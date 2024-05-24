@@ -130,6 +130,28 @@ namespace FlightTicketManagement.ViewModel
         private string _TinhTrang;
         public string TinhTrang { get => _TinhTrang; set { _TinhTrang = value; OnPropertyChanged(); } }
 
+        private ObservableCollection<HANHKHACH> _CustomerList;
+        public ObservableCollection<HANHKHACH> CustomerList
+        {
+            get { return _CustomerList; }
+            set
+            {
+                _CustomerList = value;
+                OnPropertyChanged();
+            }
+        }
+
+        private string _HoTen;
+        public string HoTen { get => _HoTen; set { _HoTen = value; OnPropertyChanged(); } }
+
+        private string _CCCD;
+        public string CCCD { get => _CCCD; set { _CCCD = value; OnPropertyChanged(); } }
+
+        private string _DienThoai;
+        public string DienThoai { get => _DienThoai; set { _DienThoai = value; OnPropertyChanged(); } }
+
+        private string _Email;
+        public string Email { get => _Email; set { _Email = value; OnPropertyChanged(); } }
         public int OrderID 
         {
             get { return _pageModel.TicketOrder; }
@@ -147,6 +169,7 @@ namespace FlightTicketManagement.ViewModel
                 "Đã bán",
                 "Bị huỷ",
             };
+            CustomerList = new ObservableCollection<HANHKHACH>(DataProvider.Ins.DB.HANHKHACHes);
 
             ConfirmOrder = new RelayCommand<TicketOrder>((p) => true, (p) => _confirmOrder());
             CancelOrder = new RelayCommand<TicketOrder>((p) => true, (p) => _cancelOrder());
@@ -163,7 +186,30 @@ namespace FlightTicketManagement.ViewModel
 
         private void _confirmInfor()
         {
-            
+            if (string.IsNullOrEmpty(MaHanhKhach) || string.IsNullOrEmpty(HoTen) ||
+                string.IsNullOrEmpty(CCCD) || string.IsNullOrEmpty(DienThoai) || string.IsNullOrEmpty(Email))
+            {
+                MessageBox.Show("Có vẻ bạn thiếu thông tin!!", "Notification", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+            MessageBoxResult addFliNoti = MessageBox.Show("Bạn muốn thêm hành khách?", "Notification", MessageBoxButton.YesNo);
+            if (addFliNoti == MessageBoxResult.Yes)
+            {
+                var hanhkhach = new HANHKHACH()
+                {
+                    MaHanhKhach = MaHanhKhach,
+                    HoTen = HoTen,
+                    CCCD = CCCD,
+                    DienThoai = DienThoai,
+                    Email = Email
+                };
+
+                DataProvider.Ins.DB.HANHKHACHes.Add(hanhkhach);
+                DataProvider.Ins.DB.SaveChanges();
+
+                CustomerList.Add(hanhkhach);
+                MessageBox.Show("Thông tin hành khách đã được thêm thành công!");
+            }
         }
 
         private void _cancelOrder()
@@ -199,7 +245,7 @@ namespace FlightTicketManagement.ViewModel
                 DataProvider.Ins.DB.SaveChanges();
 
                 OrderFlightList.Add(phieudatcho);
-                MessageBox.Show("Chuyến bay đã được thêm thành công!");
+                MessageBox.Show("Phiêu đặt chỗ đã được thêm thành công!");
             }
         }
     }

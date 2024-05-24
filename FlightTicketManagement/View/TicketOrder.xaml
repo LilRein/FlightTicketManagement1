@@ -276,6 +276,7 @@
                             Text="Mã hành khách" />
                         <TextBox
                             x:Name="CustomerIDInput"
+                            Text="{Binding MaHanhKhach, UpdateSourceTrigger=PropertyChanged}"
                             Grid.Row="1"
                             Style="{StaticResource Input}" />
                     </Grid>
@@ -291,6 +292,7 @@
                             Text="Họ và tên" />
                         <TextBox
                             x:Name="NameInput"
+                            Text="{Binding HoTen, UpdateSourceTrigger=PropertyChanged}"
                             Grid.Row="1"
                             Style="{StaticResource Input}" />
                     </Grid>
@@ -306,6 +308,7 @@
                             Text="CCCD" />
                         <TextBox
                             x:Name="IDInput"
+                            Text="{Binding CCCD,UpdateSourceTrigger=PropertyChanged}"
                             Grid.Row="1"
                             Style="{StaticResource Input}" />
                     </Grid>
@@ -321,6 +324,7 @@
                             Text="Điện thoại" />
                         <TextBox
                             x:Name="PhoneInput"
+                            Text="{Binding DienThoai, UpdateSourceTrigger=PropertyChanged}"
                             Grid.Row="1"
                             Style="{StaticResource Input}" />
                     </Grid>
@@ -336,6 +340,7 @@
                             Text="Email" />
                         <TextBox
                             x:Name="EmailInput"
+                            Text="{Binding Email, UpdateSourceTrigger=PropertyChanged}"
                             Grid.Row="1"
                             Style="{StaticResource Input}" />
                     </Grid>

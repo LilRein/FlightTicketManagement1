@@ -252,7 +252,7 @@ namespace FlightTicketManagement.ViewModel
 
             AddCommand = new RelayCommand<object>((p) =>
             {
-                if (string.IsNullOrEmpty(MaHangVe))
+                if (string.IsNullOrEmpty(MaHangVe) || string.IsNullOrEmpty(TenHangVe) || TiLeTinhDonGia == 0)
                     return false;
 
                 var displayList = DataProvider.Ins.DB.HANGVEs.Where(x => x.MaHangVe == MaHangVe);
@@ -294,7 +294,7 @@ namespace FlightTicketManagement.ViewModel
 
             AddCommandFlight = new RelayCommand<object>((p) =>
             {
-                if (string.IsNullOrEmpty(MaSanBay))
+                if (string.IsNullOrEmpty(MaSanBay) || string.IsNullOrEmpty(TenSanBay) || string.IsNullOrEmpty(DiaChi) || string.IsNullOrEmpty(MaQuocGia))
                     return false;
 
                 var displayList = DataProvider.Ins.DB.SANBAYs.Where(x => x.MaSanBay == MaSanBay);
