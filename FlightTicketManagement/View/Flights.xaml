@@ -1,88 +1,207 @@
-﻿<UserControl x:Class="FlightTicketManagement.View.Flights"
-             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:vm="clr-namespace:FlightTicketManagement.ViewModel"
-             xmlns:Icon="http://metro.mahapps.com/winfx/xaml/iconpacks"
-             mc:Ignorable="d" 
-             d:DesignHeight="800" 
-             d:DesignWidth="1192"
-             Style="{StaticResource Page_Style}">
+﻿<UserControl
+    x:Class="FlightTicketManagement.View.Flights"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:Icon="http://metro.mahapps.com/winfx/xaml/iconpacks"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:vm="clr-namespace:FlightTicketManagement.ViewModel"
+    d:DesignHeight="800"
+    d:DesignWidth="1192"
+    Style="{StaticResource Page_Style}"
+    mc:Ignorable="d">
 
     <UserControl.DataContext>
-        <vm:FlightsVM/>
+        <vm:FlightsVM />
     </UserControl.DataContext>
 
     <Grid>
-        <Border CornerRadius="0, 20, 20, 0"
-        Background="White">
+        <Border Background="White" CornerRadius="0, 20, 20, 0">
             <Grid>
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="50"/>
-                    <RowDefinition Height="50"/>
-                    <RowDefinition Height="*"/>
-                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="50" />
+                    <RowDefinition Height="50" />
+                    <RowDefinition Height="50" />
+                    <RowDefinition Height="2*" />
                 </Grid.RowDefinitions>
 
-                <TextBlock Grid.Row="0"
-                   Text="Tìm kiếm chuyến bay"
-                   TextAlignment="Center"
-                   FontSize="36"
-                   FontWeight="Bold"
-                   FontFamily="Poppins">
-                </TextBlock>
-                <Border Grid.Row="3"
-                Background="White">
+                <TextBlock
+                    Grid.Row="0"
+                    FontFamily="Poppins"
+                    FontSize="36"
+                    FontWeight="Bold"
+                    Text="Tìm kiếm chuyến bay"
+                    TextAlignment="Center" />
+                <Border
+                    Grid.Row="1"
+                    BorderBrush="Black"
+                    BorderThickness="1">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Border
+                            Grid.Column="0"
+                            Margin="0,0,10,0"
+                            BorderBrush="Black"
+                            BorderThickness="1">
+                            <ComboBox
+                                x:Name="FlightIDComboBox"
+                                Margin="0,0,10,0"
+                                VerticalAlignment="Top"
+                                materialDesign:HintAssist.Hint="Mã chuyến bay" />
+                        </Border>
+                        <Border
+                            Grid.Column="1"
+                            Margin="0,0,10,0"
+                            BorderBrush="Black"
+                            BorderThickness="1">
+                            <ComboBox
+                                x:Name="FromAirportComboBox"
+                                Margin="0,0,10,0"
+                                VerticalAlignment="Top"
+                                materialDesign:HintAssist.Hint="Sân bay đi" />
+                        </Border>
+                        <Border
+                            Grid.Column="2"
+                            Margin="0,0,10,0"
+                            BorderBrush="Black"
+                            BorderThickness="1">
+                            <ComboBox
+                                x:Name="ToAirportComboBox"
+                                Margin="0,0,10,0"
+                                VerticalAlignment="Top"
+                                materialDesign:HintAssist.Hint="Sân bay đến" />
+                        </Border>
+
+                        <Border
+                            Grid.Column="3"
+                            Margin="0,0,10,0"
+                            BorderBrush="Black"
+                            BorderThickness="1">
+                            <Grid Margin="0,0,10,0">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+                                <TextBlock
+                                    Grid.Column="0"
+                                    Margin="0,10,0,0"
+                                    HorizontalAlignment="Center"
+                                    FontSize="12"
+                                    FontWeight="ExtraLight"
+                                    Text="Ngày bay" />
+                                <ComboBox
+                                    x:Name="FlyDateComboBox"
+                                    Grid.Column="1"
+                                    VerticalAlignment="Top" />
+                            </Grid>
+                        </Border>
+                        <Border
+                            Grid.Column="4"
+                            Margin="0,0,10,0"
+                            BorderBrush="Black"
+                            BorderThickness="1">
+                            <ComboBox
+                                x:Name="TicketClassComboBox"
+                                VerticalAlignment="Top"
+                                materialDesign:HintAssist.Hint="Hạng vé" />
+                        </Border>
+                    </Grid>
+                </Border>
+                <Button
+                    x:Name="SearchBtn"
+                    Grid.Row="2"
+                    Width="200">
+                    Tìm kiếm
+                </Button>
+
+                <Border
+                    Grid.Row="3"
+                    Background="White"
+                    BorderBrush="Black"
+                    BorderThickness="1">
                     <Grid>
                         <Grid.RowDefinitions>
-                            <RowDefinition Height="auto"/>
-                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="auto" />
+                            <RowDefinition Height="*" />
                         </Grid.RowDefinitions>
 
 
-                        <Grid Height="55"
-                      Grid.Row="0"
-                      HorizontalAlignment="Center"
-                      VerticalAlignment="Center">
-                            <TextBlock Text="Kết quả tìm kiếm"
-                               FontSize="30"
-                               FontWeight="Bold"/>
+                        <Grid
+                            Grid.Row="0"
+                            Height="55"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center">
+                            <TextBlock
+                                FontSize="30"
+                                FontWeight="Bold"
+                                Text="Kết quả tìm kiếm" />
                         </Grid>
-                        <DataGrid   
+                        <DataGrid
                             Grid.Row="1"
                             Margin="0,0,0,0"
-                            CanUserSortColumns="False"
                             AutoGenerateColumns="False"
-                            Style="{DynamicResource DataGridStyle}"
+                            CanUserSortColumns="False"
                             CellStyle="{DynamicResource DataGridCellStyle}"
+                            ColumnHeaderStyle="{StaticResource DataGridColumnHeaderStyle}"
                             RowStyle="{DynamicResource DataGridRowStyle}"
-                            ColumnHeaderStyle="{StaticResource DataGridColumnHeaderStyle}">
+                            Style="{DynamicResource DataGridStyle}">
                             <DataGrid.Columns>
-                                <DataGridTextColumn Header="Điểm khởi hành"
-                                            IsReadOnly="True"
-                                            Width="*"
-                                            Binding="{Binding StartDes}"/>
-                                <DataGridTextColumn Header="Sân bay đi"
-                                            IsReadOnly="True"
-                                            Binding="{Binding FromAirport}"
-                                            Width="*"/>
-                                <DataGridTextColumn Header="Điểm kết thúc"
-                                            IsReadOnly="True"
-                                            Binding="{Binding EndDes}"
-                                            Width="*"/>
-                                <DataGridTextColumn Header="Sân bay đến"
-                                            IsReadOnly="True"
-                                            Binding="{Binding ToAirport}"
-                                            Width="*"/>
-                                <DataGridTextColumn Header="Thời gian"
-                                            IsReadOnly="True"
-                                            Binding="{Binding FlyTime}"
-                                            Width="*"/>
-                                <DataGridTextColumn Header="Transit"
-                                            IsReadOnly="True"
-                                            Binding="{Binding Transit}"
-                                            Width="2*"/>
+                                <DataGridTextColumn
+                                    Width="*"
+                                    Binding="{Binding FlightID}"
+                                    Header="Mã chuyến bay"
+                                    IsReadOnly="True" />
+                                <DataGridTextColumn
+                                    Width="1.5*"
+                                    Binding="{Binding FromAirport}"
+                                    Header="Sân bay đi"
+                                    IsReadOnly="True" />
+                                <DataGridTextColumn
+                                    Width="1.5*"
+                                    Binding="{Binding ToAirport}"
+                                    Header="Sân bay đến"
+                                    IsReadOnly="True" />
+                                <DataGridTextColumn
+                                    Width="1.5*"
+                                    Binding="{Binding FlyDate}"
+                                    Header="Ngày bay"
+                                    IsReadOnly="True" />
+                                <DataGridTextColumn
+                                    Width="*"
+                                    Binding="{Binding FlyTime}"
+                                    Header="Giờ khởi hành"
+                                    IsReadOnly="True" />
+                                <DataGridTextColumn
+                                    Width="*"
+                                    Binding="{Binding TicketClass}"
+                                    Header="Mã hạng vé"
+                                    IsReadOnly="True" />
+
+                                <DataGridTextColumn
+                                    Width="*"
+                                    Binding="{Binding SoldTicket}"
+                                    Header="Số vé đã bán"
+                                    IsReadOnly="True" />
+
+                                <DataGridTextColumn
+                                    Width="*"
+                                    Binding="{Binding PreOrderedSeat}"
+                                    Header="Số ghế đã đặt"
+                                    IsReadOnly="True" />
+
+                                <DataGridTextColumn
+                                    Width="*"
+                                    Binding="{Binding RemainingSeat}"
+                                    Header="Số ghế còn lại"
+                                    IsReadOnly="True" />
+
                             </DataGrid.Columns>
 
                         </DataGrid>
