@@ -211,7 +211,7 @@
                             Width="200"
                             Height="70"
                             Style="{StaticResource AddButton}">
-                            <TextBlock Style="{StaticResource Title}" Text="Xác nhận" />
+                            <TextBlock Style="{StaticResource Title}" Text="Xuất vé" />
                             <i:Interaction.Triggers>
                                 <i:EventTrigger EventName="Click">
                                     <i:InvokeCommandAction Command="{Binding ExportBtn}" CommandParameter="{Binding ElementName=Ticketsale}" />
@@ -244,7 +244,7 @@
                             <TextBlock
                                 Grid.Row="0"
                                 Style="{StaticResource Title}"
-                                Text="Mã HK" />
+                                Text="Tìm kiếm mã HK" />
                             <!--  Input  -->
                             <TextBox
                                 x:Name="FilterCusID"

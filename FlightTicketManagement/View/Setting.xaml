@@ -346,7 +346,7 @@
                                         TextAlignment="Left" />
 
                                     <TextBox
-                                         Text="{Binding TiLeTinhDonGia, UpdateSourceTrigger=PropertyChanged}"
+                                        Text="{Binding TiLeTinhDonGia}"
                                         Grid.Row="2"
                                         VerticalAlignment="Center"
                                         FontFamily="Poppins"
