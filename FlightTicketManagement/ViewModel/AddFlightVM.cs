@@ -205,7 +205,7 @@ namespace FlightTicketManagement.ViewModel
                 SelectedSANBAYDEN == null || SelectedMAYBAY == null ||
                 ThoiLuong == 0 || DonGia == 0 || !HangVeList.Any())
             {
-                MessageBox.Show("Có vẻ bạn thiếu thông tin!!", "Notification", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show("Bạn nhập thiếu thông tin!!", "Notification", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }
 
@@ -261,7 +261,7 @@ namespace FlightTicketManagement.ViewModel
                 SelectedSANBAYDEN == null || SelectedMAYBAY == null ||
                 ThoiLuong == 0 || DonGia == 0 || !HangVeList.Any())
             {
-                MessageBox.Show("Có vẻ bạn thiếu thông tin!!", "Notification", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show("Bạn nhập thiếu thông tin!!", "Notification", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }
 

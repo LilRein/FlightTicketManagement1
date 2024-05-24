@@ -11,6 +11,7 @@ using System.Windows.Controls;
 using System.Windows.Input;
 using FlightTicketManagement.View;
 using System.Windows;
+using FlightTicketManagement.View.Components;
 
 namespace FlightTicketManagement.ViewModel
 {
@@ -18,8 +19,8 @@ namespace FlightTicketManagement.ViewModel
     {
         private readonly PageModel _pageModel;
 
-        public ICommand ConfirmOrder {  get; set; }
-        public ICommand CancelOrder {  get; set; }
+        public ICommand ConfirmOrder { get; set; }
+        public ICommand CancelOrder { get; set; }
 
         public ICommand ConfirmInfor { get; set; }
         public ICommand CancelInfor { get; set; }
@@ -34,14 +35,14 @@ namespace FlightTicketManagement.ViewModel
                 OnPropertyChanged();
             }
         }
-        
+
         private ObservableCollection<HANGVE> _ClassFlightList;
         public ObservableCollection<HANGVE> ClassFlightList
         {
             get { return _ClassFlightList; }
-            set 
-            { 
-                _ClassFlightList = value; 
+            set
+            {
+                _ClassFlightList = value;
                 OnPropertyChanged();
             }
         }
@@ -112,6 +113,17 @@ namespace FlightTicketManagement.ViewModel
             }
         }
 
+        private string _SelectedTINHTRANG;
+        public string SelectedTINHTRANG
+        {
+            get => _SelectedTINHTRANG;
+            set
+            {
+                _SelectedTINHTRANG = value;
+                OnPropertyChanged();
+            }
+        }
+
         private string _SoPhieuDatCho;
         public string SoPhieuDatCho { get => _SoPhieuDatCho; set { _SoPhieuDatCho = value; OnPropertyChanged(); } }
 
@@ -120,6 +132,9 @@ namespace FlightTicketManagement.ViewModel
 
         private string _MaHanhKhach;
         public string MaHanhKhach { get => _MaHanhKhach; set { _MaHanhKhach = value; OnPropertyChanged(); } }
+
+        private string _MaHangVe;
+        public string MaHangVe { get => _MaHangVe; set { _MaHangVe = value; OnPropertyChanged(); } }
 
         private string _MaChuyenBay;
         public string MaChuyenBay { get => _MaChuyenBay; set { _MaChuyenBay = value; OnPropertyChanged(); } }
@@ -152,10 +167,10 @@ namespace FlightTicketManagement.ViewModel
 
         private string _Email;
         public string Email { get => _Email; set { _Email = value; OnPropertyChanged(); } }
-        public int OrderID 
+        public int OrderID
         {
             get { return _pageModel.TicketOrder; }
-            set {  _pageModel.TicketOrder = value; OnPropertyChanged(); }
+            set { _pageModel.TicketOrder = value; OnPropertyChanged(); }
         }
         public TicketOrderVM()
         {
@@ -172,16 +187,21 @@ namespace FlightTicketManagement.ViewModel
             CustomerList = new ObservableCollection<HANHKHACH>(DataProvider.Ins.DB.HANHKHACHes);
 
             ConfirmOrder = new RelayCommand<TicketOrder>((p) => true, (p) => _confirmOrder());
-            CancelOrder = new RelayCommand<TicketOrder>((p) => true, (p) => _cancelOrder());
+            CancelOrder = new RelayCommand<TicketOrder>((p) => true, (p) => _cancelOrder(p));
             ConfirmInfor = new RelayCommand<TicketOrder>((p) => true, (p) => _confirmInfor());
-            CancelInfor = new RelayCommand<TicketOrder>((p) => true, (p) => _cancelInfor());
+            CancelInfor = new RelayCommand<TicketOrder>((p) => true, (p) => _cancelInfor(p));
 
             _pageModel = new PageModel();
         }
 
-        private void _cancelInfor()
+        private void _cancelInfor(TicketOrder parameter)
         {
-            
+            parameter.CustomerIDInput.Clear();
+            parameter.NameInput.Clear();
+            parameter.IDInput.Clear();
+            parameter.PhoneInput.Clear();
+            parameter.EmailInput.Clear();
+            CustomerList.Clear();
         }
 
         private void _confirmInfor()
@@ -189,7 +209,7 @@ namespace FlightTicketManagement.ViewModel
             if (string.IsNullOrEmpty(MaHanhKhach) || string.IsNullOrEmpty(HoTen) ||
                 string.IsNullOrEmpty(CCCD) || string.IsNullOrEmpty(DienThoai) || string.IsNullOrEmpty(Email))
             {
-                MessageBox.Show("Có vẻ bạn thiếu thông tin!!", "Notification", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show("Bạn nhập thiếu thông tin!!", "Notification", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }
             MessageBoxResult addFliNoti = MessageBox.Show("Bạn muốn thêm hành khách?", "Notification", MessageBoxButton.YesNo);
@@ -212,33 +232,40 @@ namespace FlightTicketManagement.ViewModel
             }
         }
 
-        private void _cancelOrder()
+        private void _cancelOrder(TicketOrder parameter)
         {
-            MessageBox.Show("Canceled");
+            parameter.OrderID.Clear();
+            //parameter.DateOrderPicker.SelectedDate = null;
+            parameter.CustomerID.Clear();
+            parameter.ClassFlight.SelectedItem = null;
+            parameter.FlightID.SelectedItem = null;
+            parameter.SeatID.SelectedItem = null;
+            parameter.StatusSeat.SelectedItem = null;
+            OrderFlightList.Clear();
         }
 
         private void _confirmOrder()
         {
-            //if (string.IsNullOrEmpty(MaChuyenBay) || SelectedTUYENBAY == null ||
-            //    SelectedSANBAYDI == null ||
-            //    SelectedSANBAYDEN == null || SelectedMAYBAY == null ||
-            //    ThoiLuong == 0 || DonGia == 0)
-
-            //{
-            //    MessageBox.Show("Có vẻ bạn thiếu thông tin!!", "Notification", MessageBoxButton.OK, MessageBoxImage.Error);
-            //    return;
-            //}
-            MessageBoxResult addFliNoti = MessageBox.Show("Bạn muốn thêm chuyến bay?", "Notification", MessageBoxButton.YesNo);
+            if (string.IsNullOrEmpty(SoPhieuDatCho) || NgayDat == null ||
+                string.IsNullOrEmpty(MaHanhKhach) || string.IsNullOrEmpty(MaHangVe) ||
+                string.IsNullOrEmpty(MaChuyenBay) || string.IsNullOrEmpty(MaGhe) ||
+                string.IsNullOrEmpty(TinhTrang))
+            {
+                MessageBox.Show("Bạn nhập thiếu thông tin!!", "Notification", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+            MessageBoxResult addFliNoti = MessageBox.Show("Bạn muốn thêm phiếu đặt chỗ?", "Notification", MessageBoxButton.YesNo);
             if (addFliNoti == MessageBoxResult.Yes)
             {
                 var phieudatcho = new PHIEUDATCHO()
                 {
                     SoPhieuDatCho = SoPhieuDatCho,
                     NgayDat = NgayDat,
+                    MaHanhKhach = MaHanhKhach,
                     MaHangVe = SelectedMAHANGVE.MaHangVe,
                     MaChuyenBay = SelectedMACHUYENBAY.MaChuyenBay,
                     MaGhe = SelectedMAGHE.MaGhe,
-                    TinhTrang = TinhTrang
+                    TinhTrang = SelectedTINHTRANG
                 };
 
                 DataProvider.Ins.DB.PHIEUDATCHOes.Add(phieudatcho);
