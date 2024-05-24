@@ -27,6 +27,7 @@ namespace FlightTicketManagement.ViewModel
         public ICommand FlightCommand { get; set; }
         public ICommand ReportCommand { get; set; }
         public ICommand SettingCommand { get; set; }
+        public ICommand TicketOrderCommand { get; set; }
 
         private void Dashboard(object obj) => CurrentView = new DashboardVM();
 
@@ -36,6 +37,8 @@ namespace FlightTicketManagement.ViewModel
         private void Flight(object obj) => CurrentView = new FlightsVM();
         private void Report(object obj) => CurrentView = new ReportsVM();
         private void Setting(object obj) => CurrentView = new SettingVM();
+        private void TicketOrder(object obj) => CurrentView = new TicketOrderVM();
+       
 
         public NavigationVM()
         {
@@ -69,6 +72,7 @@ namespace FlightTicketManagement.ViewModel
             FlightCommand = new RelayCommand(Flight);
             ReportCommand = new RelayCommand(Report);
             SettingCommand = new RelayCommand(Setting);
+            TicketOrderCommand = new RelayCommand(TicketOrder);
 
             // Startup ????
             CurrentView = new DashboardVM();

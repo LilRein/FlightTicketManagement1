@@ -1,0 +1,372 @@
+﻿<UserControl
+    x:Class="FlightTicketManagement.View.TicketOrder"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:Icon="http://metro.mahapps.com/winfx/xaml/iconpacks"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
+    xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:vm="clr-namespace:FlightTicketManagement.ViewModel"
+    x:Name="Order"
+    d:DesignHeight="800"
+    d:DesignWidth="1192"
+    Style="{StaticResource Page_Style}"
+    mc:Ignorable="d">
+
+    <UserControl.DataContext>
+        <vm:TicketOrderVM />
+    </UserControl.DataContext>
+
+    <UserControl.Resources>
+        <Style x:Key="Title" TargetType="TextBlock">
+            <Setter Property="FontSize" Value="25" />
+            <Setter Property="FontFamily" Value="Roboto" />
+            <Setter Property="FontWeight" Value="Medium" />
+            <Setter Property="Foreground" Value="#222" />
+
+        </Style>
+        <Style x:Key="Input" TargetType="TextBox">
+            <Setter Property="FontSize" Value="21" />
+            <Setter Property="Foreground" Value="#555" />
+            <Setter Property="Background" Value="Transparent" />
+            <Setter Property="BorderThickness" Value="0,0,0,1" />
+            <Setter Property="FontFamily" Value="Roboto" />
+            <Setter Property="VerticalAlignment" Value="Bottom" />
+            <Setter Property="Margin" Value="0,0,0,10" />
+
+        </Style>
+        <Style x:Key="Status" TargetType="TextBlock">
+            <Setter Property="FontSize" Value="21" />
+            <Setter Property="Foreground" Value="#555" />
+            <Setter Property="Background" Value="Transparent" />
+            <Setter Property="FontFamily" Value="Roboto" />
+            <Setter Property="VerticalAlignment" Value="Bottom" />
+            <Setter Property="Margin" Value="0,0,0,10" />
+
+        </Style>
+    </UserControl.Resources>
+
+    <Grid>
+        <Border
+            Padding="50"
+            Background="#F3EEEA"
+            CornerRadius="0 20 20 0">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <!--  Phieu dat cho  -->
+                <Grid Grid.Column="0" Margin="0,0,30,0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+                    <!--  Title  -->
+                    <TextBlock
+                        Grid.Row="0"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        FontFamily="Roboto"
+                        FontSize="50"
+                        FontWeight="DemiBold"
+                        Text="PHIẾU ĐẶT CHỖ" />
+                    <!--  Số phiếu đặt chỗ  -->
+                    <Grid Grid.Row="1">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="auto" />
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
+                        <TextBlock
+                            Grid.Row="0"
+                            Style="{StaticResource Title}"
+                            Text="Số phiếu đặt chỗ" />
+                        <TextBox
+                            x:Name="OrderID"
+                            Grid.Row="1"
+                            Style="{StaticResource Input}" />
+                    </Grid>
+                    <!--  Ngày đặt  -->
+                    <Grid Grid.Row="2">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="auto" />
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
+                        <TextBlock
+                            Grid.Row="0"
+                            Style="{StaticResource Title}"
+                            Text="Ngày đặt" />
+                        <DatePicker Grid.Row="1" />
+                    </Grid>
+                    <!--  Mã hành khách  -->
+                    <Grid Grid.Row="3">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="auto" />
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
+                        <TextBlock
+                            Grid.Row="0"
+                            Style="{StaticResource Title}"
+                            Text="Mã hành khách" />
+                        <TextBox
+                            x:Name="CustomerID"
+                            Grid.Row="1"
+                            Style="{StaticResource Input}" />
+                    </Grid>
+                    <!--  Mã hạng vé  -->
+                    <Grid Grid.Row="4">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="auto" />
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
+                        <TextBlock
+                            Grid.Row="0"
+                            Style="{StaticResource Title}"
+                            Text="Mã hạng vé" />
+                        <ComboBox
+                            x:Name="ClassFlight"
+                            Grid.Row="1"
+                            materialDesign:HintAssist.Hint="Hãy chọn mã hạng vé"
+                            FontSize="21"
+                            Foreground="#555"
+                            ItemsSource="{Binding ClassFlightList}" />
+                    </Grid>
+                    <!--  Mã chuyến bay  -->
+                    <Grid Grid.Row="5">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="auto" />
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
+                        <TextBlock
+                            Grid.Row="0"
+                            Style="{StaticResource Title}"
+                            Text="Mã chuyến bay" />
+                        <ComboBox
+                            x:Name="FlightID"
+                            Grid.Row="1"
+                            materialDesign:HintAssist.Hint="Hãy chọn mã chuyến bay"
+                            FontSize="21"
+                            Foreground="#555"
+                            ItemsSource="{Binding FlightIDList}" />
+                    </Grid>
+                    <!--  Mã ghế  -->
+                    <Grid Grid.Row="6">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="auto" />
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
+                        <TextBlock
+                            Grid.Row="0"
+                            Style="{StaticResource Title}"
+                            Text="Mã ghế" />
+                        <ComboBox
+                            x:Name="SeatID"
+                            Grid.Row="1"
+                            materialDesign:HintAssist.Hint="Hãy chọn mã ghế"
+                            FontSize="21"
+                            Foreground="#555"
+                            ItemsSource="{Binding SeatIDList}" />
+                    </Grid>
+                    <!--  Tình trạng  -->
+                    <Grid Grid.Row="7">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="auto" />
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
+                        <TextBlock
+                            Grid.Row="0"
+                            Style="{StaticResource Title}"
+                            Text="Tình trạng" />
+                        <ComboBox
+                            x:Name="StatusSeat"
+                            Grid.Row="1"
+                            FontSize="21"
+                            Foreground="#555"
+                            ItemsSource="{Binding}" />
+                    </Grid>
+                    <!--  Button  -->
+                    <Grid Grid.Row="8">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Button
+                            Grid.Column="0"
+                            Width="180"
+                            Height="50"
+                            Style="{StaticResource confirmButton}">
+                            <TextBlock
+                                Foreground="#FFF"
+                                Style="{StaticResource Title}"
+                                Text="Lưu" />
+                            <i:Interaction.Triggers>
+                                <i:EventTrigger EventName="Click">
+                                    <i:InvokeCommandAction Command="{Binding ConfirmOrder}" CommandParameter="{Binding ElementName=Order}" />
+                                </i:EventTrigger>
+                            </i:Interaction.Triggers>
+                        </Button>
+                        <Button
+                            Grid.Column="1"
+                            Width="180"
+                            Height="50"
+                            Style="{StaticResource cancelButton}">
+                            <TextBlock
+                                Foreground="#FFF"
+                                Style="{StaticResource Title}"
+                                Text="Huỷ bỏ" />
+                            <i:Interaction.Triggers>
+                                <i:EventTrigger EventName="Click">
+                                    <i:InvokeCommandAction Command="{Binding CancelOrder}" CommandParameter="{Binding ElementName=Order}" />
+                                </i:EventTrigger>
+                            </i:Interaction.Triggers>
+                        </Button>
+                    </Grid>
+                </Grid>
+                <!--  Hành khách  -->
+                <Grid Grid.Column="1" Margin="30,0,0,0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+                    <!--  Title  -->
+                    <TextBlock
+                        Grid.Row="0"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        FontFamily="Roboto"
+                        FontSize="50"
+                        FontWeight="DemiBold"
+                        Text="HÀNH KHÁCH" />
+                    <!--  Số phiếu đặt chỗ  -->
+                    <Grid Grid.Row="1">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="auto" />
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
+                        <TextBlock
+                            Grid.Row="0"
+                            Style="{StaticResource Title}"
+                            Text="Mã hành khách" />
+                        <TextBox
+                            x:Name="CustomerIDInput"
+                            Grid.Row="1"
+                            Style="{StaticResource Input}" />
+                    </Grid>
+                    <!--  Họ tên  -->
+                    <Grid Grid.Row="2">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="auto" />
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
+                        <TextBlock
+                            Grid.Row="0"
+                            Style="{StaticResource Title}"
+                            Text="Họ và tên" />
+                        <TextBox
+                            x:Name="NameInput"
+                            Grid.Row="1"
+                            Style="{StaticResource Input}" />
+                    </Grid>
+                    <!--  CCCD  -->
+                    <Grid Grid.Row="3">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="auto" />
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
+                        <TextBlock
+                            Grid.Row="0"
+                            Style="{StaticResource Title}"
+                            Text="CCCD" />
+                        <TextBox
+                            x:Name="IDInput"
+                            Grid.Row="1"
+                            Style="{StaticResource Input}" />
+                    </Grid>
+                    <!--  Điện thoại  -->
+                    <Grid Grid.Row="4">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="auto" />
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
+                        <TextBlock
+                            Grid.Row="0"
+                            Style="{StaticResource Title}"
+                            Text="Điện thoại" />
+                        <TextBox
+                            x:Name="PhoneInput"
+                            Grid.Row="1"
+                            Style="{StaticResource Input}" />
+                    </Grid>
+                    <!--  Email  -->
+                    <Grid Grid.Row="5">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="auto" />
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
+                        <TextBlock
+                            Grid.Row="0"
+                            Style="{StaticResource Title}"
+                            Text="Email" />
+                        <TextBox
+                            x:Name="EmailInput"
+                            Grid.Row="1"
+                            Style="{StaticResource Input}" />
+                    </Grid>
+                    <!--  Button  -->
+                    <Grid Grid.Row="6">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Button
+                            Grid.Column="0"
+                            Width="180"
+                            Height="50"
+                            Style="{StaticResource confirmButton}">
+                            <TextBlock
+                                Foreground="#FFF"
+                                Style="{StaticResource Title}"
+                                Text="Lưu" />
+                            <i:Interaction.Triggers>
+                                <i:EventTrigger EventName="Click">
+                                    <i:InvokeCommandAction Command="{Binding ConfirmInfor}" CommandParameter="{Binding ElementName=Order}" />
+                                </i:EventTrigger>
+                            </i:Interaction.Triggers>
+                        </Button>
+                        <Button
+                            Grid.Column="1"
+                            Width="180"
+                            Height="50"
+                            Style="{StaticResource cancelButton}">
+                            <TextBlock
+                                Foreground="#FFF"
+                                Style="{StaticResource Title}"
+                                Text="Huỷ bỏ" />
+                            <i:Interaction.Triggers>
+                                <i:EventTrigger EventName="Click">
+                                    <i:InvokeCommandAction Command="{Binding CancelInfor}" CommandParameter="{Binding ElementName=Order}" />
+                                </i:EventTrigger>
+                            </i:Interaction.Triggers>
+                        </Button>
+                    </Grid>
+                </Grid>
+            </Grid>
+        </Border>
+    </Grid>
+</UserControl>

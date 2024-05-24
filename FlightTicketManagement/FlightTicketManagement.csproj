@@ -369,6 +369,7 @@
     <Compile Include="ViewModel\ReportsVM.cs" />
     <Compile Include="ViewModel\SchedulesVM.cs" />
     <Compile Include="ViewModel\SettingVM.cs" />
+    <Compile Include="ViewModel\TicketOrderVM.cs" />
     <Compile Include="ViewModel\TicketSaleVM.cs" />
     <Compile Include="View\Components\AddFlight.xaml.cs">
       <DependentUpon>AddFlight.xaml</DependentUpon>
@@ -390,6 +391,9 @@
     </Compile>
     <Compile Include="View\Setting.xaml.cs">
       <DependentUpon>Setting.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\TicketOrder.xaml.cs">
+      <DependentUpon>TicketOrder.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\TicketSale.xaml.cs">
       <DependentUpon>TicketSale.xaml</DependentUpon>
@@ -455,6 +459,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\Setting.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\TicketOrder.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -526,6 +534,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Images\img_ticket.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\img_ticketorder.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Images\plane.png">
