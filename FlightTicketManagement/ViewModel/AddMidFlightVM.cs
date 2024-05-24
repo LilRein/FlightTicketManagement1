@@ -98,7 +98,7 @@ namespace FlightTicketManagement.ViewModel
 
             CloseAMACM = new RelayCommand<AddMidFlight>((p) => true, (p) => _CloseAM(p));
             ConfirmCommand = new RelayCommand<AddMidFlight>((p) => true, (p) => _ConfirmCommand(p));
-            //CancelCommand = new RelayCommand<AddMidFlight>((p) => true, (p) => _CancelCommand(p));
+            CancelCommand = new RelayCommand<AddMidFlight>((p) => true, (p) => _CancelCommand(p));
 
         }
 
@@ -111,20 +111,46 @@ namespace FlightTicketManagement.ViewModel
             }
         }
 
-        //void _CancelCommand(AddMidFlight paramater)
-        //{
-        //    paramater.ListAirport.SelectedItem = null;
-        //    paramater.WaitTime.Text = string.Empty;
-        //    paramater.InputNote.Clear();
-        //}
+        void _CancelCommand(AddMidFlight paramater)
+        {
+            paramater.MaSanBay.SelectedItem = null;
+            paramater.ListAirport.SelectedItem = null;
+            paramater.ThoiGianDung.Text = string.Empty;
+            paramater.GhiChu.Clear();
+        }
         void _ConfirmCommand(AddMidFlight paramater)
         {
-            if (SelectedCHUYENBAY == null || SelectedSANBAY == null || ThoiGianDung == 0)
+            if (SelectedCHUYENBAY == null || SelectedSANBAY == null || ThoiGianDung <= 0)
             {
                 MessageBox.Show("Có vẻ bạn thiếu thông tin!!", "Notification", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }
-            MessageBoxResult addFliNoti = System.Windows.MessageBox.Show("Bạn muốn thêm sân bay trung gian ?", "Notification", MessageBoxButton.YesNo);
+
+            // Lấy thông số từ bảng THAMSO
+            var thamso = DataProvider.Ins.DB.THAMSOes.FirstOrDefault();
+            var maxSanBayTrungGian = thamso.SoSanBayTrungGianToiDa;
+            var minThoiGianDung = thamso.ThoiGianDungToiThieu;
+            var maxThoiGianDung = thamso.ThoiGianDungToiDa;
+
+            // Đếm số lượng sân bay trung gian hiện tại cho chuyến bay được chọn
+            var currentSanBayTrungGianCount = DataProvider.Ins.DB.CTSANBAYTRUNGGIANs
+                .Count(x => x.MaChuyenBay == SelectedCHUYENBAY.MaChuyenBay);
+
+            // Kiểm tra nếu số lượng hiện tại đã vượt quá số lượng tối đa
+            if (currentSanBayTrungGianCount >= maxSanBayTrungGian)
+            {
+                MessageBox.Show("Vượt quá số lượng sân bay trung gian", "Notification", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+
+            // Kiểm tra thời gian dừng
+            if (ThoiGianDung < minThoiGianDung || ThoiGianDung > maxThoiGianDung)
+            {
+                MessageBox.Show($"Thời gian dừng phải lớn hơn {minThoiGianDung} phút và nhỏ hơn {maxThoiGianDung} phút", "Notification", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+
+            MessageBoxResult addFliNoti = MessageBox.Show("Bạn muốn thêm sân bay trung gian ?", "Notification", MessageBoxButton.YesNo);
             if (addFliNoti == MessageBoxResult.Yes)
             {
                 var sanbaytrunggian = new CTSANBAYTRUNGGIAN()
@@ -133,7 +159,6 @@ namespace FlightTicketManagement.ViewModel
                     MaSanBayTrungGian = SelectedSANBAY.MaSanBay,
                     ThoiGianDung = ThoiGianDung,
                     GhiChu = GhiChu
-
                 };
 
                 DataProvider.Ins.DB.CTSANBAYTRUNGGIANs.Add(sanbaytrunggian);
@@ -143,5 +168,7 @@ namespace FlightTicketManagement.ViewModel
                 MessageBox.Show("Sân bay trung gian đã được thêm thành công!");
             }
         }
+
+
     }
 }

@@ -6,7 +6,6 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows.Forms;
 using System.Windows.Input;
 using System.Windows;
 using FlightTicketManagement.View.Components;
@@ -23,7 +22,6 @@ namespace FlightTicketManagement.ViewModel
         }
 
         private ObservableCollection<CHUYENBAY> _flightList;
-
         public ObservableCollection<CHUYENBAY> FlightList
         {
             get { return _flightList; }
@@ -34,9 +32,7 @@ namespace FlightTicketManagement.ViewModel
             }
         }
 
-
         private ObservableCollection<CTSANBAYTRUNGGIAN> _midflightList;
-
         public ObservableCollection<CTSANBAYTRUNGGIAN> MidFlightList
         {
             get { return _midflightList; }
@@ -47,13 +43,35 @@ namespace FlightTicketManagement.ViewModel
             }
         }
 
+        public ICommand EditFlightCommand { get; set; }
         public ICommand AddMidFlightCM { get; set; }
         public ICommand AddFlightCM { get; set; }
 
-        private void InitalizeCommand()
+        private void InitializeCommand()
         {
             AddMidFlightCM = new RelayCommand<View.Schedules>((p) => true, (p) => _AddMidFlight());
-            AddFlightCM = new RelayCommand<View.Schedules>((p) => true, (p) => _AddMidFlight());
+            AddFlightCM = new RelayCommand<View.Schedules>((p) => true, (p) => _AddFlight());
+            EditFlightCommand = new RelayCommand<CHUYENBAY>((flight) => flight != null, (flight) => _EditFlight(flight));
+        }
+
+        private void _EditFlight(CHUYENBAY flight)
+        {
+            if (flight == null)
+                return;
+
+            var addFlightVM = new AddFlightVM();
+            addFlightVM.LoadFlightData(flight);
+
+            var addFlightWindow = new Window
+            {
+                Content = new AddFlight { DataContext = addFlightVM },
+                SizeToContent = SizeToContent.WidthAndHeight,
+                WindowStyle = WindowStyle.None,
+                WindowStartupLocation = WindowStartupLocation.CenterScreen,
+                Title = "Sửa chuyến bay"
+            };
+
+            addFlightWindow.ShowDialog();
         }
 
         private void _AddMidFlight()
@@ -66,8 +84,8 @@ namespace FlightTicketManagement.ViewModel
                 SizeToContent = SizeToContent.WidthAndHeight,
                 WindowStyle = WindowStyle.None,
                 WindowStartupLocation = WindowStartupLocation.CenterScreen
-
             };
+
             window.ShowDialog();
         }
 
@@ -81,6 +99,7 @@ namespace FlightTicketManagement.ViewModel
                 WindowStyle = WindowStyle.None,
                 WindowStartupLocation = WindowStartupLocation.CenterScreen
             };
+
             window.ShowDialog();
         }
 
@@ -89,10 +108,9 @@ namespace FlightTicketManagement.ViewModel
             _pageModel = new PageModel();
 
             FlightList = new ObservableCollection<CHUYENBAY>(DataProvider.Ins.DB.CHUYENBAYs);
-
             MidFlightList = new ObservableCollection<CTSANBAYTRUNGGIAN>(DataProvider.Ins.DB.CTSANBAYTRUNGGIANs);
 
-            InitalizeCommand();
+            InitializeCommand();
         }
     }
 }

@@ -20,8 +20,8 @@
     <Grid>
 
         <Border CornerRadius="0, 20, 20, 0"
-        Background="#F3EEEA"
-        Padding="50">
+                Background="#F3EEEA"
+                Padding="50">
 
             <Grid>
                 <Grid.RowDefinitions>
@@ -45,36 +45,37 @@
                                 <ColumnDefinition Width="*"/>
                                 <ColumnDefinition Width="2*"/>
                             </Grid.ColumnDefinitions>
-                            <Grid Grid.Column="0"
-                          HorizontalAlignment="Right">
-                                <Image Source="/Images/flighticon.png"
-                               Height="150"
-                               Width="150"/>
+                            <Grid Grid.Column="0" HorizontalAlignment="Right">
+                                <Image Source="/Images/flighticon.png" Height="150" Width="150"/>
                             </Grid>
-                            <Grid Grid.Column="1"
-                          HorizontalAlignment="Left"
-                          VerticalAlignment="Center">
+                            <Grid Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center">
                                 <TextBlock Text="Nhận lịch chuyến bay"
-                                   FontSize="29"
-                                   FontFamily="Roboto"
-                                   FontWeight="Bold"
-                                   Foreground="#000"
-                                   Margin="0 50 0 0"/>
+                                           FontSize="29"
+                                           FontFamily="Roboto"
+                                           FontWeight="Bold"
+                                           Foreground="#000"
+                                           Margin="0 50 0 0"/>
                             </Grid>
                         </Grid>
-                        <!-- Button -->
-                        <Button Grid.Row="1"
-                        Style="{StaticResource AddButton}"
-                        Height="45"
-                        Width="150"
-                        VerticalAlignment="Bottom"
-                        Margin="0 0 0 15"
-                        Click="Button_Click">
-                            <TextBlock FontFamily="Roboto"
-                               FontWeight="Medium"
-                               Text="Thêm"
-                               FontSize="18"/>
-                        </Button>
+                        <!-- Buttons -->
+                        <Grid Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="10,0,0,13">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="150"/>
+                                <ColumnDefinition Width="10"/>
+                                <ColumnDefinition Width="150"/>
+                            </Grid.ColumnDefinitions>
+                            <Button Grid.Column="2"
+                                    Style="{StaticResource AddButton}"
+                                    Height="45"
+                                    Width="150"
+                                    Click="Button_Click">
+                                <TextBlock FontFamily="Roboto"
+                                           FontWeight="Medium"
+                                           Text="Add Flight"
+                                           FontSize="18"/>
+                            </Button>
+
+                        </Grid>
                     </Grid>
                     <Grid Grid.Column="1">
                         <Grid>
@@ -85,48 +86,48 @@
 
                             <!-- Data grid -->
                             <DataGrid Grid.Row="0"
-                              x:Name="MidFlight"
-                              ItemsSource="{Binding MidFlightList}"
-                              CanUserSortColumns="False"
-                              AutoGenerateColumns="False"
-                              Margin="10 0 0 0"
-                              Style="{StaticResource DataGridStyle}"
-                              CellStyle="{StaticResource DataGridCellStyle}"
-                              RowStyle="{StaticResource DataGridRowStyle}"
-                              ColumnHeaderStyle="{StaticResource DataGridColumnHeaderStyle}">
+                                      x:Name="MidFlight"
+                                      ItemsSource="{Binding MidFlightList}"
+                                      CanUserSortColumns="False"
+                                      AutoGenerateColumns="False"
+                                      Margin="10 0 0 0"
+                                      Style="{StaticResource DataGridStyle}"
+                                      CellStyle="{StaticResource DataGridCellStyle}"
+                                      RowStyle="{StaticResource DataGridRowStyle}"
+                                      ColumnHeaderStyle="{StaticResource DataGridColumnHeaderStyle}">
                                 <DataGrid.Columns>
                                     <DataGridTextColumn Header="Mã chuyến bay"
-                                                IsReadOnly="True"
-                                                Width="*"
-                                                Binding="{Binding MaChuyenBay}"/>
+                                                        IsReadOnly="True"
+                                                        Width="*"
+                                                        Binding="{Binding MaChuyenBay}"/>
                                     <DataGridTextColumn Header="Sân bay trung gian"
-                                                IsReadOnly="True"
-                                                Width="*"
-                                                Binding="{Binding MaSanBayTrungGian}"/>
+                                                        IsReadOnly="True"
+                                                        Width="*"
+                                                        Binding="{Binding MaSanBayTrungGian}"/>
                                     <DataGridTextColumn Header="Thời gian dừng"
-                                                IsReadOnly="True"
-                                                Width="*"
-                                                Binding="{Binding ThoiGianDung}"/>
+                                                        IsReadOnly="True"
+                                                        Width="*"
+                                                        Binding="{Binding ThoiGianDung}"/>
                                     <DataGridTextColumn Header="Ghi chú"
-                                                IsReadOnly="True"
-                                                Width="*"
-                                                Binding="{Binding GhiChu}"/>
+                                                        IsReadOnly="True"
+                                                        Width="*"
+                                                        Binding="{Binding GhiChu}"/>
                                 </DataGrid.Columns>
                             </DataGrid>
                             <Border Grid.Row="1">
                                 <Button Style="{StaticResource AddButton}"
-                                Width="200"
-                                Height="50"
-                                Click="AddMidFlight">
-                                    <TextBlock Text="Thêm"
-                                       FontSize="18"
-                                       FontFamily="Roboto"
-                                       FontWeight="Medium"/>
+                                        Width="200"
+                                        Height="50"
+                                        Click="AddMidFlight">
+                                    <TextBlock Text="Add MidFlight"
+                                               FontSize="18"
+                                               FontFamily="Roboto"
+                                               FontWeight="Medium"/>
                                     <!-- Trigger -->
                                     <i:Interaction.Triggers>
                                         <i:EventTrigger EventName="Click">
                                             <i:InvokeCommandAction Command="{Binding AddMidFlightCM}"
-                                                           CommandParameter="{Binding ElementName=ScheduleWindow}"></i:InvokeCommandAction>
+                                                                   CommandParameter="{Binding ElementName=ScheduleWindow}"/>
                                         </i:EventTrigger>
                                     </i:Interaction.Triggers>
                                 </Button>
@@ -135,110 +136,97 @@
                     </Grid>
                 </Grid>
 
-                <!-- List Schedule-->
+                <!-- List Schedule -->
                 <Border Grid.Row="1"
-                Background="#FFF"
-                CornerRadius="15"
-                Padding="10">
+                        Background="#FFF"
+                        CornerRadius="15"
+                        Padding="10">
                     <Grid>
                         <Grid.RowDefinitions>
                             <RowDefinition Height="auto"/>
                             <RowDefinition Height="*"/>
                         </Grid.RowDefinitions>
 
-                        <!--Heading list-->
+                        <!-- Heading list -->
                         <Grid Height="55"
-                      Grid.Row="0"
-                      HorizontalAlignment="Center"
-                      VerticalAlignment="Center">
+                              Grid.Row="0"
+                              HorizontalAlignment="Center"
+                              VerticalAlignment="Center">
                             <TextBlock Text="Danh sách chuyến bay"
-                               FontSize="30"
-                               FontWeight="Bold"/>
+                                       FontSize="30"
+                                       FontWeight="Bold"/>
                         </Grid>
-                        <!--Data grid-->
+                        <!-- Data grid -->
                         <DataGrid Grid.Row="1"
-                          Margin="0 30 0 0"
-                          x:Name="DataGridCustomer"
-                          ItemsSource="{Binding FlightList}"
-                          CanUserSortColumns="False"
-                          AutoGenerateColumns="False"
-                          Style="{DynamicResource DataGridStyle}"
-                          CellStyle="{DynamicResource DataGridCellStyle}"
-                          RowStyle="{DynamicResource DataGridRowStyle}"
-                          ColumnHeaderStyle="{StaticResource DataGridColumnHeaderStyle}">
+                                  Margin="0 30 0 0"
+                                  x:Name="DataGridCustomer"
+                                  ItemsSource="{Binding FlightList}"
+                                  CanUserSortColumns="False"
+                                  AutoGenerateColumns="False"
+                                  Style="{DynamicResource DataGridStyle}"
+                                  CellStyle="{DynamicResource DataGridCellStyle}"
+                                  RowStyle="{DynamicResource DataGridRowStyle}"
+                                  ColumnHeaderStyle="{StaticResource DataGridColumnHeaderStyle}">
                             <DataGrid.Columns>
                                 <DataGridTextColumn Header="Mã chuyến bay"
-                                            IsReadOnly="True"
-                                            Width="*"
-                                            Binding="{Binding MaChuyenBay}"
-                                            />
+                                                    IsReadOnly="True"
+                                                    Width="*"
+                                                    Binding="{Binding MaChuyenBay}"/>
                                 <DataGridTextColumn Header="Mã sân bay đi"
-                                            IsReadOnly="True"
-                                            Width="*"
-                                            Binding="{Binding MaSanBayDi}"/>
+                                                    IsReadOnly="True"
+                                                    Width="*"
+                                                    Binding="{Binding MaSanBayDi}"/>
                                 <DataGridTextColumn Header="Mã sân bay đến"
-                                            IsReadOnly="True"
-                                            Width="*"
-                                            Binding="{Binding MaSanBayDen}"/>
+                                                    IsReadOnly="True"
+                                                    Width="*"
+                                                    Binding="{Binding MaSanBayDen}"/>
                                 <DataGridTextColumn Header="Ngày bay"
-                                            IsReadOnly="True"
-                                            Width="*"
-                                            Binding="{Binding NgayBay,StringFormat='dd/MM/yyyy'}"/>
+                                                    IsReadOnly="True"
+                                                    Width="*"
+                                                    Binding="{Binding NgayBay,StringFormat='dd/MM/yyyy'}"/>
                                 <DataGridTextColumn Header="Giờ khởi hành"
-                                            IsReadOnly="True"
-                                            Width="*"
-                                            Binding="{Binding GioKhoiHanh}"/>
+                                                    IsReadOnly="True"
+                                                    Width="*"
+                                                    Binding="{Binding GioKhoiHanh}"/>
                                 <DataGridTextColumn Header="Đơn giá"
-                                            IsReadOnly="True"
-                                            Width="*"
-                                            Binding="{Binding DonGia}"/>
-                                <!--Action-->
+                                                    IsReadOnly="True"
+                                                    Width="*"
+                                                    Binding="{Binding DonGia}"/>
+                                <!-- Action -->
                                 <DataGridTemplateColumn Header="Action"
-                                                IsReadOnly="True"
-                                                Width="100">
+                                                        IsReadOnly="True"
+                                                        Width="100">
                                     <DataGridTemplateColumn.CellTemplate>
                                         <DataTemplate>
                                             <Border>
                                                 <StackPanel x:Name="subMenuGrid"
-                                                    Orientation="Horizontal"
-                                                    Visibility="Visible"
-                                                    Background="Transparent">
+                                                            Orientation="Horizontal"
+                                                            Visibility="Visible"
+                                                            Background="Transparent">
                                                     <Button x:Name="editButton"
-                                                    Style="{StaticResource gridEditButton}"
-                                                    Command="{Binding DataContext.EditedCustomerCommand, RelativeSource={RelativeSource AncestorType={x:Type UserControl}}}"
-                                                    CommandParameter="{Binding}">
+                                                            Style="{StaticResource gridEditButton}"
+                                                            Command="{Binding DataContext.EditFlightCommand, RelativeSource={RelativeSource AncestorType={x:Type UserControl}}}"
+                                                            CommandParameter="{Binding}">
                                                         <materialDesign:PackIcon Kind="Edit"  
-                                                                     Width="14"
-                                                                     Height="14"
-                                                                     VerticalAlignment="Center" />
-
+                                                                                 Width="14"
+                                                                                 Height="14"
+                                                                                 VerticalAlignment="Center" />
                                                     </Button>
                                                     <Button x:Name="deleteButton"
-                                                    Style="{StaticResource gridRemoveButton}"
-                                                    Margin="5 0 0 0"
-                                                    Command="{Binding DataContext.DeletedCustomerCommand, RelativeSource={RelativeSource AncestorType={x:Type UserControl}}}"
-                                                    CommandParameter="{Binding}">
-
-
-                                                    </Button>
-
+                                                            Style="{StaticResource gridRemoveButton}"
+                                                            Margin="5 0 0 0"
+                                                            Command="{Binding DataContext.DeletedCustomerCommand, RelativeSource={RelativeSource AncestorType={x:Type UserControl}}}"
+                                                            CommandParameter="{Binding}"/>
                                                 </StackPanel>
                                             </Border>
                                         </DataTemplate>
                                     </DataGridTemplateColumn.CellTemplate>
                                 </DataGridTemplateColumn>
                             </DataGrid.Columns>
-
                         </DataGrid>
                     </Grid>
-
                 </Border>
-
-
-
             </Grid>
-
         </Border>
-
     </Grid>
 </UserControl>
