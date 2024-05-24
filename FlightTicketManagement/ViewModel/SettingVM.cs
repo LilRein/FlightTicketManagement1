@@ -290,6 +290,10 @@ namespace FlightTicketManagement.ViewModel
                 DataProvider.Ins.DB.SaveChanges();
 
                 SelectedItem.MaHangVe = MaHangVe;
+
+                HangVeList.Remove(SelectedItem);
+                HangVeList.Add(hangve);
+                SelectedItem = hangve;
             });
 
             AddCommandFlight = new RelayCommand<object>((p) =>
@@ -332,6 +336,10 @@ namespace FlightTicketManagement.ViewModel
                 DataProvider.Ins.DB.SaveChanges();
 
                 SelectedSanBay.MaSanBay = MaSanBay;
+
+                SayBayList.Remove(SelectedSanBay);
+                SayBayList.Add(sanbay);
+                SelectedSanBay = sanbay;
             });
 
         }
