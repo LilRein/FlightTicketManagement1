@@ -106,7 +106,7 @@
                             Grid.Row="0"
                             Style="{StaticResource Title}"
                             Text="Ngày đặt" />
-                        <DatePicker SelectedDate="{Binding NgayDat, UpdateSourceTrigger=PropertyChanged}"
+                        <DatePicker x:Name="DateOrderPicker" SelectedDate="{Binding NgayDat, UpdateSourceTrigger=PropertyChanged}"
                             Grid.Row="1" />
                     </Grid>
                     <!--  Mã hành khách  -->
@@ -141,6 +141,7 @@
                             Text="Mã hạng vé" Grid.ColumnSpan="2" />
                         <ComboBox
                             x:Name="ClassFlight"
+                            DisplayMemberPath="MaHangVe"
                             ItemsSource="{Binding ClassFlightList}"
                             SelectedItem="{Binding SelectedMAHANGVE, UpdateSourceTrigger=PropertyChanged}"
                             Grid.Row="1"
@@ -161,6 +162,7 @@
                             Text="Mã chuyến bay" />
                         <ComboBox
                             x:Name="FlightID"
+                            DisplayMemberPath="MaChuyenBay"
                             ItemsSource="{Binding FlightIDList}"
                             SelectedItem="{Binding SelectedMACHUYENBAY, UpdateSourceTrigger=PropertyChanged}"
                             Grid.Row="1"
@@ -180,6 +182,7 @@
                             Text="Mã ghế" />
                         <ComboBox
                             x:Name="SeatID"
+                            DisplayMemberPath="MaGhe"
                             ItemsSource="{Binding SeatIDList}"
                             SelectedItem="{Binding SelectedMAGHE, UpdateSourceTrigger=PropertyChanged}"
                             Grid.Row="1"
@@ -202,7 +205,8 @@
                             Grid.Row="1"
                             FontSize="21"
                             Foreground="#555"
-                            ItemsSource="{Binding}" />
+                            ItemsSource="{Binding StatusList}"
+                            SelectedValue="{Binding SelectedTINHTRANG, UpdateSourceTrigger=PropertyChanged}"/>
                     </Grid>
                     <!--  Button  -->
                     <Grid Grid.Row="8">

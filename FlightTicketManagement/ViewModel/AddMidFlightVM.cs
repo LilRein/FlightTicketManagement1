@@ -122,7 +122,7 @@ namespace FlightTicketManagement.ViewModel
         {
             if (SelectedCHUYENBAY == null || SelectedSANBAY == null || ThoiGianDung <= 0)
             {
-                MessageBox.Show("Có vẻ bạn thiếu thông tin!!", "Notification", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show("Bạn nhập thiếu thông tin!!", "Notification", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }
 

@@ -362,6 +362,8 @@
     <Compile Include="Utilities\ViewModelBase.cs" />
     <Compile Include="ViewModel\AddFlightVM.cs" />
     <Compile Include="ViewModel\AddMidFlightVM.cs" />
+    <Compile Include="ViewModel\BooleanToCommandConverter.cs" />
+    <Compile Include="ViewModel\BooleanToStringConverter.cs" />
     <Compile Include="ViewModel\DashboardVM.cs" />
     <Compile Include="ViewModel\FlightsVM.cs" />
     <Compile Include="ViewModel\LoginVM.cs" />

@@ -30,7 +30,7 @@ namespace FlightTicketManagement.ViewModel
             set
             {
                 _OrderList = value;
-                OnPropertyChanged(nameof(OrderList));
+                OnPropertyChanged();
             }
         }
 
@@ -41,7 +41,7 @@ namespace FlightTicketManagement.ViewModel
             set
             {
                 _TicketList = value;
-                OnPropertyChanged(nameof(TicketList));
+                OnPropertyChanged();
             }
         }
 
@@ -99,7 +99,7 @@ namespace FlightTicketManagement.ViewModel
         {
             if (string.IsNullOrEmpty(MaVe) || NgayXuatVe == null ||
                 string.IsNullOrEmpty(MaHanhKhach) || string.IsNullOrEmpty(MaHangVe) ||
-                string.IsNullOrEmpty(MaChuyenBay) || string.IsNullOrEmpty(MaGhe) )
+                string.IsNullOrEmpty(MaChuyenBay) || string.IsNullOrEmpty(MaGhe))
             {
                 MessageBox.Show("Bạn nhập thiếu thông tin!!", "Notification", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
@@ -111,23 +111,28 @@ namespace FlightTicketManagement.ViewModel
                 {
                     MaVe = MaVe,
                     NgayXuatVe = NgayXuatVe,
-                    MaHanhKhach =MaHanhKhach,
-                    MaHangVe = MaHangVe,
                     MaChuyenBay = MaChuyenBay,
-                    MaGhe = MaGhe,    
+                    MaHangVe = MaHangVe,
+                    MaHanhKhach = MaHanhKhach,
+                    MaGhe = MaGhe,
                 };
 
                 DataProvider.Ins.DB.VECHUYENBAYs.Add(vechuyenbay);
                 DataProvider.Ins.DB.SaveChanges();
 
-                TicketList.Add(vechuyenbay);
-                MessageBox.Show("Chuyến bay đã được thêm thành công!");
+                //TicketList.Add(vechuyenbay);
+                MessageBox.Show("Vé chuyến bay đã được xuất thành công!");
             }
         }
 
         private void _cancelBtn(TicketSale parameter)
         {
-            MessageBox.Show("Huỷ bỏ");
+            parameter.TicketID.Clear();
+            parameter.FlightID.Clear();
+            parameter.ClassFlightID.Clear();
+            parameter.CustomerID.Clear();
+            parameter.SeatID.Clear();
+            //TicketList.Clear();
         }
 
     }
