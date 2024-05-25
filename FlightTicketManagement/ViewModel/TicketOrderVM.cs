@@ -227,6 +227,8 @@ namespace FlightTicketManagement.ViewModel
             CancelInfor = new RelayCommand<TicketOrder>((p) => true, (p) => _cancelInfor(p));
 
             _pageModel = new PageModel();
+
+            NgayDat = DateTime.Today;
             // Initialize FilteredFlightIDList
             FilteredFlightIDList = new ObservableCollection<CHUYENBAY>(_FlightIDList);
         }
