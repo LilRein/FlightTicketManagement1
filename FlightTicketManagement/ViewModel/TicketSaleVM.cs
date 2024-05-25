@@ -138,7 +138,7 @@ namespace FlightTicketManagement.ViewModel
             }
 
             MessageBoxResult cancelConfirm = MessageBox.Show("Bạn có chắc chắn muốn huỷ phiếu đặt chỗ này?", "Notification", MessageBoxButton.YesNo, MessageBoxImage.Question);
-            if (cancelConfirm == MessageBoxResult.Yes)
+            if (SelectedOrder.TinhTrang == "Đã đặt" && cancelConfirm == MessageBoxResult.Yes)
             {
                 // Update the status of the selected order to "Đã huỷ"
                 SelectedOrder.TinhTrang = "Đã huỷ";
@@ -156,6 +156,9 @@ namespace FlightTicketManagement.ViewModel
 
                 // Refresh the OrderList to reflect changes
                 OrderList = new ObservableCollection<PHIEUDATCHO>(DataProvider.Ins.DB.PHIEUDATCHOes);
+            } else
+            {
+                MessageBox.Show($"Có lỗi xảy ra: ", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
 
