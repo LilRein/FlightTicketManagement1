@@ -188,6 +188,13 @@ namespace FlightTicketManagement.ViewModel
                 return;
             }
 
+            var existingTicket = DataProvider.Ins.DB.VECHUYENBAYs.FirstOrDefault(h => h.MaVe == MaVe);
+            if (existingTicket != null)
+            {
+                MessageBox.Show("Mã vé đã tồn tại!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+
             // Kiểm tra NgayXuatVe với NgayDat của PHIEUDATCHO
             var phieuDatCho = DataProvider.Ins.DB.PHIEUDATCHOes
                                 .FirstOrDefault(p => p.MaHanhKhach == MaHanhKhach && p.MaChuyenBay == MaChuyenBay && p.MaGhe == MaGhe);
