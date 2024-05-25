@@ -313,39 +313,36 @@ namespace FlightTicketManagement.ViewModel
             {
                 MessageBox.Show("Số phiếu đặt chỗ đã tồn tại!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
-            } 
+            }
+            // Kiểm tra xem mã khách hàng đã tồn tại hay chưa
+            var existingCustomer = DataProvider.Ins.DB.HANHKHACHes.FirstOrDefault(h => h.MaHanhKhach == MaHanhKhach);
+
+            if (existingCustomer != null)
+            {
+                MessageBoxResult addFliNoti = MessageBox.Show("Bạn muốn thêm phiếu đặt chỗ?", "Notification", MessageBoxButton.YesNo);
+                if (addFliNoti == MessageBoxResult.Yes)
+                {
+                    var phieudatcho = new PHIEUDATCHO()
+                    {
+                        SoPhieuDatCho = SoPhieuDatCho,
+                        NgayDat = NgayDat,
+                        MaHanhKhach = MaHanhKhach,
+                        MaHangVe = SelectedMAHANGVE.MaHangVe,
+                        MaChuyenBay = SelectedMACHUYENBAY.MaChuyenBay,
+                        MaGhe = SelectedMAGHE.MaGhe,
+                        TinhTrang = SelectedTINHTRANG
+                    };
+
+                    DataProvider.Ins.DB.PHIEUDATCHOes.Add(phieudatcho);
+                    DataProvider.Ins.DB.SaveChanges();
+
+                    OrderFlightList.Add(phieudatcho);
+                    MessageBox.Show("Phiêu đặt chỗ đã được thêm thành công!");
+                }
+            }
             else
             {
-                // Kiểm tra xem mã khách hàng đã tồn tại hay chưa
-                var existingCustomer = DataProvider.Ins.DB.HANHKHACHes.FirstOrDefault(h => h.MaHanhKhach == MaHanhKhach);
-
-                if (existingCustomer == null)
-                {
-                    MessageBoxResult addFliNoti = MessageBox.Show("Bạn muốn thêm phiếu đặt chỗ?", "Notification", MessageBoxButton.YesNo);
-                    if (addFliNoti == MessageBoxResult.Yes)
-                    {
-                        var phieudatcho = new PHIEUDATCHO()
-                        {
-                            SoPhieuDatCho = SoPhieuDatCho,
-                            NgayDat = NgayDat,
-                            MaHanhKhach = MaHanhKhach,
-                            MaHangVe = SelectedMAHANGVE.MaHangVe,
-                            MaChuyenBay = SelectedMACHUYENBAY.MaChuyenBay,
-                            MaGhe = SelectedMAGHE.MaGhe,
-                            TinhTrang = SelectedTINHTRANG
-                        };
-
-                        DataProvider.Ins.DB.PHIEUDATCHOes.Add(phieudatcho);
-                        DataProvider.Ins.DB.SaveChanges();
-
-                        OrderFlightList.Add(phieudatcho);
-                        MessageBox.Show("Phiêu đặt chỗ đã được thêm thành công!");
-                    }
-                }
-                else
-                {
-                    MessageBox.Show("Mã khách hàng không tồn tại!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
-                }
+                MessageBox.Show("Mã khách hàng không tồn tại!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
 
