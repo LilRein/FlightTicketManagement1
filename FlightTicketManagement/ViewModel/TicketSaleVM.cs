@@ -22,6 +22,7 @@ namespace FlightTicketManagement.ViewModel
         public ICommand ExportBtn { get; set; }
         public ICommand CancelBtn { get; set; }
         public ICommand SearchBtn { get; set; }
+        public ICommand CancelGridBtn { get; set; }
 
 
         private ObservableCollection<PHIEUDATCHO> _FilteredOrderList;
@@ -124,7 +125,38 @@ namespace FlightTicketManagement.ViewModel
             ExportBtn = new RelayCommand<TicketSale>((p) => true, (p) => _exportBtn(p));
             CancelBtn = new RelayCommand<TicketSale>((p) => true, (p) => _cancelBtn(p));
             SearchBtn = new RelayCommand<TicketSale>((p) => true, (p) => _searchCusID());
+            CancelGridBtn = new RelayCommand<TicketSale>((p) => true, (p) => _cancelGridBtn());
             _pageModel = new PageModel();
+        }
+
+        private void _cancelGridBtn()
+        {
+            if (SelectedOrder == null)
+            {
+                MessageBox.Show("Vui lòng chọn một phiếu đặt chỗ để huỷ", "Notification", MessageBoxButton.OK, MessageBoxImage.Warning);
+                return;
+            }
+
+            MessageBoxResult cancelConfirm = MessageBox.Show("Bạn có chắc chắn muốn huỷ phiếu đặt chỗ này?", "Notification", MessageBoxButton.YesNo, MessageBoxImage.Question);
+            if (cancelConfirm == MessageBoxResult.Yes)
+            {
+                // Update the status of the selected order to "Đã huỷ"
+                SelectedOrder.TinhTrang = "Đã huỷ";
+
+                // Save changes to the database
+                try
+                {
+                    DataProvider.Ins.DB.SaveChanges();
+                    MessageBox.Show("Phiếu đặt chỗ đã được huỷ thành công!", "Notification", MessageBoxButton.OK, MessageBoxImage.Information);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Có lỗi xảy ra: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+
+                // Refresh the OrderList to reflect changes
+                OrderList = new ObservableCollection<PHIEUDATCHO>(DataProvider.Ins.DB.PHIEUDATCHOes);
+            }
         }
 
         private void _searchCusID()
