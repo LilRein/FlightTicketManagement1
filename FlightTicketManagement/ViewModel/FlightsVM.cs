@@ -5,22 +5,19 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Windows.Input;
+using System.Data.Entity;
 
 namespace FlightTicketManagement.ViewModel
 {
-    class FlightsVM : Utilities.ViewModelBase
+    class FlightsVM : ViewModelBase
     {
-        
         private ObservableCollection<CHUYENBAY> _flights;
         private ObservableCollection<FlightResult> _filteredFlights;
-        private ObservableCollection<CHITIETHANGVE> _ticketDetail;
+        private ObservableCollection<CHITIETHANGVE> _ticketDetails;
 
         public FlightsVM()
         {
-            Flights = new ObservableCollection<CHUYENBAY>(DataProvider.Ins.DB.CHUYENBAYs);
-            TicketDetail = new ObservableCollection<CHITIETHANGVE>(DataProvider.Ins.DB.CHITIETHANGVEs);
-            FilteredFlights = new ObservableCollection<FlightResult>();
-
+            LoadData();
             SearchCommand = new RelayCommand(SearchFlightsWithSQL);
         }
 
@@ -36,16 +33,16 @@ namespace FlightTicketManagement.ViewModel
             set { _filteredFlights = value; OnPropertyChanged(); }
         }
 
-        public ObservableCollection<CHITIETHANGVE> TicketDetail
+        public ObservableCollection<CHITIETHANGVE> TicketDetails
         {
-            get { return _ticketDetail; }
-            set { _ticketDetail = value; OnPropertyChanged(); }
+            get { return _ticketDetails; }
+            set { _ticketDetails = value; OnPropertyChanged(); }
         }
 
         public ObservableCollection<string> FlightIDs => new ObservableCollection<string>(Flights.Select(f => f.MaChuyenBay).Distinct());
         public ObservableCollection<string> FromAirports => new ObservableCollection<string>(Flights.Select(f => f.MaSanBayDi).Distinct());
         public ObservableCollection<string> ToAirports => new ObservableCollection<string>(Flights.Select(f => f.MaSanBayDen).Distinct());
-        public ObservableCollection<string> TicketClasses => new ObservableCollection<string>(Flights.SelectMany(f => f.CHITIETHANGVEs.Select(h => h.MaHangVe)).Distinct());
+        public ObservableCollection<string> TicketClasses => new ObservableCollection<string>(TicketDetails.Select(td => td.MaHangVe).Distinct());
 
         public string SelectedFlightID { get; set; }
         public string SelectedFromAirport { get; set; }
@@ -68,6 +65,14 @@ namespace FlightTicketManagement.ViewModel
             public int RemainingSeat { get; set; }
         }
 
+        private void LoadData()
+        {
+            using (var context = new FLIGHTTICKETMANAGEMENTEntities())
+            {
+                Flights = new ObservableCollection<CHUYENBAY>(context.CHUYENBAYs.ToList());
+                TicketDetails = new ObservableCollection<CHITIETHANGVE>(context.CHITIETHANGVEs.ToList());
+            }
+        }
 
         private void SearchFlightsWithSQL(object parameter)
         {
@@ -79,10 +84,7 @@ namespace FlightTicketManagement.ViewModel
                             where (string.IsNullOrEmpty(SelectedFlightID) || chuyenbay.MaChuyenBay == SelectedFlightID)
                                 && (string.IsNullOrEmpty(SelectedFromAirport) || chuyenbay.MaSanBayDi == SelectedFromAirport)
                                 && (string.IsNullOrEmpty(SelectedToAirport) || chuyenbay.MaSanBayDen == SelectedToAirport)
-                                && (SelectedFlyDate.HasValue
-                                    && chuyenbay.NgayBay.Year == SelectedFlyDate.Value.Year
-                                    && chuyenbay.NgayBay.Month == SelectedFlyDate.Value.Month
-                                    && chuyenbay.NgayBay.Day == SelectedFlyDate.Value.Day)
+                                && (!SelectedFlyDate.HasValue || DbFunctions.TruncateTime(chuyenbay.NgayBay) == DbFunctions.TruncateTime(SelectedFlyDate.Value))
                                 && (string.IsNullOrEmpty(SelectedTicketClass) || chitiet.MaHangVe == SelectedTicketClass)
                             select new FlightResult
                             {
@@ -101,10 +103,5 @@ namespace FlightTicketManagement.ViewModel
                 OnPropertyChanged(nameof(FilteredFlights));
             }
         }
-
     }
-
-
-
-
 }

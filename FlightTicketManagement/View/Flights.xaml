@@ -184,22 +184,22 @@
                                     IsReadOnly="True" />
                                 <DataGridTextColumn
                                     Width="*"
-                                    Binding="{Binding CHITIETHANGVEs[0].MaHangVe}"
+                                    Binding="{Binding TicketClass}"
                                     Header="Mã hạng vé"
                                     IsReadOnly="True" />
                                 <DataGridTextColumn
                                     Width="*"
-                                    Binding="{Binding CHITIETHANGVEs[0].SoVeDaBan}"
+                                    Binding="{Binding SoldTicket}"
                                     Header="Số vé đã bán"
                                     IsReadOnly="True" />
                                 <DataGridTextColumn
                                     Width="*"
-                                    Binding="{Binding CHITIETHANGVEs[0].SoGheDat}"
+                                    Binding="{Binding PreOrderedSeat}"
                                     Header="Số ghế đã đặt"
                                     IsReadOnly="True" />
                                 <DataGridTextColumn
                                     Width="*"
-                                    Binding="{Binding CHITIETHANGVEs[0].SoGheConLai}"
+                                    Binding="{Binding RemainingSeat}"
                                     Header="Số ghế còn lại"
                                     IsReadOnly="True" />
                             </DataGrid.Columns>
