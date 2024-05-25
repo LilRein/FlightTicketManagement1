@@ -15,10 +15,12 @@ namespace FlightTicketManagement.ViewModel
         private ObservableCollection<FlightResult> _filteredFlights;
         private ObservableCollection<CHITIETHANGVE> _ticketDetails;
 
+
         public FlightsVM()
         {
             LoadData();
             SearchCommand = new RelayCommand(SearchFlightsWithSQL);
+            ResetCommand = new RelayCommand(ResetFilters);
         }
 
         public ObservableCollection<CHUYENBAY> Flights
@@ -50,6 +52,7 @@ namespace FlightTicketManagement.ViewModel
         public DateTime? SelectedFlyDate { get; set; }
         public string SelectedTicketClass { get; set; }
 
+        public ICommand ResetCommand { get; set; }
         public ICommand SearchCommand { get; set; }
 
         public class FlightResult
@@ -102,6 +105,21 @@ namespace FlightTicketManagement.ViewModel
                 FilteredFlights = new ObservableCollection<FlightResult>(query.ToList());
                 OnPropertyChanged(nameof(FilteredFlights));
             }
+        }
+        private void ResetFilters(object parameter)
+        {
+            SelectedFlightID = null;
+            SelectedFromAirport = null;
+            SelectedToAirport = null;
+            SelectedFlyDate = null;
+            SelectedTicketClass = null;
+            OnPropertyChanged(nameof(SelectedFlightID));
+            OnPropertyChanged(nameof(SelectedFromAirport));
+            OnPropertyChanged(nameof(SelectedToAirport));
+            OnPropertyChanged(nameof(SelectedFlyDate));
+            OnPropertyChanged(nameof(SelectedTicketClass));
+            // Optional: You can also clear the FilteredFlights if you want to reset the result
+            FilteredFlights.Clear();
         }
     }
 }
