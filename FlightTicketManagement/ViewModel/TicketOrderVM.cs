@@ -219,7 +219,7 @@ namespace FlightTicketManagement.ViewModel
             {
                 "Đã đặt",
                 "Đã bán",
-                "Bị huỷ",
+                "Đã huỷ",
             };
             CustomerList = new ObservableCollection<HANHKHACH>(DataProvider.Ins.DB.HANHKHACHes);
 
