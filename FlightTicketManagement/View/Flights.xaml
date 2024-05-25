@@ -300,13 +300,13 @@
                                     Header="Sân bay đến"
                                     IsReadOnly="True" />
                                 <DataGridTextColumn
-                                    Width="2*"
-                                    Binding="{Binding NgayBay}"
+                                    Width="1.2*"
+                                    Binding="{Binding NgayBay, StringFormat='dd/MM/yyyy'}"
                                     ElementStyle="{StaticResource CenterTextStyle}"
                                     Header="Ngày bay"
                                     IsReadOnly="True" />
                                 <DataGridTextColumn
-                                    Width="1.5*"
+                                    Width="1.2*"
                                     Binding="{Binding GioKhoiHanh}"
                                     ElementStyle="{StaticResource CenterTextStyle}"
                                     Header="Giờ khởi hành"
