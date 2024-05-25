@@ -47,6 +47,18 @@ namespace FlightTicketManagement.ViewModel
             }
         }
 
+        private ObservableCollection<CHUYENBAY> _FilteredFlightIDList;
+        public ObservableCollection<CHUYENBAY> FilteredFlightIDList
+        {
+            get { return _FilteredFlightIDList; }
+            set
+            {
+                _FilteredFlightIDList = value;
+                OnPropertyChanged();
+            }
+        }
+
+
         private ObservableCollection<CHUYENBAY> _FlightIDList;
         public ObservableCollection<CHUYENBAY> FlightIDList
         {
@@ -128,7 +140,7 @@ namespace FlightTicketManagement.ViewModel
         public string SoPhieuDatCho { get => _SoPhieuDatCho; set { _SoPhieuDatCho = value; OnPropertyChanged(); } }
 
         private DateTime _NgayDat;
-        public DateTime NgayDat { get => _NgayDat; set { _NgayDat = value; OnPropertyChanged(); } }
+        public DateTime NgayDat { get => _NgayDat; set { _NgayDat = value; OnPropertyChanged(); FilterFlightsByDate(); } }
 
         private string _MaHanhKhach;
         public string MaHanhKhach { get => _MaHanhKhach; set { _MaHanhKhach = value; OnPropertyChanged(); } }
@@ -192,6 +204,8 @@ namespace FlightTicketManagement.ViewModel
             CancelInfor = new RelayCommand<TicketOrder>((p) => true, (p) => _cancelInfor(p));
 
             _pageModel = new PageModel();
+            // Initialize FilteredFlightIDList
+            FilteredFlightIDList = new ObservableCollection<CHUYENBAY>(_FlightIDList);
         }
 
         private void _cancelInfor(TicketOrder parameter)
@@ -276,5 +290,19 @@ namespace FlightTicketManagement.ViewModel
                 MessageBox.Show("Phiêu đặt chỗ đã được thêm thành công!");
             }
         }
+
+        private void FilterFlightsByDate()
+        {
+            if (_FlightIDList != null && _NgayDat != DateTime.MinValue)
+            {
+                var filteredFlights = _FlightIDList.Where(flight => flight.NgayBay.Date == _NgayDat.Date).ToList();
+                FilteredFlightIDList = new ObservableCollection<CHUYENBAY>(filteredFlights);
+            }
+            else
+            {
+                FilteredFlightIDList = new ObservableCollection<CHUYENBAY>(_FlightIDList);
+            }
+        }
+
     }
 }

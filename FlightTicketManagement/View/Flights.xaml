@@ -3,9 +3,9 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:vm="clr-namespace:FlightTicketManagement.ViewModel"
-    xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
     d:DesignHeight="800"
     d:DesignWidth="1192"
     mc:Ignorable="d">
@@ -14,14 +14,47 @@
         <vm:FlightsVM />
     </UserControl.DataContext>
 
+    <UserControl.Resources>
+        <Style x:Key="Title" TargetType="TextBlock">
+            <Setter Property="FontSize" Value="22" />
+            <Setter Property="FontFamily" Value="Roboto" />
+            <Setter Property="FontWeight" Value="Medium" />
+            <Setter Property="Foreground" Value="#FFF" />
+
+        </Style>
+        <Style x:Key="Input" TargetType="TextBox">
+            <Setter Property="FontSize" Value="21" />
+            <Setter Property="Foreground" Value="#555" />
+            <Setter Property="Background" Value="Transparent" />
+            <Setter Property="BorderThickness" Value="0,0,0,1" />
+            <Setter Property="FontFamily" Value="Roboto" />
+            <Setter Property="VerticalAlignment" Value="Bottom" />
+            <Setter Property="Margin" Value="0,0,0,10" />
+
+        </Style>
+        <Style x:Key="Status" TargetType="TextBlock">
+            <Setter Property="FontSize" Value="21" />
+            <Setter Property="Foreground" Value="#555" />
+            <Setter Property="Background" Value="Transparent" />
+            <Setter Property="FontFamily" Value="Roboto" />
+            <Setter Property="VerticalAlignment" Value="Bottom" />
+            <Setter Property="Margin" Value="0,0,0,10" />
+
+        </Style>
+    </UserControl.Resources>
+
+
     <Grid>
-        <Border Background="White" CornerRadius="0, 20, 20, 0">
+        <Border
+            Padding="50"
+            Background="#F3EEEA"
+            CornerRadius="0, 20, 20, 0">
             <Grid>
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="50" />
-                    <RowDefinition Height="50" />
-                    <RowDefinition Height="50" />
-                    <RowDefinition Height="2*" />
+                    <RowDefinition Height="auto" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="3*" />
                 </Grid.RowDefinitions>
 
                 <TextBlock
@@ -31,10 +64,7 @@
                     FontWeight="Bold"
                     Text="Tìm kiếm chuyến bay"
                     TextAlignment="Center" />
-                <Border
-                    Grid.Row="1"
-                    BorderBrush="Black"
-                    BorderThickness="0">
+                <Border Grid.Row="1">
                     <Grid>
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="*" />
@@ -43,97 +73,169 @@
                             <ColumnDefinition Width="*" />
                             <ColumnDefinition Width="*" />
                         </Grid.ColumnDefinitions>
-                        <Border
-                            Grid.Column="0"
-                            Margin="0,0,10,0"
-                            BorderBrush="Black"
-                            BorderThickness="1">
+                        <Grid Grid.Column="0" Margin="0,0,10,0">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*" />
+                                <RowDefinition Height="*" />
+                            </Grid.RowDefinitions>
+                            <!--  Title  -->
+                            <Border
+                                Grid.Row="0"
+                                Background="green"
+                                CornerRadius="10">
+                                <TextBlock
+                                    HorizontalAlignment="Center"
+                                    VerticalAlignment="Center"
+                                    Style="{StaticResource Title}"
+                                    Text="Mã chuyến bay" />
+                            </Border>
+                            <!--  Input  -->
                             <ComboBox
                                 x:Name="FlightIDComboBox"
+                                Grid.Row="1"
                                 Margin="0,0,10,0"
-                                VerticalAlignment="Top"
+                                materialDesign:HintAssist.Hint="Mã chuyến bay"
+                                FontSize="19"
+                                Foreground="#555"
                                 ItemsSource="{Binding FlightIDs}"
-                                SelectedItem="{Binding SelectedFlightID }"
-                                materialDesign:HintAssist.Hint="Mã chuyến bay" />
-                        </Border>
-                        <Border
-                            Grid.Column="1"
-                            Margin="0,0,10,0"
-                            BorderBrush="Black"
-                            BorderThickness="1">
+                                SelectedItem="{Binding SelectedFlightID}" />
+                        </Grid>
+                        <Grid Grid.Column="1" Margin="0,0,10,0">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*" />
+                                <RowDefinition Height="*" />
+                            </Grid.RowDefinitions>
+                            <!--  Title  -->
+                            <Border
+                                Grid.Row="0"
+                                Background="green"
+                                CornerRadius="10">
+                                <TextBlock
+                                    HorizontalAlignment="Center"
+                                    VerticalAlignment="Center"
+                                    Style="{StaticResource Title}"
+                                    Text="Sân bay đi" />
+                            </Border>
+                            <!--  Input  -->
                             <ComboBox
                                 x:Name="FromAirportComboBox"
+                                Grid.Row="1"
                                 Margin="0,0,10,0"
-                                VerticalAlignment="Top"
+                                materialDesign:HintAssist.Hint="Sân bay đi"
+                                FontSize="19"
+                                Foreground="#555"
                                 ItemsSource="{Binding FromAirports}"
-                                SelectedItem="{Binding SelectedFromAirport}"
-                                materialDesign:HintAssist.Hint="Sân bay đi" />
-                        </Border>
-                        <Border
-                            Grid.Column="2"
-                            Margin="0,0,10,0"
-                            BorderBrush="Black"
-                            BorderThickness="1">
+                                SelectedItem="{Binding SelectedFromAirport}" />
+                        </Grid>
+                        <Grid Grid.Column="2" Margin="0,0,10,0">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*" />
+                                <RowDefinition Height="*" />
+                            </Grid.RowDefinitions>
+                            <!--  Title  -->
+                            <Border
+                                Grid.Row="0"
+                                Background="green"
+                                CornerRadius="10">
+                                <TextBlock
+                                    HorizontalAlignment="Center"
+                                    VerticalAlignment="Center"
+                                    Style="{StaticResource Title}"
+                                    Text="Sân bay đến" />
+                            </Border>
+                            <!--  Input  -->
                             <ComboBox
                                 x:Name="ToAirportComboBox"
+                                Grid.Row="1"
                                 Margin="0,0,10,0"
-                                VerticalAlignment="Top"
+                                materialDesign:HintAssist.Hint="Sân bay đến"
+                                FontSize="19"
+                                Foreground="#555"
                                 ItemsSource="{Binding ToAirports}"
-                                SelectedItem="{Binding SelectedToAirport}"
-                                materialDesign:HintAssist.Hint="Sân bay đến" />
-                        </Border>
+                                SelectedItem="{Binding SelectedToAirport}" />
+                        </Grid>
 
-                        <Border
-                            Grid.Column="3"
-                            Margin="0,0,10,0"
-                            BorderBrush="Black"
-                            BorderThickness="1">
-                            <Grid Margin="0,0,10,0">
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="*" />
-                                    <ColumnDefinition Width="*" />
-                                </Grid.ColumnDefinitions>
+                        <Grid Grid.Column="3" Margin="0,0,10,0">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*" />
+                                <RowDefinition Height="*" />
+                            </Grid.RowDefinitions>
+                            <!--  Title  -->
+                            <Border
+                                Grid.Row="0"
+                                Background="green"
+                                CornerRadius="10">
                                 <TextBlock
-                                    Grid.Column="0"
-                                    Margin="0,10,0,0"
                                     HorizontalAlignment="Center"
-                                    FontSize="12"
-                                    FontWeight="ExtraLight"
+                                    VerticalAlignment="Center"
+                                    Style="{StaticResource Title}"
                                     Text="Ngày bay" />
-                                <DatePicker
-                                    x:Name="FlyDatePicker"
-                                    Grid.Column="1"
-                                    VerticalAlignment="Top"
-                                    SelectedDate="{Binding SelectedFlyDate}" />
-                            </Grid>
-                        </Border>
-                        <Border
-                            Grid.Column="4"
-                            Margin="0,0,10,0"
-                            BorderBrush="Black"
-                            BorderThickness="1">
+                            </Border>
+                            <!--  Input  -->
+                            <DatePicker
+                                x:Name="FlyDatePicker"
+                                Grid.Row="1"
+                                FontSize="19"
+                                Foreground="#555"
+                                SelectedDate="{Binding SelectedFlyDate}" />
+                        </Grid>
+                        <Grid Grid.Column="4" Margin="0,0,10,0">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*" />
+                                <RowDefinition Height="*" />
+                            </Grid.RowDefinitions>
+                            <!--  Title  -->
+                            <Border
+                                Grid.Row="0"
+                                Background="green"
+                                CornerRadius="10">
+                                <TextBlock
+                                    HorizontalAlignment="Center"
+                                    VerticalAlignment="Center"
+                                    Style="{StaticResource Title}"
+                                    Text="Hạng vé" />
+                            </Border>
+                            <!--  Input  -->
                             <ComboBox
                                 x:Name="TicketClassComboBox"
-                                VerticalAlignment="Top"
+                                Grid.Row="1"
+                                materialDesign:HintAssist.Hint="Hạng vé"
+                                FontSize="19"
+                                Foreground="#555"
                                 ItemsSource="{Binding TicketClasses}"
-                                SelectedItem="{Binding SelectedTicketClass}"
-                                materialDesign:HintAssist.Hint="Hạng vé" />
-                        </Border>
+                                SelectedItem="{Binding SelectedTicketClass}" />
+                        </Grid>
                     </Grid>
                 </Border>
-                <Button
-                    x:Name="SearchBtn"
-                    Grid.Row="2"
-                    Width="200"
-                    Command="{Binding SearchCommand}">
-                    Tìm kiếm
-                </Button>
+                <Grid Grid.Row="2">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Image
+                        Grid.Column="0"
+                        HorizontalAlignment="Center"
+                        Source="/Images/img_plane1.png" />
+                    <Button
+                        x:Name="SearchBtn"
+                        Grid.Column="1"
+                        Width="200"
+                        Height="60"
+                        Command="{Binding SearchCommand}"
+                        Style="{StaticResource confirmButton}">
+                        <TextBlock
+                            FontFamily="Roboto"
+                            FontSize="21"
+                            FontWeight="SemiBold"
+                            Foreground="#FFF"
+                            Text="Tìm kiếm" />
+                    </Button>
+                </Grid>
 
                 <Border
                     Grid.Row="3"
-                    Background="White"
-                    BorderBrush="Black"
-                    BorderThickness="1">
+                    Background="#FFF"
+                    CornerRadius="15">
                     <Grid>
                         <Grid.RowDefinitions>
                             <RowDefinition Height="auto" />
@@ -152,10 +254,15 @@
                         </Grid>
                         <DataGrid
                             Grid.Row="1"
-                            Margin="0,0,0,0"
+                            Margin="0,10,0,0"
+                            Padding="0,0,20,0"
                             AutoGenerateColumns="False"
                             CanUserSortColumns="False"
-                            ItemsSource="{Binding FilteredFlights}">
+                            CellStyle="{DynamicResource DataGridCellStyle}"
+                            ColumnHeaderStyle="{StaticResource DataGridColumnHeaderStyle}"
+                            ItemsSource="{Binding FilteredFlights}"
+                            RowStyle="{DynamicResource DataGridRowStyle}"
+                            Style="{DynamicResource DataGridStyle}">
                             <DataGrid.Columns>
                                 <DataGridTextColumn
                                     Width="*"

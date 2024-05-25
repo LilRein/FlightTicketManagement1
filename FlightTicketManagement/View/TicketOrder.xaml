@@ -176,7 +176,7 @@
                             DisplayMemberPath="MaChuyenBay"
                             FontSize="21"
                             Foreground="#555"
-                            ItemsSource="{Binding FlightIDList}"
+                            ItemsSource="{Binding FilteredFlightIDList}"
                             SelectedItem="{Binding SelectedMACHUYENBAY, UpdateSourceTrigger=PropertyChanged}" />
                     </Grid>
                     <!--  Mã ghế  -->
