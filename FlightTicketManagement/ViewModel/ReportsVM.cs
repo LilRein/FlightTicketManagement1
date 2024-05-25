@@ -101,7 +101,7 @@ namespace FlightTicketManagement.ViewModel
             var YearList = DataProvider.Ins.DB.CTDOANHTHUNAMs;
             SelectedYear = new ObservableCollection<int>();
 
-            SelectedYear.Add(0);
+            //SelectedYear.Add(0);
 
             foreach (var year in YearList)
             {
