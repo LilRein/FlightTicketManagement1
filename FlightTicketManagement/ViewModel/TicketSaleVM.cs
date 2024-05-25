@@ -138,7 +138,7 @@ namespace FlightTicketManagement.ViewModel
             }
 
             MessageBoxResult cancelConfirm = MessageBox.Show("Bạn có chắc chắn muốn huỷ phiếu đặt chỗ này?", "Notification", MessageBoxButton.YesNo, MessageBoxImage.Question);
-            if (cancelConfirm == MessageBoxResult.Yes)
+            if (SelectedOrder.TinhTrang == "Đã đặt" && cancelConfirm == MessageBoxResult.Yes)
             {
                 // Update the status of the selected order to "Đã huỷ"
                 SelectedOrder.TinhTrang = "Đã huỷ";
@@ -156,6 +156,9 @@ namespace FlightTicketManagement.ViewModel
 
                 // Refresh the OrderList to reflect changes
                 OrderList = new ObservableCollection<PHIEUDATCHO>(DataProvider.Ins.DB.PHIEUDATCHOes);
+            } else
+            {
+                MessageBox.Show($"Có lỗi xảy ra: ", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
 
@@ -184,6 +187,23 @@ namespace FlightTicketManagement.ViewModel
                 MessageBox.Show("Bạn nhập thiếu thông tin!!", "Notification", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }
+
+            var existingTicket = DataProvider.Ins.DB.VECHUYENBAYs.FirstOrDefault(h => h.MaVe == MaVe);
+            if (existingTicket != null)
+            {
+                MessageBox.Show("Mã vé đã tồn tại!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+
+            // Kiểm tra NgayXuatVe với NgayDat của PHIEUDATCHO
+            var phieuDatCho = DataProvider.Ins.DB.PHIEUDATCHOes
+                                .FirstOrDefault(p => p.MaHanhKhach == MaHanhKhach && p.MaChuyenBay == MaChuyenBay && p.MaGhe == MaGhe);
+
+            if (phieuDatCho != null && NgayXuatVe < phieuDatCho.NgayDat)
+            {
+                MessageBox.Show("Lỗi: Ngày xuất vé không thể nhỏ hơn ngày đặt vé!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
             MessageBoxResult addFliNoti = MessageBox.Show("Bạn muốn xuất vé?", "Notification", MessageBoxButton.YesNo);
             if (addFliNoti == MessageBoxResult.Yes)
             {
@@ -202,6 +222,7 @@ namespace FlightTicketManagement.ViewModel
 
                 //TicketList.Add(vechuyenbay);
                 MessageBox.Show("Vé chuyến bay đã được xuất thành công!");
+                OrderList = new ObservableCollection<PHIEUDATCHO>(DataProvider.Ins.DB.PHIEUDATCHOes.ToList());
             }
         }
 

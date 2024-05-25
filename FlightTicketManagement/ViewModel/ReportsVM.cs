@@ -79,7 +79,10 @@ namespace FlightTicketManagement.ViewModel
             var MonthList = DataProvider.Ins.DB.CTDOANHTHUTHANGs;
             SelectedMonth = new ObservableCollection<int>();
 
-            SelectedMonth.Add(0);
+            for (int i = 1; i <= 12; i++)
+            {
+                SelectedMonth.Add(i);
+            }
 
             foreach (var month in MonthList)
             {
@@ -90,10 +93,7 @@ namespace FlightTicketManagement.ViewModel
                 monthReport.Profit = month.DoanhThuThang;
                 monthReport.Ratio = month.TiLeThang;
                 MonthReportList.Add(monthReport);
-                if (!SelectedMonth.Contains(month.Thang))
-                {
-                    SelectedMonth.Add(month.Thang);
-                }
+                
             }
 
             YearReportList = new ObservableCollection<YearReport>();
@@ -118,6 +118,7 @@ namespace FlightTicketManagement.ViewModel
                     SelectedYear.Add(year.Nam);
                 }
             }
+
         }
         //----------------------------------------------------------------------------------------------------------
         //----------------------------------------------------------------------------------------------------------
