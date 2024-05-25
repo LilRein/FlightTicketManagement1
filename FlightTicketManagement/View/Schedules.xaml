@@ -207,31 +207,37 @@
                                 <DataGridTextColumn
                                     Width="*"
                                     Binding="{Binding MaChuyenBay}"
+                                    ElementStyle="{StaticResource CenterTextStyle}"
                                     Header="Mã chuyến bay"
                                     IsReadOnly="True" />
                                 <DataGridTextColumn
                                     Width="*"
                                     Binding="{Binding MaSanBayDi}"
+                                    ElementStyle="{StaticResource CenterTextStyle}"
                                     Header="Mã sân bay đi"
                                     IsReadOnly="True" />
                                 <DataGridTextColumn
                                     Width="*"
                                     Binding="{Binding MaSanBayDen}"
+                                    ElementStyle="{StaticResource CenterTextStyle}"
                                     Header="Mã sân bay đến"
                                     IsReadOnly="True" />
                                 <DataGridTextColumn
                                     Width="*"
                                     Binding="{Binding NgayBay, StringFormat='dd/MM/yyyy'}"
+                                    ElementStyle="{StaticResource CenterTextStyle}"
                                     Header="Ngày bay"
                                     IsReadOnly="True" />
                                 <DataGridTextColumn
                                     Width="*"
                                     Binding="{Binding GioKhoiHanh}"
+                                    ElementStyle="{StaticResource CenterTextStyle}"
                                     Header="Giờ khởi hành"
                                     IsReadOnly="True" />
                                 <DataGridTextColumn
                                     Width="*"
                                     Binding="{Binding DonGia, StringFormat={}{0:N0} VND}"
+                                    ElementStyle="{StaticResource CenterTextStyle}"
                                     Header="Đơn giá"
                                     IsReadOnly="True" />
                                 <!--  Action  -->
