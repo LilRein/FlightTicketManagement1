@@ -96,6 +96,7 @@ namespace FlightTicketManagement.ViewModel
             {
                 _SelectedTUYENBAY = value;
                 OnPropertyChanged();
+                UpdateSanBayFromTuyenBay();
             }
         }
 
@@ -199,55 +200,68 @@ namespace FlightTicketManagement.ViewModel
                 return;
             }
 
-            MessageBoxResult addFliNoti = MessageBox.Show("Bạn muốn thêm chuyến bay?", "Notification", MessageBoxButton.YesNo);
-            if (addFliNoti == MessageBoxResult.Yes)
+            if (!IsSanBayMatchingTuyenBay())
             {
-                var chuyenbay = new CHUYENBAY()
+                MessageBox.Show("Sân bay đi và sân bay đến không khớp với mã tuyến bay!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+
+            try
+            {
+                MessageBoxResult addFliNoti = MessageBox.Show("Bạn muốn thêm chuyến bay?", "Notification", MessageBoxButton.YesNo);
+                if (addFliNoti == MessageBoxResult.Yes)
                 {
-                    MaChuyenBay = MaChuyenBay,
-                    MaTuyenBay = SelectedTUYENBAY.MaTuyenBay,
-                    MaSanBayDi = SelectedSANBAYDI.MaSanBay,
-                    MaSanBayDen = SelectedSANBAYDEN.MaSanBay,
-                    MaMayBay = SelectedMAYBAY.MaMayBay,
-                    NgayBay = NgayBay,
-                    GioKhoiHanh = GioKhoiHanh,
-                    ThoiLuong = ThoiLuong,
-                    DonGia = DonGia
-                };
-
-                DataProvider.Ins.DB.CHUYENBAYs.Add(chuyenbay);
-                DataProvider.Ins.DB.SaveChanges();
-
-                // Add seat class details
-                foreach (var hangVe in HangVeList)
-                {
-                    hangVe.MaChuyenBay = MaChuyenBay;
-                    var existingHangVe = DataProvider.Ins.DB.CHITIETHANGVEs
-                        .FirstOrDefault(x => x.MaChuyenBay == hangVe.MaChuyenBay && x.MaHangVe == hangVe.MaHangVe);
-
-                    if (existingHangVe == null)
+                    var chuyenbay = new CHUYENBAY()
                     {
-                        DataProvider.Ins.DB.CHITIETHANGVEs.Add(hangVe);
+                        MaChuyenBay = MaChuyenBay,
+                        MaTuyenBay = SelectedTUYENBAY.MaTuyenBay,
+                        MaSanBayDi = SelectedSANBAYDI.MaSanBay,
+                        MaSanBayDen = SelectedSANBAYDEN.MaSanBay,
+                        MaMayBay = SelectedMAYBAY.MaMayBay,
+                        NgayBay = NgayBay,
+                        GioKhoiHanh = GioKhoiHanh,
+                        ThoiLuong = ThoiLuong,
+                        DonGia = DonGia
+                    };
+
+                    DataProvider.Ins.DB.CHUYENBAYs.Add(chuyenbay);
+                    DataProvider.Ins.DB.SaveChanges();
+
+                    // Add seat class details
+                    foreach (var hangVe in HangVeList)
+                    {
+                        hangVe.MaChuyenBay = MaChuyenBay;
+                        var existingHangVe = DataProvider.Ins.DB.CHITIETHANGVEs
+                            .FirstOrDefault(x => x.MaChuyenBay == hangVe.MaChuyenBay && x.MaHangVe == hangVe.MaHangVe);
+
+                        if (existingHangVe == null)
+                        {
+                            DataProvider.Ins.DB.CHITIETHANGVEs.Add(hangVe);
+                        }
+                        else
+                        {
+                            existingHangVe.SoGheChoHangVe = hangVe.SoGheChoHangVe;
+                            DataProvider.Ins.DB.Entry(existingHangVe).State = System.Data.Entity.EntityState.Modified;
+                        }
                     }
-                    else
+
+                    DataProvider.Ins.DB.SaveChanges();
+
+                    CHUYENBAYList.Add(chuyenbay);
+                    MessageBox.Show("Chuyến bay đã được thêm thành công!", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
+
+                    // Đóng cửa sổ sau khi thêm thành công
+                    var window = Window.GetWindow(parameter);
+                    if (window != null)
                     {
-                        existingHangVe.SoGheChoHangVe = hangVe.SoGheChoHangVe;
-                        DataProvider.Ins.DB.Entry(existingHangVe).State = System.Data.Entity.EntityState.Modified;
+                        window.DialogResult = true;
+                        window.Close();
                     }
                 }
-
-                DataProvider.Ins.DB.SaveChanges();
-
-                CHUYENBAYList.Add(chuyenbay);
-                MessageBox.Show("Chuyến bay đã được thêm thành công!");
-
-                // Đóng cửa sổ sau khi thêm thành công
-                var window = Window.GetWindow(parameter);
-                if (window != null)
-                {
-                    window.DialogResult = true;
-                    window.Close();
-                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Đã xảy ra lỗi khi thêm chuyến bay: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
 
@@ -263,44 +277,93 @@ namespace FlightTicketManagement.ViewModel
                 return;
             }
 
-            var chuyenbay = DataProvider.Ins.DB.CHUYENBAYs.FirstOrDefault(x => x.MaChuyenBay == MaChuyenBay);
-            if (chuyenbay != null)
+            if (!IsSanBayMatchingTuyenBay())
             {
-                chuyenbay.MaTuyenBay = SelectedTUYENBAY.MaTuyenBay;
-                chuyenbay.MaSanBayDi = SelectedSANBAYDI.MaSanBay;
-                chuyenbay.MaSanBayDen = SelectedSANBAYDEN.MaSanBay;
-                chuyenbay.MaMayBay = SelectedMAYBAY.MaMayBay;
-                chuyenbay.NgayBay = NgayBay;
-                chuyenbay.GioKhoiHanh = GioKhoiHanh;
-                chuyenbay.ThoiLuong = ThoiLuong;
-                chuyenbay.DonGia = DonGia;
+                MessageBox.Show("Sân bay đi và sân bay đến không khớp với mã tuyến bay!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
 
-                // Update seat class details
-                var existingHangVeList = DataProvider.Ins.DB.CHITIETHANGVEs.Where(x => x.MaChuyenBay == MaChuyenBay).ToList();
-                foreach (var hangVe in HangVeList)
+            try
+            {
+                var chuyenbay = DataProvider.Ins.DB.CHUYENBAYs.FirstOrDefault(x => x.MaChuyenBay == MaChuyenBay);
+                if (chuyenbay != null)
                 {
-                    var existingHangVe = existingHangVeList.FirstOrDefault(x => x.MaHangVe == hangVe.MaHangVe);
-                    if (existingHangVe != null)
+                    chuyenbay.MaTuyenBay = SelectedTUYENBAY.MaTuyenBay;
+                    chuyenbay.MaSanBayDi = SelectedSANBAYDI.MaSanBay;
+                    chuyenbay.MaSanBayDen = SelectedSANBAYDEN.MaSanBay;
+                    chuyenbay.MaMayBay = SelectedMAYBAY.MaMayBay;
+                    chuyenbay.NgayBay = NgayBay;
+                    chuyenbay.GioKhoiHanh = GioKhoiHanh;
+                    chuyenbay.ThoiLuong = ThoiLuong;
+                    chuyenbay.DonGia = DonGia;
+
+                    // Update seat class details
+                    var existingHangVeList = DataProvider.Ins.DB.CHITIETHANGVEs.Where(x => x.MaChuyenBay == MaChuyenBay).ToList();
+                    foreach (var hangVe in HangVeList)
                     {
-                        existingHangVe.SoGheChoHangVe = hangVe.SoGheChoHangVe;
-                        DataProvider.Ins.DB.Entry(existingHangVe).State = System.Data.Entity.EntityState.Modified;
+                        var existingHangVe = existingHangVeList.FirstOrDefault(x => x.MaHangVe == hangVe.MaHangVe);
+                        if (existingHangVe != null)
+                        {
+                            existingHangVe.SoGheChoHangVe = hangVe.SoGheChoHangVe;
+                            DataProvider.Ins.DB.Entry(existingHangVe).State = System.Data.Entity.EntityState.Modified;
+                        }
+                        else
+                        {
+                            hangVe.MaChuyenBay = MaChuyenBay;
+                            DataProvider.Ins.DB.CHITIETHANGVEs.Add(hangVe);
+                        }
                     }
-                    else
+
+                    DataProvider.Ins.DB.SaveChanges();
+                    MessageBox.Show("Chuyến bay đã được cập nhật thành công!", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
+
+                    // Đóng cửa sổ sau khi chỉnh sửa thành công
+                    var window = Window.GetWindow(parameter);
+                    if (window != null)
                     {
-                        hangVe.MaChuyenBay = MaChuyenBay;
-                        DataProvider.Ins.DB.CHITIETHANGVEs.Add(hangVe);
+                        window.DialogResult = true;
+                        window.Close();
                     }
                 }
-
-                DataProvider.Ins.DB.SaveChanges();
-                MessageBox.Show("Chuyến bay đã được cập nhật thành công!");
-
-                // Đóng cửa sổ sau khi chỉnh sửa thành công
-                var window = Window.GetWindow(parameter);
-                if (window != null)
+                else
                 {
-                    window.DialogResult = true;
-                    window.Close();
+                    MessageBox.Show("Chuyến bay không tồn tại!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Đã xảy ra lỗi khi cập nhật chuyến bay: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+
+        private bool IsSanBayMatchingTuyenBay()
+        {
+            if (SelectedTUYENBAY != null && SelectedSANBAYDI != null && SelectedSANBAYDEN != null)
+            {
+                var tuyenBayParts = SelectedTUYENBAY.MaTuyenBay.Split('-');
+                if (tuyenBayParts.Length == 2)
+                {
+                    var sanBayDiMa = tuyenBayParts[0].Trim();
+                    var sanBayDenMa = tuyenBayParts[1].Trim();
+
+                    return sanBayDiMa == SelectedSANBAYDI.MaSanBay.Trim() && sanBayDenMa == SelectedSANBAYDEN.MaSanBay.Trim();
+                }
+            }
+            return false;
+        }
+
+        private void UpdateSanBayFromTuyenBay()
+        {
+            if (SelectedTUYENBAY != null)
+            {
+                var tuyenBayParts = SelectedTUYENBAY.MaTuyenBay.Split('-');
+                if (tuyenBayParts.Length == 2)
+                {
+                    var sanBayDiMa = tuyenBayParts[0].Trim();
+                    var sanBayDenMa = tuyenBayParts[1].Trim();
+
+                    SelectedSANBAYDI = SANBAY.FirstOrDefault(sb => sb.MaSanBay.Trim() == sanBayDiMa);
+                    SelectedSANBAYDEN = SANBAY.FirstOrDefault(sb => sb.MaSanBay.Trim() == sanBayDenMa);
                 }
             }
         }
