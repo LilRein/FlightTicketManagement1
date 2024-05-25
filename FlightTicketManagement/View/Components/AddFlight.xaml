@@ -99,7 +99,7 @@
                     materialDesign:HintAssist.Hint="Chọn mã tuyến bay"
                     DisplayMemberPath="MaTuyenBay"
                     FontFamily="Roboto"
-                    FontSize="15"
+                    FontSize="19"
                     Foreground="#555"
                     ItemsSource="{Binding TUYENBAY}"
                     SelectedItem="{Binding SelectedTUYENBAY, UpdateSourceTrigger=PropertyChanged}" />
@@ -118,7 +118,7 @@
                     materialDesign:HintAssist.Hint="Hãy chọn mã máy bay"
                     DisplayMemberPath="MaMayBay"
                     FontFamily="Roboto"
-                    FontSize="15"
+                    FontSize="19"
                     Foreground="#555"
                     ItemsSource="{Binding MAYBAY}"
                     SelectedItem="{Binding SelectedMAYBAY, UpdateSourceTrigger=PropertyChanged}" />
@@ -137,7 +137,7 @@
                     materialDesign:HintAssist.Hint="Hãy chọn sân bay"
                     DisplayMemberPath="MaSanBay"
                     FontFamily="Roboto"
-                    FontSize="15"
+                    FontSize="19"
                     Foreground="#555"
                     ItemsSource="{Binding SANBAY}"
                     SelectedItem="{Binding SelectedSANBAYDI, UpdateSourceTrigger=PropertyChanged}" />
@@ -156,7 +156,7 @@
                     materialDesign:HintAssist.Hint="Hãy chọn sân bay"
                     DisplayMemberPath="MaSanBay"
                     FontFamily="Roboto"
-                    FontSize="15"
+                    FontSize="19"
                     Foreground="#555"
                     ItemsSource="{Binding SANBAY}"
                     SelectedItem="{Binding SelectedSANBAYDEN, UpdateSourceTrigger=PropertyChanged}" />
@@ -173,6 +173,8 @@
                     Margin="0,55,0,0"
                     VerticalAlignment="Top"
                     BorderThickness="0,0,0,1"
+                    FontSize="19"
+                    Foreground="#555"
                     SelectedDate="{Binding NgayBay, UpdateSourceTrigger=PropertyChanged}" />
             </Grid>
 
@@ -187,6 +189,8 @@
                     Margin="0,61,0,0"
                     VerticalAlignment="Top"
                     BorderThickness="0,0,0,1"
+                    FontSize="19"
+                    Foreground="#555"
                     Style="{StaticResource Input}"
                     Text="{Binding GioKhoiHanh, UpdateSourceTrigger=PropertyChanged}" />
             </Grid>
@@ -203,6 +207,8 @@
                     VerticalAlignment="Top"
                     materialDesign:HintAssist.Hint="Nhập thời lượng"
                     BorderThickness="0,0,0,1"
+                    FontSize="19"
+                    Foreground="#555"
                     Style="{StaticResource Input}"
                     Text="{Binding ThoiLuong, UpdateSourceTrigger=PropertyChanged}" />
             </Grid>
@@ -219,6 +225,8 @@
                     VerticalAlignment="Top"
                     materialDesign:HintAssist.Hint="Nhập đơn giá"
                     BorderThickness="0,0,0,1"
+                    FontSize="19"
+                    Foreground="#555"
                     Style="{StaticResource Input}"
                     Text="{Binding DonGia, UpdateSourceTrigger=PropertyChanged}"
                     TextAlignment="Center" />
