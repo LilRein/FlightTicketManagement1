@@ -119,7 +119,6 @@ namespace FlightTicketManagement.ViewModel
                 }
             }
         }
-
         private void FilterSeatsByFlight(string maChuyenBay)
         {
             // Ensure that SeatIDList contains all seats initially
@@ -136,6 +135,7 @@ namespace FlightTicketManagement.ViewModel
                 SeatIDList = new ObservableCollection<DANHSACHGHECUAMAYBAY>(filteredSeats);
             }
         }
+
 
         private DANHSACHGHECUAMAYBAY _SelectedMAGHE;
         public DANHSACHGHECUAMAYBAY SelectedMAGHE
@@ -180,6 +180,8 @@ namespace FlightTicketManagement.ViewModel
         private string _TinhTrang;
         public string TinhTrang { get => _TinhTrang; set { _TinhTrang = value; OnPropertyChanged(); } }
 
+
+
         private ObservableCollection<HANHKHACH> _CustomerList;
         public ObservableCollection<HANHKHACH> CustomerList
         {
@@ -209,9 +211,6 @@ namespace FlightTicketManagement.ViewModel
         }
         public TicketOrderVM()
         {
-            NgayDat = DateTime.Today;
-
-
             OrderFlightList = new ObservableCollection<PHIEUDATCHO>(DataProvider.Ins.DB.PHIEUDATCHOes);
             ClassFlightList = new ObservableCollection<HANGVE>(DataProvider.Ins.DB.HANGVEs);
             FlightIDList = new ObservableCollection<CHUYENBAY>(DataProvider.Ins.DB.CHUYENBAYs);
@@ -229,9 +228,8 @@ namespace FlightTicketManagement.ViewModel
             ConfirmInfor = new RelayCommand<TicketOrder>((p) => true, (p) => _confirmInfor());
             CancelInfor = new RelayCommand<TicketOrder>((p) => true, (p) => _cancelInfor(p));
 
+            NgayDat = DateTime.Today;
             _pageModel = new PageModel();
-
-            
             // Initialize FilteredFlightIDList
             FilteredFlightIDList = new ObservableCollection<CHUYENBAY>(_FlightIDList);
         }
