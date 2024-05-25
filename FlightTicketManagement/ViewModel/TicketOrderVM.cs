@@ -111,8 +111,31 @@ namespace FlightTicketManagement.ViewModel
             {
                 _SelectedMACHUYENBAY = value;
                 OnPropertyChanged();
+                if (_SelectedMACHUYENBAY != null)
+                {
+
+                    // Lọc danh sách mã ghế theo mã chuyến bay đã chọn
+                    FilterSeatsByFlight(_SelectedMACHUYENBAY.MaChuyenBay);
+                }
             }
         }
+        private void FilterSeatsByFlight(string maChuyenBay)
+        {
+            // Ensure that SeatIDList contains all seats initially
+            var allSeats = DataProvider.Ins.DB.DANHSACHGHECUAMAYBAYs.ToList();
+
+            // Get the MaMayBay of the selected flight
+            var selectedFlight = FlightIDList.FirstOrDefault(f => f.MaChuyenBay == maChuyenBay);
+            if (selectedFlight != null)
+            {
+                var maMayBay = selectedFlight.MaMayBay;
+
+                // Filter seats by MaMayBay
+                var filteredSeats = allSeats.Where(seat => seat.MaMayBay == maMayBay).ToList();
+                SeatIDList = new ObservableCollection<DANHSACHGHECUAMAYBAY>(filteredSeats);
+            }
+        }
+
 
         private DANHSACHGHECUAMAYBAY _SelectedMAGHE;
         public DANHSACHGHECUAMAYBAY SelectedMAGHE
@@ -157,6 +180,8 @@ namespace FlightTicketManagement.ViewModel
         private string _TinhTrang;
         public string TinhTrang { get => _TinhTrang; set { _TinhTrang = value; OnPropertyChanged(); } }
 
+
+
         private ObservableCollection<HANHKHACH> _CustomerList;
         public ObservableCollection<HANHKHACH> CustomerList
         {
@@ -194,7 +219,7 @@ namespace FlightTicketManagement.ViewModel
             {
                 "Đã đặt",
                 "Đã bán",
-                "Bị huỷ",
+                "Đã huỷ",
             };
             CustomerList = new ObservableCollection<HANHKHACH>(DataProvider.Ins.DB.HANHKHACHes);
 
@@ -203,6 +228,7 @@ namespace FlightTicketManagement.ViewModel
             ConfirmInfor = new RelayCommand<TicketOrder>((p) => true, (p) => _confirmInfor());
             CancelInfor = new RelayCommand<TicketOrder>((p) => true, (p) => _cancelInfor(p));
 
+            NgayDat = DateTime.Today;
             _pageModel = new PageModel();
             // Initialize FilteredFlightIDList
             FilteredFlightIDList = new ObservableCollection<CHUYENBAY>(_FlightIDList);

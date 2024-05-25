@@ -38,31 +38,29 @@
                             VerticalAlignment="Center"
                             FontSize="20"
                             FontWeight="Bold"
-                            Text="Báo cáo doanh thu theo tháng" />
+                            Text="Báo cáo doanh thu tháng" />
                     </Grid>
-                        <ComboBox
-                            Grid.Row="0"
+                    <ComboBox
                             Grid.Column="1"
                             x:Name="DataCbMonth"
-                            Margin="897,9,9.8,9.2"
+                            Margin="902,0,10,0"
                             ItemsSource="{Binding SelectedMonth}"
                             SelectedItem="{Binding SelectedMonthItem, Mode=TwoWay}"
                             DisplayMemberPath=""
                             IsEditable="False"
-                            IsSynchronizedWithCurrentItem="True"/>
-                        <ComboBox
-                            Grid.Row="0"
+                            IsSynchronizedWithCurrentItem="True" />
+                    <ComboBox
                             Grid.Column="1"
                             x:Name="DataCbMonth_1"
-                            Margin="597,9,250,9.2"
+                            Margin="662,0,250,0"
                             ItemsSource="{Binding SelectedYear}"
                             SelectedItem="{Binding SelectedYearItemTop, Mode=TwoWay}"
                             DisplayMemberPath=""
                             IsEditable="False"
-                            IsSynchronizedWithCurrentItem="True"/>  
+                            IsSynchronizedWithCurrentItem="True"/>
 
 
-                    
+
                     <Grid Grid.Row="1" Grid.Column="1">
                         <ProgressBar
                             x:Name="pbMonthReport"
@@ -97,7 +95,8 @@
                                 <DataGridTextColumn
                                     Width="*"
                                     Binding="{Binding Profit}"
-                                    Header="Lợi nhuận (VNĐ)" />
+                                    Header="Lợi nhuận (VNĐ)"
+                                    SortDirection="Ascending" />
                                 <DataGridTextColumn
                                     Width="*"
                                     Binding="{Binding Ratio}"
@@ -116,12 +115,12 @@
 
                         <ComboBox
                             x:Name="DataCbYear"
-                            Margin="897,9,9.8,9.2"
+                            Margin="902,0,10,0"
                             ItemsSource="{Binding SelectedYear}"
                             SelectedItem="{Binding SelectedYearItem, Mode=TwoWay}"
                             DisplayMemberPath=""
                             IsEditable="False"
-                            IsSynchronizedWithCurrentItem="True"/>  
+                            IsSynchronizedWithCurrentItem="True"/>
                     </Grid>
                     <Grid Grid.Row="3" Grid.Column="1">
                         <ProgressBar
@@ -143,15 +142,15 @@
                             VerticalScrollBarVisibility="Auto"
                             ItemsSource="{Binding YearReportList}"
                             Visibility="{Binding YearReportList}">
-                            
+
                             <DataGrid.Columns>
-                                
-                            <DataGridTextColumn
+
+                                <DataGridTextColumn
                                     Width="*"
                                     Binding="{Binding Year}"
                                     Header="Năm"
-                                    SortDirection="Ascending" />            
-                            <DataGridTextColumn
+                                    SortDirection="Ascending" />
+                                <DataGridTextColumn
                                     Width="*"
                                     Binding="{Binding Month}"
                                     Header="Tháng"
