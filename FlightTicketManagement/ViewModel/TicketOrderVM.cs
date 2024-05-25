@@ -111,6 +111,29 @@ namespace FlightTicketManagement.ViewModel
             {
                 _SelectedMACHUYENBAY = value;
                 OnPropertyChanged();
+                if (_SelectedMACHUYENBAY != null)
+                {
+
+                    // Lọc danh sách mã ghế theo mã chuyến bay đã chọn
+                    FilterSeatsByFlight(_SelectedMACHUYENBAY.MaChuyenBay);
+                }
+            }
+        }
+
+        private void FilterSeatsByFlight(string maChuyenBay)
+        {
+            // Ensure that SeatIDList contains all seats initially
+            var allSeats = DataProvider.Ins.DB.DANHSACHGHECUAMAYBAYs.ToList();
+
+            // Get the MaMayBay of the selected flight
+            var selectedFlight = FlightIDList.FirstOrDefault(f => f.MaChuyenBay == maChuyenBay);
+            if (selectedFlight != null)
+            {
+                var maMayBay = selectedFlight.MaMayBay;
+
+                // Filter seats by MaMayBay
+                var filteredSeats = allSeats.Where(seat => seat.MaMayBay == maMayBay).ToList();
+                SeatIDList = new ObservableCollection<DANHSACHGHECUAMAYBAY>(filteredSeats);
             }
         }
 
