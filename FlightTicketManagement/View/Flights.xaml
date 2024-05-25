@@ -217,13 +217,10 @@
                         <ColumnDefinition Width="*" />
                         <ColumnDefinition Width="*" />
                     </Grid.ColumnDefinitions>
-                    <Image
-                        Grid.Column="0"
-                        HorizontalAlignment="Center"
-                        Source="/Images/img_plane1.png" />
+
                     <Button
                         x:Name="SearchBtn"
-                        Grid.Column="1"
+                        Grid.Column="0"
                         Width="200"
                         Height="60"
                         Command="{Binding SearchCommand}"
@@ -234,6 +231,21 @@
                             FontWeight="SemiBold"
                             Foreground="#FFF"
                             Text="Tìm kiếm" />
+                    </Button>
+
+                    <Button
+                        x:Name="ResetBtn"
+                        Grid.Column="1"
+                        Width="200"
+                        Height="60"
+                        Command="{Binding ResetCommand}"
+                        Style="{StaticResource confirmButton}">
+                        <TextBlock
+                            FontFamily="Roboto"
+                            FontSize="21"
+                            FontWeight="SemiBold"
+                            Foreground="#FFF"
+                            Text="Hủy lọc" />
                     </Button>
                 </Grid>
 
@@ -270,31 +282,31 @@
                             Style="{DynamicResource DataGridStyle}">
                             <DataGrid.Columns>
                                 <DataGridTextColumn
-                                    Width="*"
+                                    Width="1.2*"
                                     Binding="{Binding MaChuyenBay}"
                                     ElementStyle="{StaticResource CenterTextStyle}"
                                     Header="Mã chuyến bay"
                                     IsReadOnly="True" />
                                 <DataGridTextColumn
-                                    Width="1.5*"
+                                    Width="1*"
                                     Binding="{Binding MaSanBayDi}"
                                     ElementStyle="{StaticResource CenterTextStyle}"
                                     Header="Sân bay đi"
                                     IsReadOnly="True" />
                                 <DataGridTextColumn
-                                    Width="1.5*"
+                                    Width="1*"
                                     Binding="{Binding MaSanBayDen}"
                                     ElementStyle="{StaticResource CenterTextStyle}"
                                     Header="Sân bay đến"
                                     IsReadOnly="True" />
                                 <DataGridTextColumn
-                                    Width="1.5*"
+                                    Width="2*"
                                     Binding="{Binding NgayBay}"
                                     ElementStyle="{StaticResource CenterTextStyle}"
                                     Header="Ngày bay"
                                     IsReadOnly="True" />
                                 <DataGridTextColumn
-                                    Width="*"
+                                    Width="1.5*"
                                     Binding="{Binding GioKhoiHanh}"
                                     ElementStyle="{StaticResource CenterTextStyle}"
                                     Header="Giờ khởi hành"
