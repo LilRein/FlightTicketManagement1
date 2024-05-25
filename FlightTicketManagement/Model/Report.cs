@@ -22,5 +22,6 @@ namespace FlightTicketManagement.Model
         public CTDOANHTHUNAM TicketNum { get; set; }
         public decimal Profit { get; set; }
         public double Ratio { get; set; }
+        public decimal TotalRevenue { get; internal set; }
     }
 }

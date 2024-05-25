@@ -191,7 +191,7 @@
                                 <DataGridTextColumn Header="Đơn giá"
                                                     IsReadOnly="True"
                                                     Width="*"
-                                                    Binding="{Binding DonGia}"/>
+                                                    Binding="{Binding DonGia, StringFormat={}{0:N0} VND}"/>
                                 <!-- Action -->
                                 <DataGridTemplateColumn Header="Action"
                                                         IsReadOnly="True"

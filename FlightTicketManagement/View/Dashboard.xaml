@@ -30,45 +30,45 @@
                     <!-- User Info -->
                     <Border Grid.Row="0" Grid.Column="0" CornerRadius="10" Background="#4CAF50" Padding="20" Margin="10" Effect="{DynamicResource MaterialDesignElevationShadow}">
                         <StackPanel HorizontalAlignment="Center">
-                            <Icon:PackIconMaterial Kind="Account" Width="60" Height="60" Foreground="#FFFFFF"/>
+                            <Icon:PackIconMaterial Kind="Account" Width="111" Height="60" Foreground="#FFFFFF"/>
                             <TextBlock Text="User Name" Foreground="#FFFFFF" FontSize="20" FontWeight="Bold" Margin="10,5,0,0"/>
-                            <TextBlock Text="Test" Foreground="#FFFFFF" FontSize="16"/>
+                            <TextBlock Text="Test" Foreground="#FFFFFF" FontSize="16" HorizontalAlignment="Center"/>
                         </StackPanel>
                     </Border>
 
                     <!-- Weather Info -->
                     <Border Grid.Row="0" Grid.Column="1" CornerRadius="10" Background="#2196F3" Padding="20" Margin="10" Effect="{DynamicResource MaterialDesignElevationShadow}">
                         <StackPanel HorizontalAlignment="Center">
-                            <Icon:PackIconMaterial Kind="WeatherCloudy" Width="60" Height="60" Foreground="#FFFFFF"/>
+                            <Icon:PackIconMaterial Kind="WeatherCloudy" Width="171" Height="60" Foreground="#FFFFFF"/>
                             <TextBlock Text="Current Weather" Foreground="#FFFFFF" FontSize="20" FontWeight="Bold" Margin="10,5,0,0"/>
-                            <TextBlock Text="Cloudy" Foreground="#FFFFFF" FontSize="16"/>
+                            <TextBlock Text="Cloudy" Foreground="#FFFFFF" FontSize="16" HorizontalAlignment="Center"/>
                         </StackPanel>
                     </Border>
 
                     <!-- Notifications -->
                     <Border Grid.Row="0" Grid.Column="2" CornerRadius="10" Background="#FF9800" Padding="20" Margin="10" Effect="{DynamicResource MaterialDesignElevationShadow}">
                         <StackPanel HorizontalAlignment="Center">
-                            <Icon:PackIconMaterial Kind="Bell" Width="60" Height="60" Foreground="#FFFFFF"/>
+                            <Icon:PackIconMaterial Kind="Bell" Width="132" Height="60" Foreground="#FFFFFF"/>
                             <TextBlock Text="Notifications" Foreground="#FFFFFF" FontSize="20" FontWeight="Bold" Margin="10,5,0,0"/>
-                            <TextBlock Text="2 New Alerts" Foreground="#FFFFFF" FontSize="16"/>
+                            <TextBlock Text="2 New Alerts" Foreground="#FFFFFF" FontSize="16" HorizontalAlignment="Center"/>
                         </StackPanel>
                     </Border>
 
                     <!-- Count Ticket -->
                     <Border Grid.Row="1" Grid.Column="0" CornerRadius="10" Background="#FF5722" Padding="20" Margin="10" Effect="{DynamicResource MaterialDesignElevationShadow}">
                         <StackPanel HorizontalAlignment="Center">
-                            <Icon:PackIconMaterial Kind="Ticket" Width="60" Height="60" Foreground="#FFFFFF"/>
+                            <Icon:PackIconMaterial Kind="Ticket" Width="60" Height="60" Foreground="#FFFFFF" Margin="30,5,0,0"/>
                             <TextBlock Text="Tickets Sold" Foreground="#FFFFFF" FontSize="20" FontWeight="Bold" Margin="10,5,0,0"/>
-                            <TextBlock Text="100" Foreground="#FFFFFF" FontSize="16"/>
-                        </StackPanel>
+                            <TextBlock Text="{Binding TicketsSold, StringFormat={}{0:N0} vé}" Foreground="#FFFFFF" FontSize="16" HorizontalAlignment="Center"/>
+                        </StackPanel> 
                     </Border>
 
                     <!-- Revenue Info -->
                     <Border Grid.Row="1" Grid.Column="1" CornerRadius="10" Background="#FFC107" Padding="20" Margin="10" Effect="{DynamicResource MaterialDesignElevationShadow}">
                         <StackPanel HorizontalAlignment="Center">
-                            <Icon:PackIconMaterial Kind="Cash" Width="60" Height="60" Foreground="#FFFFFF"/>
-                            <TextBlock Text="Revenue" Foreground="#FFFFFF" FontSize="20" FontWeight="Bold" Margin="10,5,0,0"/>
-                            <TextBlock Text="673,000,000 VND" Foreground="#FFFFFF" FontSize="16"/>
+                            <Icon:PackIconMaterial Kind="Cash" Width="66" Height="60" Foreground="#FFFFFF" Margin="18,5,0,0"/>
+                            <TextBlock Text="Revenue" Foreground="#FFFFFF" FontSize="20" FontWeight="Bold" Margin="10,5,0,0" Width="120"/>
+                            <TextBlock Text="{Binding TotalRevenue2024, StringFormat={}{0:N0} VND}" Foreground="#FFFFFF" FontSize="16" Height="29" Width="132"/>
                         </StackPanel>
                     </Border>
 
@@ -77,7 +77,7 @@
                         <StackPanel HorizontalAlignment="Center">
                             <Icon:PackIconMaterial Kind="Airplane" Width="60" Height="60" Foreground="#FFFFFF"/>
                             <TextBlock Text="Upcoming Flights" Foreground="#FFFFFF" FontSize="20" FontWeight="Bold" Margin="10,5,0,0"/>
-                            <TextBlock Text="5 Flights" Foreground="#FFFFFF" FontSize="16"/>
+                            <TextBlock Text="5 Flights" Foreground="#FFFFFF" FontSize="16" HorizontalAlignment="Center"/>
                         </StackPanel>
                     </Border>
 
