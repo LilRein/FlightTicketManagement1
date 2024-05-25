@@ -321,7 +321,7 @@ namespace FlightTicketManagement.ViewModel
         {
             if (_FlightIDList != null && _NgayDat != DateTime.MinValue)
             {
-                var filteredFlights = _FlightIDList.Where(flight => flight.NgayBay.Date == _NgayDat.Date).ToList();
+                var filteredFlights = _FlightIDList.Where(flight => flight.NgayBay.Date >= _NgayDat.Date).ToList();
                 FilteredFlightIDList = new ObservableCollection<CHUYENBAY>(filteredFlights);
             }
             else
