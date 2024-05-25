@@ -246,10 +246,11 @@ namespace FlightTicketManagement.ViewModel
 
         private void _confirmOrder()
         {
+
             if (string.IsNullOrEmpty(SoPhieuDatCho) || NgayDat == null ||
-                string.IsNullOrEmpty(MaHanhKhach) || string.IsNullOrEmpty(MaHangVe) ||
-                string.IsNullOrEmpty(MaChuyenBay) || string.IsNullOrEmpty(MaGhe) ||
-                string.IsNullOrEmpty(TinhTrang))
+                string.IsNullOrEmpty(MaHanhKhach) || SelectedMAHANGVE == null ||
+                SelectedMACHUYENBAY == null || SelectedMAGHE == null ||
+                SelectedTINHTRANG == null)
             {
                 MessageBox.Show("Bạn nhập thiếu thông tin!!", "Notification", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
