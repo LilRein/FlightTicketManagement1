@@ -102,6 +102,8 @@
                                     <TextBox
                                         x:Name="TicketID"
                                         Grid.Row="1"
+                                        PreviewKeyDown="InputFlightID_PreviewKeyDown"
+                                        PreviewTextInput="InputFlightID_PreviewTextInput"
                                         Style="{StaticResource Input}"
                                         Text="{Binding MaVe, UpdateSourceTrigger=PropertyChanged}" />
                                 </Grid>
