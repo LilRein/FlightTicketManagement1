@@ -187,6 +187,16 @@ namespace FlightTicketManagement.ViewModel
                 MessageBox.Show("Bạn nhập thiếu thông tin!!", "Notification", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }
+
+            // Kiểm tra NgayXuatVe với NgayDat của PHIEUDATCHO
+            var phieuDatCho = DataProvider.Ins.DB.PHIEUDATCHOes
+                                .FirstOrDefault(p => p.MaHanhKhach == MaHanhKhach && p.MaChuyenBay == MaChuyenBay && p.MaGhe == MaGhe);
+
+            if (phieuDatCho != null && NgayXuatVe < phieuDatCho.NgayDat)
+            {
+                MessageBox.Show("Lỗi: Ngày xuất vé không thể nhỏ hơn ngày đặt vé!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
             MessageBoxResult addFliNoti = MessageBox.Show("Bạn muốn xuất vé?", "Notification", MessageBoxButton.YesNo);
             if (addFliNoti == MessageBoxResult.Yes)
             {
@@ -205,6 +215,7 @@ namespace FlightTicketManagement.ViewModel
 
                 //TicketList.Add(vechuyenbay);
                 MessageBox.Show("Vé chuyến bay đã được xuất thành công!");
+                OrderList = new ObservableCollection<PHIEUDATCHO>(DataProvider.Ins.DB.PHIEUDATCHOes.ToList());
             }
         }
 
