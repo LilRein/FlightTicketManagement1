@@ -692,8 +692,8 @@ INSERT INTO CHUYENBAY (MaChuyenBay, MaTuyenBay, MaSanBayDi, MaSanBayDen, MaMayBa
 ('VJ472', 'DAD-SGN', 'DAD', 'SGN', 'VJ-B103', '2025-01-11', '21:00', 1, 789000);
 
 INSERT INTO CTSANBAYTRUNGGIAN VALUES
-('VA 363', 'DAD', 15, NULL),
-('VA 105', 'SGN', 17, NULL);
+('VA363', 'DAD', 15, NULL),
+('VA105', 'SGN', 17, NULL);
 
 INSERT INTO CHITIETHANGVE (MaHangVe, MaChuyenBay, SoGheChoHangVe, SoVeDaBan, SoGheDat) VALUES
 ('BC', 'VA289', 3, 1, 0),
