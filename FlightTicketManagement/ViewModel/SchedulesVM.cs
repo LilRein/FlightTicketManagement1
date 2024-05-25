@@ -1,18 +1,14 @@
 ﻿using FlightTicketManagement.Model;
 using FlightTicketManagement.Utilities;
-using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Input;
 using System.Windows;
 using FlightTicketManagement.View.Components;
 
 namespace FlightTicketManagement.ViewModel
 {
-    class SchedulesVM : Utilities.ViewModelBase
+    class SchedulesVM : ViewModelBase
     {
         private readonly PageModel _pageModel;
         public string Schedules
@@ -46,12 +42,14 @@ namespace FlightTicketManagement.ViewModel
         public ICommand EditFlightCommand { get; set; }
         public ICommand AddMidFlightCM { get; set; }
         public ICommand AddFlightCM { get; set; }
+        public ICommand DeleteFlightCommand { get; set; }
 
         private void InitializeCommand()
         {
             AddMidFlightCM = new RelayCommand<View.Schedules>((p) => true, (p) => _AddMidFlight());
             AddFlightCM = new RelayCommand<View.Schedules>((p) => true, (p) => _AddFlight());
             EditFlightCommand = new RelayCommand<CHUYENBAY>((flight) => flight != null, (flight) => _EditFlight(flight));
+            DeleteFlightCommand = new RelayCommand<CHUYENBAY>((flight) => flight != null, (flight) => _DeleteFlight(flight));
         }
 
         private void _EditFlight(CHUYENBAY flight)
@@ -71,7 +69,11 @@ namespace FlightTicketManagement.ViewModel
                 Title = "Sửa chuyến bay"
             };
 
-            addFlightWindow.ShowDialog();
+            bool? result = addFlightWindow.ShowDialog();
+            if (result == true)
+            {
+                LoadData();
+            }
         }
 
         private void _AddMidFlight()
@@ -87,6 +89,7 @@ namespace FlightTicketManagement.ViewModel
             };
 
             window.ShowDialog();
+            LoadData();
         }
 
         private void _AddFlight()
@@ -100,16 +103,71 @@ namespace FlightTicketManagement.ViewModel
                 WindowStartupLocation = WindowStartupLocation.CenterScreen
             };
 
-            window.ShowDialog();
+            bool? result = window.ShowDialog();
+            if (result == true)
+            {
+                LoadData();
+            }
+        }
+
+        private void _DeleteFlight(CHUYENBAY flight)
+        {
+            if (flight == null)
+                return;
+
+            MessageBoxResult result = MessageBox.Show("Bạn có thực sự muốn xóa chuyến bay này?", "Confirm Delete", MessageBoxButton.YesNo, MessageBoxImage.Warning);
+            if (result == MessageBoxResult.Yes)
+            {
+                // Xóa dữ liệu liên quan trong các bảng khác trước
+                var relatedMidFlights = DataProvider.Ins.DB.CTSANBAYTRUNGGIANs.Where(mf => mf.MaChuyenBay == flight.MaChuyenBay).ToList();
+                foreach (var midFlight in relatedMidFlights)
+                {
+                    DataProvider.Ins.DB.CTSANBAYTRUNGGIANs.Remove(midFlight);
+                }
+
+                var relatedTickets = DataProvider.Ins.DB.VECHUYENBAYs.Where(vc => vc.MaChuyenBay == flight.MaChuyenBay).ToList();
+                foreach (var ticket in relatedTickets)
+                {
+                    DataProvider.Ins.DB.VECHUYENBAYs.Remove(ticket);
+                }
+
+                var relatedReservations = DataProvider.Ins.DB.PHIEUDATCHOes.Where(pd => pd.MaChuyenBay == flight.MaChuyenBay).ToList();
+                foreach (var reservation in relatedReservations)
+                {
+                    DataProvider.Ins.DB.PHIEUDATCHOes.Remove(reservation);
+                }
+
+                var relatedHangVes = DataProvider.Ins.DB.CHITIETHANGVEs.Where(hv => hv.MaChuyenBay == flight.MaChuyenBay).ToList();
+                foreach (var hangVe in relatedHangVes)
+                {
+                    DataProvider.Ins.DB.CHITIETHANGVEs.Remove(hangVe);
+                }
+
+                var relatedDoanhThuThangs = DataProvider.Ins.DB.CTDOANHTHUTHANGs.Where(dt => dt.MaChuyenBay == flight.MaChuyenBay).ToList();
+                foreach (var doanhThuThang in relatedDoanhThuThangs)
+                {
+                    DataProvider.Ins.DB.CTDOANHTHUTHANGs.Remove(doanhThuThang);
+                }
+
+                // Xóa chuyến bay
+                _flightList.Remove(flight);
+                DataProvider.Ins.DB.CHUYENBAYs.Remove(flight);
+                DataProvider.Ins.DB.SaveChanges();
+                LoadData();
+            }
+        }
+
+        public void LoadData()
+        {
+            FlightList = new ObservableCollection<CHUYENBAY>(DataProvider.Ins.DB.CHUYENBAYs.ToList());
+            MidFlightList = new ObservableCollection<CTSANBAYTRUNGGIAN>(DataProvider.Ins.DB.CTSANBAYTRUNGGIANs.ToList());
         }
 
         public SchedulesVM()
         {
             _pageModel = new PageModel();
 
-            FlightList = new ObservableCollection<CHUYENBAY>(DataProvider.Ins.DB.CHUYENBAYs);
-            MidFlightList = new ObservableCollection<CTSANBAYTRUNGGIAN>(DataProvider.Ins.DB.CTSANBAYTRUNGGIANs);
-
+            LoadData();
             InitializeCommand();
         }
     }
