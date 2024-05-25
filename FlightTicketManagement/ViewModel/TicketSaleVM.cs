@@ -116,6 +116,9 @@ namespace FlightTicketManagement.ViewModel
         }
         public TicketSaleVM()
         {
+            NgayXuatVe = DateTime.Today;
+
+
             OrderList = new ObservableCollection<PHIEUDATCHO>(DataProvider.Ins.DB.PHIEUDATCHOes);
 
             ExportBtn = new RelayCommand<TicketSale>((p) => true, (p) => _exportBtn(p));
