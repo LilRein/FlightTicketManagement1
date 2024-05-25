@@ -532,6 +532,9 @@
     <Content Include="Images\img_schedule.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Images\img_search.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Images\img_setting.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
