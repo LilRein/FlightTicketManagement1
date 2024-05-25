@@ -13,10 +13,10 @@ namespace FlightTicketManagement.Model
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class FLIGHTTICKETMANAGEMENTEntities : DbContext
+    public partial class FLIGHTTICKETMANAGEMENTEntities1 : DbContext
     {
-        public FLIGHTTICKETMANAGEMENTEntities()
-            : base("name=FLIGHTTICKETMANAGEMENTEntities")
+        public FLIGHTTICKETMANAGEMENTEntities1()
+            : base("name=FLIGHTTICKETMANAGEMENTEntities1")
         {
         }
     
@@ -40,8 +40,8 @@ namespace FlightTicketManagement.Model
         public virtual DbSet<QUOCGIA> QUOCGIAs { get; set; }
         public virtual DbSet<SANBAY> SANBAYs { get; set; }
         public virtual DbSet<TAIKHOAN> TAIKHOANs { get; set; }
+        public virtual DbSet<THAMSO> THAMSOes { get; set; }
         public virtual DbSet<TUYENBAY> TUYENBAYs { get; set; }
         public virtual DbSet<VECHUYENBAY> VECHUYENBAYs { get; set; }
-        public virtual DbSet<THAMSO> THAMSOes { get; set; }
     }
 }
