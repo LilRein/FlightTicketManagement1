@@ -29,11 +29,11 @@ namespace FlightTicketManagement.Model
             }
         }
 
-        public FLIGHTTICKETMANAGEMENTEntities DB { get; set; }
+        public FLIGHTTICKETMANAGEMENTEntities1 DB { get; set; }
 
         private DataProvider()
         {
-            DB = new FLIGHTTICKETMANAGEMENTEntities();
+            DB = new FLIGHTTICKETMANAGEMENTEntities1();
         }
     }
 }

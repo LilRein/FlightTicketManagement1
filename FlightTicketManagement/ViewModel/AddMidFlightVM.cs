@@ -167,6 +167,12 @@ namespace FlightTicketManagement.ViewModel
                 SANBAYTRUNGGIANList.Add(sanbaytrunggian);
                 MessageBox.Show("Sân bay trung gian đã được thêm thành công!");
             }
+            var window = Window.GetWindow(paramater);
+            if (window != null)
+            {
+                window.DialogResult = true;
+                window.Close();
+            }
         }
 
 
