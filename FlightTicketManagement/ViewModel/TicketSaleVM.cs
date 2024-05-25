@@ -5,6 +5,7 @@ using Microsoft.Identity.Client;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,6 +21,19 @@ namespace FlightTicketManagement.ViewModel
 
         public ICommand ExportBtn { get; set; }
         public ICommand CancelBtn { get; set; }
+        public ICommand SearchBtn { get; set; }
+
+
+        private ObservableCollection<PHIEUDATCHO> _FilteredOrderList;
+        public ObservableCollection<PHIEUDATCHO> FilteredOrderList
+        {
+            get { return _FilteredOrderList; }
+            set
+            {
+                _FilteredOrderList = value;
+                OnPropertyChanged();
+            }
+        }
 
 
 
@@ -80,6 +94,21 @@ namespace FlightTicketManagement.ViewModel
 
         private DateTime _NgayXuatVe;
         public DateTime NgayXuatVe { get => _NgayXuatVe; set { _NgayXuatVe = value; OnPropertyChanged(); } }
+
+
+
+        private string _FilterCusID;
+        public string FilterCusID
+        {
+            get => _FilterCusID;
+            set
+            {
+                _FilterCusID = value;
+                OnPropertyChanged();
+                _searchCusID();
+            }
+        }
+
         public int FlightSale
         {
             get { return _pageModel.TicketSale; }
@@ -89,10 +118,26 @@ namespace FlightTicketManagement.ViewModel
         {
             OrderList = new ObservableCollection<PHIEUDATCHO>(DataProvider.Ins.DB.PHIEUDATCHOes);
 
-
             ExportBtn = new RelayCommand<TicketSale>((p) => true, (p) => _exportBtn(p));
             CancelBtn = new RelayCommand<TicketSale>((p) => true, (p) => _cancelBtn(p));
+            SearchBtn = new RelayCommand<TicketSale>((p) => true, (p) => _searchCusID());
             _pageModel = new PageModel();
+        }
+
+        private void _searchCusID()
+        {
+            if (!string.IsNullOrEmpty(FilterCusID))
+            {
+                string filter = FilterCusID;
+                var filteredList = DataProvider.Ins.DB.PHIEUDATCHOes.Where(p => p.MaHanhKhach.Contains(filter)).ToList();
+                OrderList = new ObservableCollection<PHIEUDATCHO>(filteredList);
+
+            }
+            else
+            {
+                OrderList = new ObservableCollection<PHIEUDATCHO>(DataProvider.Ins.DB.PHIEUDATCHOes);
+
+            }
         }
 
         private void _exportBtn(TicketSale parameter)

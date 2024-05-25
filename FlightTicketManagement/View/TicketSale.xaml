@@ -96,9 +96,9 @@
                                     <!--  Input  -->
                                     <TextBox
                                         x:Name="TicketID"
-                                        Text="{Binding MaVe, UpdateSourceTrigger=PropertyChanged}"
                                         Grid.Row="1"
-                                        Style="{StaticResource Input}" />
+                                        Style="{StaticResource Input}"
+                                        Text="{Binding MaVe, UpdateSourceTrigger=PropertyChanged}" />
                                 </Grid>
                                 <!--  Ngày xuất  -->
                                 <Grid Grid.Row="1">
@@ -113,10 +113,10 @@
                                         Text="Ngày xuất vé" />
                                     <!--  Input  -->
                                     <DatePicker
-                                        SelectedDate="{Binding NgayXuatVe, UpdateSourceTrigger=PropertyChanged}"
                                         Grid.Row="1"
                                         FontSize="21"
-                                        Foreground="#555" />
+                                        Foreground="#555"
+                                        SelectedDate="{Binding NgayXuatVe, UpdateSourceTrigger=PropertyChanged}" />
                                 </Grid>
                                 <!--  Mã chuyến bay  -->
                                 <Grid Grid.Row="2">
@@ -131,10 +131,10 @@
                                         Text="Mã chuyến bay" />
                                     <!--  Input  -->
                                     <TextBox
-                                        Text="{Binding MaChuyenBay, UpdateSourceTrigger=PropertyChanged}"
                                         x:Name="FlightID"
                                         Grid.Row="1"
-                                        Style="{StaticResource Input}" />
+                                        Style="{StaticResource Input}"
+                                        Text="{Binding MaChuyenBay, UpdateSourceTrigger=PropertyChanged}" />
                                 </Grid>
                             </Grid>
 
@@ -160,9 +160,9 @@
                                     <!--  Input  -->
                                     <TextBox
                                         x:Name="ClassFlightID"
-                                        Text="{Binding MaHangVe, UpdateSourceTrigger=PropertyChanged}"
                                         Grid.Row="1"
-                                        Style="{StaticResource Input}" />
+                                        Style="{StaticResource Input}"
+                                        Text="{Binding MaHangVe, UpdateSourceTrigger=PropertyChanged}" />
                                 </Grid>
                                 <!--  Mã hạng vé  -->
                                 <Grid Grid.Row="1">
@@ -178,9 +178,9 @@
                                     <!--  Input  -->
                                     <TextBox
                                         x:Name="CustomerID"
-                                        Text="{Binding MaHanhKhach, UpdateSourceTrigger=PropertyChanged}"
                                         Grid.Row="1"
-                                        Style="{StaticResource Input}" />
+                                        Style="{StaticResource Input}"
+                                        Text="{Binding MaHanhKhach, UpdateSourceTrigger=PropertyChanged}" />
                                 </Grid>
                                 <!--  Mã hạng vé  -->
                                 <Grid Grid.Row="2">
@@ -196,9 +196,9 @@
                                     <!--  Input  -->
                                     <TextBox
                                         x:Name="SeatID"
-                                        Text="{Binding MaGhe, UpdateSourceTrigger=PropertyChanged}"
                                         Grid.Row="1"
-                                        Style="{StaticResource Input}" />
+                                        Style="{StaticResource Input}"
+                                        Text="{Binding MaGhe, UpdateSourceTrigger=PropertyChanged}" />
                                 </Grid>
 
                             </Grid>
@@ -252,10 +252,32 @@
                                 Style="{StaticResource Title}"
                                 Text="Tìm kiếm mã HK" />
                             <!--  Input  -->
-                            <TextBox
-                                x:Name="FilterCusID"
-                                Grid.Row="1"
-                                Style="{StaticResource Input}" />
+                            <Grid Grid.Row="1">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="2*" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+                                <TextBox
+                                    x:Name="FilterCusID"
+                                    Grid.Column="0"
+                                    PreviewKeyDown="InputFlightID_PreviewKeyDown"
+                                    PreviewTextInput="InputFlightID_PreviewTextInput"
+                                    Style="{StaticResource Input}"
+                                    Text="{Binding FilterCusID}" />
+
+                                <Button
+                                    x:Name="SearchBtn"
+                                    Grid.Column="1"
+                                    Background="Transparent"
+                                    BorderThickness="0">
+                                    <Image Source="/Images/img_search.png" />
+                                    <i:Interaction.Triggers>
+                                        <i:EventTrigger EventName="Click">
+                                            <i:InvokeCommandAction Command="{Binding SearchBtn}" CommandParameter="{Binding ElementName=Ticketsale}" />
+                                        </i:EventTrigger>
+                                    </i:Interaction.Triggers>
+                                </Button>
+                            </Grid>
                         </Grid>
                     </Grid>
                 </Grid>
@@ -293,8 +315,8 @@
                             CellStyle="{DynamicResource DataGridCellStyle}"
                             ColumnHeaderStyle="{StaticResource DataGridColumnHeaderStyle}"
                             ItemsSource="{Binding OrderList}"
-                            SelectedItem="{Binding SelectedOrder, Mode=OneWayToSource}"
                             RowStyle="{DynamicResource DataGridRowStyle}"
+                            SelectedItem="{Binding SelectedOrder, Mode=OneWayToSource}"
                             Style="{DynamicResource DataGridStyle}">
                             <DataGrid.Columns>
                                 <DataGridTextColumn
@@ -326,6 +348,11 @@
                                     Width="*"
                                     Binding="{Binding MaGhe}"
                                     Header="Mã ghế"
+                                    IsReadOnly="True" />
+                                <DataGridTextColumn
+                                    Width="*"
+                                    Binding="{Binding TinhTrang}"
+                                    Header="Tình trạng"
                                     IsReadOnly="True" />
                                 <!--  Action  -->
                                 <DataGridTemplateColumn Header="Action" IsReadOnly="True" />
