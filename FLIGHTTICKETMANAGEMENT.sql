@@ -470,24 +470,6 @@ END
 Go
 
 GO
----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-CREATE TRIGGER trg_AfterInsertVeChuyenBay
-ON VECHUYENBAY
-AFTER INSERT
-AS
-BEGIN
-    -- Update TinhTrang to 'đã bán' for the corresponding reservation
-    UPDATE PHIEUDATCHO
-    SET TinhTrang = N'Đã bán'
-    FROM PHIEUDATCHO pdc
-    JOIN inserted i ON pdc.MaHanhKhach = i.MaHanhKhach
-                     AND pdc.MaHangVe = i.MaHangVe
-                     AND pdc.MaChuyenBay = i.MaChuyenBay
-                     AND pdc.MaGhe = i.MaGhe;
-END
-GO
-
-GO
 CREATE TRIGGER trg_ChuyenBay_ThoiLuong
 ON CHUYENBAY
 FOR INSERT, UPDATE
@@ -736,4 +718,3 @@ SELECT * FROM HANGMAYBAY
 SELECT * FROM SANBAY
 SELECT * FROM CTDOANHTHUTHANG
 SELECT * FROM THAMSO
-SELECT * FROM PHIEUDATCHO
