@@ -15,6 +15,11 @@
     </UserControl.DataContext>
 
     <UserControl.Resources>
+        <Style x:Key="CenterTextStyle" TargetType="TextBlock">
+            <Setter Property="HorizontalAlignment" Value="Center" />
+            <Setter Property="VerticalAlignment" Value="Center" />
+        </Style>
+
         <Style x:Key="Title" TargetType="TextBlock">
             <Setter Property="FontSize" Value="22" />
             <Setter Property="FontFamily" Value="Roboto" />
@@ -267,46 +272,55 @@
                                 <DataGridTextColumn
                                     Width="*"
                                     Binding="{Binding MaChuyenBay}"
+                                    ElementStyle="{StaticResource CenterTextStyle}"
                                     Header="Mã chuyến bay"
                                     IsReadOnly="True" />
                                 <DataGridTextColumn
                                     Width="1.5*"
                                     Binding="{Binding MaSanBayDi}"
+                                    ElementStyle="{StaticResource CenterTextStyle}"
                                     Header="Sân bay đi"
                                     IsReadOnly="True" />
                                 <DataGridTextColumn
                                     Width="1.5*"
                                     Binding="{Binding MaSanBayDen}"
+                                    ElementStyle="{StaticResource CenterTextStyle}"
                                     Header="Sân bay đến"
                                     IsReadOnly="True" />
                                 <DataGridTextColumn
                                     Width="1.5*"
                                     Binding="{Binding NgayBay}"
+                                    ElementStyle="{StaticResource CenterTextStyle}"
                                     Header="Ngày bay"
                                     IsReadOnly="True" />
                                 <DataGridTextColumn
                                     Width="*"
                                     Binding="{Binding GioKhoiHanh}"
+                                    ElementStyle="{StaticResource CenterTextStyle}"
                                     Header="Giờ khởi hành"
                                     IsReadOnly="True" />
                                 <DataGridTextColumn
                                     Width="*"
                                     Binding="{Binding TicketClass}"
+                                    ElementStyle="{StaticResource CenterTextStyle}"
                                     Header="Mã hạng vé"
                                     IsReadOnly="True" />
                                 <DataGridTextColumn
                                     Width="*"
                                     Binding="{Binding SoldTicket}"
+                                    ElementStyle="{StaticResource CenterTextStyle}"
                                     Header="Số vé đã bán"
                                     IsReadOnly="True" />
                                 <DataGridTextColumn
                                     Width="*"
                                     Binding="{Binding PreOrderedSeat}"
+                                    ElementStyle="{StaticResource CenterTextStyle}"
                                     Header="Số ghế đã đặt"
                                     IsReadOnly="True" />
                                 <DataGridTextColumn
                                     Width="*"
                                     Binding="{Binding RemainingSeat}"
+                                    ElementStyle="{StaticResource CenterTextStyle}"
                                     Header="Số ghế còn lại"
                                     IsReadOnly="True" />
                             </DataGrid.Columns>
