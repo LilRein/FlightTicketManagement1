@@ -91,10 +91,12 @@
                             Style="{StaticResource Title}"
                             Text="Số phiếu đặt chỗ" />
                         <TextBox
-                            Text="{Binding SoPhieuDatCho, UpdateSourceTrigger=PropertyChanged}"
                             x:Name="OrderID"
                             Grid.Row="1"
-                            Style="{StaticResource Input}" />
+                            PreviewKeyDown="InputFlightID_PreviewKeyDown"
+                            PreviewTextInput="InputFlightID_PreviewTextInput"
+                            Style="{StaticResource Input}"
+                            Text="{Binding SoPhieuDatCho, UpdateSourceTrigger=PropertyChanged}" />
                     </Grid>
                     <!--  Ngày đặt  -->
                     <Grid Grid.Row="2">
@@ -106,8 +108,12 @@
                             Grid.Row="0"
                             Style="{StaticResource Title}"
                             Text="Ngày đặt" />
-                        <DatePicker x:Name="DateOrderPicker" SelectedDate="{Binding NgayDat, UpdateSourceTrigger=PropertyChanged}"
-                            Grid.Row="1" />
+                        <DatePicker
+                            x:Name="DateOrderPicker"
+                            Grid.Row="1"
+                            FontSize="21"
+                            Foreground="#555"
+                            SelectedDate="{Binding NgayDat, UpdateSourceTrigger=PropertyChanged}" />
                     </Grid>
                     <!--  Mã hành khách  -->
                     <Grid Grid.Row="3">
@@ -120,16 +126,18 @@
                             Style="{StaticResource Title}"
                             Text="Mã hành khách" />
                         <TextBox
-                            Text="{Binding MaHanhKhach, UpdateSourceTrigger=PropertyChanged}"
                             x:Name="CustomerID"
                             Grid.Row="1"
-                            Style="{StaticResource Input}" />
+                            PreviewKeyDown="InputFlightID_PreviewKeyDown"
+                            PreviewTextInput="InputFlightID_PreviewTextInput"
+                            Style="{StaticResource Input}"
+                            Text="{Binding MaHanhKhach, UpdateSourceTrigger=PropertyChanged}" />
                     </Grid>
                     <!--  Mã hạng vé  -->
                     <Grid Grid.Row="4">
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="14*"/>
-                            <ColumnDefinition Width="29*"/>
+                            <ColumnDefinition Width="14*" />
+                            <ColumnDefinition Width="29*" />
                         </Grid.ColumnDefinitions>
                         <Grid.RowDefinitions>
                             <RowDefinition Height="auto" />
@@ -137,18 +145,19 @@
                         </Grid.RowDefinitions>
                         <TextBlock
                             Grid.Row="0"
+                            Grid.ColumnSpan="2"
                             Style="{StaticResource Title}"
-                            Text="Mã hạng vé" Grid.ColumnSpan="2" />
+                            Text="Mã hạng vé" />
                         <ComboBox
                             x:Name="ClassFlight"
-                            DisplayMemberPath="MaHangVe"
-                            ItemsSource="{Binding ClassFlightList}"
-                            SelectedItem="{Binding SelectedMAHANGVE, UpdateSourceTrigger=PropertyChanged}"
                             Grid.Row="1"
+                            Grid.ColumnSpan="2"
                             materialDesign:HintAssist.Hint="Hãy chọn mã hạng vé"
+                            DisplayMemberPath="MaHangVe"
                             FontSize="21"
                             Foreground="#555"
-                            Grid.ColumnSpan="2" />
+                            ItemsSource="{Binding ClassFlightList}"
+                            SelectedItem="{Binding SelectedMAHANGVE, UpdateSourceTrigger=PropertyChanged}" />
                     </Grid>
                     <!--  Mã chuyến bay  -->
                     <Grid Grid.Row="5">
@@ -162,13 +171,13 @@
                             Text="Mã chuyến bay" />
                         <ComboBox
                             x:Name="FlightID"
-                            DisplayMemberPath="MaChuyenBay"
-                            ItemsSource="{Binding FlightIDList}"
-                            SelectedItem="{Binding SelectedMACHUYENBAY, UpdateSourceTrigger=PropertyChanged}"
                             Grid.Row="1"
                             materialDesign:HintAssist.Hint="Hãy chọn mã chuyến bay"
+                            DisplayMemberPath="MaChuyenBay"
                             FontSize="21"
-                            Foreground="#555" />
+                            Foreground="#555"
+                            ItemsSource="{Binding FlightIDList}"
+                            SelectedItem="{Binding SelectedMACHUYENBAY, UpdateSourceTrigger=PropertyChanged}" />
                     </Grid>
                     <!--  Mã ghế  -->
                     <Grid Grid.Row="6">
@@ -182,13 +191,13 @@
                             Text="Mã ghế" />
                         <ComboBox
                             x:Name="SeatID"
-                            DisplayMemberPath="MaGhe"
-                            ItemsSource="{Binding SeatIDList}"
-                            SelectedItem="{Binding SelectedMAGHE, UpdateSourceTrigger=PropertyChanged}"
                             Grid.Row="1"
                             materialDesign:HintAssist.Hint="Hãy chọn mã ghế"
+                            DisplayMemberPath="MaGhe"
                             FontSize="21"
-                            Foreground="#555" />
+                            Foreground="#555"
+                            ItemsSource="{Binding SeatIDList}"
+                            SelectedItem="{Binding SelectedMAGHE, UpdateSourceTrigger=PropertyChanged}" />
                     </Grid>
                     <!--  Tình trạng  -->
                     <Grid Grid.Row="7">
@@ -206,7 +215,7 @@
                             FontSize="21"
                             Foreground="#555"
                             ItemsSource="{Binding StatusList}"
-                            SelectedValue="{Binding SelectedTINHTRANG, UpdateSourceTrigger=PropertyChanged}"/>
+                            SelectedValue="{Binding SelectedTINHTRANG, UpdateSourceTrigger=PropertyChanged}" />
                     </Grid>
                     <!--  Button  -->
                     <Grid Grid.Row="8">
@@ -280,9 +289,11 @@
                             Text="Mã hành khách" />
                         <TextBox
                             x:Name="CustomerIDInput"
-                            Text="{Binding MaHanhKhach, UpdateSourceTrigger=PropertyChanged}"
                             Grid.Row="1"
-                            Style="{StaticResource Input}" />
+                            PreviewKeyDown="InputFlightID_PreviewKeyDown"
+                            PreviewTextInput="InputFlightID_PreviewTextInput"
+                            Style="{StaticResource Input}"
+                            Text="{Binding MaHanhKhach, UpdateSourceTrigger=PropertyChanged}" />
                     </Grid>
                     <!--  Họ tên  -->
                     <Grid Grid.Row="2">
@@ -296,9 +307,9 @@
                             Text="Họ và tên" />
                         <TextBox
                             x:Name="NameInput"
-                            Text="{Binding HoTen, UpdateSourceTrigger=PropertyChanged}"
                             Grid.Row="1"
-                            Style="{StaticResource Input}" />
+                            Style="{StaticResource Input}"
+                            Text="{Binding HoTen, UpdateSourceTrigger=PropertyChanged}" />
                     </Grid>
                     <!--  CCCD  -->
                     <Grid Grid.Row="3">
@@ -312,9 +323,9 @@
                             Text="CCCD" />
                         <TextBox
                             x:Name="IDInput"
-                            Text="{Binding CCCD,UpdateSourceTrigger=PropertyChanged}"
                             Grid.Row="1"
-                            Style="{StaticResource Input}" />
+                            Style="{StaticResource Input}"
+                            Text="{Binding CCCD, UpdateSourceTrigger=PropertyChanged}" />
                     </Grid>
                     <!--  Điện thoại  -->
                     <Grid Grid.Row="4">
@@ -328,9 +339,9 @@
                             Text="Điện thoại" />
                         <TextBox
                             x:Name="PhoneInput"
-                            Text="{Binding DienThoai, UpdateSourceTrigger=PropertyChanged}"
                             Grid.Row="1"
-                            Style="{StaticResource Input}" />
+                            Style="{StaticResource Input}"
+                            Text="{Binding DienThoai, UpdateSourceTrigger=PropertyChanged}" />
                     </Grid>
                     <!--  Email  -->
                     <Grid Grid.Row="5">
@@ -344,9 +355,9 @@
                             Text="Email" />
                         <TextBox
                             x:Name="EmailInput"
-                            Text="{Binding Email, UpdateSourceTrigger=PropertyChanged}"
                             Grid.Row="1"
-                            Style="{StaticResource Input}" />
+                            Style="{StaticResource Input}"
+                            Text="{Binding Email, UpdateSourceTrigger=PropertyChanged}" />
                     </Grid>
                     <!--  Button  -->
                     <Grid Grid.Row="6">
