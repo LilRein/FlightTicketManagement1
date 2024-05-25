@@ -94,7 +94,7 @@
                                     Header="Mã chuyến bay" />
                                 <DataGridTextColumn
                                     Width="*"
-                                    Binding="{Binding Profit}"
+                                    Binding="{Binding Profit, StringFormat={}{0:N0} }"
                                     Header="Lợi nhuận (VNĐ)"
                                     SortDirection="Ascending" />
                                 <DataGridTextColumn
@@ -161,7 +161,7 @@
                                     Header="Số chuyến bay (chuyến)" />
                                 <DataGridTextColumn
                                     Width="*"
-                                    Binding="{Binding Profit}"
+                                    Binding="{Binding Profit, StringFormat={}{0:N0} }"
                                     Header="Lợi nhuận (VNĐ)" />
                                 <DataGridTextColumn
                                     Width="*"

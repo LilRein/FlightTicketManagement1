@@ -144,6 +144,8 @@ namespace FlightTicketManagement.ViewModel
 
         public AddFlightVM()
         {
+            NgayBay = DateTime.Today;
+
             // Initialize collections
             CHUYENBAYList = new ObservableCollection<CHUYENBAY>(DataProvider.Ins.DB.CHUYENBAYs);
             SANBAY = new ObservableCollection<SANBAY>(DataProvider.Ins.DB.SANBAYs);
