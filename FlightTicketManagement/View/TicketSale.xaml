@@ -250,7 +250,7 @@
                             <TextBlock
                                 Grid.Row="0"
                                 Style="{StaticResource Title}"
-                                Text="Tìm kiếm mã HK" />
+                                Text="Tìm mã hành khách" />
                             <!--  Input  -->
                             <Grid Grid.Row="1">
                                 <Grid.ColumnDefinitions>
