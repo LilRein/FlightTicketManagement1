@@ -158,7 +158,7 @@
                         </Grid>
                         <!-- Data grid -->
                         <DataGrid Grid.Row="1"
-                                  Margin="0 30 0 0"
+                                  Margin="0 10 0 0"
                                   x:Name="DataGridCustomer"
                                   ItemsSource="{Binding FlightList}"
                                   CanUserSortColumns="False"
@@ -215,8 +215,13 @@
                                                     <Button x:Name="deleteButton"
                                                             Style="{StaticResource gridRemoveButton}"
                                                             Margin="5 0 0 0"
-                                                            Command="{Binding DataContext.DeletedCustomerCommand, RelativeSource={RelativeSource AncestorType={x:Type UserControl}}}"
-                                                            CommandParameter="{Binding}"/>
+                                                            Command="{Binding DataContext.DeleteFlightCommand, RelativeSource={RelativeSource AncestorType={x:Type UserControl}}}"
+                                                            CommandParameter="{Binding}">
+                                                        <materialDesign:PackIcon Kind="Delete" 
+                                                                                 Width="14" 
+                                                                                 Height="14" 
+                                                                                 VerticalAlignment="Center" />
+                                                    </Button>
                                                 </StackPanel>
                                             </Border>
                                         </DataTemplate>

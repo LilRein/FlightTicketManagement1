@@ -1,11 +1,11 @@
 ﻿using FlightTicketManagement.Utilities;
 using System;
 using System.Collections.ObjectModel;
+using System.Linq;
 using System.Windows;
 using System.Windows.Input;
 using FlightTicketManagement.Model;
 using FlightTicketManagement.View.Components;
-using System.Linq;
 
 namespace FlightTicketManagement.ViewModel
 {
@@ -29,7 +29,7 @@ namespace FlightTicketManagement.ViewModel
             set
             {
                 _TUYENBAY = value;
-                OnPropertyChanged(nameof(_TUYENBAY));
+                OnPropertyChanged(nameof(TUYENBAY));
             }
         }
 
@@ -101,18 +101,6 @@ namespace FlightTicketManagement.ViewModel
 
         private string _MaChuyenBay;
         public string MaChuyenBay { get => _MaChuyenBay; set { _MaChuyenBay = value; OnPropertyChanged(); } }
-
-        private string _MaTuyenBay;
-        public string MaTuyenBay { get => _MaTuyenBay; set { _MaTuyenBay = value; OnPropertyChanged(); } }
-
-        private string _MaSanBayDi;
-        public string MaSanBayDi { get => _MaSanBayDi; set { _MaSanBayDi = value; OnPropertyChanged(); } }
-
-        private string _MaSanBayDen;
-        public string MaSanBayDen { get => _MaSanBayDen; set { _MaSanBayDen = value; OnPropertyChanged(); } }
-
-        private string _MaMayBay;
-        public string MaMayBay { get => _MaMayBay; set { _MaMayBay = value; OnPropertyChanged(); } }
 
         private DateTime _NgayBay;
         public DateTime NgayBay { get => _NgayBay; set { _NgayBay = value; OnPropertyChanged(); } }
@@ -250,6 +238,14 @@ namespace FlightTicketManagement.ViewModel
 
                 CHUYENBAYList.Add(chuyenbay);
                 MessageBox.Show("Chuyến bay đã được thêm thành công!");
+
+                // Đóng cửa sổ sau khi thêm thành công
+                var window = Window.GetWindow(parameter);
+                if (window != null)
+                {
+                    window.DialogResult = true;
+                    window.Close();
+                }
             }
         }
 
@@ -296,6 +292,14 @@ namespace FlightTicketManagement.ViewModel
 
                 DataProvider.Ins.DB.SaveChanges();
                 MessageBox.Show("Chuyến bay đã được cập nhật thành công!");
+
+                // Đóng cửa sổ sau khi chỉnh sửa thành công
+                var window = Window.GetWindow(parameter);
+                if (window != null)
+                {
+                    window.DialogResult = true;
+                    window.Close();
+                }
             }
         }
 
