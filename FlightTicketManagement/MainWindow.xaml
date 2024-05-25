@@ -1,20 +1,21 @@
-﻿<Window x:Class="FlightTicketManagement.MainWindow"
-        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:vm="clr-namespace:FlightTicketManagement.ViewModel"
-        xmlns:Menu="clr-namespace:FlightTicketManagement.Utilities"
-        xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
-        mc:Ignorable="d"
-        Title="MainWindow" 
-        Height="800" 
-        Width="1450"
-        AllowsTransparency="True"
-        WindowStartupLocation="CenterScreen"
-        WindowStyle="None"
-        Name="mainWindow"
-        Background="Transparent">
+﻿<Window
+    x:Class="FlightTicketManagement.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:Menu="clr-namespace:FlightTicketManagement.Utilities"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:vm="clr-namespace:FlightTicketManagement.ViewModel"
+    Name="mainWindow"
+    Title="MainWindow"
+    Width="1450"
+    Height="800"
+    AllowsTransparency="True"
+    Background="Transparent"
+    WindowStartupLocation="CenterScreen"
+    WindowStyle="None"
+    mc:Ignorable="d">
 
     <Window.DataContext>
         <vm:NavigationVM />
@@ -22,92 +23,103 @@
 
     <i:Interaction.Triggers>
         <i:EventTrigger EventName="Loaded">
-            <i:InvokeCommandAction Command="{Binding LoadedWindowCommand}" CommandParameter="{Binding ElementName=mainWindow}"/>
+            <i:InvokeCommandAction Command="{Binding LoadedWindowCommand}" CommandParameter="{Binding ElementName=mainWindow}" />
         </i:EventTrigger>
     </i:Interaction.Triggers>
 
     <Grid>
-        <!-- Window Border -->
+        <!--  Window Border  -->
         <Border Background="#212529" CornerRadius="20" />
 
         <Grid>
-            <!-- Base Grid -->
+            <!--  Base Grid  -->
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="258" />
-                <ColumnDefinition Width="1192"/>
+                <ColumnDefinition Width="1192" />
             </Grid.ColumnDefinitions>
 
-            <!-- Navigation Panel -->
-            <Grid Grid.Column="0" HorizontalAlignment="Left" Width="258">
-                <Border Background="#272B2F" CornerRadius="20 0 0 20"/>
+            <!--  Navigation Panel  -->
+            <Grid
+                Grid.Column="0"
+                Width="258"
+                HorizontalAlignment="Left">
+                <Border Background="#272B2F" CornerRadius="20 0 0 20" />
                 <Grid HorizontalAlignment="Center" VerticalAlignment="Top">
-                    <Image Source="Images/img_pjicon.png"/>
+                    <Image Source="Images/img_pjicon.png" />
                 </Grid>
 
-                <StackPanel Height="400" Width="278">
-                    <!-- // Dashboard // -->
-                    <Menu:Btn Style="{StaticResource BtnStyle}" Command="{Binding DashboardCommand}" IsChecked="True">
+                <StackPanel Width="278" Height="400">
+                    <!--  // Dashboard //  -->
+                    <Menu:Btn
+                        Command="{Binding DashboardCommand}"
+                        IsChecked="True"
+                        Style="{StaticResource BtnStyle}">
                         <Grid>
-                            <Image Source="Images/img_home.png" Style="{StaticResource Image_Style}"/>
-                            <TextBlock Text="Dashboard" Style="{StaticResource Text_Style}"/>
+                            <Image Source="Images/img_home.png" Style="{StaticResource Image_Style}" />
+                            <TextBlock Style="{StaticResource Text_Style}" Text="Dashboard" />
                         </Grid>
                     </Menu:Btn>
 
-                    <!-- // Schedule // -->
-                    <Menu:Btn Style="{StaticResource BtnStyle}" Command="{Binding ScheduleCommand}">
+                    <!--  // Schedule //  -->
+                    <Menu:Btn Command="{Binding ScheduleCommand}" Style="{StaticResource BtnStyle}">
                         <Grid>
-                            <Image Source="Images/img_schedule.png" Style="{StaticResource Image_Style}"/>
-                            <TextBlock Text="Schedule" Style="{StaticResource Text_Style}"/>
+                            <Image Source="Images/img_schedule.png" Style="{StaticResource Image_Style}" />
+                            <TextBlock Style="{StaticResource Text_Style}" Text="Schedule" />
                         </Grid>
                     </Menu:Btn>
 
-                    <!-- // Ticket Sale // -->
-                    <Menu:Btn Style="{StaticResource BtnStyle}" Command="{Binding TicketSaleCommand}">
+                    <!--  Ticket order  -->
+                    <Menu:Btn Command="{Binding TicketOrderCommand}" Style="{StaticResource BtnStyle}">
                         <Grid>
-                            <Image Source="Images/img_ticket.png" Style="{StaticResource Image_Style}"/>
-                            <TextBlock Text="Ticket Sale" Style="{StaticResource Text_Style}"/>
+                            <Image Source="Images/img_ticketorder.png" Style="{StaticResource Image_Style}" />
+                            <TextBlock Style="{StaticResource Text_Style}" Text="Ticket Order" />
                         </Grid>
                     </Menu:Btn>
 
-                    <!-- // Flight // -->
-                    <Menu:Btn Style="{StaticResource BtnStyle}" Command="{Binding FlightCommand}">
+                    <!--  // Ticket Sale //  -->
+                    <Menu:Btn Command="{Binding TicketSaleCommand}" Style="{StaticResource BtnStyle}">
                         <Grid>
-                            <Image Source="Images/img_flight.png" Style="{StaticResource Image_Style}"/>
-                            <TextBlock Text="Flight" Style="{StaticResource Text_Style}"/>
+                            <Image Source="Images/img_ticket.png" Style="{StaticResource Image_Style}" />
+                            <TextBlock Style="{StaticResource Text_Style}" Text="Ticket Sale" />
                         </Grid>
                     </Menu:Btn>
 
-                    <!-- // Report // -->
-                    <Menu:Btn Style="{StaticResource BtnStyle}" Command="{Binding ReportCommand}">
+                    <!--  // Flight //  -->
+                    <Menu:Btn Command="{Binding FlightCommand}" Style="{StaticResource BtnStyle}">
                         <Grid>
-                            <Image Source="Images/img_report.png" Style="{StaticResource Image_Style}"/>
-                            <TextBlock Text="Report" Style="{StaticResource Text_Style}"/>
+                            <Image Source="Images/img_flight.png" Style="{StaticResource Image_Style}" />
+                            <TextBlock Style="{StaticResource Text_Style}" Text="Flight" />
                         </Grid>
                     </Menu:Btn>
 
-                    <!-- // Setting // -->
-                    <Menu:Btn Style="{StaticResource BtnStyle}" Command="{Binding SettingCommand}">
+                    <!--  // Report //  -->
+                    <Menu:Btn Command="{Binding ReportCommand}" Style="{StaticResource BtnStyle}">
                         <Grid>
-                            <Image Source="Images/img_setting.png" Style="{StaticResource Image_Style}"/>
-                            <TextBlock Text="Setting" Style="{StaticResource Text_Style}"/>
+                            <Image Source="Images/img_report.png" Style="{StaticResource Image_Style}" />
+                            <TextBlock Style="{StaticResource Text_Style}" Text="Report" />
                         </Grid>
                     </Menu:Btn>
-                    
-                    <!-- Ticket order -->
-                    <Menu:Btn Style="{StaticResource BtnStyle}" Command="{Binding TicketOrderCommand}">
+
+                    <!--  // Setting //  -->
+                    <Menu:Btn Command="{Binding SettingCommand}" Style="{StaticResource BtnStyle}">
                         <Grid>
-                            <Image Source="Images/img_ticketorder.png" Style="{StaticResource Image_Style}"/>
-                            <TextBlock Text="Ticket Order" Style="{StaticResource Text_Style}"/>
+                            <Image Source="Images/img_setting.png" Style="{StaticResource Image_Style}" />
+                            <TextBlock Style="{StaticResource Text_Style}" Text="Setting" />
                         </Grid>
                     </Menu:Btn>
+
+
                 </StackPanel>
             </Grid>
 
             <Grid Grid.Column="1">
-                <ContentControl x:Name="Pages" Content="{Binding CurrentView}"/>
+                <ContentControl x:Name="Pages" Content="{Binding CurrentView}" />
             </Grid>
         </Grid>
 
-        <Button x:Name="BtnClose" Style="{StaticResource ExitApp}" Click="BtnClose_Click"/>
+        <Button
+            x:Name="BtnClose"
+            Click="BtnClose_Click"
+            Style="{StaticResource ExitApp}" />
     </Grid>
 </Window>
