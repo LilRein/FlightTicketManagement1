@@ -220,13 +220,13 @@ namespace FlightTicketManagement.ViewModel
 
                 DataProvider.Ins.DB.VECHUYENBAYs.Add(vechuyenbay);
                 DataProvider.Ins.DB.SaveChanges();
-                // Update the status of the selected order to "Đã huỷ"
-                SelectedOrder.TinhTrang = "Đã đặt";
+                // Update the status of the selected order to "Đã bán"
+                SelectedOrder.TinhTrang = "Đã bán";
 
                 try
                 {
                     DataProvider.Ins.DB.SaveChanges();
-                    MessageBox.Show("Phiếu đặt chỗ đã được đặt thành công!", "Notification", MessageBoxButton.OK, MessageBoxImage.Information);
+                    MessageBox.Show("Phiếu đặt chỗ đã được bán thành công!", "Notification", MessageBoxButton.OK, MessageBoxImage.Information);
                 }
                 catch
                 {
