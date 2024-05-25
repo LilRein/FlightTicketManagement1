@@ -252,7 +252,18 @@ namespace FlightTicketManagement.ViewModel
                 MessageBox.Show("Bạn nhập thiếu thông tin!!", "Notification", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }
+
+            // Kiểm tra xem mã khách hàng đã tồn tại hay chưa
+            var existingCustomer = DataProvider.Ins.DB.HANHKHACHes.FirstOrDefault(h => h.MaHanhKhach == MaHanhKhach);
+
+            if (existingCustomer != null)
+            {
+                MessageBox.Show("Mã khách hàng đã tồn tại!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+
             MessageBoxResult addFliNoti = MessageBox.Show("Bạn muốn thêm hành khách?", "Notification", MessageBoxButton.YesNo);
+            
             if (addFliNoti == MessageBoxResult.Yes)
             {
                 var hanhkhach = new HANHKHACH()
