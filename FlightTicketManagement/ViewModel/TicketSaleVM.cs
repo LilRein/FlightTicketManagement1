@@ -205,8 +205,9 @@ namespace FlightTicketManagement.ViewModel
                 return;
             }
             MessageBoxResult addFliNoti = MessageBox.Show("Bạn muốn xuất vé?", "Notification", MessageBoxButton.YesNo);
-            if (addFliNoti == MessageBoxResult.Yes)
-            {
+            if (SelectedOrder.TinhTrang == "Đã đặt" && addFliNoti == MessageBoxResult.Yes)
+            { 
+
                 var vechuyenbay = new VECHUYENBAY()
                 {
                     MaVe = MaVe,
@@ -219,6 +220,21 @@ namespace FlightTicketManagement.ViewModel
 
                 DataProvider.Ins.DB.VECHUYENBAYs.Add(vechuyenbay);
                 DataProvider.Ins.DB.SaveChanges();
+                // Update the status of the selected order to "Đã huỷ"
+                SelectedOrder.TinhTrang = "Đã đặt";
+
+                try
+                {
+                    DataProvider.Ins.DB.SaveChanges();
+                    MessageBox.Show("Phiếu đặt chỗ đã được đặt thành công!", "Notification", MessageBoxButton.OK, MessageBoxImage.Information);
+                }
+                catch
+                {
+                    MessageBox.Show($"Có lỗi xảy ra!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+
+                OrderList = new ObservableCollection<PHIEUDATCHO>(DataProvider.Ins.DB.PHIEUDATCHOes);
+
 
                 //TicketList.Add(vechuyenbay);
                 MessageBox.Show("Vé chuyến bay đã được xuất thành công!");
