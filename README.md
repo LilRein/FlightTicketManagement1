@@ -26,4 +26,6 @@
 * **Chủ đề**: Xây dựng phần mềm quản lí bán vé máy bay
 * **Ngôn ngữ được sử dụng**: C#, SQL
 * **Chi tiết đồ án**:
-# FlightTicketManagement
+### 1. Tổng quan
+### 2. Kiến trúc hệ thống
+### 3. Một số màn hình của ứng dụng
