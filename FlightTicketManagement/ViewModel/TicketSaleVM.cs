@@ -1,16 +1,10 @@
 ﻿using FlightTicketManagement.Model;
 using FlightTicketManagement.Utilities;
 using FlightTicketManagement.View;
-using Microsoft.Identity.Client;
 using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Globalization;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-//using System.Windows.Forms;
 using System.Windows.Input;
 
 namespace FlightTicketManagement.ViewModel
@@ -24,7 +18,6 @@ namespace FlightTicketManagement.ViewModel
         public ICommand SearchBtn { get; set; }
         public ICommand CancelGridBtn { get; set; }
 
-
         private ObservableCollection<PHIEUDATCHO> _FilteredOrderList;
         public ObservableCollection<PHIEUDATCHO> FilteredOrderList
         {
@@ -35,8 +28,6 @@ namespace FlightTicketManagement.ViewModel
                 OnPropertyChanged();
             }
         }
-
-
 
         private ObservableCollection<PHIEUDATCHO> _OrderList;
         public ObservableCollection<PHIEUDATCHO> OrderList
@@ -96,8 +87,6 @@ namespace FlightTicketManagement.ViewModel
         private DateTime _NgayXuatVe;
         public DateTime NgayXuatVe { get => _NgayXuatVe; set { _NgayXuatVe = value; OnPropertyChanged(); } }
 
-
-
         private string _FilterCusID;
         public string FilterCusID
         {
@@ -115,10 +104,10 @@ namespace FlightTicketManagement.ViewModel
             get { return _pageModel.TicketSale; }
             set { _pageModel.TicketSale = value; OnPropertyChanged(); }
         }
+
         public TicketSaleVM()
         {
             NgayXuatVe = DateTime.Today;
-
 
             OrderList = new ObservableCollection<PHIEUDATCHO>(DataProvider.Ins.DB.PHIEUDATCHOes);
 
@@ -127,6 +116,7 @@ namespace FlightTicketManagement.ViewModel
             SearchBtn = new RelayCommand<TicketSale>((p) => true, (p) => _searchCusID());
             CancelGridBtn = new RelayCommand<TicketSale>((p) => true, (p) => _cancelGridBtn());
             _pageModel = new PageModel();
+            LoadData();
         }
 
         private void _cancelGridBtn()
@@ -155,7 +145,7 @@ namespace FlightTicketManagement.ViewModel
                 }
 
                 // Refresh the OrderList to reflect changes
-                OrderList = new ObservableCollection<PHIEUDATCHO>(DataProvider.Ins.DB.PHIEUDATCHOes);
+                LoadData();
             }
         }
 
@@ -166,12 +156,10 @@ namespace FlightTicketManagement.ViewModel
                 string filter = FilterCusID;
                 var filteredList = DataProvider.Ins.DB.PHIEUDATCHOes.Where(p => p.MaHanhKhach.Contains(filter)).ToList();
                 OrderList = new ObservableCollection<PHIEUDATCHO>(filteredList);
-
             }
             else
             {
-                OrderList = new ObservableCollection<PHIEUDATCHO>(DataProvider.Ins.DB.PHIEUDATCHOes);
-
+                OrderList = new ObservableCollection<PHIEUDATCHO>(DataProvider.Ins.DB.PHIEUDATCHOes.ToList());
             }
         }
 
@@ -198,11 +186,40 @@ namespace FlightTicketManagement.ViewModel
                 };
 
                 DataProvider.Ins.DB.VECHUYENBAYs.Add(vechuyenbay);
-                DataProvider.Ins.DB.SaveChanges();
 
-                //TicketList.Add(vechuyenbay);
-                MessageBox.Show("Vé chuyến bay đã được xuất thành công!");
+                try
+                {
+                    // Lưu thay đổi và cập nhật tình trạng phiếu đặt chỗ
+                    DataProvider.Ins.DB.SaveChanges();
+
+                    // Tìm phiếu đặt chỗ tương ứng và cập nhật tình trạng
+                    var phieuDatCho = DataProvider.Ins.DB.PHIEUDATCHOes
+                        .SingleOrDefault(p => p.MaHanhKhach == MaHanhKhach && p.MaHangVe == MaHangVe
+                            && p.MaChuyenBay == MaChuyenBay && p.MaGhe == MaGhe);
+
+                    if (phieuDatCho != null)
+                    {
+                        phieuDatCho.TinhTrang = "Đã bán";
+                        DataProvider.Ins.DB.SaveChanges();
+                    }
+
+                    MessageBox.Show("Vé chuyến bay đã được xuất thành công!");
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Có lỗi xảy ra: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+
+                OrderList = new ObservableCollection<PHIEUDATCHO>(DataProvider.Ins.DB.PHIEUDATCHOes.ToList());
+                LoadData();
             }
+        }
+
+        public void LoadData()
+        {
+            OrderList = new ObservableCollection<PHIEUDATCHO>(DataProvider.Ins.DB.PHIEUDATCHOes.ToList());
+            TicketList = new ObservableCollection<VECHUYENBAY>(DataProvider.Ins.DB.VECHUYENBAYs.ToList());
+            FilteredOrderList = new ObservableCollection<PHIEUDATCHO>(DataProvider.Ins.DB.PHIEUDATCHOes.ToList());
         }
 
         private void _cancelBtn(TicketSale parameter)
@@ -212,8 +229,6 @@ namespace FlightTicketManagement.ViewModel
             parameter.ClassFlightID.Clear();
             parameter.CustomerID.Clear();
             parameter.SeatID.Clear();
-            //TicketList.Clear();
         }
-
     }
 }

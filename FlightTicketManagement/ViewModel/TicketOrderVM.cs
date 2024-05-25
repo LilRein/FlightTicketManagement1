@@ -313,7 +313,7 @@ namespace FlightTicketManagement.ViewModel
                 DataProvider.Ins.DB.SaveChanges();
 
                 OrderFlightList.Add(phieudatcho);
-                MessageBox.Show("Phiêu đặt chỗ đã được thêm thành công!");
+                MessageBox.Show("Phiếu đặt chỗ đã được thêm thành công!");
             }
         }
 
@@ -321,7 +321,7 @@ namespace FlightTicketManagement.ViewModel
         {
             if (_FlightIDList != null && _NgayDat != DateTime.MinValue)
             {
-                var filteredFlights = _FlightIDList.Where(flight => flight.NgayBay.Date == _NgayDat.Date).ToList();
+                var filteredFlights = _FlightIDList.Where(flight => flight.NgayBay.Date >= _NgayDat.Date).ToList();
                 FilteredFlightIDList = new ObservableCollection<CHUYENBAY>(filteredFlights);
             }
             else

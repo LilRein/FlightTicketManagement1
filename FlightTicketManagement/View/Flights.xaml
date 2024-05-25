@@ -276,20 +276,20 @@
                                     Header="Mã chuyến bay"
                                     IsReadOnly="True" />
                                 <DataGridTextColumn
-                                    Width="1.5*"
+                                    Width="*"
                                     Binding="{Binding MaSanBayDi}"
                                     ElementStyle="{StaticResource CenterTextStyle}"
                                     Header="Sân bay đi"
                                     IsReadOnly="True" />
                                 <DataGridTextColumn
-                                    Width="1.5*"
+                                    Width="*"
                                     Binding="{Binding MaSanBayDen}"
                                     ElementStyle="{StaticResource CenterTextStyle}"
                                     Header="Sân bay đến"
                                     IsReadOnly="True" />
                                 <DataGridTextColumn
-                                    Width="1.5*"
-                                    Binding="{Binding NgayBay}"
+                                    Width="*"
+                                    Binding="{Binding NgayBay, StringFormat='dd/MM/yyyy'}"
                                     ElementStyle="{StaticResource CenterTextStyle}"
                                     Header="Ngày bay"
                                     IsReadOnly="True" />

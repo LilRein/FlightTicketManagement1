@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="3f1e7a62ca604c8c8afed3e80f342cc2" Name="Diagram1" ZoomLevel="64">
+      <Diagram DiagramId="acb56bf934ab4ed4b90aba14373b3d97" Name="Diagram1">
         <EntityTypeShape EntityType="FLIGHTTICKETMANAGEMENTModel.CHITIETHANGVE" Width="1.5" PointX="7.5" PointY="9.375" IsExpanded="true" />
         <EntityTypeShape EntityType="FLIGHTTICKETMANAGEMENTModel.CHUYENBAY" Width="1.5" PointX="5.25" PointY="8.875" IsExpanded="true" />
         <EntityTypeShape EntityType="FLIGHTTICKETMANAGEMENTModel.CTDOANHTHUNAM" Width="1.5" PointX="8.25" PointY="0.75" IsExpanded="true" />
@@ -19,31 +19,31 @@
         <EntityTypeShape EntityType="FLIGHTTICKETMANAGEMENTModel.PHIEUDATCHO" Width="1.5" PointX="12.75" PointY="9.5" IsExpanded="true" />
         <EntityTypeShape EntityType="FLIGHTTICKETMANAGEMENTModel.QUOCGIA" Width="1.5" PointX="0.75" PointY="10" IsExpanded="true" />
         <EntityTypeShape EntityType="FLIGHTTICKETMANAGEMENTModel.SANBAY" Width="1.5" PointX="3" PointY="8.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="FLIGHTTICKETMANAGEMENTModel.TAIKHOAN" Width="1.5" PointX="2.875" PointY="1.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FLIGHTTICKETMANAGEMENTModel.TAIKHOAN" Width="1.5" PointX="0.75" PointY="2.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="FLIGHTTICKETMANAGEMENTModel.THAMSO" Width="1.5" PointX="10.75" PointY="2.375" IsExpanded="true" />
         <EntityTypeShape EntityType="FLIGHTTICKETMANAGEMENTModel.TUYENBAY" Width="1.5" PointX="3" PointY="11.375" IsExpanded="true" />
         <EntityTypeShape EntityType="FLIGHTTICKETMANAGEMENTModel.VECHUYENBAY" Width="1.5" PointX="9.75" PointY="5.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="FLIGHTTICKETMANAGEMENTModel.THAMSO" Width="1.5" PointX="10.75" PointY="2.375" IsExpanded="true" />
-        <AssociationConnector Association="FLIGHTTICKETMANAGEMENTModel.FK__CHITIETHA__MaChu__5DCAEF64" ManuallyRouted="false" />
-        <AssociationConnector Association="FLIGHTTICKETMANAGEMENTModel.FK__CHITIETHA__MaHan__5CD6CB2B" ManuallyRouted="false" />
-        <AssociationConnector Association="FLIGHTTICKETMANAGEMENTModel.FK__PHIEUDATCHO__619B8048" ManuallyRouted="false" />
-        <AssociationConnector Association="FLIGHTTICKETMANAGEMENTModel.FK__VECHUYENBAY__5EBF139D" ManuallyRouted="false" />
-        <AssociationConnector Association="FLIGHTTICKETMANAGEMENTModel.FK__CHUYENBAY__MaMay__59FA5E80" ManuallyRouted="false" />
-        <AssociationConnector Association="FLIGHTTICKETMANAGEMENTModel.FK__CHUYENBAY__MaSan__5812160E" ManuallyRouted="false" />
+        <AssociationConnector Association="FLIGHTTICKETMANAGEMENTModel.FK__CHITIETHA__MaChu__5EBF139D" ManuallyRouted="false" />
+        <AssociationConnector Association="FLIGHTTICKETMANAGEMENTModel.FK__CHITIETHA__MaHan__5DCAEF64" ManuallyRouted="false" />
+        <AssociationConnector Association="FLIGHTTICKETMANAGEMENTModel.FK__PHIEUDATCHO__628FA481" ManuallyRouted="false" />
+        <AssociationConnector Association="FLIGHTTICKETMANAGEMENTModel.FK__VECHUYENBAY__5FB337D6" ManuallyRouted="false" />
+        <AssociationConnector Association="FLIGHTTICKETMANAGEMENTModel.FK__CHUYENBAY__MaMay__5AEE82B9" ManuallyRouted="false" />
         <AssociationConnector Association="FLIGHTTICKETMANAGEMENTModel.FK__CHUYENBAY__MaSan__59063A47" ManuallyRouted="false" />
-        <AssociationConnector Association="FLIGHTTICKETMANAGEMENTModel.FK__CHUYENBAY__MaTuy__571DF1D5" ManuallyRouted="false" />
-        <AssociationConnector Association="FLIGHTTICKETMANAGEMENTModel.FK__CTDOANHTH__MaChu__6477ECF3" ManuallyRouted="false" />
-        <AssociationConnector Association="FLIGHTTICKETMANAGEMENTModel.FK__CTSANBAYT__MaChu__5AEE82B9" ManuallyRouted="false" />
-        <AssociationConnector Association="FLIGHTTICKETMANAGEMENTModel.FK__CTDOANHTHUN__Nam__66603565" ManuallyRouted="false" />
-        <AssociationConnector Association="FLIGHTTICKETMANAGEMENTModel.FK__CTDOANHTHUTHANG__656C112C" ManuallyRouted="false" />
-        <AssociationConnector Association="FLIGHTTICKETMANAGEMENTModel.FK__DANHSACHG__MaMay__6754599E" ManuallyRouted="false" />
-        <AssociationConnector Association="FLIGHTTICKETMANAGEMENTModel.FK__PHIEUDATC__MaGhe__6383C8BA" ManuallyRouted="false" />
-        <AssociationConnector Association="FLIGHTTICKETMANAGEMENTModel.FK__VECHUYENB__MaGhe__60A75C0F" ManuallyRouted="false" />
-        <AssociationConnector Association="FLIGHTTICKETMANAGEMENTModel.FK__MAYBAY__MaHangMa__68487DD7" ManuallyRouted="false" />
-        <AssociationConnector Association="FLIGHTTICKETMANAGEMENTModel.FK__PHIEUDATC__MaHan__628FA481" ManuallyRouted="false" />
-        <AssociationConnector Association="FLIGHTTICKETMANAGEMENTModel.FK__VECHUYENB__MaHan__5FB337D6" ManuallyRouted="false" />
-        <AssociationConnector Association="FLIGHTTICKETMANAGEMENTModel.FK__SANBAY__MaQuocGi__5BE2A6F2" ManuallyRouted="false" />
-        <AssociationConnector Association="FLIGHTTICKETMANAGEMENTModel.FK__TUYENBAY__MaQuoc__693CA210" ManuallyRouted="false" />
+        <AssociationConnector Association="FLIGHTTICKETMANAGEMENTModel.FK__CHUYENBAY__MaSan__59FA5E80" ManuallyRouted="false" />
+        <AssociationConnector Association="FLIGHTTICKETMANAGEMENTModel.FK__CHUYENBAY__MaTuy__5812160E" ManuallyRouted="false" />
+        <AssociationConnector Association="FLIGHTTICKETMANAGEMENTModel.FK__CTDOANHTH__MaChu__656C112C" ManuallyRouted="false" />
+        <AssociationConnector Association="FLIGHTTICKETMANAGEMENTModel.FK__CTSANBAYT__MaChu__5BE2A6F2" ManuallyRouted="false" />
+        <AssociationConnector Association="FLIGHTTICKETMANAGEMENTModel.FK__CTDOANHTHUN__Nam__6754599E" ManuallyRouted="false" />
+        <AssociationConnector Association="FLIGHTTICKETMANAGEMENTModel.FK__CTDOANHTHUTHANG__66603565" ManuallyRouted="false" />
+        <AssociationConnector Association="FLIGHTTICKETMANAGEMENTModel.FK__DANHSACHG__MaMay__68487DD7" ManuallyRouted="false" />
+        <AssociationConnector Association="FLIGHTTICKETMANAGEMENTModel.FK__PHIEUDATC__MaGhe__6477ECF3" ManuallyRouted="false" />
+        <AssociationConnector Association="FLIGHTTICKETMANAGEMENTModel.FK__VECHUYENB__MaGhe__619B8048" ManuallyRouted="false" />
+        <AssociationConnector Association="FLIGHTTICKETMANAGEMENTModel.FK__MAYBAY__MaHangMa__693CA210" ManuallyRouted="false" />
+        <AssociationConnector Association="FLIGHTTICKETMANAGEMENTModel.FK__PHIEUDATC__MaHan__6383C8BA" ManuallyRouted="false" />
+        <AssociationConnector Association="FLIGHTTICKETMANAGEMENTModel.FK__VECHUYENB__MaHan__60A75C0F" ManuallyRouted="false" />
+        <AssociationConnector Association="FLIGHTTICKETMANAGEMENTModel.FK__SANBAY__MaQuocGi__5CD6CB2B" ManuallyRouted="false" />
         <AssociationConnector Association="FLIGHTTICKETMANAGEMENTModel.FK__TUYENBAY__MaQuoc__6A30C649" ManuallyRouted="false" />
+        <AssociationConnector Association="FLIGHTTICKETMANAGEMENTModel.FK__TUYENBAY__MaQuoc__6B24EA82" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
