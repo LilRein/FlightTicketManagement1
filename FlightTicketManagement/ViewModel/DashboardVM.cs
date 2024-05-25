@@ -48,6 +48,16 @@ namespace FlightTicketManagement.ViewModel
             }
         }
 
+        private int _ticketsNum;
+        public int TicketsNum
+        {
+            get { return _ticketsNum; }
+            set
+            {
+                _ticketsNum = value;
+                OnPropertyChanged(nameof(_ticketsNum));
+            }
+        }
         public DashboardVM() 
         {
             YearRevenue = new ObservableCollection<YearReport>();
@@ -72,7 +82,7 @@ namespace FlightTicketManagement.ViewModel
 
             TicketsSold = DataProvider.Ins.DB.CTDOANHTHUTHANGs
                                       .Sum(t => t.SoVe); // Adjust this line based on the actual property that represents the number of tickets sold
-
+            TicketsNum = DataProvider.Ins.DB.CHUYENBAYs.Count();
         }
 
     }
