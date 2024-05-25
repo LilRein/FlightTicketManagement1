@@ -209,6 +209,9 @@ namespace FlightTicketManagement.ViewModel
         }
         public TicketOrderVM()
         {
+            NgayDat = DateTime.Today;
+
+
             OrderFlightList = new ObservableCollection<PHIEUDATCHO>(DataProvider.Ins.DB.PHIEUDATCHOes);
             ClassFlightList = new ObservableCollection<HANGVE>(DataProvider.Ins.DB.HANGVEs);
             FlightIDList = new ObservableCollection<CHUYENBAY>(DataProvider.Ins.DB.CHUYENBAYs);
@@ -228,7 +231,7 @@ namespace FlightTicketManagement.ViewModel
 
             _pageModel = new PageModel();
 
-            NgayDat = DateTime.Today;
+            
             // Initialize FilteredFlightIDList
             FilteredFlightIDList = new ObservableCollection<CHUYENBAY>(_FlightIDList);
         }
