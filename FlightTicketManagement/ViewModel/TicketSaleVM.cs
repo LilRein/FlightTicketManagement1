@@ -148,17 +148,26 @@ namespace FlightTicketManagement.ViewModel
                 {
                     DataProvider.Ins.DB.SaveChanges();
                     MessageBox.Show("Phiếu đặt chỗ đã được huỷ thành công!", "Notification", MessageBoxButton.OK, MessageBoxImage.Information);
+
+                    // Remove all orders with the status "Đã huỷ" from the database
+                    var canceledOrders = DataProvider.Ins.DB.PHIEUDATCHOes.Where(x => x.TinhTrang == "Đã huỷ").ToList();
+                    foreach (var order in canceledOrders)
+                    {
+                        DataProvider.Ins.DB.PHIEUDATCHOes.Remove(order);
+                    }
+                    DataProvider.Ins.DB.SaveChanges();
+
+                    // Refresh the OrderList to reflect changes
+                    OrderList = new ObservableCollection<PHIEUDATCHO>(DataProvider.Ins.DB.PHIEUDATCHOes.ToList());
                 }
                 catch (Exception ex)
                 {
                     MessageBox.Show($"Có lỗi xảy ra: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 }
-
-                // Refresh the OrderList to reflect changes
-                OrderList = new ObservableCollection<PHIEUDATCHO>(DataProvider.Ins.DB.PHIEUDATCHOes);
-            } else
+            }
+            else
             {
-                MessageBox.Show($"Có lỗi xảy ra: ", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show("Có lỗi xảy ra", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
 
