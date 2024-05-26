@@ -363,8 +363,7 @@ namespace FlightTicketManagement.ViewModel
             var existingOrder = DataProvider.Ins.DB.PHIEUDATCHOes.FirstOrDefault(order =>
                 order.MaChuyenBay == SelectedMACHUYENBAY.MaChuyenBay &&
                 order.MaHangVe == SelectedMAHANGVE.MaHangVe &&
-                order.MaGhe == SelectedMAGHE.MaGhe &&
-                order.NgayDat == NgayDat);
+                order.MaGhe == SelectedMAGHE.MaGhe);
 
             if (existingOrder != null)
             {
