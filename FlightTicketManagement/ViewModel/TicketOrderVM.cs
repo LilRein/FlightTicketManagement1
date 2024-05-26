@@ -321,6 +321,27 @@ namespace FlightTicketManagement.ViewModel
                 return;
             }
 
+            // Check if the seat is already booked
+            var existingOrder = DataProvider.Ins.DB.PHIEUDATCHOes.FirstOrDefault(order =>
+                order.MaChuyenBay == SelectedMACHUYENBAY.MaChuyenBay &&
+                order.MaHangVe == SelectedMAHANGVE.MaHangVe &&
+                order.MaGhe == SelectedMAGHE.MaGhe &&
+                order.NgayDat == NgayDat);
+
+            if (existingOrder != null)
+            {
+                if (existingOrder.TinhTrang == "Đã bán")
+                {
+                    MessageBox.Show("Vé đã bán!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+                else if (existingOrder.TinhTrang == "Đã đặt")
+                {
+                    MessageBox.Show("Vé đã được đặt!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+                return;
+            }
+
+
             // Kiểm tra xem mã khách hàng đã tồn tại hay chưa
             var existingCustomer = DataProvider.Ins.DB.HANHKHACHes.FirstOrDefault(h => h.MaHanhKhach == MaHanhKhach);
 

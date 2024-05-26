@@ -239,6 +239,10 @@ namespace FlightTicketManagement.ViewModel
                 //TicketList.Add(vechuyenbay);
                 MessageBox.Show("Vé chuyến bay đã được xuất thành công!");
                 OrderList = new ObservableCollection<PHIEUDATCHO>(DataProvider.Ins.DB.PHIEUDATCHOes.ToList());
+            } 
+            else if (SelectedOrder.TinhTrang == "Đã bán" && addFliNoti == MessageBoxResult.Yes)
+            {
+                MessageBox.Show($"Vé đã được bán", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
 
