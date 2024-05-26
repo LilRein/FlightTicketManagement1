@@ -56,7 +56,7 @@
                         Style="{StaticResource BtnStyle}">
                         <Grid>
                             <Image Source="Images/img_home.png" Style="{StaticResource Image_Style}" />
-                            <TextBlock Style="{StaticResource Text_Style}" Text="Dashboard" />
+                            <TextBlock Style="{StaticResource Text_Style}" Text="Trang chủ" />
                         </Grid>
                     </Menu:Btn>
 
@@ -64,7 +64,7 @@
                     <Menu:Btn Command="{Binding ScheduleCommand}" Style="{StaticResource BtnStyle}">
                         <Grid>
                             <Image Source="Images/img_schedule.png" Style="{StaticResource Image_Style}" />
-                            <TextBlock Style="{StaticResource Text_Style}" Text="Schedule" />
+                            <TextBlock Style="{StaticResource Text_Style}" Text="Nhận lịch" />
                         </Grid>
                     </Menu:Btn>
 
@@ -72,7 +72,7 @@
                     <Menu:Btn Command="{Binding TicketOrderCommand}" Style="{StaticResource BtnStyle}">
                         <Grid>
                             <Image Source="Images/img_ticketorder.png" Style="{StaticResource Image_Style}" />
-                            <TextBlock Style="{StaticResource Text_Style}" Text="Ticket Order" />
+                            <TextBlock Style="{StaticResource Text_Style}" Text="Đặt vé" />
                         </Grid>
                     </Menu:Btn>
 
@@ -80,7 +80,7 @@
                     <Menu:Btn Command="{Binding TicketSaleCommand}" Style="{StaticResource BtnStyle}">
                         <Grid>
                             <Image Source="Images/img_ticket.png" Style="{StaticResource Image_Style}" />
-                            <TextBlock Style="{StaticResource Text_Style}" Text="Ticket Sale" />
+                            <TextBlock Style="{StaticResource Text_Style}" Text="Bán vé" />
                         </Grid>
                     </Menu:Btn>
 
@@ -88,7 +88,7 @@
                     <Menu:Btn Command="{Binding FlightCommand}" Style="{StaticResource BtnStyle}">
                         <Grid>
                             <Image Source="Images/img_flight.png" Style="{StaticResource Image_Style}" />
-                            <TextBlock Style="{StaticResource Text_Style}" Text="Flight" />
+                            <TextBlock Style="{StaticResource Text_Style}" Text="Tra cứu" />
                         </Grid>
                     </Menu:Btn>
 
@@ -96,7 +96,7 @@
                     <Menu:Btn Command="{Binding ReportCommand}" Style="{StaticResource BtnStyle}">
                         <Grid>
                             <Image Source="Images/img_report.png" Style="{StaticResource Image_Style}" />
-                            <TextBlock Style="{StaticResource Text_Style}" Text="Report" />
+                            <TextBlock Style="{StaticResource Text_Style}" Text="Báo cáo" />
                         </Grid>
                     </Menu:Btn>
 
@@ -104,7 +104,7 @@
                     <Menu:Btn Command="{Binding SettingCommand}" Style="{StaticResource BtnStyle}">
                         <Grid>
                             <Image Source="Images/img_setting.png" Style="{StaticResource Image_Style}" />
-                            <TextBlock Style="{StaticResource Text_Style}" Text="Setting" />
+                            <TextBlock Style="{StaticResource Text_Style}" Text="Thay đổi" />
                         </Grid>
                     </Menu:Btn>
 
