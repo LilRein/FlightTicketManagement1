@@ -1,28 +1,42 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Windows.Controls;
+using Microsoft.Maps.MapControl.WPF;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
+using FlightTicketManagement.ViewModel;
 
 namespace FlightTicketManagement.View
 {
-    /// <summary>
-    /// Interaction logic for Dashboard.xaml
-    /// </summary>
     public partial class Dashboard : UserControl
     {
         public Dashboard()
         {
             InitializeComponent();
+
+            // Set the DataContext to the ViewModel
+            var viewModel = new DashboardVM();
+            this.DataContext = viewModel;
+
+            // Add pushpins to the map
+            foreach (var location in viewModel.AirportLocations)
+            {
+                var pushpin = new Pushpin
+                {
+                    Location = location,
+                    Content = "✈️"
+                };
+                myMap.Children.Add(pushpin);
+            }
+
+            // Add flight routes to the map
+            foreach (var route in viewModel.FlightRoutes)
+            {
+                myMap.Children.Add(route);
+            }
+
+            // Add flight arrows to the map
+            foreach (var arrow in viewModel.FlightArrows)
+            {
+                myMap.Children.Add(arrow);
+            }
         }
     }
 }

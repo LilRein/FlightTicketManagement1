@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="FLIGHTTICKETMANAGEMENTModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="FLIGHTTICKETMANAGEMENTModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="CHITIETHANGVE">
           <Key>
             <PropertyRef Name="MaHangVe" />
@@ -31,6 +31,8 @@
           <Property Name="GioKhoiHanh" Type="time" Precision="7" Nullable="false" />
           <Property Name="ThoiLuong" Type="float" Nullable="false" />
           <Property Name="DonGia" Type="money" Nullable="false" />
+          <Property Name="Latitude" Type="float" />
+          <Property Name="Longitude" Type="float" />
         </EntityType>
         <EntityType Name="CTDOANHTHUNAM">
           <Key>
@@ -143,6 +145,8 @@
           <Property Name="TenSanBay" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="DiaChi" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="MaQuocGia" Type="char" MaxLength="10" Nullable="false" />
+          <Property Name="Latitude" Type="float" />
+          <Property Name="Longitude" Type="float" />
         </EntityType>
         <EntityType Name="TAIKHOAN">
           <Key>
@@ -543,8 +547,7 @@
             <End Role="VECHUYENBAY" EntitySet="VECHUYENBAY" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="FLIGHTTICKETMANAGEMENTModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -585,6 +588,8 @@
           <NavigationProperty Name="TUYENBAY" Relationship="Self.FK__CHUYENBAY__MaTuy__5812160E" FromRole="CHUYENBAY" ToRole="TUYENBAY" />
           <NavigationProperty Name="CTDOANHTHUTHANGs" Relationship="Self.FK__CTDOANHTH__MaChu__656C112C" FromRole="CHUYENBAY" ToRole="CTDOANHTHUTHANG" />
           <NavigationProperty Name="CTSANBAYTRUNGGIANs" Relationship="Self.FK__CTSANBAYT__MaChu__5BE2A6F2" FromRole="CHUYENBAY" ToRole="CTSANBAYTRUNGGIAN" />
+          <Property Name="Latitude" Type="Double" />
+          <Property Name="Longitude" Type="Double" />
         </EntityType>
         <EntityType Name="CTDOANHTHUNAM">
           <Key>
@@ -719,6 +724,8 @@
           <Property Name="TenSanBay" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="DiaChi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="MaQuocGia" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="Latitude" Type="Double" />
+          <Property Name="Longitude" Type="Double" />
           <NavigationProperty Name="CHUYENBAYs" Relationship="Self.FK__CHUYENBAY__MaSan__59063A47" FromRole="SANBAY" ToRole="CHUYENBAY" />
           <NavigationProperty Name="CHUYENBAYs1" Relationship="Self.FK__CHUYENBAY__MaSan__59FA5E80" FromRole="SANBAY" ToRole="CHUYENBAY" />
           <NavigationProperty Name="QUOCGIA" Relationship="Self.FK__SANBAY__MaQuocGi__5CD6CB2B" FromRole="SANBAY" ToRole="QUOCGIA" />
@@ -1024,7 +1031,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="FLIGHTTICKETMANAGEMENTEntities1" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="FLIGHTTICKETMANAGEMENTEntities5" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="CHITIETHANGVEs" EntityType="Self.CHITIETHANGVE" />
           <EntitySet Name="CHUYENBAYs" EntityType="Self.CHUYENBAY" />
           <EntitySet Name="CTDOANHTHUNAMs" EntityType="Self.CTDOANHTHUNAM" />
@@ -1133,7 +1140,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="FLIGHTTICKETMANAGEMENTModelStoreContainer" CdmEntityContainer="FLIGHTTICKETMANAGEMENTEntities1">
+        <EntityContainerMapping StorageEntityContainer="FLIGHTTICKETMANAGEMENTModelStoreContainer" CdmEntityContainer="FLIGHTTICKETMANAGEMENTEntities5">
           <EntitySetMapping Name="CHITIETHANGVEs">
             <EntityTypeMapping TypeName="FLIGHTTICKETMANAGEMENTModel.CHITIETHANGVE">
               <MappingFragment StoreEntitySet="CHITIETHANGVE">
@@ -1150,6 +1157,8 @@
           <EntitySetMapping Name="CHUYENBAYs">
             <EntityTypeMapping TypeName="FLIGHTTICKETMANAGEMENTModel.CHUYENBAY">
               <MappingFragment StoreEntitySet="CHUYENBAY">
+                <ScalarProperty Name="Longitude" ColumnName="Longitude" />
+                <ScalarProperty Name="Latitude" ColumnName="Latitude" />
                 <ScalarProperty Name="MaChuyenBay" ColumnName="MaChuyenBay" />
                 <ScalarProperty Name="MaTuyenBay" ColumnName="MaTuyenBay" />
                 <ScalarProperty Name="MaSanBayDi" ColumnName="MaSanBayDi" />
@@ -1279,6 +1288,8 @@
                 <ScalarProperty Name="TenSanBay" ColumnName="TenSanBay" />
                 <ScalarProperty Name="DiaChi" ColumnName="DiaChi" />
                 <ScalarProperty Name="MaQuocGia" ColumnName="MaQuocGia" />
+                <ScalarProperty Name="Latitude" ColumnName="Latitude" />
+                <ScalarProperty Name="Longitude" ColumnName="Longitude" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

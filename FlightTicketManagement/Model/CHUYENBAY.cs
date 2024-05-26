@@ -31,6 +31,8 @@ namespace FlightTicketManagement.Model
         public System.TimeSpan GioKhoiHanh { get; set; }
         public double ThoiLuong { get; set; }
         public decimal DonGia { get; set; }
+        public Nullable<double> Latitude { get; set; }
+        public Nullable<double> Longitude { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<CHITIETHANGVE> CHITIETHANGVEs { get; set; }

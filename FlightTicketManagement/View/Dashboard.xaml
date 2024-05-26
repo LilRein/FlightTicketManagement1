@@ -16,7 +16,7 @@
                 <!-- Header Section -->
                 <TextBlock Text="Flight Ticket Management Dashboard" FontSize="30" FontWeight="Bold" Foreground="#333" Margin="0,0,0,20" HorizontalAlignment="Center"/>
 
-                <Grid>
+                <Grid Margin="0,0,0,20">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="Auto"/>
                         <RowDefinition Height="Auto"/>
@@ -31,7 +31,7 @@
                     <!-- User Info -->
                     <Border Grid.Row="0" Grid.Column="0" CornerRadius="10" Background="#4CAF50" Padding="20" Margin="10" Effect="{DynamicResource MaterialDesignElevationShadow}">
                         <StackPanel HorizontalAlignment="Center">
-                            <Icon:PackIconMaterial Kind="Account" Width="111" Height="60" Foreground="#FFFFFF"/>
+                            <Icon:PackIconMaterial Kind="Account" Width="40" Height="40" Foreground="#FFFFFF"/>
                             <TextBlock Text="User Name" Foreground="#FFFFFF" FontSize="20" FontWeight="Bold" Margin="10,5,0,0"/>
                             <TextBlock Text="Test" Foreground="#FFFFFF" FontSize="16" HorizontalAlignment="Center"/>
                         </StackPanel>
@@ -40,7 +40,7 @@
                     <!-- Weather Info -->
                     <Border Grid.Row="0" Grid.Column="1" CornerRadius="10" Background="#2196F3" Padding="20" Margin="10" Effect="{DynamicResource MaterialDesignElevationShadow}">
                         <StackPanel HorizontalAlignment="Center">
-                            <Icon:PackIconMaterial Kind="WeatherCloudy" Width="171" Height="60" Foreground="#FFFFFF"/>
+                            <Icon:PackIconMaterial Kind="WeatherCloudy" Width="40" Height="40" Foreground="#FFFFFF"/>
                             <TextBlock Text="Current Weather" Foreground="#FFFFFF" FontSize="20" FontWeight="Bold" Margin="10,5,0,0"/>
                             <TextBlock Text="Cloudy" Foreground="#FFFFFF" FontSize="16" HorizontalAlignment="Center"/>
                         </StackPanel>
@@ -49,7 +49,7 @@
                     <!-- Notifications -->
                     <Border Grid.Row="0" Grid.Column="2" CornerRadius="10" Background="#FF9800" Padding="20" Margin="10" Effect="{DynamicResource MaterialDesignElevationShadow}">
                         <StackPanel HorizontalAlignment="Center">
-                            <Icon:PackIconMaterial Kind="Bell" Width="132" Height="60" Foreground="#FFFFFF"/>
+                            <Icon:PackIconMaterial Kind="Bell" Width="40" Height="40" Foreground="#FFFFFF"/>
                             <TextBlock Text="Notifications" Foreground="#FFFFFF" FontSize="20" FontWeight="Bold" Margin="10,5,0,0"/>
                             <TextBlock Text="2 New Alerts" Foreground="#FFFFFF" FontSize="16" HorizontalAlignment="Center"/>
                         </StackPanel>
@@ -58,33 +58,33 @@
                     <!-- Count Ticket -->
                     <Border Grid.Row="1" Grid.Column="0" CornerRadius="10" Background="#FF5722" Padding="20" Margin="10" Effect="{DynamicResource MaterialDesignElevationShadow}">
                         <StackPanel HorizontalAlignment="Center">
-                            <Icon:PackIconMaterial Kind="Ticket" Width="60" Height="60" Foreground="#FFFFFF" Margin="30,5,0,0"/>
+                            <Icon:PackIconMaterial Kind="Ticket" Width="40" Height="40" Foreground="#FFFFFF"/>
                             <TextBlock Text="Tickets Sold" Foreground="#FFFFFF" FontSize="20" FontWeight="Bold" Margin="10,5,0,0"/>
                             <TextBlock Text="{Binding TicketsSold, StringFormat={}{0:N0} vé}" Foreground="#FFFFFF" FontSize="16" HorizontalAlignment="Center"/>
-                        </StackPanel> 
+                        </StackPanel>
                     </Border>
 
                     <!-- Revenue Info -->
                     <Border Grid.Row="1" Grid.Column="1" CornerRadius="10" Background="#FFC107" Padding="20" Margin="10" Effect="{DynamicResource MaterialDesignElevationShadow}">
                         <StackPanel HorizontalAlignment="Center">
-                            <Icon:PackIconMaterial Kind="Cash" Width="66" Height="60" Foreground="#FFFFFF" Margin="18,5,0,0"/>
-                            <TextBlock Text="Revenue" Foreground="#FFFFFF" FontSize="20" FontWeight="Bold" Margin="10,5,0,0" Width="120"/>
-                            <TextBlock Text="{Binding TotalRevenue2024, StringFormat={}{0:N0} VND}" Foreground="#FFFFFF" FontSize="16" Height="29" Width="132"/>
+                            <Icon:PackIconMaterial Kind="Cash" Width="40" Height="40" Foreground="#FFFFFF"/>
+                            <TextBlock Text="Revenue" Foreground="#FFFFFF" FontSize="20" FontWeight="Bold" Margin="10,5,0,0"/>
+                            <TextBlock Text="{Binding TotalRevenue2024, StringFormat={}{0:N0} VND}" Foreground="#FFFFFF" FontSize="16" HorizontalAlignment="Center"/>
                         </StackPanel>
                     </Border>
 
                     <!-- Upcoming Flights -->
                     <Border Grid.Row="1" Grid.Column="2" CornerRadius="10" Background="#8E44AD" Padding="20" Margin="10" Effect="{DynamicResource MaterialDesignElevationShadow}">
                         <StackPanel HorizontalAlignment="Center">
-                            <Icon:PackIconMaterial Kind="Airplane" Width="60" Height="60" Foreground="#FFFFFF"/>
+                            <Icon:PackIconMaterial Kind="Airplane" Width="40" Height="40" Foreground="#FFFFFF"/>
                             <TextBlock Text="Upcoming Flights" Foreground="#FFFFFF" FontSize="20" FontWeight="Bold" Margin="10,5,0,0"/>
-                            <TextBlock Text="{Binding TicketsNum, StringFormat={}{0:N0} chuyến bay}" Foreground="#FFFFFF" FontSize="16" HorizontalAlignment="Center"/> 
+                            <TextBlock Text="{Binding TicketsNum, StringFormat={}{0:N0} chuyến bay}" Foreground="#FFFFFF" FontSize="16" HorizontalAlignment="Center"/>
                         </StackPanel>
                     </Border>
 
                     <!-- Main Content Area -->
-                    <Border Grid.Row="2" Grid.ColumnSpan="3" CornerRadius="10" Background="#00BCD4" Padding="30" Margin="10,20,10,0" Effect="{DynamicResource MaterialDesignElevationShadow}">
-                        <TextBlock Text="Main Content Area" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20" FontWeight="Bold" Foreground="#FFFFFF"/>
+                    <Border Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="3" CornerRadius="10" Background="#00BCD4" Padding="0" Margin="10" Effect="{DynamicResource MaterialDesignElevationShadow}">
+                        <Controls:Map Name="myMap" CredentialsProvider="4TVpiXr4TDrpvUv3Vx1e~6kDfAcRwQPNrxo_cHedf9w~AspdM1J6-KCvBj7qcsE0yLdcDiAoPaOFUTBhJcFdJQKRhaheaEEXUCKY70IUuAxs" VerticalAlignment="Center" Height="372"/>
                     </Border>
                 </Grid>
             </StackPanel>

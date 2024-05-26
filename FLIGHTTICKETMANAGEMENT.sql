@@ -699,6 +699,23 @@ INSERT INTO CHITIETHANGVE (MaHangVe, MaChuyenBay, SoGheChoHangVe, SoVeDaBan, SoG
 ('BC', 'VJ472', 3, 0, 0),
 ('EC', 'VJ472', 7, 0, 0);
 
+ALTER TABLE SANBAY ADD Latitude FLOAT, Longitude FLOAT;
+UPDATE SANBAY SET Latitude = 35.1796, Longitude = 129.0756 WHERE MaSanBay = 'PUS';
+UPDATE SANBAY SET Latitude = 37.4602, Longitude = 126.4407 WHERE MaSanBay = 'ICN';
+UPDATE SANBAY SET Latitude = 13.6900, Longitude = 100.7501 WHERE MaSanBay = 'BKK';
+UPDATE SANBAY SET Latitude = 8.1132, Longitude = 98.3163 WHERE MaSanBay = 'HKT';
+UPDATE SANBAY SET Latitude = 1.3644, Longitude = 103.9915 WHERE MaSanBay = 'SINA';
+UPDATE SANBAY SET Latitude = 35.5494, Longitude = 139.7798 WHERE MaSanBay = 'TYOA';
+UPDATE SANBAY SET Latitude = 10.8189, Longitude = 106.6519 WHERE MaSanBay = 'SGN';
+UPDATE SANBAY SET Latitude = 21.2216, Longitude = 105.8076 WHERE MaSanBay = 'HAN';
+UPDATE SANBAY SET Latitude = 16.0544, Longitude = 108.2022 WHERE MaSanBay = 'DAD';
+ALTER TABLE CHUYENBAY ADD Latitude FLOAT, Longitude FLOAT;
+-- Giả sử bạn đã có thông tin Latitude và Longitude cho các sân bay
+UPDATE CHUYENBAY
+SET Latitude = (SELECT Latitude FROM SANBAY WHERE SANBAY.MaSanBay = CHUYENBAY.MaSanBayDi),
+    Longitude = (SELECT Longitude FROM SANBAY WHERE SANBAY.MaSanBay = CHUYENBAY.MaSanBayDi)
+WHERE Latitude IS NULL AND Longitude IS NULL;
+
 
 
 DELETE FROM HANGMAYBAY
