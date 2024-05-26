@@ -72,9 +72,26 @@
                         <Grid Grid.Row="1" Margin="10,0,0,13" HorizontalAlignment="Left" VerticalAlignment="Bottom">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="150" />
-                                <ColumnDefinition Width="10" />
+                                <ColumnDefinition Width="200" />
                                 <ColumnDefinition Width="150" />
                             </Grid.ColumnDefinitions>
+<<<<<<< Updated upstream
+=======
+                            <Button
+                                Grid.Column="1"
+                                Width="200"
+                                Height="50"
+                                Click="Button_Click"
+                                Style="{StaticResource AddButton}"
+                                >
+                                <TextBlock
+                                    FontFamily="Roboto"
+                                    FontSize="18"
+                                    FontWeight="Medium"
+                                    Text="Thêm chuyến bay"
+                                    />
+                            </Button>
+>>>>>>> Stashed changes
 
                             <Button Grid.Column="2" Height="45" Click="Button_Click" Style="{StaticResource AddButton}" Margin="0,0,-20,0">
                                 <TextBlock FontFamily="Roboto" FontSize="16" Text="Thêm chuyến bay" />
@@ -105,9 +122,23 @@
                             </DataGrid>
 
                             <Border Grid.Row="1">
+<<<<<<< Updated upstream
                                 <Button Width="200" Height="50" Click="AddMidFlight" Style="{StaticResource AddButton}">
                                     <TextBlock FontFamily="Roboto" FontSize="16" Text="Thêm trung chuyển" />
                                     <!-- Trigger -->
+=======
+                                <Button
+                                    Width="200"
+                                    Height="50"
+                                    Click="AddMidFlight"
+                                    Style="{StaticResource AddButton}">
+                                    <TextBlock
+                                        FontFamily="Roboto"
+                                        FontSize="18"
+                                        FontWeight="Medium"
+                                        Text="Thêm trung gian" />
+                                    <!--  Trigger  -->
+>>>>>>> Stashed changes
                                     <i:Interaction.Triggers>
                                         <i:EventTrigger EventName="Click">
                                             <i:InvokeCommandAction Command="{Binding AddMidFlightCM}" CommandParameter="{Binding ElementName=ScheduleWindow}" />

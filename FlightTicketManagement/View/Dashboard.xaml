@@ -31,35 +31,35 @@
                     <!-- User Info -->
                     <Border Grid.Row="0" Grid.Column="0" CornerRadius="10" Background="#4CAF50" Padding="20" Margin="10" Effect="{DynamicResource MaterialDesignElevationShadow}">
                         <StackPanel HorizontalAlignment="Center">
-                            <Icon:PackIconMaterial Kind="Account" Width="40" Height="40" Foreground="#FFFFFF" Margin="61,0,0,0"/>
-                            <TextBlock Text="Tên người dùng" Foreground="#FFFFFF" FontSize="20" FontWeight="Bold" Margin="10,5,0,0"/>
-                            <TextBlock Text="Test" Foreground="#FFFFFF" FontSize="16" HorizontalAlignment="Center"/>
+                            <Icon:PackIconMaterial Kind="Account" Width="40" Height="40" Foreground="#FFFFFF" HorizontalAlignment="Center"/>
+                            <TextBlock Text="User Name" Foreground="#FFFFFF" FontSize="20" FontWeight="Bold" Margin="10,5,0,0"/>
+                            <TextBlock Text="Admin1" Foreground="#FFFFFF" FontSize="16" HorizontalAlignment="Center"/>
                         </StackPanel>
                     </Border>
 
                     <!-- Weather Info -->
                     <Border Grid.Row="0" Grid.Column="1" CornerRadius="10" Background="#2196F3" Padding="20" Margin="10" Effect="{DynamicResource MaterialDesignElevationShadow}">
                         <StackPanel HorizontalAlignment="Center">
-                            <Icon:PackIconMaterial Kind="WeatherCloudy" Width="40" Height="40" Foreground="#FFFFFF" Margin="20,0,0,0"/>
-                            <TextBlock Text="Thời tiết" Foreground="#FFFFFF" FontSize="20" FontWeight="Bold" Margin="3,5,0,0"/>
-                            <TextBlock Text="Nhiều mây" Foreground="#FFFFFF" FontSize="16" HorizontalAlignment="Center"/>
+                            <Icon:PackIconMaterial Kind="WeatherCloudy" Width="40" Height="40" Foreground="#FFFFFF" HorizontalAlignment="Center"/>
+                            <TextBlock Text="Current Weather" Foreground="#FFFFFF" FontSize="20" FontWeight="Bold" Margin="10,5,0,0"/>
+                            <TextBlock Text="Cloudy" Foreground="#FFFFFF" FontSize="16" HorizontalAlignment="Center"/>
                         </StackPanel>
                     </Border>
 
                     <!-- Notifications -->
                     <Border Grid.Row="0" Grid.Column="2" CornerRadius="10" Background="#FF9800" Padding="20" Margin="10" Effect="{DynamicResource MaterialDesignElevationShadow}">
                         <StackPanel HorizontalAlignment="Center">
-                            <Icon:PackIconMaterial Kind="Bell" Width="40" Height="40" Foreground="#FFFFFF" Margin="38,0,0,0"/>
-                            <TextBlock Text="Thông báo" Foreground="#FFFFFF" FontSize="20" FontWeight="Bold" Margin="10,5,0,0"/>
-                            <TextBlock Text="2 thông báo mới" Foreground="#FFFFFF" FontSize="16" HorizontalAlignment="Center"/>
+                            <Icon:PackIconMaterial Kind="Bell" Width="40" Height="40" Foreground="#FFFFFF" HorizontalAlignment="Center"/>
+                            <TextBlock Text="Notifications" Foreground="#FFFFFF" FontSize="20" FontWeight="Bold" Margin="10,5,0,0"/>
+                            <TextBlock Text="2 New Alerts" Foreground="#FFFFFF" FontSize="16" HorizontalAlignment="Center"/>
                         </StackPanel>
                     </Border>
 
                     <!-- Count Ticket -->
                     <Border Grid.Row="1" Grid.Column="0" CornerRadius="10" Background="#FF5722" Padding="20" Margin="10" Effect="{DynamicResource MaterialDesignElevationShadow}">
                         <StackPanel HorizontalAlignment="Center">
-                            <Icon:PackIconMaterial Kind="Ticket" Width="40" Height="40" Foreground="#FFFFFF" Margin="35,0,0,0"/>
-                            <TextBlock Text="Vé đã bán" Foreground="#FFFFFF" FontSize="20" FontWeight="Bold" Margin="10,5,0,0"/>
+                            <Icon:PackIconMaterial Kind="Ticket" Width="40" Height="40" Foreground="#FFFFFF" HorizontalAlignment="Center"/>
+                            <TextBlock Text="Tickets Sold" Foreground="#FFFFFF" FontSize="20" FontWeight="Bold" Margin="10,5,0,0"/>
                             <TextBlock Text="{Binding TicketsSold, StringFormat={}{0:N0} vé}" Foreground="#FFFFFF" FontSize="16" HorizontalAlignment="Center"/>
                         </StackPanel>
                     </Border>
@@ -67,8 +67,8 @@
                     <!-- Revenue Info -->
                     <Border Grid.Row="1" Grid.Column="1" CornerRadius="10" Background="#FFC107" Padding="20" Margin="10" Effect="{DynamicResource MaterialDesignElevationShadow}">
                         <StackPanel HorizontalAlignment="Center">
-                            <Icon:PackIconMaterial Kind="Cash" Width="40" Height="40" Foreground="#FFFFFF" Margin="37,0,0,0"/>
-                            <TextBlock Text="Doanh thu" Foreground="#FFFFFF" FontSize="20" FontWeight="Bold" Margin="10,5,0,0"/>
+                            <Icon:PackIconMaterial Kind="Cash" Width="40" Height="40" Foreground="#FFFFFF" HorizontalAlignment="Center"/>
+                            <TextBlock Text="Revenue" Foreground="#FFFFFF" FontSize="20" FontWeight="Bold" Margin="10,5,0,0"/>
                             <TextBlock Text="{Binding TotalRevenue2024, StringFormat={}{0:N0} VND}" Foreground="#FFFFFF" FontSize="16" HorizontalAlignment="Center"/>
                         </StackPanel>
                     </Border>
@@ -76,8 +76,8 @@
                     <!-- Upcoming Flights -->
                     <Border Grid.Row="1" Grid.Column="2" CornerRadius="10" Background="#8E44AD" Padding="20" Margin="10" Effect="{DynamicResource MaterialDesignElevationShadow}">
                         <StackPanel HorizontalAlignment="Center">
-                            <Icon:PackIconMaterial Kind="Airplane" Width="40" Height="40" Foreground="#FFFFFF"/>
-                            <TextBlock Text="Số chuyến bay" Foreground="#FFFFFF" FontSize="20" FontWeight="Bold" Margin="10,5,0,0"/>
+                            <Icon:PackIconMaterial Kind="Airplane" Width="40" Height="40" Foreground="#FFFFFF" HorizontalAlignment="Center"/>
+                            <TextBlock Text="Upcoming Flights" Foreground="#FFFFFF" FontSize="20" FontWeight="Bold" Margin="10,5,0,0"/>
                             <TextBlock Text="{Binding TicketsNum, StringFormat={}{0:N0} chuyến bay}" Foreground="#FFFFFF" FontSize="16" HorizontalAlignment="Center"/>
                         </StackPanel>
                     </Border>
