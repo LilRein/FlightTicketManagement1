@@ -313,11 +313,13 @@ namespace FlightTicketManagement.ViewModel
 
                 if (hangve != null)
                 {
-                    // Xóa các liên kết tới bảng khác trước khi xóa chính bản ghi
-                    var relatedChiTietHangVe = DataProvider.Ins.DB.CHITIETHANGVEs.Where(cthv => cthv.MaHangVe == hangve.MaHangVe).ToList();
-                    foreach (var cthv in relatedChiTietHangVe)
+                    // Kiểm tra các liên kết trước khi xóa
+                    bool hasRelatedData = DataProvider.Ins.DB.CHITIETHANGVEs.Any(cthv => cthv.MaHangVe == hangve.MaHangVe);
+
+                    if (hasRelatedData)
                     {
-                        DataProvider.Ins.DB.CHITIETHANGVEs.Remove(cthv);
+                        MessageBox.Show("Không thể xóa hạng vé vì có dữ liệu liên kết.", "Lỗi", MessageBoxButton.OK, MessageBoxImage.Error);
+                        return;
                     }
 
                     DataProvider.Ins.DB.HANGVEs.Remove(hangve);
@@ -391,41 +393,13 @@ namespace FlightTicketManagement.ViewModel
 
                 if (sanbay != null)
                 {
-                    // Xóa các liên kết tới bảng khác trước khi xóa chính bản ghi
-                    var relatedChuyenBays = DataProvider.Ins.DB.CHUYENBAYs.Where(cb => cb.MaSanBayDi == sanbay.MaSanBay || cb.MaSanBayDen == sanbay.MaSanBay).ToList();
-                    foreach (var cb in relatedChuyenBays)
+                    // Kiểm tra các liên kết trước khi xóa
+                    bool hasRelatedData = DataProvider.Ins.DB.CHUYENBAYs.Any(cb => cb.MaSanBayDi == sanbay.MaSanBay || cb.MaSanBayDen == sanbay.MaSanBay);
+
+                    if (hasRelatedData)
                     {
-                        var relatedChiTietHangVes = DataProvider.Ins.DB.CHITIETHANGVEs.Where(cthv => cthv.MaChuyenBay == cb.MaChuyenBay).ToList();
-                        foreach (var cthv in relatedChiTietHangVes)
-                        {
-                            DataProvider.Ins.DB.CHITIETHANGVEs.Remove(cthv);
-                        }
-
-                        var relatedCTSanBayTrungGians = DataProvider.Ins.DB.CTSANBAYTRUNGGIANs.Where(ct => ct.MaChuyenBay == cb.MaChuyenBay).ToList();
-                        foreach (var ct in relatedCTSanBayTrungGians)
-                        {
-                            DataProvider.Ins.DB.CTSANBAYTRUNGGIANs.Remove(ct);
-                        }
-
-                        var relatedVechuyenBays = DataProvider.Ins.DB.VECHUYENBAYs.Where(vc => vc.MaChuyenBay == cb.MaChuyenBay).ToList();
-                        foreach (var vc in relatedVechuyenBays)
-                        {
-                            DataProvider.Ins.DB.VECHUYENBAYs.Remove(vc);
-                        }
-
-                        var relatedPhieuDatChos = DataProvider.Ins.DB.PHIEUDATCHOes.Where(pd => pd.MaChuyenBay == cb.MaChuyenBay).ToList();
-                        foreach (var pd in relatedPhieuDatChos)
-                        {
-                            DataProvider.Ins.DB.PHIEUDATCHOes.Remove(pd);
-                        }
-
-                        var relatedCTDoanhThuThangs = DataProvider.Ins.DB.CTDOANHTHUTHANGs.Where(dt => dt.MaChuyenBay == cb.MaChuyenBay).ToList();
-                        foreach (var dt in relatedCTDoanhThuThangs)
-                        {
-                            DataProvider.Ins.DB.CTDOANHTHUTHANGs.Remove(dt);
-                        }
-
-                        DataProvider.Ins.DB.CHUYENBAYs.Remove(cb);
+                        MessageBox.Show("Không thể xóa sân bay vì có dữ liệu liên kết.", "Lỗi", MessageBoxButton.OK, MessageBoxImage.Error);
+                        return;
                     }
 
                     DataProvider.Ins.DB.SANBAYs.Remove(sanbay);

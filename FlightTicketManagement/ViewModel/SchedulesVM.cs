@@ -28,6 +28,17 @@ namespace FlightTicketManagement.ViewModel
             }
         }
 
+        private ObservableCollection<SANBAY> _airportLocations;
+        public ObservableCollection<SANBAY> AirportLocations
+        {
+            get { return _airportLocations; }
+            set
+            {
+                _airportLocations = value;
+                OnPropertyChanged(nameof(AirportLocations));
+            }
+        }
+
         private ObservableCollection<CTSANBAYTRUNGGIAN> _midflightList;
         public ObservableCollection<CTSANBAYTRUNGGIAN> MidFlightList
         {
@@ -103,11 +114,8 @@ namespace FlightTicketManagement.ViewModel
                 WindowStartupLocation = WindowStartupLocation.CenterScreen
             };
 
-            bool? result = window.ShowDialog();
-            if (result == true)
-            {
-                LoadData();
-            }
+            window.ShowDialog();
+            LoadData();
         }
 
         private void _DeleteFlight(CHUYENBAY flight)
@@ -115,45 +123,25 @@ namespace FlightTicketManagement.ViewModel
             if (flight == null)
                 return;
 
+            // Kiểm tra liên kết dữ liệu
+            bool hasRelatedData = DataProvider.Ins.DB.CTSANBAYTRUNGGIANs.Any(mf => mf.MaChuyenBay == flight.MaChuyenBay) ||
+                                  DataProvider.Ins.DB.VECHUYENBAYs.Any(vc => vc.MaChuyenBay == flight.MaChuyenBay) ||
+                                  DataProvider.Ins.DB.PHIEUDATCHOes.Any(pd => pd.MaChuyenBay == flight.MaChuyenBay) ||
+                                  DataProvider.Ins.DB.CHITIETHANGVEs.Any(hv => hv.MaChuyenBay == flight.MaChuyenBay) ||
+                                  DataProvider.Ins.DB.CTDOANHTHUTHANGs.Any(dt => dt.MaChuyenBay == flight.MaChuyenBay);
+
+            if (hasRelatedData)
+            {
+                MessageBox.Show("Không thể xóa chuyến bay vì có dữ liệu liên kết.", "Lỗi", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+
             MessageBoxResult result = MessageBox.Show("Bạn có thực sự muốn xóa chuyến bay này?", "Confirm Delete", MessageBoxButton.YesNo, MessageBoxImage.Warning);
             if (result == MessageBoxResult.Yes)
             {
-                // Xóa dữ liệu liên quan trong các bảng khác trước
-                var relatedMidFlights = DataProvider.Ins.DB.CTSANBAYTRUNGGIANs.Where(mf => mf.MaChuyenBay == flight.MaChuyenBay).ToList();
-                foreach (var midFlight in relatedMidFlights)
-                {
-                    DataProvider.Ins.DB.CTSANBAYTRUNGGIANs.Remove(midFlight);
-                }
-
-                var relatedTickets = DataProvider.Ins.DB.VECHUYENBAYs.Where(vc => vc.MaChuyenBay == flight.MaChuyenBay).ToList();
-                foreach (var ticket in relatedTickets)
-                {
-                    DataProvider.Ins.DB.VECHUYENBAYs.Remove(ticket);
-                }
-
-                var relatedReservations = DataProvider.Ins.DB.PHIEUDATCHOes.Where(pd => pd.MaChuyenBay == flight.MaChuyenBay).ToList();
-                foreach (var reservation in relatedReservations)
-                {
-                    DataProvider.Ins.DB.PHIEUDATCHOes.Remove(reservation);
-                }
-
-                var relatedHangVes = DataProvider.Ins.DB.CHITIETHANGVEs.Where(hv => hv.MaChuyenBay == flight.MaChuyenBay).ToList();
-                foreach (var hangVe in relatedHangVes)
-                {
-                    DataProvider.Ins.DB.CHITIETHANGVEs.Remove(hangVe);
-                }
-
-                var relatedDoanhThuThangs = DataProvider.Ins.DB.CTDOANHTHUTHANGs.Where(dt => dt.MaChuyenBay == flight.MaChuyenBay).ToList();
-                foreach (var doanhThuThang in relatedDoanhThuThangs)
-                {
-                    DataProvider.Ins.DB.CTDOANHTHUTHANGs.Remove(doanhThuThang);
-                }
-
-                // Xóa chuyến bay
-                _flightList.Remove(flight);
                 DataProvider.Ins.DB.CHUYENBAYs.Remove(flight);
                 DataProvider.Ins.DB.SaveChanges();
-                LoadData();
+                FlightList.Remove(flight);
             }
         }
 
@@ -161,11 +149,14 @@ namespace FlightTicketManagement.ViewModel
         {
             FlightList = new ObservableCollection<CHUYENBAY>(DataProvider.Ins.DB.CHUYENBAYs.ToList());
             MidFlightList = new ObservableCollection<CTSANBAYTRUNGGIAN>(DataProvider.Ins.DB.CTSANBAYTRUNGGIANs.ToList());
+            AirportLocations = new ObservableCollection<SANBAY>(DataProvider.Ins.DB.SANBAYs.ToList());
         }
 
         public SchedulesVM()
         {
             _pageModel = new PageModel();
+            FlightList = new ObservableCollection<CHUYENBAY>();
+            MidFlightList = new ObservableCollection<CTSANBAYTRUNGGIAN>();
 
             LoadData();
             InitializeCommand();
