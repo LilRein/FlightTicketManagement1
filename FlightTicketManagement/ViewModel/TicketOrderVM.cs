@@ -414,14 +414,30 @@ namespace FlightTicketManagement.ViewModel
 
         private void FilterFlightsByDate()
         {
-            if (_FlightIDList != null && _NgayDat != DateTime.MinValue)
+            try
             {
-                var filteredFlights = _FlightIDList.Where(flight => flight.NgayBay.Date > _NgayDat.Date).ToList();
+                if (FlightIDList == null || !FlightIDList.Any())
+                {
+                    MessageBox.Show("Flight list is empty or null.");
+                    return;
+                }
+
+                // Debugging output
+                Console.WriteLine($"Filtering flights with ThoiGianDatVeChamNhat: {ThoiGianDatVeChamNhat}");
+
+                var filteredFlights = FlightIDList
+                    .Where(f => (f.NgayBay - NgayDat).TotalHours > ThoiGianDatVeChamNhat)
+                    .ToList();
+
                 FilteredFlightIDList = new ObservableCollection<CHUYENBAY>(filteredFlights);
+
+                // Debugging output
+                Console.WriteLine($"Number of filtered flights: {FilteredFlightIDList.Count}");
             }
-            else
+            catch (Exception ex)
             {
-                FilteredFlightIDList = new ObservableCollection<CHUYENBAY>(_FlightIDList);
+                // Handle potential errors
+                MessageBox.Show($"Error filtering flights by date: {ex.Message}");
             }
         }
 
