@@ -104,7 +104,7 @@
                     <Menu:Btn Command="{Binding SettingCommand}" Style="{StaticResource BtnStyle}">
                         <Grid>
                             <Image Source="Images/img_setting.png" Style="{StaticResource Image_Style}" />
-                            <TextBlock Style="{StaticResource Text_Style}" Text="Thay đổi" />
+                            <TextBlock Style="{StaticResource Text_Style}" Text="Cài đặt" />
                         </Grid>
                     </Menu:Btn>
 
