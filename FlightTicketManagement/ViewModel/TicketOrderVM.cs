@@ -209,6 +209,18 @@ namespace FlightTicketManagement.ViewModel
             get { return _pageModel.TicketOrder; }
             set { _pageModel.TicketOrder = value; OnPropertyChanged(); }
         }
+
+        private int _thoiGianDatVeChamNhat;
+        public int ThoiGianDatVeChamNhat
+        {
+            get { return _thoiGianDatVeChamNhat; }
+            set
+            {
+                _thoiGianDatVeChamNhat = value;
+                OnPropertyChanged(nameof(ThoiGianDatVeChamNhat));
+
+            }
+        }
         public TicketOrderVM()
         {
             OrderFlightList = new ObservableCollection<PHIEUDATCHO>(DataProvider.Ins.DB.PHIEUDATCHOes);
@@ -218,8 +230,6 @@ namespace FlightTicketManagement.ViewModel
             StatusList = new ObservableCollection<string>
             {
                 "Đã đặt",
-                "Đã bán",
-                "Đã huỷ",
             };
             CustomerList = new ObservableCollection<HANHKHACH>(DataProvider.Ins.DB.HANHKHACHes);
 
@@ -232,6 +242,34 @@ namespace FlightTicketManagement.ViewModel
             _pageModel = new PageModel();
             // Initialize FilteredFlightIDList
             FilteredFlightIDList = new ObservableCollection<CHUYENBAY>(_FlightIDList);
+            FetchThoiGianDatVeChamNhat();
+        }
+
+        private void FetchThoiGianDatVeChamNhat()
+        {
+            try
+            {
+                var thoiGian = DataProvider.Ins.DB.THAMSOes.FirstOrDefault()?.ThoiGianDatVeChamNhat;
+
+                if (thoiGian.HasValue)
+                {
+                    ThoiGianDatVeChamNhat = thoiGian.Value;
+                    // Debugging output
+                    Console.WriteLine($"Fetched ThoiGianDatVeChamNhat: {ThoiGianDatVeChamNhat}");
+                }
+                else
+                {
+                    // Handle the case where the value is not present in the database
+                    ThoiGianDatVeChamNhat = 1;
+                    Console.WriteLine("ThoiGianDatVeChamNhat value is null in the database. Set to default: 0");
+                }
+            }
+            catch (Exception ex)
+            {
+                // Handle potential errors
+                MessageBox.Show($"Error fetching ThoiGianDatVeChamNhat: {ex.Message}");
+                ThoiGianDatVeChamNhat = 1; // Default value in case of error
+            }
         }
 
         private void _cancelInfor(TicketOrder parameter)

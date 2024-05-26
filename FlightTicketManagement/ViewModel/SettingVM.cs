@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
+using System.Windows;
 using System.Windows.Input;
 
 namespace FlightTicketManagement.ViewModel
@@ -228,14 +229,24 @@ namespace FlightTicketManagement.ViewModel
                         ThoiGianHuyVeDatVe = ThoiGianHuyVeDatVe
                     };
 
-                    // Thêm thực thể mới vào cơ sở dữ liệu
-                    DataProvider.Ins.DB.THAMSOes.Add(newThamSo);
+                    if (SoSanBayTrungGianToiDa >= 0 && ThoiGianBayToiThieu >= 0 && ThoiGianDungToiDa >= 0 && ThoiGianDungToiThieu >= 0 && ThoiGianDatVeChamNhat >= 0 && ThoiGianHuyVeDatVe >= 0)
+                    {
+                        // Thêm thực thể mới vào cơ sở dữ liệu
+                        DataProvider.Ins.DB.THAMSOes.Add(newThamSo);
 
-                    // Xóa thực thể cũ khỏi cơ sở dữ liệu
-                    DataProvider.Ins.DB.THAMSOes.Remove(oldThamSo);
+                        // Xóa thực thể cũ khỏi cơ sở dữ liệu
+                        DataProvider.Ins.DB.THAMSOes.Remove(oldThamSo);
 
-                    // Lưu các thay đổi
-                    DataProvider.Ins.DB.SaveChanges();
+                        // Lưu các thay đổi
+                        DataProvider.Ins.DB.SaveChanges();
+                        MessageBox.Show("Thay đổi thành công", "Notification", MessageBoxButton.YesNo);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Có lỗi xảy ra", "Error", MessageBoxButton.YesNo);
+                    }
+
+
                 }
             });
 
@@ -258,6 +269,8 @@ namespace FlightTicketManagement.ViewModel
                 DataProvider.Ins.DB.SaveChanges();
 
                 HangVeList.Add(hangve);
+
+                MessageBox.Show("Thêm thành công", "Notification", MessageBoxButton.OK);
             });
 
             EditCommand = new RelayCommand<object>((p) =>
@@ -280,10 +293,11 @@ namespace FlightTicketManagement.ViewModel
 
                 SelectedItem.MaHangVe = MaHangVe;
 
-                DataProvider.Ins.DB.HANGVEs.Add(hangve);
-                DataProvider.Ins.DB.SaveChanges();
-
+                HangVeList.Remove(SelectedItem);
                 HangVeList.Add(hangve);
+                SelectedItem = hangve;
+
+                MessageBox.Show("Sửa thành công", "Notification", MessageBoxButton.OK);
             });
 
             DeleteCommand = new RelayCommand<object>((p) =>
@@ -310,6 +324,7 @@ namespace FlightTicketManagement.ViewModel
                     DataProvider.Ins.DB.SaveChanges();
 
                     HangVeList.Remove(hangve);
+                    MessageBox.Show("Xoá thành công", "Notification", MessageBoxButton.OK);
                 }
             });
 
@@ -332,6 +347,8 @@ namespace FlightTicketManagement.ViewModel
                 DataProvider.Ins.DB.SaveChanges();
 
                 SayBayList.Add(sanbay);
+
+                MessageBox.Show("Thêm thành công", "Notification", MessageBoxButton.OK);
             });
 
             EditCommandFlight = new RelayCommand<object>((p) =>
@@ -357,6 +374,8 @@ namespace FlightTicketManagement.ViewModel
                 SayBayList.Remove(SelectedSanBay);
                 SayBayList.Add(sanbay);
                 SelectedSanBay = sanbay;
+
+                MessageBox.Show("Sửa thành công", "Notification", MessageBoxButton.OK);
             });
 
             DeleteCommandFlight = new RelayCommand<object>((p) =>
@@ -413,6 +432,8 @@ namespace FlightTicketManagement.ViewModel
                     DataProvider.Ins.DB.SaveChanges();
 
                     SayBayList.Remove(sanbay);
+
+                    MessageBox.Show("Xoá thành công", "Notification", MessageBoxButton.OK);
                 }
             });
         }
