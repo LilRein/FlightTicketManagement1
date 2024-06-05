@@ -23,7 +23,8 @@
 
     <i:Interaction.Triggers>
         <i:EventTrigger EventName="Loaded">
-            <i:InvokeCommandAction Command="{Binding LoadedWindowCommand}" CommandParameter="{Binding ElementName=mainWindow}" />
+            <i:InvokeCommandAction Command="{Binding LoadedWindowCommand}" 
+                                   CommandParameter="{Binding ElementName=mainWindow}"/>
         </i:EventTrigger>
     </i:Interaction.Triggers>
 
@@ -107,8 +108,6 @@
                             <TextBlock Style="{StaticResource Text_Style}" Text="Cài đặt" />
                         </Grid>
                     </Menu:Btn>
-
-
                 </StackPanel>
             </Grid>
 

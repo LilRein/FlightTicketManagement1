@@ -13,10 +13,10 @@ namespace FlightTicketManagement.Model
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class FLIGHTTICKETMANAGEMENTEntities5 : DbContext
+    public partial class FLIGHTTICKETMANAGEMENTEntities6 : DbContext
     {
-        public FLIGHTTICKETMANAGEMENTEntities5()
-            : base("name=FLIGHTTICKETMANAGEMENTEntities5")
+        public FLIGHTTICKETMANAGEMENTEntities6()
+            : base("name=FLIGHTTICKETMANAGEMENTEntities6")
         {
         }
     

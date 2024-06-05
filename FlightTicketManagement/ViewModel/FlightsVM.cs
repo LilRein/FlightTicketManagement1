@@ -70,7 +70,7 @@ namespace FlightTicketManagement.ViewModel
 
         private void LoadData()
         {
-            using (var context = new FLIGHTTICKETMANAGEMENTEntities5())
+            using (var context = new FLIGHTTICKETMANAGEMENTEntities6())
             {
                 Flights = new ObservableCollection<CHUYENBAY>(context.CHUYENBAYs.ToList());
                 TicketDetails = new ObservableCollection<CHITIETHANGVE>(context.CHITIETHANGVEs.ToList());
@@ -79,7 +79,7 @@ namespace FlightTicketManagement.ViewModel
 
         private void SearchFlightsWithSQL(object parameter)
         {
-            using (var context = new FLIGHTTICKETMANAGEMENTEntities5())
+            using (var context = new FLIGHTTICKETMANAGEMENTEntities6())
             {
                 var query = from chuyenbay in context.CHUYENBAYs
                             join chitiet in context.CHITIETHANGVEs

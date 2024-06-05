@@ -290,6 +290,14 @@ namespace FlightTicketManagement.ViewModel
                 MessageBox.Show("Bạn nhập thiếu thông tin!!", "Notification", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }
+
+            // Kiểm tra xem mã đặt chỗ đã tồn tại hay chưa
+            var existingCus = DataProvider.Ins.DB.HANHKHACHes.FirstOrDefault(h => h.MaHanhKhach == MaHanhKhach);
+            if (existingCus != null)
+            {
+                MessageBox.Show("Mã hành khách đã tồn tại", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
             MessageBoxResult addFliNoti = MessageBox.Show("Bạn muốn thêm hành khách?", "Notification", MessageBoxButton.YesNo);
             if (addFliNoti == MessageBoxResult.Yes)
             {
@@ -342,6 +350,8 @@ namespace FlightTicketManagement.ViewModel
                 return;
             }
 
+            
+
             // Kiểm tra số ghế còn lại của hạng vé và chuyến bay đã chọn
             var chiTietHangVe = DataProvider.Ins.DB.CHITIETHANGVEs
                            .FirstOrDefault(c => c.MaHangVe == SelectedMAHANGVE.MaHangVe &&
@@ -359,25 +369,13 @@ namespace FlightTicketManagement.ViewModel
                 return;
             }
 
-            // Check if the seat is already booked
-            var existingOrder = DataProvider.Ins.DB.PHIEUDATCHOes.FirstOrDefault(order =>
-                order.MaChuyenBay == SelectedMACHUYENBAY.MaChuyenBay &&
-                order.MaHangVe == SelectedMAHANGVE.MaHangVe &&
-                order.MaGhe == SelectedMAGHE.MaGhe);
-
-            if (existingOrder != null)
+            // Kiểm tra xem mã đặt chỗ đã tồn tại hay chưa
+            var existingCus = DataProvider.Ins.DB.HANHKHACHes.FirstOrDefault(h => h.MaHanhKhach == MaHanhKhach);
+            if (existingCus != null)
             {
-                if (existingOrder.TinhTrang == "Đã bán")
-                {
-                    MessageBox.Show("Vé đã bán!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
-                }
-                else if (existingOrder.TinhTrang == "Đã đặt")
-                {
-                    MessageBox.Show("Vé đã được đặt!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
-                }
-                return;
+                
             }
-
+            
 
             // Kiểm tra xem mã khách hàng đã tồn tại hay chưa
             var existingCustomer = DataProvider.Ins.DB.HANHKHACHes.FirstOrDefault(h => h.MaHanhKhach == MaHanhKhach);

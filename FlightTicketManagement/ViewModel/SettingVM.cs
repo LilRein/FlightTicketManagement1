@@ -229,24 +229,29 @@ namespace FlightTicketManagement.ViewModel
                         ThoiGianHuyVeDatVe = ThoiGianHuyVeDatVe
                     };
 
-                    if (SoSanBayTrungGianToiDa >= 0 && ThoiGianBayToiThieu >= 0 && ThoiGianDungToiDa >= 0 && ThoiGianDungToiThieu >= 0 && ThoiGianDatVeChamNhat >= 0 && ThoiGianHuyVeDatVe >= 0)
+                    if (IsValidThamSo(newThamSo))
                     {
-                        // Thêm thực thể mới vào cơ sở dữ liệu
-                        DataProvider.Ins.DB.THAMSOes.Add(newThamSo);
+                        try
+                        {
+                            // Thêm thực thể mới vào cơ sở dữ liệu
+                            DataProvider.Ins.DB.THAMSOes.Add(newThamSo);
 
-                        // Xóa thực thể cũ khỏi cơ sở dữ liệu
-                        DataProvider.Ins.DB.THAMSOes.Remove(oldThamSo);
+                            // Xóa thực thể cũ khỏi cơ sở dữ liệu
+                            DataProvider.Ins.DB.THAMSOes.Remove(oldThamSo);
 
-                        // Lưu các thay đổi
-                        DataProvider.Ins.DB.SaveChanges();
-                        MessageBox.Show("Thay đổi thành công", "Notification", MessageBoxButton.YesNo);
+                            // Lưu các thay đổi
+                            DataProvider.Ins.DB.SaveChanges();
+                           
+                        }
+                        catch (Exception ex)
+                        {
+                            
+                        }
                     }
                     else
                     {
-                        MessageBox.Show("Có lỗi xảy ra", "Error", MessageBoxButton.YesNo);
+                        
                     }
-
-
                 }
             });
 
@@ -259,10 +264,20 @@ namespace FlightTicketManagement.ViewModel
                 if (displayList == null || displayList.Count() != 0)
                     return false;
 
+                // Kiểm tra trùng tên
+                if (DataProvider.Ins.DB.HANGVEs.Any(x => x.TenHangVe == TenHangVe))
+                    return false;
+
                 return true;
 
             }, (p) =>
             {
+                if (DataProvider.Ins.DB.HANGVEs.Any(x => x.TenHangVe == TenHangVe))
+                {
+                    MessageBox.Show("Tên hạng vé đã tồn tại.", "Lỗi", MessageBoxButton.OK, MessageBoxImage.Error);
+                    return;
+                }
+
                 var hangve = new HANGVE() { MaHangVe = MaHangVe, TenHangVe = TenHangVe, TiLeTinhDonGia = TiLeTinhDonGia };
 
                 DataProvider.Ins.DB.HANGVEs.Add(hangve);
@@ -286,6 +301,12 @@ namespace FlightTicketManagement.ViewModel
 
             }, (p) =>
             {
+                if (DataProvider.Ins.DB.HANGVEs.Any(x => x.TenHangVe == TenHangVe && x.MaHangVe != SelectedItem.MaHangVe))
+                {
+                    MessageBox.Show("Tên hạng vé đã tồn tại.", "Lỗi", MessageBoxButton.OK, MessageBoxImage.Error);
+                    return;
+                }
+
                 var hangve = DataProvider.Ins.DB.HANGVEs.Where(x => x.MaHangVe == SelectedItem.MaHangVe).SingleOrDefault();
                 hangve.TenHangVe = TenHangVe;
                 hangve.TiLeTinhDonGia = TiLeTinhDonGia;
@@ -299,6 +320,7 @@ namespace FlightTicketManagement.ViewModel
 
                 MessageBox.Show("Sửa thành công", "Notification", MessageBoxButton.OK);
             });
+
 
             DeleteCommand = new RelayCommand<object>((p) =>
             {
@@ -339,10 +361,20 @@ namespace FlightTicketManagement.ViewModel
                 if (displayList == null || displayList.Count() != 0)
                     return false;
 
+                // Kiểm tra trùng tên
+                if (DataProvider.Ins.DB.SANBAYs.Any(x => x.TenSanBay == TenSanBay))
+                    return false;
+
                 return true;
 
             }, (p) =>
             {
+                if (DataProvider.Ins.DB.SANBAYs.Any(x => x.TenSanBay == TenSanBay))
+                {
+                    MessageBox.Show("Tên sân bay đã tồn tại.", "Lỗi", MessageBoxButton.OK, MessageBoxImage.Error);
+                    return;
+                }
+
                 var sanbay = new SANBAY() { MaSanBay = MaSanBay, TenSanBay = TenSanBay, DiaChi = DiaChi, MaQuocGia = MaQuocGia };
 
                 DataProvider.Ins.DB.SANBAYs.Add(sanbay);
@@ -366,6 +398,12 @@ namespace FlightTicketManagement.ViewModel
 
             }, (p) =>
             {
+                if (DataProvider.Ins.DB.SANBAYs.Any(x => x.TenSanBay == TenSanBay && x.MaSanBay != SelectedSanBay.MaSanBay))
+                {
+                    MessageBox.Show("Tên sân bay đã tồn tại.", "Lỗi", MessageBoxButton.OK, MessageBoxImage.Error);
+                    return;
+                }
+
                 var sanbay = DataProvider.Ins.DB.SANBAYs.Where(x => x.MaSanBay == SelectedSanBay.MaSanBay).SingleOrDefault();
                 sanbay.TenSanBay = TenSanBay;
                 sanbay.DiaChi = DiaChi;
@@ -379,6 +417,7 @@ namespace FlightTicketManagement.ViewModel
 
                 MessageBox.Show("Sửa thành công", "Notification", MessageBoxButton.OK);
             });
+
 
             DeleteCommandFlight = new RelayCommand<object>((p) =>
             {
@@ -410,6 +449,29 @@ namespace FlightTicketManagement.ViewModel
                     MessageBox.Show("Xoá thành công", "Notification", MessageBoxButton.OK);
                 }
             });
+        }
+
+        private bool IsValidThamSo(THAMSO thamSo)
+        {
+            if (!IsPositiveInteger(thamSo.SoSanBayTrungGianToiDa.ToString()) ||
+                !IsPositiveInteger(thamSo.ThoiGianBayToiThieu.ToString()) ||
+                !IsPositiveInteger(thamSo.ThoiGianDungToiDa.ToString()) ||
+                !IsPositiveInteger(thamSo.ThoiGianDungToiThieu.ToString()) ||
+                !IsPositiveInteger(thamSo.ThoiGianDatVeChamNhat.ToString()) ||
+                !IsPositiveInteger(thamSo.ThoiGianHuyVeDatVe.ToString()))
+            {
+                return false;
+            }
+            return true;
+        }
+
+        private bool IsPositiveInteger(string value)
+        {
+            if (int.TryParse(value, out int result))
+            {
+                return result >= 0; // Sửa giá trị để kiểm tra không âm
+            }
+            return false;
         }
     }
 }

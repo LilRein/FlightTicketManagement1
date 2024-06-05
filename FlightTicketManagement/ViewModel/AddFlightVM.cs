@@ -389,16 +389,27 @@ namespace FlightTicketManagement.ViewModel
 
         private void _CancelCommand(AddFlight parameter)
         {
+            // Clear all input fields in the UI
             parameter.FlightID.Clear();
-            parameter.StartListAirport.SelectedItem = null;
-            parameter.EndListAirport.SelectedItem = null;
             parameter.PlaneID.SelectedItem = null;
             parameter.Duration.Clear();
             parameter.Price.Clear();
-            parameter.FlightDatePicker.SelectedDate = null;
-            parameter.FlightTimePicker.Clear();
+            parameter.DatePicker.SelectedDate = null;
+            parameter.TimePicker.Clear();
             parameter.RouteID.SelectedItem = null;
+
+            // Clear the bound properties in the ViewModel
+            MaChuyenBay = string.Empty;
+            SelectedTUYENBAY = null;
+            SelectedSANBAYDI = null;
+            SelectedSANBAYDEN = null;
+            SelectedMAYBAY = null;
+            NgayBay = DateTime.Today;
+            GioKhoiHanh = TimeSpan.Zero;
+            ThoiLuong = 0;
+            DonGia = 0;
             HangVeList.Clear();
         }
+
     }
 }

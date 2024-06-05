@@ -32,13 +32,13 @@ namespace FlightTicketManagement.ViewModel
             LoginCommand = new RelayCommand<Window>((p) => { return true; }, (p) => { Login(p); });
             PasswordChangedCommand = new RelayCommand<PasswordBox>((p) => { return true; }, (p) => { Password = p.Password; });
         }
-        private void Login(Window p)
+        void Login(Window p)
         {
             if (p == null)
                 return;
 
             string passEncode = MD5Hash(Base64Encode(Password));
-            var accCount = DataProvider.Ins.DB.TAIKHOANs.Where(x => x.TenTaiKhoan == UserName && x.MatKhau == Password).Count();
+            var accCount = DataProvider.Ins.DB.TAIKHOANs.Where(x => x.TenTaiKhoan == UserName && x.MatKhau == passEncode).Count();
 
             if (accCount > 0)
             {
@@ -49,7 +49,7 @@ namespace FlightTicketManagement.ViewModel
             else
             {
                 IsLogin = false;
-                MessageBox.Show("Sai tài khoản hoặc mật khẩu!", "Lỗi", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show("Sai tài khoản hoặc mật khẩu!");
             }
         }
 
@@ -58,6 +58,8 @@ namespace FlightTicketManagement.ViewModel
             var plainTextBytes = System.Text.Encoding.UTF8.GetBytes(plainText);
             return System.Convert.ToBase64String(plainTextBytes);
         }
+
+
 
         public static string MD5Hash(string input)
         {

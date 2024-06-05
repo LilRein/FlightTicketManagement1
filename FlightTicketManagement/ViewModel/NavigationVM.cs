@@ -20,7 +20,7 @@ namespace FlightTicketManagement.ViewModel
         }
 
         public bool Isloaded = false;
-
+        public ICommand LoadedWindowCommand { get; set; }
         public ICommand DashboardCommand { get; set; }
         public ICommand ScheduleCommand { get; set; }
         public ICommand TicketSaleCommand { get; set; }
@@ -38,33 +38,33 @@ namespace FlightTicketManagement.ViewModel
         private void Report(object obj) => CurrentView = new ReportsVM();
         private void Setting(object obj) => CurrentView = new SettingVM();
         private void TicketOrder(object obj) => CurrentView = new TicketOrderVM();
-       
+
 
         public NavigationVM()
         {
-            //DashboardCommand = new RelayCommand<Window>((p) => { return true; }, (p) =>
-            //{
-            //    Isloaded = true;
-            //    if (p == null)
-            //        return;
-            //    p.Hide();
-            //    Login loginWindow = new Login();
-            //    loginWindow.ShowDialog();
+            LoadedWindowCommand = new RelayCommand<Window>((p) => { return true; }, (p) =>
+            {
+                Isloaded = true;
+                if (p == null)
+                    return;
+                p.Hide();
+                Login loginWindow = new Login();
+                loginWindow.ShowDialog();
 
-            //    if (loginWindow.DataContext == null)
-            //        return;
-            //    var loginVM = loginWindow.DataContext as LoginVM;
+                if (loginWindow.DataContext == null)
+                    return;
+                var loginVM = loginWindow.DataContext as LoginVM;
 
-            //    if (loginVM.IsLogin)
-            //    {
-            //        p.Show();
-            //    }
-            //    else
-            //    {
-            //        p.Close();
-            //    }
-            //}
-            //  );
+                if (loginVM.IsLogin)
+                {
+                    p.Show();
+                }
+                else
+                {
+                    p.Close();
+                }
+            }
+              );
 
             DashboardCommand = new RelayCommand(Dashboard);
             ScheduleCommand = new RelayCommand(Schedule);

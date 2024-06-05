@@ -76,7 +76,7 @@
                                 <ColumnDefinition Width="150" />
                             </Grid.ColumnDefinitions>
 
-                            <Button Grid.Column="2" Height="45" Click="Button_Click" Style="{StaticResource AddButton}" Margin="0,0,-20,0">
+                            <Button Grid.Column="2" Height="45" Click="AddFlight" Style="{StaticResource AddButton}" Margin="0,0,-20,0">
                                 <TextBlock FontFamily="Roboto" FontSize="16" Text="Thêm chuyến bay" />
                                 <i:Interaction.Triggers>
                                     <i:EventTrigger EventName="Click">
@@ -133,7 +133,7 @@
                         </Grid>
 
                         <!-- Data grid -->
-                        <DataGrid x:Name="DataGridCustomer" Grid.Row="1" Margin="0,10,0,0" AutoGenerateColumns="False" CanUserSortColumns="False" CellStyle="{DynamicResource DataGridCellStyle}" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle}" ItemsSource="{Binding FlightList}" RowStyle="{DynamicResource DataGridRowStyle}" Style="{DynamicResource DataGridStyle}" SelectionChanged="DataGridCustomer_SelectionChanged">
+                        <DataGrid x:Name="DataGridFlight" Grid.Row="1" Margin="0,10,0,0" AutoGenerateColumns="False" CanUserSortColumns="False" CellStyle="{DynamicResource DataGridCellStyle}" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle}" ItemsSource="{Binding FlightList}" RowStyle="{DynamicResource DataGridRowStyle}" Style="{DynamicResource DataGridStyle}" SelectionChanged="DataGridCustomer_SelectionChanged">
                             <DataGrid.Columns>
                                 <DataGridTextColumn Width="*" Binding="{Binding MaChuyenBay}" ElementStyle="{StaticResource CenterTextStyle}" Header="Mã chuyến bay" IsReadOnly="True" />
                                 <DataGridTextColumn Width="*" Binding="{Binding MaSanBayDi}" ElementStyle="{StaticResource CenterTextStyle}" Header="Mã sân bay đi" IsReadOnly="True" />
@@ -146,11 +146,11 @@
                                     <DataGridTemplateColumn.CellTemplate>
                                         <DataTemplate>
                                             <Border>
-                                                <StackPanel x:Name="subMenuGrid" Background="Transparent" Orientation="Horizontal" Visibility="Visible">
-                                                    <Button x:Name="editButton" Command="{Binding DataContext.EditFlightCommand, RelativeSource={RelativeSource AncestorType={x:Type UserControl}}}" CommandParameter="{Binding}" Style="{StaticResource gridEditButton}">
+                                                <StackPanel x:Name="SubMenuGrid" Background="Transparent" Orientation="Horizontal" Visibility="Visible">
+                                                    <Button x:Name="EditFlight" Command="{Binding DataContext.EditFlightCommand, RelativeSource={RelativeSource AncestorType={x:Type UserControl}}}" CommandParameter="{Binding}" Style="{StaticResource gridEditButton}">
                                                         <materialDesign:PackIcon Width="14" Height="14" VerticalAlignment="Center" Kind="Edit" />
                                                     </Button>
-                                                    <Button x:Name="deleteButton" Margin="5,0,0,0" Command="{Binding DataContext.DeleteFlightCommand, RelativeSource={RelativeSource AncestorType={x:Type UserControl}}}" CommandParameter="{Binding}" Style="{StaticResource gridRemoveButton}">
+                                                    <Button x:Name="DeleteFlight" Margin="5,0,0,0" Command="{Binding DataContext.DeleteFlightCommand, RelativeSource={RelativeSource AncestorType={x:Type UserControl}}}" CommandParameter="{Binding}" Style="{StaticResource gridRemoveButton}">
                                                         <materialDesign:PackIcon Width="14" Height="14" VerticalAlignment="Center" Kind="Delete" />
                                                     </Button>
                                                 </StackPanel>

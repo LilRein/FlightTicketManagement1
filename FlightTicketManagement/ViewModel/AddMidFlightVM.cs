@@ -113,10 +113,10 @@ namespace FlightTicketManagement.ViewModel
 
         void _CancelCommand(AddMidFlight paramater)
         {
-            paramater.MaSanBay.SelectedItem = null;
-            paramater.ListAirport.SelectedItem = null;
-            paramater.ThoiGianDung.Text = string.Empty;
-            paramater.GhiChu.Clear();
+            paramater.PlaneID.SelectedItem = null;
+            paramater.FlightID.SelectedItem = null;
+            paramater.WaitTime.Text = string.Empty;
+            paramater.Note.Clear();
         }
         void _ConfirmCommand(AddMidFlight paramater)
         {

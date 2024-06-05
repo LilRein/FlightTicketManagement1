@@ -172,7 +172,6 @@
                         FontSize="18"
                         FontWeight="SemiBold"
                         Foreground="#959895"
-                        Text="Forgot password?"
                         TextAlignment="Right" />
 
 

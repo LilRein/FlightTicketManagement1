@@ -157,7 +157,7 @@
                                     BorderBrush="#cccccc"
                                     BorderThickness="0"
                                     CornerRadius="10">
-                                    <ScrollViewer Height="200" VerticalScrollBarVisibility="Auto">
+                                    <ScrollViewer Height="390" VerticalScrollBarVisibility="Auto">
                                         <DataGrid
                                             Margin="-2,-1,0,0"
                                             AutoGenerateColumns="False"
@@ -322,7 +322,7 @@
                                     BorderBrush="#cccccc"
                                     BorderThickness="0"
                                     CornerRadius="10">
-                                    <ScrollViewer Height="200" VerticalScrollBarVisibility="Auto">
+                                    <ScrollViewer Height="300" VerticalScrollBarVisibility="Auto">
                                         <DataGrid
                                             Margin="0,-1,0,0"
                                             HorizontalAlignment="Stretch"

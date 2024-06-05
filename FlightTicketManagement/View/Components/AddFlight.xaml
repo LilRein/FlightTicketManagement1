@@ -129,18 +129,14 @@
                 Grid.Row="2"
                 Grid.Column="0"
                 Margin="0,0,10,10">
-                <TextBlock Style="{StaticResource Title}" Text="Mã sân bay đi" />
-                <ComboBox
-                    x:Name="StartListAirport"
+                <TextBlock Style="{StaticResource Title}" Text="Tên sân bay đi" />
+                <TextBlock
                     Margin="0,53,0,0"
                     VerticalAlignment="Top"
-                    materialDesign:HintAssist.Hint="Hãy chọn sân bay"
-                    DisplayMemberPath="MaSanBay"
                     FontFamily="Roboto"
                     FontSize="15"
                     Foreground="#555"
-                    ItemsSource="{Binding SANBAY}"
-                    SelectedItem="{Binding SelectedSANBAYDI, UpdateSourceTrigger=PropertyChanged}" />
+                    Text="{Binding SelectedSANBAYDI.TenSanBay}" />
             </Grid>
 
             <!--  San bay den  -->
@@ -148,18 +144,14 @@
                 Grid.Row="2"
                 Grid.Column="1"
                 Margin="0,0,10,10">
-                <TextBlock Style="{StaticResource Title}" Text="Mã sân bay đến" />
-                <ComboBox
-                    x:Name="EndListAirport"
+                <TextBlock Style="{StaticResource Title}" Text="Tên sân bay đến" />
+                <TextBlock
                     Margin="0,53,0,0"
                     VerticalAlignment="Top"
-                    materialDesign:HintAssist.Hint="Hãy chọn sân bay"
-                    DisplayMemberPath="MaSanBay"
                     FontFamily="Roboto"
                     FontSize="15"
                     Foreground="#555"
-                    ItemsSource="{Binding SANBAY}"
-                    SelectedItem="{Binding SelectedSANBAYDEN, UpdateSourceTrigger=PropertyChanged}" />
+                    Text="{Binding SelectedSANBAYDEN.TenSanBay}" />
             </Grid>
 
             <!--  Ngay bay  -->
@@ -169,7 +161,7 @@
                 Margin="0,0,10,10">
                 <TextBlock Style="{StaticResource Title}" Text="Ngày bay" />
                 <DatePicker
-                    x:Name="FlightDatePicker"
+                    x:Name="DatePicker"
                     Margin="0,55,0,0"
                     VerticalAlignment="Top"
                     BorderThickness="0,0,0,1"
@@ -183,7 +175,7 @@
                 Margin="0,0,10,10">
                 <TextBlock Style="{StaticResource Title}" Text="Giờ khởi hành" />
                 <TextBox
-                    x:Name="FlightTimePicker"
+                    x:Name="TimePicker"
                     Margin="0,61,0,0"
                     VerticalAlignment="Top"
                     BorderThickness="0,0,0,1"

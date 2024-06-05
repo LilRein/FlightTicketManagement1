@@ -69,7 +69,7 @@
                     Style="{StaticResource Title}"
                     Text="Mã chuyến bay" />
                 <ComboBox
-                    x:Name="ListAirport"
+                    x:Name="FlightID"
                     Grid.ColumnSpan="2"
                     Margin="0,35,0,0"
                     VerticalAlignment="Top"
@@ -84,12 +84,16 @@
 
             <!--  Ma san bay trung gian  -->
             <Grid Grid.Row="2" Margin="0,0,10,10">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="249*"/>
+                    <ColumnDefinition Width="101*"/>
+                </Grid.ColumnDefinitions>
                 <TextBlock
                     Grid.ColumnSpan="2"
                     Style="{StaticResource Title}"
                     Text="Mã sân bay trung gian" />
                 <ComboBox
-                    x:Name="MaSanBay"
+                    x:Name="PlaneID"
                     Grid.ColumnSpan="2"
                     Margin="0,35,0,0"
                     VerticalAlignment="Top"
@@ -106,7 +110,7 @@
             <Grid Grid.Row="3" Margin="0,0,10,10">
                 <TextBlock Style="{StaticResource Title}" Text="Thời gian dừng (Phút)" />
                 <TextBox
-                    x:Name="ThoiGianDung"
+                    x:Name="WaitTime"
                     materialDesign:HintAssist.Hint="Nhập thời gian dừng"
                     BorderThickness="0,0,0,1"
                     FontSize="19"
@@ -119,7 +123,7 @@
             <Grid Grid.Row="4" Margin="0,0,10,10">
                 <TextBlock Style="{StaticResource Title}" Text="Ghi chú" />
                 <TextBox
-                    x:Name="GhiChu"
+                    x:Name="Note"
                     materialDesign:HintAssist.Hint="Nhập ghi chú"
                     BorderThickness="0,0,0,1"
                     FontSize="19"

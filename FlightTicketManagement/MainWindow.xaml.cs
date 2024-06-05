@@ -23,13 +23,11 @@ namespace FlightTicketManagement
         public MainWindow()
         {
             InitializeComponent();
-            //Login login = new Login();
-            //login.ShowDialog();
         }
 
         private void BtnClose_Click(object sender, RoutedEventArgs e)
         {
-            Close();    
+            Close();
         }
     }
 }

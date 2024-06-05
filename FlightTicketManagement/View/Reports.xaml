@@ -51,7 +51,7 @@
                             IsSynchronizedWithCurrentItem="True" />
                     <ComboBox
                             Grid.Column="1"
-                            x:Name="DataCbMonth_1"
+                            x:Name="DataCbMYear"
                             Margin="662,0,250,0"
                             ItemsSource="{Binding SelectedYear}"
                             SelectedItem="{Binding SelectedYearItemTop, Mode=TwoWay}"
@@ -97,7 +97,7 @@
                                 <DataGridTextColumn
                                     Width="*"
                                     Binding="{Binding Profit, StringFormat={}{0:N0} }"
-                                    Header="Lợi nhuận (VNĐ)"
+                                    Header="Doanh thu (VNĐ)"
                                     SortDirection="Ascending" />
                                 <DataGridTextColumn
                                     Width="*"
@@ -166,7 +166,7 @@
                                 <DataGridTextColumn
                                     Width="*"
                                     Binding="{Binding Profit, StringFormat={}{0:N0} }"
-                                    Header="Lợi nhuận (VNĐ)" />
+                                    Header="Doanh thu (VNĐ)" />
                                 <DataGridTextColumn
                                     Width="*"
                                     Binding="{Binding Ratio}"
